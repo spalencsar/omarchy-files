@@ -20,8 +20,8 @@ pkgbase = omarchy-files-git
 	provides = omarchy-files
 	conflicts = omarchy-files
 	source = omarchy-files-git::git+https://github.com/spalencsar/omarchy-files.git
-	source = dux-qml-common::git+https://github.com/duxlabs-dev/dux-qml-common.git#commit=802b4b127b482d85921e464ccc7cd629294b47e3
+	source = dux-qml-common-802b4b127b482d85921e464ccc7cd629294b47e3.tar.gz::https://github.com/duxlabs-dev/dux-qml-common/archive/802b4b127b482d85921e464ccc7cd629294b47e3.tar.gz
 	sha256sums = SKIP
-	sha256sums = SKIP
+	sha256sums = 6922ebc1d70969a9bb1807c25517d90d1404b8f0a1869c4dd883e10d7290550b
 
 pkgname = omarchy-files-git

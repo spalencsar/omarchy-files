@@ -127,6 +127,7 @@ distro/arch/pkg/
 distro/arch/omarchy-files-git/
 distro/arch/dux-qml-common/
 distro/arch/*.pkg.tar.*
+distro/arch/*.tar.gz
 
 # Populated from quickshell/ by `make sync-shell` for embedded builds
 core/internal/shellembed/dist/

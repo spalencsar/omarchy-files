@@ -1,7 +1,7 @@
 # Maintainer: Omarchy Files contributors <https://github.com/spalencsar/omarchy-files>
 
 pkgname=omarchy-files-git
-pkgver=0.0.0.r.
+pkgver=0.0.0.r0.00000000
 pkgrel=1
 pkgdesc='Standalone Wayland file manager for Omarchy'
 arch=('x86_64' 'aarch64')
@@ -21,9 +21,9 @@ provides=('omarchy-files')
 conflicts=('omarchy-files')
 source=(
   "$pkgname::git+$url.git"
-  'dux-qml-common::git+https://github.com/duxlabs-dev/dux-qml-common.git#commit=802b4b127b482d85921e464ccc7cd629294b47e3'
+  'dux-qml-common-802b4b127b482d85921e464ccc7cd629294b47e3.tar.gz::https://github.com/duxlabs-dev/dux-qml-common/archive/802b4b127b482d85921e464ccc7cd629294b47e3.tar.gz'
 )
-sha256sums=('SKIP' 'SKIP')
+sha256sums=('SKIP' '6922ebc1d70969a9bb1807c25517d90d1404b8f0a1869c4dd883e10d7290550b')
 
 pkgver() {
   cd "$srcdir/$pkgname"
@@ -33,7 +33,7 @@ pkgver() {
 prepare() {
   cd "$srcdir/$pkgname"
   rm -rf dux-qml-common
-  cp -a "$srcdir/dux-qml-common" dux-qml-common
+  cp -a "$srcdir/dux-qml-common-802b4b127b482d85921e464ccc7cd629294b47e3" dux-qml-common
 }
 
 build() {
