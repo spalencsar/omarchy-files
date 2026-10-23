@@ -121,5 +121,12 @@ __pycache__
 
 core/omarchy-files
 
+# Local makepkg sources, staging trees, and package archives
+distro/arch/src/
+distro/arch/pkg/
+distro/arch/omarchy-files-git/
+distro/arch/dux-qml-common/
+distro/arch/*.pkg.tar.*
+
 # Populated from quickshell/ by `make sync-shell` for embedded builds
 core/internal/shellembed/dist/
