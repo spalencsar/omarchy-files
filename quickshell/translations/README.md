@@ -1,6 +1,6 @@
 # Translations
 
-Dux Files uses the same translation pipeline as Dux Shell: strings
+Omarchy Files uses the same translation pipeline as Dux Shell: strings
 are wrapped in `I18n.tr(term, context)` in QML, extracted to a
 POEditor-compatible `en.json`, and translated exports are dropped into
 `poexports/` as `<locale>.json` key-value files.
@@ -35,8 +35,8 @@ template for translators). Run it after adding or changing strings.
 This repo has its own POEditor project, separate from Dux Shell:
 
 ```sh
-export DFILES_POEDITOR_API_TOKEN=...   # POEditor account API token
-export DFILES_POEDITOR_PROJECT_ID=...  # this project's numeric id
+export OMARCHY_FILES_POEDITOR_API_TOKEN=...   # POEditor account API token
+export OMARCHY_FILES_POEDITOR_PROJECT_ID=...  # this project's numeric id
 ```
 
 Then:

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/atomicfile"
+	"github.com/spalencsar/omarchy-files/core/internal/atomicfile"
 )
 
 const (

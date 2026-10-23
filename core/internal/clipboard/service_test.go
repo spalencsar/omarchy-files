@@ -106,7 +106,7 @@ func TestPathsReturnsOurOwnSelectionExactly(t *testing.T) {
 	paths, cut, source := svc.Paths()
 	assert.Equal(t, []string{"/home/me/a.txt", "/home/me/b c.txt"}, paths)
 	assert.True(t, cut)
-	assert.Equal(t, "dfiles", source)
+	assert.Equal(t, "omarchy-files", source)
 }
 
 func TestPathsParsesAForeignSelection(t *testing.T) {

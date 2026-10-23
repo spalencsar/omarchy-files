@@ -17,13 +17,13 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/fileops"
-	"github.com/duxlabs-dev/dux-files/core/internal/helper"
+	"github.com/spalencsar/omarchy-files/core/internal/fileops"
+	"github.com/spalencsar/omarchy-files/core/internal/helper"
 )
 
 const (
-	fakeEnv     = "DFILES_ELEVATE_FAKE_HELPER"
-	fakeExitEnv = "DFILES_ELEVATE_FAKE_EXIT"
+	fakeEnv     = "OMARCHY_FILES_ELEVATE_FAKE_HELPER"
+	fakeExitEnv = "OMARCHY_FILES_ELEVATE_FAKE_EXIT"
 )
 
 // TestMain lets the test binary stand in for pkexec: invoked as
@@ -53,15 +53,15 @@ func fakeClient(t *testing.T) *Client {
 	t.Helper()
 	self, err := os.Executable()
 	require.NoError(t, err)
-	return &Client{pkexec: self, exe: "dfiles", env: []string{fakeEnv + "=1"}}
+	return &Client{pkexec: self, exe: "omarchy-files", env: []string{fakeEnv + "=1"}}
 }
 
 func TestPolicyCoversOnlyThisBinary(t *testing.T) {
 	dir := t.TempDir()
-	exe := filepath.Join(dir, "bin", "dfiles")
+	exe := filepath.Join(dir, "bin", "omarchy-files")
 	require.NoError(t, os.MkdirAll(filepath.Dir(exe), 0o755))
 	require.NoError(t, os.WriteFile(exe, []byte("#!/bin/sh\n"), 0o755))
-	link := filepath.Join(dir, "dfiles-link")
+	link := filepath.Join(dir, "omarchy-files-link")
 	require.NoError(t, os.Symlink(exe, link))
 
 	actions := filepath.Join(dir, "actions")

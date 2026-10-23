@@ -80,15 +80,15 @@ const visited = [
     entry("/home/me/Downloads", 3, 2 * day),
     entry("/home/me/Documents", 20, hour * 2),
     entry("/home/me/repos", 2, 2 * day),
-    entry("/home/me/repos/dfiles", 40, minute),
-    entry("/home/me/repos/dfiles/core/internal", 5, hour),
+    entry("/home/me/repos/omarchy-files", 40, minute),
+    entry("/home/me/repos/omarchy-files/core/internal", 5, hour),
     entry("/home/me/repos/dms/src", 2, 3 * day),
-    entry("/home/me/repos/dfiles/src", 9, hour),
+    entry("/home/me/repos/omarchy-files/src", 9, hour),
     entry("/home/me/old/srcs", 30, minute),
     entry("/etc/ssh", 1, 9 * day)
 ];
 
 test("the open folder is left out", () => {
     const prepared = jump.prepare(visited, home);
-    assert.equal(paths(jump.top(prepared, now, 1, "/home/me/repos/dfiles"))[0], "/home/me/old/srcs");
+    assert.equal(paths(jump.top(prepared, now, 1, "/home/me/repos/omarchy-files"))[0], "/home/me/old/srcs");
 });

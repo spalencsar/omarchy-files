@@ -228,8 +228,8 @@ Item {
     function portalPreferenceLine() {
         const config = portalStatus.config ?? ({});
         const effective = config.effective ?? "";
-        if (effective === "dfiles")
-            return I18n.tr("Preference: %1 names Dux Files", "portal chooser status line, %1 is a path").arg(config.path ?? "");
+        if (effective === "omarchy-files")
+            return I18n.tr("Preference: %1 names Omarchy Files", "portal chooser status line, %1 is a path").arg(config.path ?? "");
         if (effective !== "")
             return I18n.tr("Preference: %1 is used", "portal chooser status line, %1 is another backend name").arg(effective);
         return I18n.tr("Preference: no file chooser backend configured", "portal chooser status line");
@@ -605,7 +605,7 @@ Item {
                 title: I18n.tr("Open and save dialogs", "general settings section label for the portal file chooser")
 
                 SettingsToggleRow {
-                    text: I18n.tr("Use Dux Files for open and save dialogs", "setting label for serving the desktop portal file chooser")
+                    text: I18n.tr("Use Omarchy Files for open and save dialogs", "setting label for serving the desktop portal file chooser")
                     keywords: I18n.tr("portal file chooser picker xdg", "settings search keywords, space separated, add synonyms in your language")
                     description: root.portalDescription()
                     enabled: root.portalStatus.available === true && root.portalStatus.systemManaged !== true
@@ -623,8 +623,8 @@ Item {
 
                 SettingsRow {
                     visible: root.portalStatus.available === true
-                    iconName: root.portalStatus.config?.effective === "dfiles" ? "check_circle" : "info"
-                    iconColor: root.portalStatus.config?.effective === "dfiles" ? Theme.success : Theme.surfaceVariantText
+                    iconName: root.portalStatus.config?.effective === "omarchy-files" ? "check_circle" : "info"
+                    iconColor: root.portalStatus.config?.effective === "omarchy-files" ? Theme.success : Theme.surfaceVariantText
                     title: root.portalPreferenceLine()
                 }
 
@@ -873,9 +873,9 @@ Item {
 
                 SettingsRow {
                     visible: SettingsData.colorSource === "auto"
-                    iconName: Theme.dmsColorsAvailable ? "check_circle" : "info"
-                    iconColor: Theme.dmsColorsAvailable ? Theme.success : Theme.surfaceVariantText
-                    title: Theme.dmsColorsAvailable ? I18n.tr("Using Dux Shell dynamic colors.", "auto color source status when DMS is active") : I18n.tr("Dux Shell not detected, using the %1 preset.", "auto color source status when DMS is missing").arg(Theme.presetLabel(SettingsData.presetTheme))
+                    iconName: Theme.omarchyColorsAvailable || Theme.dmsColorsAvailable ? "check_circle" : "info"
+                    iconColor: Theme.omarchyColorsAvailable || Theme.dmsColorsAvailable ? Theme.success : Theme.surfaceVariantText
+                    title: Theme.omarchyColorsAvailable ? I18n.tr("Using active Omarchy theme colors.", "auto color source status when Omarchy is active") : Theme.dmsColorsAvailable ? I18n.tr("Using Dux Shell dynamic colors.", "auto color source status when DMS is active") : I18n.tr("Omarchy and Dux Shell themes not detected, using the %1 preset.", "auto color source status when no desktop theme is active").arg(Theme.presetLabel(SettingsData.presetTheme))
                 }
 
                 SettingsRow {

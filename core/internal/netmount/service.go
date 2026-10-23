@@ -6,7 +6,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/location"
+	"github.com/spalencsar/omarchy-files/core/internal/location"
 	"github.com/duxlabs-dev/dux-go/files"
 	"github.com/duxlabs-dev/dux-go/log"
 	"github.com/godbus/dbus/v5"

@@ -3,9 +3,9 @@ package ipc
 import (
 	"context"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/filemanager1"
-	"github.com/duxlabs-dev/dux-files/core/internal/portal"
-	"github.com/duxlabs-dev/dux-files/core/internal/sandbox"
+	"github.com/spalencsar/omarchy-files/core/internal/filemanager1"
+	"github.com/spalencsar/omarchy-files/core/internal/portal"
+	"github.com/spalencsar/omarchy-files/core/internal/sandbox"
 	"github.com/duxlabs-dev/dux-go/ipc/params"
 )
 

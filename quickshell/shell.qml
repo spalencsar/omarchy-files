@@ -2,7 +2,7 @@
 //@ pragma Env QSG_RENDER_LOOP=threaded
 //@ pragma Env QT_QUICK_CONTROLS_STYLE=Material
 //@ pragma UseQApplication
-//@ pragma AppId dev.duxlabs.files
+//@ pragma AppId io.github.spalencsar.OmarchyFiles
 
 pragma ComponentBehavior: Bound
 
@@ -18,10 +18,10 @@ ShellRoot {
     id: root
 
     readonly property var log: Log.scoped("Shell")
-    readonly property bool enableHotReload: Quickshell.env("DFILES_ENABLE_HOTRELOAD") === "1" || Quickshell.env("DFILES_ENABLE_HOTRELOAD") === "true"
+    readonly property bool enableHotReload: Quickshell.env("OMARCHY_FILES_ENABLE_HOTRELOAD") === "1" || Quickshell.env("OMARCHY_FILES_ENABLE_HOTRELOAD") === "true"
 
-    readonly property bool dbusActivated: Quickshell.env("DFILES_DBUS_ACTIVATED") === "1"
-    readonly property bool keepRunning: Quickshell.env("DFILES_KEEP_RUNNING") === "1"
+    readonly property bool dbusActivated: Quickshell.env("OMARCHY_FILES_DBUS_ACTIVATED") === "1"
+    readonly property bool keepRunning: Quickshell.env("OMARCHY_FILES_KEEP_RUNNING") === "1"
     readonly property bool quitOnLastClose: SettingsData.closeBehavior === "quit" && !keepRunning
     readonly property bool idle: WindowService.count === 0 && ChooserService.count === 0
     property bool quitDeferred: false
@@ -37,7 +37,7 @@ ShellRoot {
         DC.Host.cache = CacheData;
         DC.Host.files = DirectoryService;
         DC.Host.ownWindowDecorations = Qt.binding(() => SettingsData.windowTitleBars);
-        if (Quickshell.env("DFILES_START_HIDDEN") !== "1")
+        if (Quickshell.env("OMARCHY_FILES_START_HIDDEN") !== "1")
             WindowService.create([]);
     }
 
@@ -54,7 +54,7 @@ ShellRoot {
         const toplevels = ToplevelManager.toplevels;
         if (!toplevels || !toplevels.values)
             return [];
-        return toplevels.values.filter(t => t.appId === "dev.duxlabs.files");
+        return toplevels.values.filter(t => t.appId === "io.github.spalencsar.OmarchyFiles");
     }
 
     function unclaimedToplevel() {

@@ -43,7 +43,7 @@ func (f *fakeProbe) PortalVersion(dest, objectPath, iface string) (uint32, bool)
 }
 
 const fullInfo = `[Application]
-name=dev.duxlabs.files
+name=io.github.spalencsar.OmarchyFiles
 runtime=runtime/org.kde.Platform/x86_64/6.11
 
 [Context]
@@ -62,7 +62,7 @@ org.freedesktop.UDisks2=talk
 
 func sandboxProbe(info string) *fakeProbe {
 	return &fakeProbe{
-		env:     map[string]string{"FLATPAK_ID": "dev.duxlabs.files", "HOME": "/home/u", "XDG_DATA_DIRS": "/app/share:/usr/share", "XDG_CONFIG_DIRS": "/app/etc/xdg:/etc/xdg", "XDG_CACHE_HOME": "/home/u/.var/app/x/cache"},
+		env:     map[string]string{"FLATPAK_ID": "io.github.spalencsar.OmarchyFiles", "HOME": "/home/u", "XDG_DATA_DIRS": "/app/share:/usr/share", "XDG_CONFIG_DIRS": "/app/etc/xdg:/etc/xdg", "XDG_CACHE_HOME": "/home/u/.var/app/x/cache"},
 		files:   map[string]string{flatpakInfoPath: info},
 		exists:  map[string]bool{hostOSRoot + "/usr": true},
 		path:    map[string]bool{"flatpak-spawn": true},
@@ -95,7 +95,7 @@ func TestSandboxWithHostAccess(t *testing.T) {
 	caps := Detect(sandboxProbe(fullInfo))
 
 	assert.True(t, caps.Sandboxed)
-	assert.Equal(t, "dev.duxlabs.files", caps.AppID)
+	assert.Equal(t, "io.github.spalencsar.OmarchyFiles", caps.AppID)
 	assert.True(t, caps.HostFilesystem)
 	assert.True(t, caps.UserFilesystem)
 	assert.Equal(t, "/run/host", caps.HostOSRoot)
@@ -241,7 +241,7 @@ func TestMissingInfoFileFallsBackToEnvID(t *testing.T) {
 	caps := Detect(p)
 
 	assert.True(t, caps.Sandboxed)
-	assert.Equal(t, "dev.duxlabs.files", caps.AppID)
+	assert.Equal(t, "io.github.spalencsar.OmarchyFiles", caps.AppID)
 	assert.False(t, caps.HostFilesystem)
 	assert.False(t, caps.UDisks)
 }

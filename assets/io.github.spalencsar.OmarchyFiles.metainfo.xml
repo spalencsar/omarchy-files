@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.spalencsar.OmarchyFiles</id>
+  <launchable type="desktop-id">io.github.spalencsar.OmarchyFiles.desktop</launchable>
+  <name>Omarchy Files</name>
+  <summary>File manager for Omarchy</summary>
+
+  <description>
+    <p>Omarchy Files is a standalone file manager for the Omarchy desktop. It is built with Quickshell, Qt6, and Go, and is derived from Dux Files.</p>
+  </description>
+
+  <developer id="io.github.spalencsar">
+    <name>Omarchy Files contributors</name>
+  </developer>
+
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+
+  <provides>
+    <mediatype>inode/directory</mediatype>
+  </provides>
+
+  <url type="homepage">https://github.com/spalencsar/omarchy-files</url>
+  <url type="bugtracker">https://github.com/spalencsar/omarchy-files/issues</url>
+  <url type="vcs-browser">https://github.com/spalencsar/omarchy-files</url>
+
+  <content_rating type="oars-1.1" />
+
+  <releases>
+    <release version="0.1.0" date="2026-09-18" />
+  </releases>
+</component>

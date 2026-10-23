@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN" "http://www.freedesktop.org/standards/PolicyKit/1.0/policyconfig.dtd">
 <policyconfig>
-  <vendor>Dux Files</vendor>
-  <vendor_url>https://github.com/duxlabs-dev/dux-files</vendor_url>
-  <icon_name>dev.duxlabs.files</icon_name>
-  <action id="dev.duxlabs.files.file-operations">
+  <vendor>Omarchy Files</vendor>
+  <vendor_url>https://github.com/spalencsar/omarchy-files</vendor_url>
+  <icon_name>io.github.spalencsar.OmarchyFiles</icon_name>
+  <action id="io.github.spalencsar.OmarchyFiles.file-operations">
     <description>Perform file operations as administrator</description>
     <message>Authentication is required to perform file operations as administrator</message>
     <defaults>
@@ -12,6 +12,6 @@
       <allow_inactive>no</allow_inactive>
       <allow_active>auth_admin_keep</allow_active>
     </defaults>
-    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/dfiles</annotate>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/omarchy-files</annotate>
   </action>
 </policyconfig>

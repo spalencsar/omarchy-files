@@ -11,10 +11,10 @@ import (
 )
 
 const (
-	BusName     = "org.freedesktop.impl.portal.desktop.dfiles"
-	PortalName  = "dfiles"
+	BusName     = "org.freedesktop.impl.portal.desktop.omarchy-files"
+	PortalName  = "omarchy-files"
 	Interface   = "org.freedesktop.impl.portal.FileChooser"
-	PortalFile  = "dfiles.portal"
+	PortalFile  = "omarchy-files.portal"
 	ServiceFile = BusName + ".service"
 	stateFile   = "portal-install.json"
 )

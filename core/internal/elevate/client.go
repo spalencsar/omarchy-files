@@ -19,13 +19,13 @@ import (
 	"github.com/duxlabs-dev/dux-go/files"
 	"github.com/duxlabs-dev/dux-go/portal"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/fileops"
-	"github.com/duxlabs-dev/dux-files/core/internal/helper"
+	"github.com/spalencsar/omarchy-files/core/internal/fileops"
+	"github.com/spalencsar/omarchy-files/core/internal/helper"
 )
 
 const (
-	PolicyName   = "dev.duxlabs.files.policy"
-	ActionID     = "dev.duxlabs.files.file-operations"
+	PolicyName   = "io.github.spalencsar.OmarchyFiles.policy"
+	ActionID     = "io.github.spalencsar.OmarchyFiles.file-operations"
 	waitAfterEOF = 5 * time.Second
 )
 

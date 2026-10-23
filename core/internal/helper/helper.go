@@ -67,11 +67,11 @@ const MaxID = 1<<32 - 1
 func Main(args []string, stdin io.Reader, stdout, stderr io.Writer) int {
 	callerUID, err := strconv.Atoi(os.Getenv("PKEXEC_UID"))
 	if err != nil {
-		report(stderr, invalid("dfiles helper only runs under pkexec"))
+		report(stderr, invalid("omarchy-files helper only runs under pkexec"))
 		return ExitRefused
 	}
 	if os.Getuid() != 0 || os.Geteuid() != 0 {
-		report(stderr, invalid("dfiles helper must be started as root"))
+		report(stderr, invalid("omarchy-files helper must be started as root"))
 		return ExitRefused
 	}
 	if err := confine(callerUID); err != nil {
@@ -243,7 +243,7 @@ func CodeOf(err error) files.Code {
 }
 
 func journal(uid int, args []string, err error) {
-	writer, openErr := syslog.New(syslog.LOG_AUTHPRIV|syslog.LOG_INFO, "dfiles-helper")
+	writer, openErr := syslog.New(syslog.LOG_AUTHPRIV|syslog.LOG_INFO, "omarchy-files-helper")
 	if openErr != nil {
 		return
 	}

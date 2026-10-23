@@ -12,13 +12,13 @@ Singleton {
 
     readonly property url home: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
     readonly property url xdgCache: StandardPaths.standardLocations(StandardPaths.GenericCacheLocation)[0]
-    readonly property url cache: `${xdgCache}/dfiles`
+    readonly property url cache: `${xdgCache}/omarchy-files`
     readonly property url imagecache: `${cache}/imagecache`
-    readonly property url stateDir: `${StandardPaths.writableLocation(StandardPaths.GenericStateLocation)}/dfiles`
+    readonly property url stateDir: `${StandardPaths.writableLocation(StandardPaths.GenericStateLocation)}/omarchy-files`
     readonly property string configDir: {
         const xdg = Quickshell.env("XDG_CONFIG_HOME");
         const base = (xdg && xdg !== "") ? xdg : Quickshell.env("HOME") + "/.config";
-        return base + "/dfiles";
+        return base + "/omarchy-files";
     }
     property bool ready: false
 

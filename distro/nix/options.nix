@@ -8,11 +8,11 @@ let
   inherit (lib) types;
 in
 {
-  options.programs.dux-files = {
-    enable = lib.mkEnableOption "Dux Files";
+  options.programs.omarchy-files = {
+    enable = lib.mkEnableOption "Omarchy Files";
 
-    package = lib.mkPackageOption dfilesPkgs "dux-files" {
-      extraDescription = "The Dux Files package to use (defaults to be built from source)";
+    package = lib.mkPackageOption dfilesPkgs "omarchy-files" {
+      extraDescription = "The Omarchy Files package to use (defaults to be built from source)";
     };
 
     quickshell = {
@@ -22,12 +22,12 @@ in
     };
 
     portal = {
-      enable = lib.mkEnableOption "serving open and save dialogs through xdg-desktop-portal (registers the dfiles backend)";
+      enable = lib.mkEnableOption "serving open and save dialogs through xdg-desktop-portal (registers the omarchy-files backend)";
 
       preferred = lib.mkOption {
         type = types.bool;
         default = false;
-        description = "Prefer dfiles for org.freedesktop.impl.portal.FileChooser in the portal configuration named by portal.desktop.";
+        description = "Prefer omarchy-files for org.freedesktop.impl.portal.FileChooser in the portal configuration named by portal.desktop.";
       };
 
       desktop = lib.mkOption {
@@ -38,18 +38,18 @@ in
     };
 
     systemd = {
-      enable = lib.mkEnableOption "Dux Files systemd startup";
+      enable = lib.mkEnableOption "Omarchy Files systemd startup";
 
       target = lib.mkOption {
         type = types.str;
         default = "graphical-session.target";
-        description = "Systemd target that will automatically start dfiles.";
+        description = "Systemd target that will automatically start omarchy-files.";
       };
 
       restartIfChanged = lib.mkOption {
         type = types.bool;
         default = true;
-        description = "Auto-restart dfiles.service when dux-files changes";
+        description = "Auto-restart omarchy-files.service when omarchy-files changes";
       };
     };
   };

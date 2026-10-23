@@ -125,7 +125,7 @@ func tempsIn(t *testing.T, dir string) []string {
 	require.NoError(t, err)
 	var leftovers []string
 	for _, entry := range entries {
-		if len(entry.Name()) > 12 && entry.Name()[:12] == ".dfiles-tmp-" {
+		if len(entry.Name()) > 12 && entry.Name()[:12] == ".omarchy-files-tmp-" {
 			leftovers = append(leftovers, entry.Name())
 		}
 	}
@@ -135,7 +135,7 @@ func tempsIn(t *testing.T, dir string) []string {
 func otherDevice(t *testing.T, reference string) string {
 	t.Helper()
 	for _, parent := range []string{"/dev/shm", "/run/user/" + strconv.Itoa(os.Getuid()), os.TempDir()} {
-		dir, err := os.MkdirTemp(parent, "dfiles-xdev-")
+		dir, err := os.MkdirTemp(parent, "omarchy-files-xdev-")
 		if err != nil {
 			continue
 		}

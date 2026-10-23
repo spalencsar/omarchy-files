@@ -46,7 +46,7 @@ ShellRoot {
         response = {
             "result": {
                 "sandboxed": true,
-                "appId": "dev.duxlabs.files",
+                "appId": "io.github.spalencsar.OmarchyFiles",
                 "hostFilesystem": false,
                 "hostOsRoot": "/run/host",
                 "portals": {
@@ -73,7 +73,7 @@ ShellRoot {
         check("connect refetches", requests, 2);
         check("loaded", SandboxService.loaded, true);
         check("sandboxed", SandboxService.sandboxed, true);
-        check("app id", SandboxService.appId, "dev.duxlabs.files");
+        check("app id", SandboxService.appId, "io.github.spalencsar.OmarchyFiles");
         check("host filesystem", SandboxService.hostFilesystem, false);
         check("host os root", SandboxService.hostOsRoot, "/run/host");
         check("missing feature", SandboxService.available("terminal"), false);

@@ -5,16 +5,16 @@
   ...
 }@args:
 let
-  cfg = config.programs.dux-files;
+  cfg = config.programs.omarchy-files;
   jsonFormat = pkgs.formats.json { };
 in
 {
   imports = [ (import ./options.nix args) ];
 
-  options.programs.dux-files.settings = lib.mkOption {
+  options.programs.omarchy-files.settings = lib.mkOption {
     type = jsonFormat.type;
     default = { };
-    description = "Dux Files UI settings written to ~/.config/dfiles/ui-settings.json.";
+    description = "Omarchy Files UI settings written to ~/.config/omarchy-files/ui-settings.json.";
     example = lib.literalExpression ''
       {
         themeMode = "dark";
@@ -24,7 +24,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    programs.dux-files.systemd.target = lib.mkDefault config.wayland.systemd.target;
+    programs.omarchy-files.systemd.target = lib.mkDefault config.wayland.systemd.target;
 
     home.packages = [
       cfg.package
@@ -34,11 +34,11 @@ in
     dbus.packages = [ cfg.package ];
 
     xdg.portal.extraPortals = lib.mkIf cfg.portal.enable [ cfg.package ];
-    xdg.portal.config.${cfg.portal.desktop}."org.freedesktop.impl.portal.FileChooser" = lib.mkIf (cfg.portal.enable && cfg.portal.preferred) [ "dfiles" ];
+    xdg.portal.config.${cfg.portal.desktop}."org.freedesktop.impl.portal.FileChooser" = lib.mkIf (cfg.portal.enable && cfg.portal.preferred) [ "omarchy-files" ];
 
-    systemd.user.services.dfiles = lib.mkIf cfg.systemd.enable {
+    systemd.user.services.omarchy-files = lib.mkIf cfg.systemd.enable {
       Unit = {
-        Description = "Dux Files";
+        Description = "Omarchy Files";
         PartOf = [ cfg.systemd.target ];
         After = [ cfg.systemd.target ];
       };
@@ -53,7 +53,7 @@ in
       Install.WantedBy = [ cfg.systemd.target ];
     };
 
-    xdg.configFile."dfiles/ui-settings.json" = lib.mkIf (cfg.settings != { }) {
+    xdg.configFile."omarchy-files/ui-settings.json" = lib.mkIf (cfg.settings != { }) {
       source = jsonFormat.generate "ui-settings.json" cfg.settings;
     };
   };

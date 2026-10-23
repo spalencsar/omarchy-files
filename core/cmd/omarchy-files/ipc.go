@@ -9,21 +9,21 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/ipc"
+	"github.com/spalencsar/omarchy-files/core/internal/ipc"
 )
 
 var ipcCmd = &cobra.Command{
 	Use:   "ipc <method> [key=value...]",
-	Short: "Send an IPC request to the running dfiles daemon",
-	Long: `Send an IPC request to the running dfiles daemon.
+	Short: "Send an IPC request to the running omarchy-files daemon",
+	Long: `Send an IPC request to the running omarchy-files daemon.
 
-  dfiles ipc <method> [key=value...]   invoke a method
-  dfiles ipc list                      list every method and its params
+  omarchy-files ipc <method> [key=value...]   invoke a method
+  omarchy-files ipc list                      list every method and its params
 
 A key given twice, or a value written as a JSON array, is sent as a list:
-  dfiles ipc files.open paths=/a/one paths=/a/two
+  omarchy-files ipc files.open paths=/a/one paths=/a/two
 
-Method names and param keys complete with the shell (see 'dfiles completion').`,
+Method names and param keys complete with the shell (see 'omarchy-files completion').`,
 	Args:                  cobra.MinimumNArgs(1),
 	ValidArgsFunction:     completeIPC,
 	DisableFlagsInUseLine: true,
@@ -34,11 +34,11 @@ Method names and param keys complete with the shell (see 'dfiles completion').`,
 			return err
 		}
 
-		socketPath := os.Getenv("DFILES_SOCKET")
+		socketPath := os.Getenv("OMARCHY_FILES_SOCKET")
 		if socketPath == "" {
 			socketPath, err = ipc.FindRunningSocket()
 			if err != nil {
-				return fmt.Errorf("dfiles daemon not running: %w", err)
+				return fmt.Errorf("omarchy-files daemon not running: %w", err)
 			}
 		}
 
@@ -142,7 +142,7 @@ func printIPCList() {
 		}
 		fmt.Println()
 	}
-	fmt.Println("* = required   |   usage: dfiles ipc <method> key=value ...")
+	fmt.Println("* = required   |   usage: omarchy-files ipc <method> key=value ...")
 }
 
 func parseParams(args []string) (map[string]any, error) {

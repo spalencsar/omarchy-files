@@ -6,8 +6,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/fileops"
-	"github.com/duxlabs-dev/dux-files/core/internal/sandbox"
+	"github.com/spalencsar/omarchy-files/core/internal/fileops"
+	"github.com/spalencsar/omarchy-files/core/internal/sandbox"
 )
 
 func TestSystemCapabilitiesReportsTheTable(t *testing.T) {

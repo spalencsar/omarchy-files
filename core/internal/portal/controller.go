@@ -8,8 +8,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/filechooser"
-	"github.com/duxlabs-dev/dux-files/core/internal/portalsetup"
+	"github.com/spalencsar/omarchy-files/core/internal/filechooser"
+	"github.com/spalencsar/omarchy-files/core/internal/portalsetup"
 	"github.com/godbus/dbus/v5"
 )
 

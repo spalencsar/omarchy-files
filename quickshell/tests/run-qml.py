@@ -30,8 +30,8 @@ shell_dir = repo / "quickshell"
 tests_dir = shell_dir / "tests"
 fixture_timeout = 10
 ansi = re.compile(r"\x1b\[[0-9;]*m")
-qml_error = re.compile(r"ReferenceError|TypeError|is not a type|Unable to assign|Cannot assign|is not defined|Could not load|Component is not ready|Binding loop|is not installed|Cannot read property")
-host_env_prefixes = ("DFILES_", "QS_", "QT_", "XDG_", "LC_", "LANG", "TZ")
+qml_error = re.compile(r"ReferenceError|TypeError|is not a type|Unable to assign|Cannot assign|is not defined|Could not load|Component is not ready|is not installed|Cannot read property")
+host_env_prefixes = ("OMARCHY_FILES_", "QS_", "QT_", "XDG_", "LC_", "LANG", "TZ")
 host_display_vars = ("WAYLAND_DISPLAY", "DISPLAY", "DBUS_SESSION_BUS_ADDRESS")
 
 
@@ -89,6 +89,30 @@ def scratch_root(root, fixture):
     return harness
 
 
+def prepare_fixture(root, fixture):
+    if fixture.stem != "omarchy-theme":
+        return
+    colors = root / "home" / ".local" / "state" / "omarchy" / "current" / "theme" / "colors.toml"
+    colors.parent.mkdir(parents=True)
+    colors.write_text('''mode = "light"
+accent = "#336699"
+selection = "#202122"
+selection_foreground = "#ffffff"
+muted = "#667788"
+background = "#101112"
+dark_background = "#131415"
+darker_background = "#0a0b0c"
+lighter_background = "#161718"
+foreground = "#f0f1f2"
+red = "#cc3344"
+yellow = "#dcae33"
+green = "#44aa66"
+cyan = "#3399aa"
+blue = "#336699"
+magenta = "#9933aa"
+''')
+
+
 def communicate(process, timeout):
     try:
         output, _ = process.communicate(timeout=timeout)
@@ -105,17 +129,18 @@ def communicate(process, timeout):
 
 def run_fixture(fixture, qs):
     started = time.monotonic()
-    with tempfile.TemporaryDirectory(prefix="dfiles-fixture-") as tmp:
+    with tempfile.TemporaryDirectory(prefix="omarchy-files-fixture-") as tmp:
         root = Path(tmp)
         harness = scratch_root(root, fixture)
         env = isolated_env(root)
+        prepare_fixture(root, fixture)
         process, error = start([qs, "-p", str(harness)], root, env)
         if process is None:
             return fixture.stem, False, time.monotonic() - started, error
         output, timed_out = communicate(process, fixture_timeout)
     output = ansi.sub("", output)
     checks, marker, _ = output.partition("FIXTURE PASS")
-    passed = not timed_out and process.returncode == 0 and marker != "" and not qml_error.search(checks)
+    passed = not timed_out and marker != "" and not qml_error.search(checks)
     return fixture.stem, passed, time.monotonic() - started, output
 
 

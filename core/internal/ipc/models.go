@@ -17,4 +17,4 @@ var (
 	Dial          = dankipc.Dial
 )
 
-func FindRunningSocket() (string, error) { return dankipc.FindRunningSocket("dfiles") }
+func FindRunningSocket() (string, error) { return dankipc.FindRunningSocket("omarchy-files") }

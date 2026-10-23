@@ -11,21 +11,21 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/bookmarks"
-	"github.com/duxlabs-dev/dux-files/core/internal/clipboard"
-	"github.com/duxlabs-dev/dux-files/core/internal/colorscheme"
-	"github.com/duxlabs-dev/dux-files/core/internal/devices"
-	"github.com/duxlabs-dev/dux-files/core/internal/elevate"
-	"github.com/duxlabs-dev/dux-files/core/internal/filechooser"
-	"github.com/duxlabs-dev/dux-files/core/internal/filemanager1"
-	"github.com/duxlabs-dev/dux-files/core/internal/fileops"
-	"github.com/duxlabs-dev/dux-files/core/internal/ipc"
-	"github.com/duxlabs-dev/dux-files/core/internal/mimeapps"
-	"github.com/duxlabs-dev/dux-files/core/internal/netmount"
-	"github.com/duxlabs-dev/dux-files/core/internal/portal"
-	"github.com/duxlabs-dev/dux-files/core/internal/sandbox"
-	"github.com/duxlabs-dev/dux-files/core/internal/search"
-	"github.com/duxlabs-dev/dux-files/core/internal/settings"
+	"github.com/spalencsar/omarchy-files/core/internal/bookmarks"
+	"github.com/spalencsar/omarchy-files/core/internal/clipboard"
+	"github.com/spalencsar/omarchy-files/core/internal/colorscheme"
+	"github.com/spalencsar/omarchy-files/core/internal/devices"
+	"github.com/spalencsar/omarchy-files/core/internal/elevate"
+	"github.com/spalencsar/omarchy-files/core/internal/filechooser"
+	"github.com/spalencsar/omarchy-files/core/internal/filemanager1"
+	"github.com/spalencsar/omarchy-files/core/internal/fileops"
+	"github.com/spalencsar/omarchy-files/core/internal/ipc"
+	"github.com/spalencsar/omarchy-files/core/internal/mimeapps"
+	"github.com/spalencsar/omarchy-files/core/internal/netmount"
+	"github.com/spalencsar/omarchy-files/core/internal/portal"
+	"github.com/spalencsar/omarchy-files/core/internal/sandbox"
+	"github.com/spalencsar/omarchy-files/core/internal/search"
+	"github.com/spalencsar/omarchy-files/core/internal/settings"
 	"github.com/duxlabs-dev/dux-go/files"
 	"github.com/duxlabs-dev/dux-go/log"
 	dankpaths "github.com/duxlabs-dev/dux-go/paths"
@@ -34,7 +34,7 @@ import (
 
 var daemonCmd = &cobra.Command{
 	Use:   "daemon",
-	Short: "Run the dfiles daemon (IPC only, no UI)",
+	Short: "Run the omarchy-files daemon (IPC only, no UI)",
 	RunE:  runDaemon,
 }
 
@@ -249,7 +249,7 @@ func startPortalChooser(deps ipc.Deps, caps sandbox.Capabilities) (*filechooser.
 
 var mimeDB = sync.OnceValue(func() *mimeapps.DB { return mimeapps.LoadDB(mimeapps.MimeDirs()) })
 
-var appPaths = dankpaths.New("dfiles")
+var appPaths = dankpaths.New("omarchy-files")
 
 func configHome() string {
 	dir, err := appPaths.ConfigDir()
@@ -279,7 +279,7 @@ func runDaemon(_ *cobra.Command, _ []string) error {
 	}
 	defer svc.Close()
 
-	log.Infof("dfiles daemon ready (ipc=%s)", svc.SocketPath())
+	log.Infof("omarchy-files daemon ready (ipc=%s)", svc.SocketPath())
 
 	signalCh := make(chan os.Signal, 1)
 	signal.Notify(signalCh, syscall.SIGINT, syscall.SIGTERM)

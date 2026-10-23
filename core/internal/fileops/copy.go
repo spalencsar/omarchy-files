@@ -356,7 +356,7 @@ func (r *runner) growTotals(children int) {
 }
 
 func (r *runner) tempPath(dst string) string {
-	return filepath.Join(filepath.Dir(dst), ".dfiles-tmp-"+r.job.id+r.job.nextID("-t")+"-"+truncateName(filepath.Base(dst), tempNameTail))
+	return filepath.Join(filepath.Dir(dst), ".omarchy-files-tmp-"+r.job.id+r.job.nextID("-t")+"-"+truncateName(filepath.Base(dst), tempNameTail))
 }
 
 func truncateName(name string, limit int) string {

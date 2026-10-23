@@ -1,7 +1,7 @@
-// Package shellembed carries the quickshell UI inside the dfiles binary and
+// Package shellembed carries the quickshell UI inside the omarchy-files binary and
 // materializes it at runtime via dankgo/shellapp/shellfs, since quickshell
 // needs a real filesystem path. Customization goes through -c /
-// DFILES_SHELL_DIR instead of editing the extraction.
+// OMARCHY_FILES_SHELL_DIR instead of editing the extraction.
 package shellembed
 
 import (

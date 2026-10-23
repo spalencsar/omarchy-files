@@ -63,10 +63,10 @@ jobs:
         run: |
           VERSION=${{ github.ref_name }}
           BUILD_TIME=$(date -u +%Y-%m-%dT%H:%M:%SZ)
-          BINARY_NAME="dfiles-${{ matrix.goos }}-${{ matrix.goarch }}"
+          BINARY_NAME="omarchy-files-${{ matrix.goos }}-${{ matrix.goarch }}"
           make -C core sync-shell
           cd core
-          go build -tags withshell -ldflags "-s -w -X main.Version=${VERSION#v} -X main.Commit=${{ github.sha }} -X main.BuildTime=${BUILD_TIME}" -o "../${BINARY_NAME}" ./cmd/dfiles
+          go build -tags withshell -ldflags "-s -w -X main.Version=${VERSION#v} -X main.Commit=${{ github.sha }} -X main.BuildTime=${BUILD_TIME}" -o "../${BINARY_NAME}" ./cmd/omarchy-files
           cd ..
           gzip -c "${BINARY_NAME}" > "${BINARY_NAME}.gz"
           tar -czf "${BINARY_NAME}.tar.gz" "${BINARY_NAME}"
@@ -76,12 +76,12 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: dfiles-${{ matrix.goos }}-${{ matrix.goarch }}
+          name: omarchy-files-${{ matrix.goos }}-${{ matrix.goarch }}
           path: |
-            dfiles-${{ matrix.goos }}-${{ matrix.goarch }}.gz
-            dfiles-${{ matrix.goos }}-${{ matrix.goarch }}.gz.sha256
-            dfiles-${{ matrix.goos }}-${{ matrix.goarch }}.tar.gz
-            dfiles-${{ matrix.goos }}-${{ matrix.goarch }}.tar.gz.sha256
+            omarchy-files-${{ matrix.goos }}-${{ matrix.goarch }}.gz
+            omarchy-files-${{ matrix.goos }}-${{ matrix.goarch }}.gz.sha256
+            omarchy-files-${{ matrix.goos }}-${{ matrix.goarch }}.tar.gz
+            omarchy-files-${{ matrix.goos }}-${{ matrix.goarch }}.tar.gz.sha256
 
   package_completions:
     name: Package Shell Completions
@@ -102,22 +102,22 @@ jobs:
         run: |
           VERSION_NUM=${GITHUB_REF_NAME#v}
           cd core
-          go build -o /tmp/dfiles ./cmd/dfiles
+          go build -o /tmp/omarchy-files ./cmd/omarchy-files
           mkdir -p completions
-          /tmp/dfiles completion bash > completions/dfiles
-          /tmp/dfiles completion zsh > completions/_dfiles
-          /tmp/dfiles completion fish > completions/dfiles.fish
-          tar -czf "../dfiles-completions-${VERSION_NUM}.tar.gz" -C completions .
+          /tmp/omarchy-files completion bash > completions/omarchy-files
+          /tmp/omarchy-files completion zsh > completions/_dfiles
+          /tmp/omarchy-files completion fish > completions/omarchy-files.fish
+          tar -czf "../omarchy-files-completions-${VERSION_NUM}.tar.gz" -C completions .
           cd ..
-          sha256sum "dfiles-completions-${VERSION_NUM}.tar.gz" > "dfiles-completions-${VERSION_NUM}.tar.gz.sha256"
+          sha256sum "omarchy-files-completions-${VERSION_NUM}.tar.gz" > "omarchy-files-completions-${VERSION_NUM}.tar.gz.sha256"
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: dfiles-completions
+          name: omarchy-files-completions
           path: |
-            dfiles-completions-*.tar.gz
-            dfiles-completions-*.tar.gz.sha256
+            omarchy-files-completions-*.tar.gz
+            omarchy-files-completions-*.tar.gz.sha256
 
   create_release:
     name: Create GitHub Release
@@ -171,10 +171,10 @@ jobs:
         run: |
           VERSION_NUM=${GITHUB_REF_NAME#v}
           cd core && go mod vendor && cd ..
-          tar czf "dfiles-${VERSION_NUM}.tar.gz" \
-            --transform "s,^,dfiles-${VERSION_NUM}/,S" \
+          tar czf "omarchy-files-${VERSION_NUM}.tar.gz" \
+            --transform "s,^,omarchy-files-${VERSION_NUM}/,S" \
             --exclude-vcs \
-            --exclude=artifacts --exclude="dfiles-*.tar.gz" *
+            --exclude=artifacts --exclude="omarchy-files-*.tar.gz" *
 
       - name: Create release and upload assets
         env:
@@ -191,12 +191,12 @@ jobs:
             --notes-file CHANGELOG.md \
             $PRERELEASE_FLAG
 
-          find ./artifacts -type f -name "dfiles-*" | while read file; do
+          find ./artifacts -type f -name "omarchy-files-*" | while read file; do
             echo "Uploading: $file"
             gh release upload "$VERSION" "$file" --clobber
           done
 
           VERSION_NUM=${VERSION#v}
-          gh release upload "$VERSION" "dfiles-${VERSION_NUM}.tar.gz" --clobber
+          gh release upload "$VERSION" "omarchy-files-${VERSION_NUM}.tar.gz" --clobber
 
-          gh release upload "$VERSION" "assets/dev.duxlabs.files.svg" --clobber
+          gh release upload "$VERSION" "assets/io.github.spalencsar.OmarchyFiles.svg" --clobber

@@ -4,11 +4,11 @@
   ...
 }:
 pkgs.testers.runNixOSTest {
-  name = "dux-files-nixos-module";
+  name = "omarchy-files-nixos-module";
 
   nodes.machine = {
     imports = [
-      self.nixosModules.dux-files
+      self.nixosModules.omarchy-files
     ];
 
     users.users.duxlabs = {
@@ -16,7 +16,7 @@ pkgs.testers.runNixOSTest {
       extraGroups = [ "wheel" ];
     };
 
-    programs.dux-files = {
+    programs.omarchy-files = {
       enable = true;
       systemd.enable = true;
     };
@@ -27,11 +27,11 @@ pkgs.testers.runNixOSTest {
   testScript = ''
     machine.wait_for_unit("multi-user.target")
 
-    machine.succeed("command -v dfiles")
+    machine.succeed("command -v omarchy-files")
     machine.succeed("command -v qs")
-    machine.succeed("su -- duxlabs -c 'dfiles --help >/dev/null'")
-    machine.succeed("test -f /run/current-system/sw/share/systemd/user/dfiles.service")
-    machine.succeed("test -f /run/current-system/sw/share/dbus-1/services/dev.duxlabs.files.FileManager1.service")
-    machine.succeed("test -f /run/current-system/sw/share/polkit-1/actions/dev.duxlabs.files.policy")
+    machine.succeed("su -- duxlabs -c 'omarchy-files --help >/dev/null'")
+    machine.succeed("test -f /run/current-system/sw/share/systemd/user/omarchy-files.service")
+    machine.succeed("test -f /run/current-system/sw/share/dbus-1/services/io.github.spalencsar.OmarchyFiles.FileManager1.service")
+    machine.succeed("test -f /run/current-system/sw/share/polkit-1/actions/io.github.spalencsar.OmarchyFiles.policy")
   '';
 }

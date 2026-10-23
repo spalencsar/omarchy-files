@@ -5,8 +5,8 @@ import (
 	"context"
 	"slices"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/recent"
-	"github.com/duxlabs-dev/dux-files/core/internal/wire"
+	"github.com/spalencsar/omarchy-files/core/internal/recent"
+	"github.com/spalencsar/omarchy-files/core/internal/wire"
 	"github.com/duxlabs-dev/dux-go/files"
 	"github.com/duxlabs-dev/dux-go/ipc/params"
 )

@@ -1,0 +1,27 @@
+pkgbase = omarchy-files-git
+	pkgdesc = Standalone Wayland file manager for Omarchy
+	pkgver = 0.0.0.r78.46c20fe5
+	pkgrel = 1
+	url = https://github.com/spalencsar/omarchy-files
+	arch = x86_64
+	arch = aarch64
+	license = MIT
+	makedepends = git
+	makedepends = go
+	makedepends = make
+	depends = quickshell
+	depends = polkit
+	optdepends = bubblewrap: sandbox external thumbnailers
+	optdepends = ffmpegthumbnailer: video thumbnails
+	optdepends = poppler: PDF thumbnails
+	optdepends = udisks2: devices sidebar
+	optdepends = gvfs: network shares and removable-drive trash
+	optdepends = qt6-webengine: PDF preview
+	provides = omarchy-files
+	conflicts = omarchy-files
+	source = omarchy-files-git::git+https://github.com/spalencsar/omarchy-files.git
+	source = dux-qml-common::git+https://github.com/duxlabs-dev/dux-qml-common.git
+	sha256sums = SKIP
+	sha256sums = SKIP
+
+pkgname = omarchy-files-git

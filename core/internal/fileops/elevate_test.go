@@ -291,7 +291,7 @@ func TestSetOwnerResolvesNamesAndNumbers(t *testing.T) {
 
 	for name, params := range map[string]map[string]any{
 		"no owner or group": {"paths": []any{target}},
-		"unknown owner":     {"paths": []any{target}, "owner": "nobody-such-user-dfiles"},
+		"unknown owner":     {"paths": []any{target}, "owner": "nobody-such-user-omarchy-files"},
 		"relative path":     {"paths": "a.txt", "owner": "0"},
 		"uid sentinel":      {"paths": []any{target}, "owner": "4294967295"},
 		"uid overflow":      {"paths": []any{target}, "group": "99999999999"},

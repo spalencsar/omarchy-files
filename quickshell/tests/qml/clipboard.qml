@@ -67,14 +67,14 @@ ShellRoot {
         nextResult = {
             "paths": ["/tmp/one", "/tmp/two"],
             "cut": true,
-            "source": "dfiles"
+            "source": "omarchy-files"
         };
         ClipboardService.read(result => fixture.reads = fixture.reads.concat([result]));
         check("read asks the daemon", sent[2].method, "clipboard.paths");
         check("read returns what the daemon owns", reads[0], {
             "paths": ["/tmp/one", "/tmp/two"],
             "cut": true,
-            "source": "dfiles"
+            "source": "omarchy-files"
         });
 
         nextResult = ({});

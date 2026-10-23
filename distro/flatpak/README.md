@@ -1,12 +1,12 @@
-# Dux Files Flatpak
+# Omarchy Files Flatpak
 
-The build provides `dfiles`, the Quickshell runtime and QtPdf (the qtwebengine source with everything but pdfium switched off, for pdf previews) and installs the desktop file, metainfo and icon as `dev.duxlabs.files`.
+The build provides `omarchy-files`, the Quickshell runtime and QtPdf (the qtwebengine source with everything but pdfium switched off, for pdf previews) and installs the desktop file, metainfo and icon as `io.github.spalencsar.OmarchyFiles`.
 
 ## Posture
 
 A file manager has to see the user's files, so the manifest grants `--filesystem=host`. That leaves little of the sandbox standing: the app reads and writes everything the user can, the same as Nautilus, Dolphin and Nemo on Flathub. What the sandbox still buys is the runtime isolation (its own Qt and libraries), the absence of privilege escalation (no pkexec, no polkit helper: `core/internal/elevate` refuses inside a sandbox) and the bus policy below. Portals are used only where they are the only route out of the sandbox: OpenURI to launch handlers and Settings for the color scheme today. Trash and FileTransfer are version-probed for later use; trash without host access is currently unavailable, not portal-backed.
 
-Inside the sandbox with host access (or a `home` grant) the daemon points its own `XDG_*_HOME` and `XDG_*_DIRS` at the host tree (`core/internal/sandbox.ExportHostDirs`), so trash lands in `~/.local/share/Trash`, thumbnails in `~/.cache/thumbnails`, `mimeapps.list` and `user-dirs.dirs` are the user's real ones, and the host's application and mime databases under `/run/host/usr/share` are searched after the runtime's. Settings therefore live in `~/.config/dfiles` like a native install, not under `~/.var/app`. Flatpak only exports `HOST_XDG_*_HOME` when the host overrides that variable; otherwise the spec defaults under `$HOME` are used.
+Inside the sandbox with host access (or a `home` grant) the daemon points its own `XDG_*_HOME` and `XDG_*_DIRS` at the host tree (`core/internal/sandbox.ExportHostDirs`), so trash lands in `~/.local/share/Trash`, thumbnails in `~/.cache/thumbnails`, `mimeapps.list` and `user-dirs.dirs` are the user's real ones, and the host's application and mime databases under `/run/host/usr/share` are searched after the runtime's. Settings therefore live in `~/.config/omarchy-files` like a native install, not under `~/.var/app`. Flatpak only exports `HOST_XDG_*_HOME` when the host overrides that variable; otherwise the spec defaults under `$HOME` are used.
 
 `/etc`, `/usr`, `/bin`, `/lib*` and `/sbin` inside the sandbox are the runtime's. The host's copies are at `/run/host/etc` and `/run/host/usr`; `system.capabilities` reports `hostOsRoot` so the UI can offer them.
 
@@ -15,7 +15,7 @@ Inside the sandbox with host access (or a `home` grant) the daemon points its ow
 | finish-arg | why | without it |
 | --- | --- | --- |
 | `--socket=wayland`, `--socket=fallback-x11`, `--share=ipc`, `--device=dri` | the Quickshell window | no window |
-| `--filesystem=host` | browse and edit the user's files (`dankgo/files`, `internal/fileops`); also implies `host-os` and `host-etc` (`/run/host/usr`, `/run/host/etc`) | only `~/.var/app/dev.duxlabs.files` is visible; trash, thumbnails and mimeapps go to that private tree; `features.hostFilesystem`, `trash`, `setDefault` report `NOHOSTFS` |
+| `--filesystem=host` | browse and edit the user's files (`dankgo/files`, `internal/fileops`); also implies `host-os` and `host-etc` (`/run/host/usr`, `/run/host/etc`) | only `~/.var/app/io.github.spalencsar.OmarchyFiles` is visible; trash, thumbnails and mimeapps go to that private tree; `features.hostFilesystem`, `trash`, `setDefault` report `NOHOSTFS` |
 | `--filesystem=/tmp`, `--filesystem=/var` | `host` leaves these private to the sandbox; both are browsed often enough to grant, and `/var/lib/flatpak/exports/share` holds other Flatpak apps' desktop entries | the sandbox's own empty `/tmp` and `/var`; `/boot`, `/efi` and `/root` are deliberately not granted |
 | `--filesystem=xdg-run/gvfs`, `--filesystem=xdg-run/gvfsd`, `--talk-name=org.gtk.vfs.*` | gvfs FUSE paths, backend sockets and the mount tracker for network shares, MTP and archives (`internal/netmount`) | `features.network` reports `NOGVFS`; the Network section explains it and hides Connect to Server |
 | `--system-talk-name=org.freedesktop.UDisks2` | mount, unmount, eject, unlock through udisks2, polkit inside udisks (`internal/devices`) | `features.devices` reports `NOUDISKS`; the Devices section explains it |
@@ -30,7 +30,7 @@ Portals need no finish-args. Versions seen through `system.capabilities` on 2026
 
 ## Capabilities
 
-`dfiles ipc system.capabilities` is what the UI consults. Facts: `sandboxed`, `appId`, `hostFilesystem`, `userFilesystem` (`host` or `home` grant), `hostOsRoot`, `filesystems` (the resolved grants from `/.flatpak-info`, overrides applied), `udisks`, `gvfs`, `hostSpawn` (bus policy plus `flatpak-spawn` on PATH), `portals` (interface version by name, only probed inside a sandbox), `dirs` (the XDG dirs in use), `thumbnailers` (`thumbnail.image` always, then one entry per media kind the `.thumbnailer` files on the XDG data dirs cover, plus `thumbnail.sandboxed` when bwrap runs them; inside the sandbox bwrap is skipped and host thumbnailers are not on PATH, so the KDE runtime yields images only).
+`omarchy-files ipc system.capabilities` is what the UI consults. Facts: `sandboxed`, `appId`, `hostFilesystem`, `userFilesystem` (`host` or `home` grant), `hostOsRoot`, `filesystems` (the resolved grants from `/.flatpak-info`, overrides applied), `udisks`, `gvfs`, `hostSpawn` (bus policy plus `flatpak-spawn` on PATH), `portals` (interface version by name, only probed inside a sandbox), `dirs` (the XDG dirs in use), `thumbnailers` (`thumbnail.image` always, then one entry per media kind the `.thumbnailer` files on the XDG data dirs cover, plus `thumbnail.sandboxed` when bwrap runs them; inside the sandbox bwrap is skipped and host thumbnailers are not on PATH, so the KDE runtime yields images only).
 
 `features` is the per-feature table, one of `available`, `available` + `degraded` with a reason, or unavailable with a reason:
 
@@ -52,19 +52,19 @@ Native installs answer the same method with everything available, no portals and
 
 ## Build and install
 
-`make flatpak-build` is the same command as below. The manifest pins a commit of the GitHub repository, which the sync workflow moves on each release; while the repository is private that clone fails inside `org.flatpak.Builder`, and the pin can trail the working tree. For a local build copy the manifest somewhere under `$HOME` (the builder cannot see `/tmp`), replace the `dux-files` git source with `type: dir`, `path: /path/to/checkout` and a `skip` list (`.git`, `builddir`, `repo`, `.flatpak-builder`, `core/bin`, `core/vendor`, `core/internal/shellembed/dist`), copy `go.mod.yml` and `modules.txt` next to it, and run the same command against that copy.
+`make flatpak-build` is the same command as below. The manifest pins a commit of the GitHub repository, which the sync workflow moves on each release; while the repository is private that clone fails inside `org.flatpak.Builder`, and the pin can trail the working tree. For a local build copy the manifest somewhere under `$HOME` (the builder cannot see `/tmp`), replace the `omarchy-files` git source with `type: dir`, `path: /path/to/checkout` and a `skip` list (`.git`, `builddir`, `repo`, `.flatpak-builder`, `core/bin`, `core/vendor`, `core/internal/shellembed/dist`), copy `go.mod.yml` and `modules.txt` next to it, and run the same command against that copy.
 
 ```bash
 flatpak run org.flatpak.Builder \
   --force-clean --user --install --repo=repo \
   --mirror-screenshots-url=https://dl.flathub.org/media \
   --compose-url-policy=full \
-  builddir distro/flatpak/dev.duxlabs.files.yml
+  builddir distro/flatpak/io.github.spalencsar.OmarchyFiles.yml
 ```
 
 ```bash
-flatpak run dev.duxlabs.files
-flatpak run dev.duxlabs.files open ~/Downloads
+flatpak run io.github.spalencsar.OmarchyFiles
+flatpak run io.github.spalencsar.OmarchyFiles open ~/Downloads
 ```
 
 `make flatpak-modules` regenerates `go.mod.yml` and `modules.txt` from `core/go.mod` with `flatpak-go-mod`.
@@ -72,10 +72,10 @@ flatpak run dev.duxlabs.files open ~/Downloads
 ## Uninstall
 
 ```bash
-flatpak uninstall --delete-data dev.duxlabs.files
+flatpak uninstall --delete-data io.github.spalencsar.OmarchyFiles
 ```
 
-Settings written while `host` was granted stay in `~/.config/dfiles` (see Posture).
+Settings written while `host` was granted stay in `~/.config/omarchy-files` (see Posture).
 
 ## Lint
 

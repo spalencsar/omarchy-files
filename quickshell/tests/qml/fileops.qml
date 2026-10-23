@@ -199,9 +199,9 @@ ShellRoot {
         });
         check("ordered by start", states(), ["j1:done", "j2:running"]);
 
-        nextError = "not connected to dfiles socket";
+        nextError = "not connected to omarchy-files socket";
         FileOpsService.trash(["/tmp/a.txt"], "w1");
-        check("request error surfaced", requestErrors, ["not connected to dfiles socket"]);
+        check("request error surfaced", requestErrors, ["not connected to omarchy-files socket"]);
 
         nextError = "unknown job: j404";
         FileOpsService.cancel("j404");

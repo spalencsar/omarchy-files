@@ -5,15 +5,15 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/fileops"
-	"github.com/duxlabs-dev/dux-files/core/internal/location"
-	"github.com/duxlabs-dev/dux-files/core/internal/sandbox"
+	"github.com/spalencsar/omarchy-files/core/internal/fileops"
+	"github.com/spalencsar/omarchy-files/core/internal/location"
+	"github.com/spalencsar/omarchy-files/core/internal/sandbox"
 	"github.com/duxlabs-dev/dux-go/paths"
 )
 
 var showCmd = &cobra.Command{
 	Use:     "show",
-	Short:   "Show the file manager window, launching dfiles if it is not running",
+	Short:   "Show the file manager window, launching omarchy-files if it is not running",
 	PreRunE: shellApp.ResolveConfig,
 	RunE: func(_ *cobra.Command, _ []string) error {
 		return shellApp.CallOrLaunch("ui.show", nil)
@@ -22,7 +22,7 @@ var showCmd = &cobra.Command{
 
 var toggleCmd = &cobra.Command{
 	Use:     "toggle",
-	Short:   "Toggle file manager window visibility, launching dfiles if it is not running",
+	Short:   "Toggle file manager window visibility, launching omarchy-files if it is not running",
 	PreRunE: shellApp.ResolveConfig,
 	RunE: func(_ *cobra.Command, _ []string) error {
 		return shellApp.CallOrLaunch("ui.toggle", nil)

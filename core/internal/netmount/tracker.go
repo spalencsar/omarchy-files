@@ -3,7 +3,7 @@ package netmount
 import (
 	"strings"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/dbusutil"
+	"github.com/spalencsar/omarchy-files/core/internal/dbusutil"
 	"github.com/godbus/dbus/v5"
 )
 

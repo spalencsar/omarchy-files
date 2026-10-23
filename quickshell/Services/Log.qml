@@ -16,10 +16,10 @@ Singleton {
         Fatal
     }
 
-    readonly property int level: _parseLevel(Quickshell.env("DFILES_LOG_LEVEL"))
+    readonly property int level: _parseLevel(Quickshell.env("OMARCHY_FILES_LOG_LEVEL"))
 
-    readonly property string _logFilePath: Quickshell.env("DFILES_LOG_FILE") || ""
-    readonly property bool _useColor: !Quickshell.env("NO_COLOR") && Quickshell.env("DFILES_LOG_NO_COLOR") !== "1"
+    readonly property string _logFilePath: Quickshell.env("OMARCHY_FILES_LOG_FILE") || ""
+    readonly property bool _useColor: !Quickshell.env("NO_COLOR") && Quickshell.env("OMARCHY_FILES_LOG_NO_COLOR") !== "1"
 
     function scoped(module) {
         return {

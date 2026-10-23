@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/dbusutil"
+	"github.com/spalencsar/omarchy-files/core/internal/dbusutil"
 	"github.com/duxlabs-dev/dux-go/files"
 	"github.com/godbus/dbus/v5"
 )

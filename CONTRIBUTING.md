@@ -9,7 +9,7 @@ To contribute fork this repository, make your changes, and open a pull request.
 Clone with submodules. The shared widget library ([dux-qml-common](https://github.com/duxlabs-dev/dux-qml-common)) is vendored at `dux-qml-common/` and symlinked into `quickshell/DCommon`:
 
 ```bash
-git clone --recurse-submodules https://github.com/duxlabs-dev/dux-files.git
+git clone --recurse-submodules https://github.com/spalencsar/omarchy-files.git
 # or, in an existing clone:
 git submodule update --init
 ```
@@ -27,10 +27,10 @@ The hooks run `gofmt -s`, `go vet`, `go mod tidy`, and the Go test suite for cha
 ```bash
 make run
 # or with hot reload of the QML tree
-DFILES_ENABLE_HOTRELOAD=1 core/bin/dfiles run -c quickshell
+OMARCHY_FILES_ENABLE_HOTRELOAD=1 core/bin/omarchy-files run -c quickshell
 ```
 
-`dfiles ipc list` prints every IPC method the daemon exposes.
+`omarchy-files ipc list` prints every IPC method the daemon exposes.
 
 ## Shared widgets (dux-qml-common)
 

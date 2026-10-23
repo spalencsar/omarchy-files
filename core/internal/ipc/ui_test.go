@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/location"
+	"github.com/spalencsar/omarchy-files/core/internal/location"
 )
 
 func TestUIOpenRejectsRelativePath(t *testing.T) {

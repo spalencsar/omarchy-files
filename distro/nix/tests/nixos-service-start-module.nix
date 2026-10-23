@@ -4,11 +4,11 @@
   ...
 }:
 pkgs.testers.runNixOSTest {
-  name = "dux-files-nixos-service-start-module";
+  name = "omarchy-files-nixos-service-start-module";
 
   nodes.machine = {
     imports = [
-      self.nixosModules.dux-files
+      self.nixosModules.omarchy-files
     ];
 
     users.users.duxlabs = {
@@ -16,7 +16,7 @@ pkgs.testers.runNixOSTest {
       extraGroups = [ "wheel" ];
     };
 
-    programs.dux-files = {
+    programs.omarchy-files = {
       enable = true;
       systemd = {
         enable = true;
@@ -30,9 +30,9 @@ pkgs.testers.runNixOSTest {
   testScript = ''
     machine.wait_for_unit("multi-user.target")
 
-    unit = "/run/current-system/sw/share/systemd/user/dfiles.service"
+    unit = "/run/current-system/sw/share/systemd/user/omarchy-files.service"
     machine.succeed(f"test -f {unit}")
     machine.succeed(f"grep -q 'run --session --hidden --keep-running' {unit}")
-    machine.succeed("test -e /etc/systemd/user/default.target.wants/dfiles.service")
+    machine.succeed("test -e /etc/systemd/user/default.target.wants/omarchy-files.service")
   '';
 }

@@ -80,16 +80,16 @@ var searchCmd = &cobra.Command{
 				return printJSON(map[string]any{"entries": found, "count": done.Count, "truncated": done.Truncated, "partial": done.Partial, "unreadable": done.Unreadable, "backend": map[string]any{"name": done.Backend, "phase": done.Phase, "depthLimit": done.DepthLimit, "reason": done.Reason}})
 			}
 			if done.Backend == "index" {
-				fmt.Fprintf(os.Stderr, "dfiles: served by the danksearch index (%s)\n", done.Phase)
+				fmt.Fprintf(os.Stderr, "omarchy-files: served by the danksearch index (%s)\n", done.Phase)
 			}
 			if done.Partial {
-				fmt.Fprintln(os.Stderr, "dfiles: some matches may be missing")
+				fmt.Fprintln(os.Stderr, "omarchy-files: some matches may be missing")
 			}
 			if done.Truncated {
-				fmt.Fprintf(os.Stderr, "dfiles: stopped at %d results; raise --limit to see more\n", done.Count)
+				fmt.Fprintf(os.Stderr, "omarchy-files: stopped at %d results; raise --limit to see more\n", done.Count)
 			}
 			if done.Unreadable > 0 {
-				fmt.Fprintf(os.Stderr, "dfiles: %d folders could not be read\n", done.Unreadable)
+				fmt.Fprintf(os.Stderr, "omarchy-files: %d folders could not be read\n", done.Unreadable)
 			}
 			return nil
 		})

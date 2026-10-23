@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/recent"
+	"github.com/spalencsar/omarchy-files/core/internal/recent"
 	"github.com/duxlabs-dev/dux-go/files"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

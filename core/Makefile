@@ -1,5 +1,5 @@
-BINARY_NAME=dfiles
-SOURCE_DIR=cmd/dfiles
+BINARY_NAME=omarchy-files
+SOURCE_DIR=cmd/omarchy-files
 BUILD_DIR=bin
 SHELL_SRC=../quickshell
 EMBED_DIR=internal/shellembed/dist

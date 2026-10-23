@@ -204,10 +204,10 @@ func TestDesktopDisplayNeedsTrust(t *testing.T) {
 func TestTerminalLookup(t *testing.T) {
 	svc, _ := fixture(t)
 
-	t.Setenv("TERMINAL", "dfiles-no-such-terminal")
+	t.Setenv("TERMINAL", "omarchy-files-no-such-terminal")
 	spec, err := svc.terminal("")
 	if err == nil {
-		assert.NotEqual(t, "dfiles-no-such-terminal", spec.command, "a terminal that is not installed is skipped")
+		assert.NotEqual(t, "omarchy-files-no-such-terminal", spec.command, "a terminal that is not installed is skipped")
 	}
 
 	t.Setenv("TERMINAL", "sh")

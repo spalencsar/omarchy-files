@@ -125,7 +125,7 @@ func (s *Service) Paths() ([]string, bool, string) {
 	s.mu.Unlock()
 
 	if mine {
-		return paths, cut, "dfiles"
+		return paths, cut, "omarchy-files"
 	}
 	foreign, foreignCut := Parse(data, mime)
 	return foreign, foreignCut, mime

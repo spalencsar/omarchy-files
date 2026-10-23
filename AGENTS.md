@@ -1,6 +1,6 @@
 ## What is this?
 
-Dux Files is an open-source, MIT-licensed standalone file manager for linux. It runs as a daemon with a quickshell UI and shares the look and feel of Dux Shell.
+Omarchy Files is an open-source, MIT-licensed standalone file manager for linux. It runs as a daemon with a quickshell UI and shares the look and feel of Dux Shell.
 
 ## Repo Structure
 
@@ -8,10 +8,10 @@ Two apps that operate together, plus a `dux-qml-common` submodule holding the sh
 
 ### 1- core
 
-Go backend, daemon, and CLI (`cmd/dfiles`). Runs the unix socket server the UI talks to.
+Go backend, daemon, and CLI (`cmd/omarchy-files`). Runs the unix socket server the UI talks to.
 
-- cmd/dfiles/ - CLI commands and the daemon entrypoint
-- internal/ipc/ - unix socket handlers the UI calls, plus the method registry that drives `dfiles ipc list` and shell completion
+- cmd/omarchy-files/ - CLI commands and the daemon entrypoint
+- internal/ipc/ - unix socket handlers the UI calls, plus the method registry that drives `omarchy-files ipc list` and shell completion
 - internal/colorscheme/ - desktop portal color-scheme watcher
 - internal/shellembed/ - the QML tree embedded into the binary at build time (`make sync-shell`)
 
@@ -55,7 +55,7 @@ Root Makefile delegates to `core/Makefile`. From `core/`:
 
 - `make build` - sync the QML tree into the binary and build
 - `make test`, `make cover`, `make fmt`, `make vet`
-- `DFILES_ENABLE_HOTRELOAD=1 go run ./cmd/dfiles run -c ../quickshell` - run against the repo QML with hot reload
+- `OMARCHY_FILES_ENABLE_HOTRELOAD=1 go run ./cmd/omarchy-files run -c ../quickshell` - run against the repo QML with hot reload
 
 ## Commit Messages
 

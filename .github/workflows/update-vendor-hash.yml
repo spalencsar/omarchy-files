@@ -38,7 +38,7 @@ jobs:
         run: |
           set -euo pipefail
           echo "Attempting nix build to get new vendorHash..."
-          if output=$(nix build .#dux-files 2>&1); then
+          if output=$(nix build .#omarchy-files 2>&1); then
             echo "Build succeeded, no hash update needed"
             exit 0
           fi
@@ -46,7 +46,7 @@ jobs:
           [ -n "$new_hash" ] || { echo "Could not extract new vendorHash"; echo "$output"; exit 1; }
           sed -i -E "s|vendorHash = [^;]+;|vendorHash = \"${new_hash}\";|" flake.nix
           echo "Verifying build with new vendorHash..."
-          nix build .#dux-files
+          nix build .#omarchy-files
           echo "vendorHash updated successfully!"
 
       - name: Commit and push vendorHash update

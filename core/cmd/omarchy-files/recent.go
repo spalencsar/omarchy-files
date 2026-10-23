@@ -3,17 +3,17 @@ package main
 import (
 	"time"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/filechooser"
-	"github.com/duxlabs-dev/dux-files/core/internal/mimeapps"
-	"github.com/duxlabs-dev/dux-files/core/internal/recent"
-	"github.com/duxlabs-dev/dux-files/core/internal/settings"
+	"github.com/spalencsar/omarchy-files/core/internal/filechooser"
+	"github.com/spalencsar/omarchy-files/core/internal/mimeapps"
+	"github.com/spalencsar/omarchy-files/core/internal/recent"
+	"github.com/spalencsar/omarchy-files/core/internal/settings"
 	"github.com/duxlabs-dev/dux-go/log"
 	dankpaths "github.com/duxlabs-dev/dux-go/paths"
 )
 
 const (
 	recentExec        = "'gio open %u'"
-	recentFallbackApp = "dfiles"
+	recentFallbackApp = "omarchy-files"
 	recentUnknownMime = "application/octet-stream"
 )
 

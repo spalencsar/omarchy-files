@@ -3,13 +3,13 @@ package main
 import (
 	"os"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/devices"
-	"github.com/duxlabs-dev/dux-files/core/internal/fileops"
-	"github.com/duxlabs-dev/dux-files/core/internal/ipc"
-	"github.com/duxlabs-dev/dux-files/core/internal/mimeapps"
-	"github.com/duxlabs-dev/dux-files/core/internal/sandbox"
-	"github.com/duxlabs-dev/dux-files/core/internal/search"
-	"github.com/duxlabs-dev/dux-files/core/internal/settings"
+	"github.com/spalencsar/omarchy-files/core/internal/devices"
+	"github.com/spalencsar/omarchy-files/core/internal/fileops"
+	"github.com/spalencsar/omarchy-files/core/internal/ipc"
+	"github.com/spalencsar/omarchy-files/core/internal/mimeapps"
+	"github.com/spalencsar/omarchy-files/core/internal/sandbox"
+	"github.com/spalencsar/omarchy-files/core/internal/search"
+	"github.com/spalencsar/omarchy-files/core/internal/settings"
 	"github.com/duxlabs-dev/dux-go/files"
 	"github.com/duxlabs-dev/dux-go/log"
 )

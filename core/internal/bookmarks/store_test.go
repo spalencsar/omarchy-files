@@ -44,7 +44,7 @@ func (b *testBus) next(t *testing.T) changed {
 
 func newStore(t *testing.T) (*Store, *testBus, string) {
 	t.Helper()
-	dir := filepath.Join(t.TempDir(), "dfiles")
+	dir := filepath.Join(t.TempDir(), "omarchy-files")
 	bus := newBus()
 	store := New(bus, dir, filepath.Join(filepath.Dir(dir), "gtk-3.0", "bookmarks"))
 	require.NoError(t, store.Start())
@@ -150,7 +150,7 @@ func TestSeedFrontsTheListOnceAndStaysInMemory(t *testing.T) {
 }
 
 func TestSeedGoesInFrontOfALegacyFile(t *testing.T) {
-	dir := filepath.Join(t.TempDir(), "dfiles")
+	dir := filepath.Join(t.TempDir(), "omarchy-files")
 	require.NoError(t, os.MkdirAll(dir, 0o755))
 	require.NoError(t, os.WriteFile(filepath.Join(dir, FileName), []byte(`[{"path":"/srv/media","label":"Media","icon":""},{"path":"/home/me","label":"Mine","icon":"x"}]`), 0o644))
 	bus := newBus()
@@ -206,7 +206,7 @@ func TestOwnWritesDoNotEchoThroughTheWatch(t *testing.T) {
 }
 
 func TestUnreadableFileLoadsEmpty(t *testing.T) {
-	dir := filepath.Join(t.TempDir(), "dfiles")
+	dir := filepath.Join(t.TempDir(), "omarchy-files")
 	require.NoError(t, os.MkdirAll(dir, 0o755))
 	require.NoError(t, os.WriteFile(filepath.Join(dir, FileName), []byte("{not json"), 0o644))
 	store := New(nil, dir, "")
@@ -229,7 +229,7 @@ func TestParseGTK(t *testing.T) {
 }
 
 func TestGTKImportIsOfferedOnceAndDedupes(t *testing.T) {
-	dir := filepath.Join(t.TempDir(), "dfiles")
+	dir := filepath.Join(t.TempDir(), "omarchy-files")
 	gtk := filepath.Join(filepath.Dir(dir), "gtk-3.0", "bookmarks")
 	require.NoError(t, os.MkdirAll(filepath.Dir(gtk), 0o755))
 	require.NoError(t, os.WriteFile(gtk, []byte("file:///a/b Bee\nfile:///c\n"), 0o644))

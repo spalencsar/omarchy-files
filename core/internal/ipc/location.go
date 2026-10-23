@@ -7,8 +7,8 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/location"
-	"github.com/duxlabs-dev/dux-files/core/internal/wire"
+	"github.com/spalencsar/omarchy-files/core/internal/location"
+	"github.com/spalencsar/omarchy-files/core/internal/wire"
 	"github.com/duxlabs-dev/dux-go/ipc/params"
 	"github.com/duxlabs-dev/dux-go/paths"
 )

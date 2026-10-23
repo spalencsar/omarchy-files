@@ -3,13 +3,13 @@ package main
 import (
 	"context"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/shellembed"
+	"github.com/spalencsar/omarchy-files/core/internal/shellembed"
 	"github.com/duxlabs-dev/dux-go/shellapp"
 )
 
 var shellApp = shellapp.New(shellapp.Config{
-	ID:       "dfiles",
-	QSAppID:  "dev.duxlabs.files",
+	ID:       "omarchy-files",
+	QSAppID:  "io.github.spalencsar.OmarchyFiles",
 	Version:  Version,
 	Embedded: embeddedShell{},
 	Boot:     bootBackend,
@@ -25,10 +25,10 @@ var (
 func uiEnv(string) []string {
 	var env []string
 	if dbusActivated || portalActivated {
-		env = append(env, "DFILES_DBUS_ACTIVATED=1")
+		env = append(env, "OMARCHY_FILES_DBUS_ACTIVATED=1")
 	}
 	if keepRunning {
-		env = append(env, "DFILES_KEEP_RUNNING=1")
+		env = append(env, "OMARCHY_FILES_KEEP_RUNNING=1")
 	}
 	return env
 }

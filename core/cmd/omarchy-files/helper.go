@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/helper"
+	"github.com/spalencsar/omarchy-files/core/internal/helper"
 )
 
 var helperCmd = &cobra.Command{

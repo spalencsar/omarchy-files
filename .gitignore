@@ -119,7 +119,7 @@ bin/
 quickshell/dms-plugins
 __pycache__
 
-core/dfiles
+core/omarchy-files
 
 # Populated from quickshell/ by `make sync-shell` for embedded builds
 core/internal/shellembed/dist/

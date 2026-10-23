@@ -1,10 +1,10 @@
-id: dev.duxlabs.files
+id: io.github.spalencsar.OmarchyFiles
 runtime: org.kde.Platform
 runtime-version: '6.11'
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.golang
-command: dfiles
+command: omarchy-files
 
 # A file manager is only useful with the host filesystem, which leaves little
 # of the sandbox standing. See README.md for what each line buys and what
@@ -76,7 +76,7 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DCMAKE_INSTALL_PREFIX=/app
-      - -DDISTRIBUTOR=Dux Files Flatpak
+      - -DDISTRIBUTOR=Omarchy Files Flatpak
       - -DUSE_JEMALLOC=OFF
       - -DCRASH_HANDLER=OFF
       - -DBUILD_TESTING=OFF
@@ -125,29 +125,29 @@ modules:
         url: https://download.qt.io/official_releases/qt/6.11/6.11.1/submodules/qtwebengine-everywhere-src-6.11.1.tar.xz
         sha256: 679c66ccc6c158fc215e9c58ef160331ecd29974232e345c05161889f8667083
 
-  - name: dux-files
+  - name: omarchy-files
     buildsystem: simple
     build-commands:
       - make -C core sync-shell
       - >-
         go build -C core -mod=vendor -tags withshell
         -ldflags=-s\ -w\ -X\ main.Version=0.1.0\ -X\ main.Commit=49e38e29
-        -o dfiles ./cmd/dfiles
-      - install -Dm755 core/dfiles /app/bin/dfiles
+        -o omarchy-files ./cmd/omarchy-files
+      - install -Dm755 core/omarchy-files /app/bin/omarchy-files
       - >-
-        install -Dm644 assets/dev.duxlabs.files.desktop
-        /app/share/applications/dev.duxlabs.files.desktop
+        install -Dm644 assets/io.github.spalencsar.OmarchyFiles.desktop
+        /app/share/applications/io.github.spalencsar.OmarchyFiles.desktop
       - >-
-        install -Dm644 assets/dev.duxlabs.files.metainfo.xml
-        /app/share/metainfo/dev.duxlabs.files.metainfo.xml
+        install -Dm644 assets/io.github.spalencsar.OmarchyFiles.metainfo.xml
+        /app/share/metainfo/io.github.spalencsar.OmarchyFiles.metainfo.xml
       - >-
-        install -Dm644 assets/dev.duxlabs.files.svg
-        /app/share/icons/hicolor/scalable/apps/dev.duxlabs.files.svg
+        install -Dm644 assets/io.github.spalencsar.OmarchyFiles.svg
+        /app/share/icons/hicolor/scalable/apps/io.github.spalencsar.OmarchyFiles.svg
       - >-
         install -Dm644 LICENSE
-        /app/share/licenses/dev.duxlabs.files/LICENSE
+        /app/share/licenses/io.github.spalencsar.OmarchyFiles/LICENSE
     sources:
       - type: git
-        url: https://github.com/duxlabs-dev/dux-files.git
+        url: https://github.com/spalencsar/omarchy-files.git
         commit: 49e38e29bb039487ff710ee83cb2c93bce9b1994
       - go.mod.yml

@@ -13,7 +13,7 @@ import (
 
 	"github.com/fsnotify/fsnotify"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/atomicfile"
+	"github.com/spalencsar/omarchy-files/core/internal/atomicfile"
 	"github.com/duxlabs-dev/dux-go/log"
 )
 

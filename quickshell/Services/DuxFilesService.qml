@@ -12,7 +12,7 @@ Singleton {
 
     readonly property var log: Log.scoped("DuxFilesService")
 
-    readonly property string socketPath: Quickshell.env("DFILES_SOCKET")
+    readonly property string socketPath: Quickshell.env("OMARCHY_FILES_SOCKET")
 
     property bool connected: false
     property bool subscribed: false
@@ -45,7 +45,7 @@ Singleton {
             root.connected = linkUp;
             subscribeSocket.connected = false;
             if (!linkUp) {
-                root._failPendingRequests("disconnected from dfiles socket");
+                root._failPendingRequests("disconnected from omarchy-files socket");
                 return;
             }
             subscribeSocket.connected = true;
@@ -200,7 +200,7 @@ Singleton {
         if (!connected) {
             if (callback)
                 callback({
-                    "error": "not connected to dfiles socket"
+                    "error": "not connected to omarchy-files socket"
                 });
             return;
         }

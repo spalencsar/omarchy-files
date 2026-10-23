@@ -74,7 +74,7 @@ print_vfs_recovery() {
     printf '  rm -f %q\n' "${qmlls_config}" >&2
     printf '  touch %q\n' "${qmlls_config}" >&2
     printf '  qs -p %q\n' "${quickshell_dir}" >&2
-    printf '  # or: dfiles run -c %q\n' "${quickshell_dir}" >&2
+    printf '  # or: omarchy-files run -c %q\n' "${quickshell_dir}" >&2
     printf 'The shell only has to run long enough to write the config, then:\n' >&2
     printf '  qs kill -p %q\n' "${quickshell_dir}" >&2
     printf 'Linting itself does not need a running shell.\n' >&2

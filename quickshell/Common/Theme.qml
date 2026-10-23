@@ -21,6 +21,15 @@ Singleton {
     readonly property string defaultMonoFontFamily: Fonts.mono
     readonly property string defaultDisplayFontFamily: Fonts.display
     readonly property var log: Log.scoped("Theme")
+    readonly property string omarchyStateDir: {
+        const stateHome = Quickshell.env("XDG_STATE_HOME");
+        if (stateHome && stateHome !== "")
+            return stateHome;
+        return Quickshell.env("HOME") + "/.local/state";
+    }
+    readonly property string omarchyColorsPath: omarchyStateDir + "/omarchy/current/theme/colors.toml"
+    property var omarchyColors: ({})
+    property bool omarchyColorsLoaded: false
 
     // "auto" follows the desktop portal color-scheme; no preference counts as light
     readonly property bool isLightMode: {
@@ -30,6 +39,8 @@ Singleton {
         case "dark":
             return false;
         default:
+            if (SettingsData.colorSource === "auto" && omarchyColorsLoaded)
+                return omarchyColors.mode === "light";
             return PortalService.systemPrefersLight;
         }
     }
@@ -54,6 +65,7 @@ Singleton {
 
     // True when DMS is actively publishing dynamic colors, so "auto" can prefer them.
     readonly property bool dmsColorsAvailable: colorsLoaded
+    readonly property bool omarchyColorsAvailable: omarchyColorsLoaded
 
     property var customThemeRaw: null
     property bool customThemeLoaded: false
@@ -156,6 +168,66 @@ Singleton {
         };
     }
 
+    function parseOmarchyColors(text) {
+        const colors = ({});
+        for (const line of text.split("\n")) {
+            const match = line.match(/^\s*([a-z_]+)\s*=\s*"([^"]+)"\s*(?:#.*)?$/);
+            if (!match)
+                continue;
+            const key = match[1];
+            const value = match[2];
+            if (key === "mode") {
+                colors.mode = value;
+                continue;
+            }
+            if (/^#[0-9a-f]{6}(?:[0-9a-f]{2})?$/i.test(value))
+                colors[key] = value;
+        }
+        colors.accent = colors.accent || colors.blue || colors.magenta;
+        if (!colors.background || !colors.foreground || !colors.accent)
+            return null;
+        return colors;
+    }
+
+    function buildOmarchyTheme(fallback) {
+        const colors = omarchyColors;
+        const surface = colors.background;
+        const container = colors.dark_background || surface;
+        const elevated = colors.lighter_background || container;
+        const text = colors.foreground;
+        const muted = colors.muted || colors.dark_foreground || text;
+        return Object.assign({}, fallback, {
+            "primary": colors.accent,
+            "primaryText": colors.selection_foreground || fallback.primaryText,
+            "secondary": colors.blue || colors.cyan || fallback.secondary,
+            "tertiary": colors.magenta || colors.orange || fallback.tertiary,
+            "surface": surface,
+            "surfaceText": text,
+            "surfaceVariant": elevated,
+            "surfaceVariantText": muted,
+            "surfaceTint": colors.accent,
+            "surfaceBright": elevated,
+            "surfaceDim": colors.darker_background || surface,
+            "background": surface,
+            "backgroundText": text,
+            "outline": muted,
+            "outlineVariant": muted,
+            "surfaceContainerLowest": colors.darker_background || surface,
+            "surfaceContainerLow": container,
+            "surfaceContainer": container,
+            "surfaceContainerHigh": elevated,
+            "surfaceContainerHighest": elevated,
+            "selectedContainer": colors.selection || fallback.selectedContainer,
+            "onSelectedContainer": colors.selection_foreground || fallback.onSelectedContainer,
+            "error": colors.red || fallback.error,
+            "errorText": colors.selection_foreground || fallback.errorText,
+            "warning": colors.yellow || fallback.warning,
+            "info": colors.cyan || fallback.info,
+            "success": colors.green || fallback.success,
+            "scrim": colors.darker_background || surface
+        });
+    }
+
     function buildCustomTheme(fallback, isLight) {
         const overrides = customColorsForMode(isLight);
         if (!overrides)
@@ -177,6 +249,8 @@ Singleton {
         case "custom":
             return buildCustomTheme(preset, isLight);
         default:
+            if (omarchyColorsLoaded)
+                return buildOmarchyTheme(preset);
             return colorsLoaded ? buildDmsTheme(preset) : preset;
         }
     }
@@ -663,6 +737,33 @@ Singleton {
 
     function blend(c1, c2, r) {
         return Qt.rgba(c1.r * (1 - r) + c2.r * r, c1.g * (1 - r) + c2.g * r, c1.b * (1 - r) + c2.b * r, c1.a * (1 - r) + c2.a * r);
+    }
+
+    FileView {
+        id: omarchyColorsView
+        path: SettingsData.colorSource === "auto" ? root.omarchyColorsPath : ""
+        blockLoading: false
+        watchChanges: true
+        printErrors: false
+
+        onLoaded: {
+            const colors = root.parseOmarchyColors(omarchyColorsView.text());
+            if (!colors) {
+                root.log.warn("ignoring incomplete Omarchy theme colors");
+                root.omarchyColors = ({});
+                root.omarchyColorsLoaded = false;
+                return;
+            }
+            root.omarchyColors = colors;
+            root.omarchyColorsLoaded = true;
+        }
+
+        onFileChanged: omarchyColorsView.reload()
+
+        onLoadFailed: {
+            root.omarchyColors = ({});
+            root.omarchyColorsLoaded = false;
+        }
     }
 
     FileView {

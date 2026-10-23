@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	BusName          = "org.freedesktop.impl.portal.desktop.dfiles"
+	BusName          = "org.freedesktop.impl.portal.desktop.omarchy-files"
 	Path             = dbus.ObjectPath("/org/freedesktop/portal/desktop")
 	Interface        = "org.freedesktop.impl.portal.FileChooser"
 	RequestInterface = "org.freedesktop.impl.portal.Request"

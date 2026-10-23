@@ -1,18 +1,18 @@
 [Desktop Entry]
 Type=Application
-Name=Files
+Name=Omarchy Files
 GenericName=File Manager
-Comment=File manager for the dux desktop
-Exec=dfiles open %U
-Icon=dev.duxlabs.files
+Comment=File manager for Omarchy
+Exec=omarchy-files open %U
+Icon=io.github.spalencsar.OmarchyFiles
 Terminal=false
 Categories=System;FileTools;FileManager;Utility;Qt;
 Keywords=files;folders;browse;explorer;
 MimeType=inode/directory;x-scheme-handler/trash;x-scheme-handler/sftp;x-scheme-handler/smb;application/zip;application/x-tar;application/gzip;application/x-compressed-tar;application/x-bzip2;application/x-bzip2-compressed-tar;application/x-xz;application/x-xz-compressed-tar;application/zstd;application/x-zstd-compressed-tar;application/x-lzma;application/x-lzma-compressed-tar;application/x-7z-compressed;application/vnd.rar;application/x-cpio;
 StartupNotify=true
-StartupWMClass=dev.duxlabs.files
+StartupWMClass=io.github.spalencsar.OmarchyFiles
 Actions=new-window;
 
 [Desktop Action new-window]
 Name=New Window
-Exec=dfiles open --new-window %U
+Exec=omarchy-files open --new-window %U

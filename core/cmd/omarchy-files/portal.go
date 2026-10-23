@@ -8,7 +8,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/portal"
+	"github.com/spalencsar/omarchy-files/core/internal/portal"
 )
 
 var (
@@ -21,7 +21,7 @@ var portalCmd = &cobra.Command{
 	Short: "Serve other apps' open and save dialogs through the desktop portal",
 	Long: `Serve other apps' open and save dialogs through the desktop portal.
 
-install  writes the per-user .portal file and D-Bus activation file, and makes dfiles
+install  writes the per-user .portal file and D-Bus activation file, and makes omarchy-files
          the preferred org.freedesktop.impl.portal.FileChooser backend in your
          <desktop>-portals.conf, keeping its other keys
 uninstall undoes only what install changed
@@ -33,7 +33,7 @@ file dialogs other apps have open.`,
 
 var portalStatusCmd = &cobra.Command{
 	Use:   "status",
-	Short: "Show whether dfiles serves the portal file chooser",
+	Short: "Show whether omarchy-files serves the portal file chooser",
 	RunE: func(_ *cobra.Command, _ []string) error {
 		return withPortal("system.portal.get", func(c *portal.Controller) (portal.Report, error) { return c.Status(), nil }, false)
 	},
@@ -41,7 +41,7 @@ var portalStatusCmd = &cobra.Command{
 
 var portalInstallCmd = &cobra.Command{
 	Use:   "install",
-	Short: "Make dfiles the portal file chooser for this user",
+	Short: "Make omarchy-files the portal file chooser for this user",
 	RunE: func(_ *cobra.Command, _ []string) error {
 		return withPortal("system.portal.install", (*portal.Controller).Install, true)
 	},
@@ -133,13 +133,13 @@ func printPortalReport(r portal.Report) {
 	case r.PortalFile.Found:
 		fmt.Printf("portal:     %s\n", r.PortalFile.Path)
 	default:
-		fmt.Println("portal:     dfiles.portal not installed")
+		fmt.Println("portal:     omarchy-files.portal not installed")
 	}
 	switch {
 	case r.SystemManaged:
-		fmt.Println("preference: managed by the system (XDG_DESKTOP_PORTAL_DIR); add dfiles there")
-	case r.Config.Effective == "dfiles":
-		fmt.Printf("preference: %s prefers dfiles\n", r.Config.Path)
+		fmt.Println("preference: managed by the system (XDG_DESKTOP_PORTAL_DIR); add omarchy-files there")
+	case r.Config.Effective == "omarchy-files":
+		fmt.Printf("preference: %s prefers omarchy-files\n", r.Config.Path)
 	case r.Config.Effective != "":
 		fmt.Printf("preference: %s is used (%s)\n", r.Config.Effective, r.Config.Path)
 	default:

@@ -29,7 +29,7 @@ func testEnv(t *testing.T) Env {
 		SysConfDir: filepath.Join(root, "etc"),
 		DataDir:    filepath.Join(root, "usr", "share"),
 		Desktops:   []string{"niri"},
-		Exec:       "/tmp/x/dfiles",
+		Exec:       "/tmp/x/omarchy-files",
 	}
 }
 
@@ -93,12 +93,12 @@ func TestEffectiveResolution(t *testing.T) {
 	t.Run("user interface key wins", func(t *testing.T) {
 		env := testEnv(t)
 		write(t, sysPortal(env, "gtk"), gtkPortal)
-		write(t, sysPortal(env, "dfiles"), dfilesPortal)
+		write(t, sysPortal(env, "omarchy-files"), dfilesPortal)
 		write(t, sysConfig(env, "niri-portals.conf"), "[preferred]\ndefault=gtk;\n")
-		write(t, userConfig(env, "niri-portals.conf"), "[preferred]\n"+Interface+"=dfiles;gtk;\n")
+		write(t, userConfig(env, "niri-portals.conf"), "[preferred]\n"+Interface+"=omarchy-files;gtk;\n")
 		status := Inspect(env)
-		assert.Equal(t, "dfiles", status.Config.Effective)
-		assert.Equal(t, []string{"dfiles", "gtk"}, status.Config.Backends)
+		assert.Equal(t, "omarchy-files", status.Config.Effective)
+		assert.Equal(t, []string{"omarchy-files", "gtk"}, status.Config.Backends)
 		assert.True(t, status.Active)
 	})
 	t.Run("none stops", func(t *testing.T) {
@@ -133,16 +133,16 @@ func TestEffectiveResolution(t *testing.T) {
 	t.Run("desktop file beats portals.conf in the same dir", func(t *testing.T) {
 		env := testEnv(t)
 		write(t, sysPortal(env, "gtk"), gtkPortal)
-		write(t, sysPortal(env, "dfiles"), dfilesPortal)
-		write(t, sysConfig(env, "niri-portals.conf"), "[preferred]\ndefault=dfiles;\n")
+		write(t, sysPortal(env, "omarchy-files"), dfilesPortal)
+		write(t, sysConfig(env, "niri-portals.conf"), "[preferred]\ndefault=omarchy-files;\n")
 		write(t, sysConfig(env, "portals.conf"), "[preferred]\ndefault=gtk;\n")
-		assert.Equal(t, "dfiles", Inspect(env).Config.Effective)
+		assert.Equal(t, "omarchy-files", Inspect(env).Config.Effective)
 	})
 	t.Run("file without preferred group is skipped", func(t *testing.T) {
 		env := testEnv(t)
 		write(t, sysPortal(env, "gtk"), gtkPortal)
-		write(t, sysPortal(env, "dfiles"), dfilesPortal)
-		write(t, sysConfig(env, "niri-portals.conf"), "[other]\ndefault=dfiles;\n")
+		write(t, sysPortal(env, "omarchy-files"), dfilesPortal)
+		write(t, sysConfig(env, "niri-portals.conf"), "[other]\ndefault=omarchy-files;\n")
 		write(t, sysConfig(env, "portals.conf"), "[preferred]\ndefault=gtk;\n")
 		assert.Equal(t, "gtk", Inspect(env).Config.Effective)
 	})
@@ -150,10 +150,10 @@ func TestEffectiveResolution(t *testing.T) {
 		env := testEnv(t)
 		env.Desktops = []string{"bad name", "a/b", "Niri", "GNOME"}
 		write(t, sysPortal(env, "gtk"), gtkPortal)
-		write(t, sysPortal(env, "dfiles"), dfilesPortal)
-		write(t, sysConfig(env, "niri-portals.conf"), "[preferred]\ndefault=dfiles;\n")
+		write(t, sysPortal(env, "omarchy-files"), dfilesPortal)
+		write(t, sysConfig(env, "niri-portals.conf"), "[preferred]\ndefault=omarchy-files;\n")
 		write(t, sysConfig(env, "gnome-portals.conf"), "[preferred]\ndefault=gtk;\n")
-		assert.Equal(t, "dfiles", Inspect(env).Config.Effective)
+		assert.Equal(t, "omarchy-files", Inspect(env).Config.Effective)
 		assert.Equal(t, userConfig(env, "niri-portals.conf"), Inspect(env).Config.Path)
 	})
 	t.Run("no valid desktop targets portals.conf", func(t *testing.T) {
@@ -172,12 +172,12 @@ func TestEffectiveResolution(t *testing.T) {
 		env := testEnv(t)
 		env.PortalDir = filepath.Join(env.SysConfDir, "portal-dir")
 		write(t, sysPortal(env, "gtk"), gtkPortal)
-		write(t, filepath.Join(env.PortalDir, "dfiles.portal"), dfilesPortal)
-		write(t, filepath.Join(env.PortalDir, "portals.conf"), "[preferred]\ndefault=gtk;dfiles;\n")
+		write(t, filepath.Join(env.PortalDir, "omarchy-files.portal"), dfilesPortal)
+		write(t, filepath.Join(env.PortalDir, "portals.conf"), "[preferred]\ndefault=gtk;omarchy-files;\n")
 		write(t, userConfig(env, "niri-portals.conf"), "[preferred]\ndefault=gtk;\n")
 		status := Inspect(env)
 		assert.True(t, status.SystemManaged)
-		assert.Equal(t, "dfiles", status.Config.Effective)
+		assert.Equal(t, "omarchy-files", status.Config.Effective)
 		assert.True(t, status.PortalFile.Found)
 		assert.False(t, status.PortalFile.User)
 	})
@@ -199,23 +199,23 @@ func TestInstallIntoExistingUserFile(t *testing.T) {
 	assert.Equal(t, withoutPreferredLine(original), withoutPreferredLine(updated))
 	line, found := preferredLine(updated)
 	require.True(t, found)
-	assert.Equal(t, Interface+"=dfiles;gtk;", line)
+	assert.Equal(t, Interface+"=omarchy-files;gtk;", line)
 	info, err := os.Stat(path)
 	require.NoError(t, err)
 	assert.Equal(t, os.FileMode(0o600), info.Mode().Perm())
 
 	assert.True(t, status.Managed)
 	assert.True(t, status.Active)
-	assert.Equal(t, "dfiles", status.Config.Effective)
-	assert.Equal(t, []string{"dfiles", "gtk"}, status.Config.Backends)
+	assert.Equal(t, "omarchy-files", status.Config.Effective)
+	assert.Equal(t, []string{"omarchy-files", "gtk"}, status.Config.Backends)
 	assert.True(t, status.PortalFile.User)
 	assert.True(t, status.Service.User)
 	assert.Equal(t, dfilesPortal, read(t, filepath.Join(userPortalDir(env), PortalFile)))
-	assert.Equal(t, "[D-BUS Service]\nName="+BusName+"\nExec=/tmp/x/dfiles run --hidden --portal-activated\n", read(t, filepath.Join(userServiceDir(env), ServiceFile)))
+	assert.Equal(t, "[D-BUS Service]\nName="+BusName+"\nExec=/tmp/x/omarchy-files run --hidden --portal-activated\n", read(t, filepath.Join(userServiceDir(env), ServiceFile)))
 
 	state, ok := readState(env)
 	require.True(t, ok)
-	assert.Equal(t, installState{ConfigPath: path, ConfigExisted: true, WrittenLine: Interface + "=dfiles;gtk;", CreatedPortal: true, CreatedService: true}, state)
+	assert.Equal(t, installState{ConfigPath: path, ConfigExisted: true, WrittenLine: Interface + "=omarchy-files;gtk;", CreatedPortal: true, CreatedService: true}, state)
 
 	status, err = Uninstall(env)
 	require.NoError(t, err)
@@ -239,7 +239,7 @@ func TestInstallRestoresExistingLine(t *testing.T) {
 
 	_, err := Install(env)
 	require.NoError(t, err)
-	assert.Equal(t, "[preferred]\n"+Interface+"=dfiles;gtk;kde;\n", read(t, path))
+	assert.Equal(t, "[preferred]\n"+Interface+"=omarchy-files;gtk;kde;\n", read(t, path))
 
 	_, err = Uninstall(env)
 	require.NoError(t, err)
@@ -252,7 +252,7 @@ func TestInstallWithoutUserFile(t *testing.T) {
 
 	status, err := Install(env)
 	require.NoError(t, err)
-	assert.Equal(t, "[preferred]\n"+Interface+"=dfiles;*;\n", read(t, path))
+	assert.Equal(t, "[preferred]\n"+Interface+"=omarchy-files;*;\n", read(t, path))
 	assert.True(t, status.Active)
 	assert.Equal(t, path, status.Config.Path)
 
@@ -265,8 +265,8 @@ func TestInstallWithoutUserFile(t *testing.T) {
 
 func TestInstallKeepsSystemPortal(t *testing.T) {
 	env := testEnv(t)
-	write(t, sysPortal(env, "dfiles"), dfilesPortal)
-	write(t, filepath.Join(env.DataDirs[0], "dbus-1", "services", ServiceFile), "[D-BUS Service]\nName="+BusName+"\nExec=/usr/bin/dfiles run\n")
+	write(t, sysPortal(env, "omarchy-files"), dfilesPortal)
+	write(t, filepath.Join(env.DataDirs[0], "dbus-1", "services", ServiceFile), "[D-BUS Service]\nName="+BusName+"\nExec=/usr/bin/omarchy-files run\n")
 
 	status, err := Install(env)
 	require.NoError(t, err)
@@ -279,18 +279,18 @@ func TestInstallKeepsSystemPortal(t *testing.T) {
 
 	_, err = Uninstall(env)
 	require.NoError(t, err)
-	assert.FileExists(t, sysPortal(env, "dfiles"))
+	assert.FileExists(t, sysPortal(env, "omarchy-files"))
 	assert.FileExists(t, filepath.Join(env.DataDirs[0], "dbus-1", "services", ServiceFile))
 }
 
 func TestInstallRewritesMovedServiceExec(t *testing.T) {
 	env := testEnv(t)
 	servicePath := filepath.Join(userServiceDir(env), ServiceFile)
-	write(t, servicePath, "[D-BUS Service]\nName="+BusName+"\nExec=/old/dfiles run --hidden --portal-activated\n")
+	write(t, servicePath, "[D-BUS Service]\nName="+BusName+"\nExec=/old/omarchy-files run --hidden --portal-activated\n")
 
 	_, err := Install(env)
 	require.NoError(t, err)
-	assert.Contains(t, read(t, servicePath), "Exec=/tmp/x/dfiles run --hidden --portal-activated\n")
+	assert.Contains(t, read(t, servicePath), "Exec=/tmp/x/omarchy-files run --hidden --portal-activated\n")
 	state, ok := readState(env)
 	require.True(t, ok)
 	assert.False(t, state.CreatedService)
@@ -307,7 +307,7 @@ func TestUninstallAfterHandEdit(t *testing.T) {
 	_, err := Install(env)
 	require.NoError(t, err)
 
-	edited := setPreferred(read(t, path), "dfiles;kde;")
+	edited := setPreferred(read(t, path), "omarchy-files;kde;")
 	write(t, path, edited)
 
 	status, err := Uninstall(env)
@@ -322,21 +322,21 @@ func TestUninstallAfterHandEdit(t *testing.T) {
 func TestUninstallWithoutState(t *testing.T) {
 	env := testEnv(t)
 	path := userConfig(env, "niri-portals.conf")
-	write(t, path, "[preferred]\n"+Interface+"=dfiles;gtk;\n")
+	write(t, path, "[preferred]\n"+Interface+"=omarchy-files;gtk;\n")
 	status, err := Uninstall(env)
 	require.NoError(t, err)
 	assert.False(t, status.Kept)
 	assert.Equal(t, "[preferred]\n"+Interface+"=gtk;\n", read(t, path))
 
-	write(t, path, "[preferred]\ndefault=gtk;\n"+Interface+"=dfiles\n")
+	write(t, path, "[preferred]\ndefault=gtk;\n"+Interface+"=omarchy-files\n")
 	_, err = Uninstall(env)
 	require.NoError(t, err)
 	assert.Equal(t, "[preferred]\ndefault=gtk;\n", read(t, path))
 
-	write(t, path, "[preferred]\n"+Interface+"=gtk;dfiles;\n")
+	write(t, path, "[preferred]\n"+Interface+"=gtk;omarchy-files;\n")
 	_, err = Uninstall(env)
 	require.NoError(t, err)
-	assert.Equal(t, "[preferred]\n"+Interface+"=gtk;dfiles;\n", read(t, path))
+	assert.Equal(t, "[preferred]\n"+Interface+"=gtk;omarchy-files;\n", read(t, path))
 }
 
 func TestInstallRefusesSymlinkedConfig(t *testing.T) {
@@ -359,11 +359,11 @@ func TestInstallRefused(t *testing.T) {
 	assert.ErrorContains(t, err, "portal directory")
 
 	env = testEnv(t)
-	env.Exec = "/opt/my apps/dfiles"
+	env.Exec = "/opt/my apps/omarchy-files"
 	_, err = Install(env)
 	assert.ErrorContains(t, err, "binary path")
 
-	env.Exec = "dfiles"
+	env.Exec = "omarchy-files"
 	_, err = Install(env)
 	assert.ErrorContains(t, err, "binary path")
 	assert.NoFileExists(t, statePath(env))
@@ -380,7 +380,7 @@ func TestReinstallKeepsOriginalLine(t *testing.T) {
 	require.NoError(t, err)
 	_, err = Install(env)
 	require.NoError(t, err)
-	assert.Equal(t, "[preferred]\n"+Interface+"=dfiles;gtk;\n", read(t, path))
+	assert.Equal(t, "[preferred]\n"+Interface+"=omarchy-files;gtk;\n", read(t, path))
 	state, ok := readState(env)
 	require.True(t, ok)
 	assert.Equal(t, Interface+"=gtk;", state.OriginalLine)

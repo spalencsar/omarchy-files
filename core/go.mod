@@ -1,4 +1,4 @@
-module github.com/duxlabs-dev/dux-files/core
+module github.com/spalencsar/omarchy-files/core
 
 go 1.27
 

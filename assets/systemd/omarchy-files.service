@@ -1,12 +1,12 @@
 [Unit]
-Description=Dux Files
-Documentation=https://github.com/duxlabs-dev/dux-files
+Description=Omarchy Files
+Documentation=https://github.com/spalencsar/omarchy-files
 After=graphical-session.target
 PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/dfiles run --session --hidden --keep-running
+ExecStart=/usr/bin/omarchy-files run --session --hidden --keep-running
 Restart=on-failure
 RestartSec=2
 Slice=app.slice

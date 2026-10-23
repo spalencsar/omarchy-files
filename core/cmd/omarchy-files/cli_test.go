@@ -23,7 +23,7 @@ func isolate(t *testing.T) string {
 	t.Setenv("XDG_CACHE_HOME", filepath.Join(root, "cache"))
 	t.Setenv("XDG_CONFIG_HOME", filepath.Join(root, "config"))
 	t.Setenv("HOME", filepath.Join(root, "home"))
-	t.Setenv("DFILES_SOCKET", "")
+	t.Setenv("OMARCHY_FILES_SOCKET", "")
 	t.Setenv("FLATPAK_ID", "")
 	return root
 }

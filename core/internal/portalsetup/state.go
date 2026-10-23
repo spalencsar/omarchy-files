@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/atomicfile"
+	"github.com/spalencsar/omarchy-files/core/internal/atomicfile"
 )
 
 type installState struct {
@@ -20,7 +20,7 @@ type installState struct {
 }
 
 func stateDir(env Env) string {
-	return filepath.Join(env.StateHome, "dfiles")
+	return filepath.Join(env.StateHome, "omarchy-files")
 }
 
 func statePath(env Env) string {

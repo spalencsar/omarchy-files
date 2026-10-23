@@ -9,8 +9,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/helper"
-	"github.com/duxlabs-dev/dux-files/core/internal/wire"
+	"github.com/spalencsar/omarchy-files/core/internal/helper"
+	"github.com/spalencsar/omarchy-files/core/internal/wire"
 	"github.com/duxlabs-dev/dux-go/files"
 	"github.com/duxlabs-dev/dux-go/ipc"
 	"github.com/duxlabs-dev/dux-go/ipc/params"

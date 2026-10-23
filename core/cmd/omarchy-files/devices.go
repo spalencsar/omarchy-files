@@ -139,7 +139,7 @@ func findDevice(devices []device, target string) (device, error) {
 			return dev, nil
 		}
 	}
-	return device{}, fmt.Errorf("no device matches %s; see 'dfiles devices list'", target)
+	return device{}, fmt.Errorf("no device matches %s; see 'omarchy-files devices list'", target)
 }
 
 func printDevices(devices []device) {

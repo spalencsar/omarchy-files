@@ -11,9 +11,8 @@ Item {
     LayoutMirroring.enabled: I18n.isRtl
     LayoutMirroring.childrenInherit: true
 
-    readonly property string githubUrl: "https://github.com/duxlabs-dev/dux-files"
-    readonly property string docsUrl: "https://duxlabs.dev/docs"
-    readonly property string kofiUrl: "https://ko-fi.com/duxlabs"
+    readonly property string githubUrl: "https://github.com/spalencsar/omarchy-files"
+    readonly property string docsUrl: githubUrl + "#readme"
     readonly property string licenseUrl: githubUrl + "/blob/master/LICENSE"
     readonly property string version: DuxFilesService.daemonVersion.match(/^v?(\d+\.\d+)/)?.[1] ?? ""
 
@@ -94,15 +93,15 @@ Item {
     SettingsPage {
         DHeroCard {
             brand: I18n.tr("Files", "main window title")
-            caption: root.version ? `dfiles ${root.version}` : "dfiles"
+            caption: root.version ? `omarchy-files ${root.version}` : "omarchy-files"
 
             DButton {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: I18n.tr("Support Dux Labs", "about page hero button, opens the Ko-fi donation page")
-                iconName: "favorite"
+                text: I18n.tr("View project on GitHub", "about page hero button, opens the project repository")
+                iconName: "code"
                 backgroundColor: Theme.primary
                 textColor: Theme.onPrimary
-                onClicked: DuxFilesService.openUri(root.kofiUrl)
+                onClicked: DuxFilesService.openUri(root.githubUrl)
             }
         }
 

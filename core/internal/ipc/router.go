@@ -4,13 +4,13 @@ import (
 	"context"
 	"strings"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/bookmarks"
-	"github.com/duxlabs-dev/dux-files/core/internal/clipboard"
-	"github.com/duxlabs-dev/dux-files/core/internal/devices"
-	"github.com/duxlabs-dev/dux-files/core/internal/games"
-	"github.com/duxlabs-dev/dux-files/core/internal/mimeapps"
-	"github.com/duxlabs-dev/dux-files/core/internal/netmount"
-	"github.com/duxlabs-dev/dux-files/core/internal/search"
+	"github.com/spalencsar/omarchy-files/core/internal/bookmarks"
+	"github.com/spalencsar/omarchy-files/core/internal/clipboard"
+	"github.com/spalencsar/omarchy-files/core/internal/devices"
+	"github.com/spalencsar/omarchy-files/core/internal/games"
+	"github.com/spalencsar/omarchy-files/core/internal/mimeapps"
+	"github.com/spalencsar/omarchy-files/core/internal/netmount"
+	"github.com/spalencsar/omarchy-files/core/internal/search"
 	"github.com/duxlabs-dev/dux-go/ipc/params"
 )
 

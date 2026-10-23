@@ -21,8 +21,8 @@ func TestPreferredLine(t *testing.T) {
 		{"no group", keyLine + "gtk;\n", "", false},
 		{"other group", "[other]\n" + keyLine + "gtk;\n", "", false},
 		{"commented", "[preferred]\n#" + keyLine + "gtk;\n", "", false},
-		{"present", "[preferred]\ndefault=gtk;\n" + keyLine + "dfiles;\n", keyLine + "dfiles;", true},
-		{"spaces", "[preferred]\n " + Interface + " = dfiles; \n", " " + Interface + " = dfiles; ", true},
+		{"present", "[preferred]\ndefault=gtk;\n" + keyLine + "omarchy-files;\n", keyLine + "omarchy-files;", true},
+		{"spaces", "[preferred]\n " + Interface + " = omarchy-files; \n", " " + Interface + " = omarchy-files; ", true},
 		{"after other group", "[other]\n" + keyLine + "x;\n[preferred]\n" + keyLine + "y;\n", keyLine + "y;", true},
 	}
 	for _, tc := range tests {
@@ -40,19 +40,19 @@ func TestSetPreferred(t *testing.T) {
 		content string
 		want    string
 	}{
-		{"empty", "", "[preferred]\n" + keyLine + "dfiles;\n"},
-		{"no group", "# top\n[other]\nk=v\n", "# top\n[other]\nk=v\n\n[preferred]\n" + keyLine + "dfiles;\n"},
-		{"no group no trailing newline", "[other]\nk=v", "[other]\nk=v\n\n[preferred]\n" + keyLine + "dfiles;\n"},
-		{"group without key", "[preferred]\ndefault=gtk;\n\n[other]\nk=v\n", "[preferred]\ndefault=gtk;\n" + keyLine + "dfiles;\n\n[other]\nk=v\n"},
-		{"empty group", "[preferred]\n", "[preferred]\n" + keyLine + "dfiles;\n"},
-		{"replace", "[preferred]\n# c\n" + keyLine + "gtk;\ndefault=x;\n", "[preferred]\n# c\n" + keyLine + "dfiles;\ndefault=x;\n"},
-		{"replace spaced key", "[preferred]\n" + Interface + " = gtk;\n", "[preferred]\n" + keyLine + "dfiles;\n"},
-		{"key in other group untouched", "[other]\n" + keyLine + "gtk;\n", "[other]\n" + keyLine + "gtk;\n\n[preferred]\n" + keyLine + "dfiles;\n"},
-		{"missing trailing newline", "[preferred]\n" + keyLine + "gtk;", "[preferred]\n" + keyLine + "dfiles;\n"},
+		{"empty", "", "[preferred]\n" + keyLine + "omarchy-files;\n"},
+		{"no group", "# top\n[other]\nk=v\n", "# top\n[other]\nk=v\n\n[preferred]\n" + keyLine + "omarchy-files;\n"},
+		{"no group no trailing newline", "[other]\nk=v", "[other]\nk=v\n\n[preferred]\n" + keyLine + "omarchy-files;\n"},
+		{"group without key", "[preferred]\ndefault=gtk;\n\n[other]\nk=v\n", "[preferred]\ndefault=gtk;\n" + keyLine + "omarchy-files;\n\n[other]\nk=v\n"},
+		{"empty group", "[preferred]\n", "[preferred]\n" + keyLine + "omarchy-files;\n"},
+		{"replace", "[preferred]\n# c\n" + keyLine + "gtk;\ndefault=x;\n", "[preferred]\n# c\n" + keyLine + "omarchy-files;\ndefault=x;\n"},
+		{"replace spaced key", "[preferred]\n" + Interface + " = gtk;\n", "[preferred]\n" + keyLine + "omarchy-files;\n"},
+		{"key in other group untouched", "[other]\n" + keyLine + "gtk;\n", "[other]\n" + keyLine + "gtk;\n\n[preferred]\n" + keyLine + "omarchy-files;\n"},
+		{"missing trailing newline", "[preferred]\n" + keyLine + "gtk;", "[preferred]\n" + keyLine + "omarchy-files;\n"},
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			got := setPreferred(tc.content, "dfiles;")
+			got := setPreferred(tc.content, "omarchy-files;")
 			assert.Equal(t, tc.want, got)
 			assert.NotContains(t, got, "\r")
 			assert.True(t, strings.HasSuffix(got, "\n"))
@@ -69,9 +69,9 @@ func TestRemovePreferred(t *testing.T) {
 		{"empty", "", ""},
 		{"absent", "[preferred]\ndefault=gtk;\n", "[preferred]\ndefault=gtk;\n"},
 		{"other group untouched", "[other]\n" + keyLine + "gtk;\n", "[other]\n" + keyLine + "gtk;\n"},
-		{"middle", "[preferred]\ndefault=gtk;\n" + keyLine + "dfiles;\n# tail\n", "[preferred]\ndefault=gtk;\n# tail\n"},
-		{"only key", "[preferred]\n" + keyLine + "dfiles;\n", "[preferred]\n"},
-		{"no trailing newline", "[preferred]\n" + keyLine + "dfiles;", "[preferred]\n"},
+		{"middle", "[preferred]\ndefault=gtk;\n" + keyLine + "omarchy-files;\n# tail\n", "[preferred]\ndefault=gtk;\n# tail\n"},
+		{"only key", "[preferred]\n" + keyLine + "omarchy-files;\n", "[preferred]\n"},
+		{"no trailing newline", "[preferred]\n" + keyLine + "omarchy-files;", "[preferred]\n"},
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
@@ -84,7 +84,7 @@ func TestRoundTripRestoresBytes(t *testing.T) {
 	original := "# header\n[preferred]\n\tdefault = gtk;\n  " + Interface + "  =  gtk ; gnome ;  \n\n[other]\nx=1\n"
 	line, found := preferredLine(original)
 	require.True(t, found)
-	changed := setPreferred(original, "dfiles;gtk;")
+	changed := setPreferred(original, "omarchy-files;gtk;")
 	assert.NotEqual(t, original, changed)
 	assert.Equal(t, original, setPreferredLine(changed, line))
 }

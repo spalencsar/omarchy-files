@@ -7,11 +7,11 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/atomicfile"
+	"github.com/spalencsar/omarchy-files/core/internal/atomicfile"
 )
 
 const (
-	selfDesktopID = "dev.duxlabs.files.desktop"
+	selfDesktopID = "io.github.spalencsar.OmarchyFiles.desktop"
 	recentLimit   = 5
 )
 

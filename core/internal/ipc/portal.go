@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/filechooser"
+	"github.com/spalencsar/omarchy-files/core/internal/filechooser"
 	"github.com/duxlabs-dev/dux-go/ipc/params"
 )
 

@@ -50,7 +50,7 @@ Singleton {
             return;
         transport.sendRequest("clipboard.paths", null, response => {
             const source = (response.result || {}).source || "";
-            if (response.error || source === "" || source === "dfiles")
+            if (response.error || source === "" || source === "omarchy-files")
                 return;
             root.clear();
         });

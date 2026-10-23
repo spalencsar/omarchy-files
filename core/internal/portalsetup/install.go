@@ -6,15 +6,15 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/atomicfile"
+	"github.com/spalencsar/omarchy-files/core/internal/atomicfile"
 )
 
 func Install(env Env) (Status, error) {
 	if env.PortalDir != "" {
-		return Status{}, errors.New("the portal directory is set by the system; add dfiles to its portal list instead")
+		return Status{}, errors.New("the portal directory is set by the system; add omarchy-files to its portal list instead")
 	}
 	if !validExec(env.Exec) {
-		return Status{}, errors.New("the dfiles binary path must be absolute without spaces, quotes or backslashes")
+		return Status{}, errors.New("the omarchy-files binary path must be absolute without spaces, quotes or backslashes")
 	}
 	state, hasState := readState(env)
 	createdPortal, err := ensurePortalFile(env)

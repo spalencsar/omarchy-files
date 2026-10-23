@@ -11,8 +11,8 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/duxlabs-dev/dux-files/core/internal/ipc"
-	"github.com/duxlabs-dev/dux-files/core/internal/sandbox"
+	"github.com/spalencsar/omarchy-files/core/internal/ipc"
+	"github.com/spalencsar/omarchy-files/core/internal/sandbox"
 	"github.com/duxlabs-dev/dux-go/ipc/params"
 	"github.com/duxlabs-dev/dux-go/log"
 )
@@ -48,7 +48,7 @@ type session struct {
 }
 
 func runningSocket() (string, bool) {
-	if socket := os.Getenv("DFILES_SOCKET"); socket != "" {
+	if socket := os.Getenv("OMARCHY_FILES_SOCKET"); socket != "" {
 		return socket, true
 	}
 	socket, err := ipc.FindRunningSocket()
@@ -58,7 +58,7 @@ func runningSocket() (string, bool) {
 func dialDaemon() (*session, error) {
 	socket, ok := runningSocket()
 	if !ok {
-		return nil, errors.New("dfiles is not running")
+		return nil, errors.New("omarchy-files is not running")
 	}
 	conn, err := net.Dial("unix", socket)
 	if err != nil {

@@ -5,7 +5,7 @@
 }:
 rec {
   all = pkgs.symlinkJoin {
-    name = "dux-files-nixos-tests";
+    name = "omarchy-files-nixos-tests";
     paths = [
       nixos-module
       nixos-service-start-module

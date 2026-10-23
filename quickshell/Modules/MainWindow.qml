@@ -104,7 +104,7 @@ FloatingWindow {
         if (!surface.windowActive)
             return;
         const active = ToplevelManager.activeToplevel;
-        if (active && active.appId === "dev.duxlabs.files")
+        if (active && active.appId === "io.github.spalencsar.OmarchyFiles")
             toplevel = active;
     }
 

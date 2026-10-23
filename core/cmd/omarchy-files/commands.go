@@ -7,9 +7,9 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:           "dfiles",
-	Short:         "Dux Files CLI",
-	Long:          "Dux Files is a standalone file manager for the dux desktop.",
+	Use:           "omarchy-files",
+	Short:         "Omarchy Files CLI",
+	Long:          "Omarchy Files is a standalone file manager for Omarchy.",
 	Args:          cobra.NoArgs,
 	SilenceErrors: true,
 	PersistentPreRun: func(cmd *cobra.Command, _ []string) {
@@ -32,13 +32,13 @@ var versionCmd = &cobra.Command{
 				"buildTime": BuildTime,
 			})
 		}
-		fmt.Printf("dfiles %s (commit %s, built %s)\n", Version, Commit, BuildTime)
+		fmt.Printf("omarchy-files %s (commit %s, built %s)\n", Version, Commit, BuildTime)
 		return nil
 	},
 }
 
 func init() {
-	rootCmd.PersistentFlags().StringVarP(shellApp.CustomConfigVar(), "config", "c", "", "Path to a UI config dir (containing shell.qml) to use instead of the embedded UI (env: DFILES_SHELL_DIR)")
+	rootCmd.PersistentFlags().StringVarP(shellApp.CustomConfigVar(), "config", "c", "", "Path to a UI config dir (containing shell.qml) to use instead of the embedded UI (env: OMARCHY_FILES_SHELL_DIR)")
 	rootCmd.PersistentFlags().BoolVar(&jsonOutput, "json", false, "Output JSON for programmatic usage (where supported)")
 	rootCmd.PersistentFlags().BoolVar(&dbusActivated, "dbus-activated", false, "Started by the bus for org.freedesktop.FileManager1: claim the name whatever the setting says, quit if no window ever opens")
 	rootCmd.PersistentFlags().BoolVar(&keepRunning, "keep-running", false, "Started to stay resident (the systemd unit): closing the window hides it")

@@ -100,7 +100,7 @@ var trashCountCmd = &cobra.Command{
 var trashRestoreCmd = &cobra.Command{
 	Use:               "restore <name...>",
 	Short:             "Restore trashed items to where they were deleted from",
-	Long:              "Restore trashed items by the name 'dfiles trash list' shows. A conflict with an existing file keeps both unless --conflict says otherwise.",
+	Long:              "Restore trashed items by the name 'omarchy-files trash list' shows. A conflict with an existing file keeps both unless --conflict says otherwise.",
 	Args:              cobra.MinimumNArgs(1),
 	ValidArgsFunction: completeTrashNames,
 	RunE: func(_ *cobra.Command, args []string) error {

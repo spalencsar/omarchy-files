@@ -1,0 +1,57 @@
+# Maintainer: Omarchy Files contributors <https://github.com/spalencsar/omarchy-files>
+
+pkgname=omarchy-files-git
+pkgver=0.0.0.r78.46c20fe5
+pkgrel=1
+pkgdesc='Standalone Wayland file manager for Omarchy'
+arch=('x86_64' 'aarch64')
+url='https://github.com/spalencsar/omarchy-files'
+license=('MIT')
+depends=('quickshell' 'polkit')
+makedepends=('git' 'go' 'make')
+optdepends=(
+  'bubblewrap: sandbox external thumbnailers'
+  'ffmpegthumbnailer: video thumbnails'
+  'poppler: PDF thumbnails'
+  'udisks2: devices sidebar'
+  'gvfs: network shares and removable-drive trash'
+  'qt6-webengine: PDF preview'
+)
+provides=('omarchy-files')
+conflicts=('omarchy-files')
+source=(
+  "$pkgname::git+$url.git"
+  'dux-qml-common::git+https://github.com/duxlabs-dev/dux-qml-common.git'
+)
+sha256sums=('SKIP' 'SKIP')
+
+pkgver() {
+  cd "$srcdir/$pkgname"
+  printf '0.0.0.r%s.%s' "$(git rev-list --count HEAD)" "$(git rev-parse --short=8 HEAD)"
+}
+
+prepare() {
+  cd "$srcdir/$pkgname"
+  rm -rf dux-qml-common
+  ln -s "$srcdir/dux-qml-common" dux-qml-common
+}
+
+build() {
+  cd "$srcdir/$pkgname"
+  make
+  make -C core completions
+}
+
+check() {
+  cd "$srcdir/$pkgname"
+  make test
+}
+
+package() {
+  cd "$srcdir/$pkgname"
+  make -C core DESTDIR="$pkgdir" PREFIX=/usr install
+  make DESTDIR="$pkgdir" PREFIX=/usr install
+  install -Dm644 assets/systemd/omarchy-files.service \
+    "$pkgdir/usr/lib/systemd/user/omarchy-files.service"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

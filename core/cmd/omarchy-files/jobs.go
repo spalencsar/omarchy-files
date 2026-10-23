@@ -85,7 +85,7 @@ func runJobUnattended(s *session, method string, params map[string]any, onConfli
 				continue
 			}
 			answered = job.Failure.ID
-			fmt.Fprintf(os.Stderr, "dfiles: %s: %s\n", job.Failure.Path, job.Failure.Message)
+			fmt.Fprintf(os.Stderr, "omarchy-files: %s: %s\n", job.Failure.Path, job.Failure.Message)
 			result.Failed = append(result.Failed, job.Failure.Path)
 			s.answer(job.ID, job.Failure.ID, pick(job.Failure.Actions, "skip"))
 		case "paused-password":
@@ -93,7 +93,7 @@ func runJobUnattended(s *session, method string, params map[string]any, onConfli
 				continue
 			}
 			answered = job.Password.ID
-			fmt.Fprintf(os.Stderr, "dfiles: %s: needs a password\n", job.Password.Path)
+			fmt.Fprintf(os.Stderr, "omarchy-files: %s: needs a password\n", job.Password.Path)
 			result.Failed = append(result.Failed, job.Password.Path)
 			s.answer(job.ID, job.Password.ID, pick(job.Password.Actions, "skip"))
 		}
