@@ -9,6 +9,7 @@ import (
 
 var shellApp = shellapp.New(shellapp.Config{
 	ID:       "omarchy-files",
+	EnvPrefix: "OMARCHY_FILES",
 	QSAppID:  "io.github.spalencsar.OmarchyFiles",
 	Version:  Version,
 	Embedded: embeddedShell{},

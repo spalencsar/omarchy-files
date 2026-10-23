@@ -13,7 +13,7 @@ var (
 )
 
 func main() {
-	log.SetEnvPrefix("DFILES")
+	log.SetEnvPrefix("OMARCHY_FILES")
 	if err := rootCmd.Execute(); err != nil {
 		log.Errorf("%v", err)
 		os.Exit(1)
