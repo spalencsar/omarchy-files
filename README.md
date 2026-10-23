@@ -17,6 +17,12 @@ It is an independent fork of [Dux Files](https://github.com/duxlabs-dev/dux-file
 The fork keeps the upstream MIT license and attribution while maintaining its
 own Omarchy-focused branding, packaging, and interface.
 
+## Screenshot
+
+![Omarchy Files browsing a sterile demo workspace](docs/screenshots/main-window.png)
+
+![Omarchy Files About page](docs/screenshots/about.png)
+
 ## Features
 
 **Tabs, panes and views**
