@@ -7,6 +7,7 @@ Rectangle {
     property string version: ""
     signal githubRequested
 
+    width: parent?.width ?? 0
     height: 152
     radius: Theme.cornerRadiusS
     color: Theme.surfaceContainer
