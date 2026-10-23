@@ -63,8 +63,10 @@ Singleton {
     property var matugenColors: ({})
     property bool colorsLoaded: false
 
-    // True when DMS is actively publishing dynamic colors, so "auto" can prefer them.
-    readonly property bool dmsColorsAvailable: colorsLoaded
+    // This fork deliberately follows Omarchy rather than the old DMS exporter.
+    // Keep the legacy parser temporarily for custom-theme compatibility, but never
+    // select it as an automatic desktop source.
+    readonly property bool dmsColorsAvailable: false
     readonly property bool omarchyColorsAvailable: omarchyColorsLoaded
 
     property var customThemeRaw: null
@@ -251,7 +253,7 @@ Singleton {
         default:
             if (omarchyColorsLoaded)
                 return buildOmarchyTheme(preset);
-            return colorsLoaded ? buildDmsTheme(preset) : preset;
+            return preset;
         }
     }
 
@@ -264,7 +266,6 @@ Singleton {
     property color tertiary: currentThemeData.tertiary || currentThemeData.secondary
     property color tertiaryContainer: currentThemeData.tertiaryContainer || blend(surfaceContainerHigh, tertiary, 0.35)
     readonly property real selectedContainerTint: currentThemeData.selectedContainerTint ?? 0.2
-    // DMS exports surfaceContainerHigh as secondary_container when the theme sets none
     readonly property bool themedSelectedContainer: !!currentThemeData.secondaryContainer && !Qt.colorEqual(secondaryContainer, surfaceContainerHigh) && Contrast.isTonal(secondaryContainer, onSecondaryContainer) && Contrast.isTonal(secondaryContainer, surfaceText)
     readonly property color selectedContainer: currentThemeData.selectedContainer || (themedSelectedContainer ? secondaryContainer : Contrast.subtleTint(surfaceContainerHigh, primary, surfaceText, selectedContainerTint))
     readonly property color accentOnSelectedContainer: currentThemeData.accentOnSelectedContainer || (Contrast.ratio(primary, selectedContainer) >= 3 ? primary : onSelectedContainer)
@@ -412,8 +413,8 @@ Singleton {
     property real spacingXL: 24
 
     readonly property FontSource typography: FontSource {
-        source: SettingsData.fontSource
-        dmsPath: root.dmsTypographyPath
+        source: SettingsData.fontSource === "auto" ? "system" : SettingsData.fontSource
+        dmsPath: ""
         family: SettingsData.fontFamily
         monoFamily: SettingsData.monoFontFamily
         displayFamily: SettingsData.displayFontFamily
@@ -435,7 +436,9 @@ Singleton {
     property real iconSizeLarge: 32
 
     readonly property real radiusStrength: SettingsData.radiusStrength
-    readonly property real shapeScale: Shape.scaleForStrength(radiusStrength)
+    // Omarchy's own shell uses square control surfaces by default. This keeps
+    // Files visually part of the desktop instead of inheriting Material pills.
+    readonly property real shapeScale: 0
     readonly property real fixedRadius: -1
     readonly property real cornerRadius: cornerRadiusM
     readonly property real cornerRadiusXXS: Shape.radius("xxs", shapeScale)

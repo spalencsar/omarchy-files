@@ -27,7 +27,7 @@ Item {
 
     readonly property var colorSourceOptions: [
         {
-            label: I18n.tr("Auto", "color source button group option following DMS"),
+            label: I18n.tr("Auto", "color source button group option following Omarchy"),
             value: "auto"
         },
         {
@@ -42,7 +42,7 @@ Item {
 
     readonly property var fontSourceOptions: [
         {
-            label: I18n.tr("Auto", "font source button group option following DMS"),
+            label: I18n.tr("Auto", "font source button group option following Omarchy"),
             value: "auto"
         },
         {
@@ -855,7 +855,7 @@ Item {
 
                 OptionGroupRow {
                     text: I18n.tr("Color source", "color source setting label")
-                    keywords: I18n.tr("palette dms preset custom accent", "settings search keywords, space separated, add synonyms in your language")
+                    keywords: I18n.tr("palette omarchy preset custom accent", "settings search keywords, space separated, add synonyms in your language")
                     description: {
                         switch (SettingsData.colorSource) {
                         case "preset":
@@ -863,7 +863,7 @@ Item {
                         case "custom":
                             return I18n.tr("Load colors from your own theme file.", "color source description for custom");
                         default:
-                            return I18n.tr("Follow Dux Shell colors, falling back to a preset.", "color source description for auto");
+                            return I18n.tr("Follow the active Omarchy theme, falling back to a preset.", "color source description for auto");
                         }
                     }
                     optionList: root.colorSourceOptions
@@ -873,9 +873,9 @@ Item {
 
                 SettingsRow {
                     visible: SettingsData.colorSource === "auto"
-                    iconName: Theme.omarchyColorsAvailable || Theme.dmsColorsAvailable ? "check_circle" : "info"
-                    iconColor: Theme.omarchyColorsAvailable || Theme.dmsColorsAvailable ? Theme.success : Theme.surfaceVariantText
-                    title: Theme.omarchyColorsAvailable ? I18n.tr("Using active Omarchy theme colors.", "auto color source status when Omarchy is active") : Theme.dmsColorsAvailable ? I18n.tr("Using Dux Shell dynamic colors.", "auto color source status when DMS is active") : I18n.tr("Omarchy and Dux Shell themes not detected, using the %1 preset.", "auto color source status when no desktop theme is active").arg(Theme.presetLabel(SettingsData.presetTheme))
+                    iconName: Theme.omarchyColorsAvailable ? "check_circle" : "info"
+                    iconColor: Theme.omarchyColorsAvailable ? Theme.success : Theme.surfaceVariantText
+                    title: Theme.omarchyColorsAvailable ? I18n.tr("Using active Omarchy theme colors.", "auto color source status when Omarchy is active") : I18n.tr("Omarchy theme not detected, using the %1 preset.", "auto color source status when no desktop theme is active").arg(Theme.presetLabel(SettingsData.presetTheme))
                 }
 
                 SettingsRow {
@@ -938,18 +938,18 @@ Item {
             }
 
             SettingsCard {
-                title: I18n.tr("Shape", "appearance settings section label")
+                title: I18n.tr("Omarchy appearance", "appearance settings section label")
 
                 SettingsSliderRow {
-                    text: I18n.tr("Radius strength", "global component corner rounding")
-                    keywords: I18n.tr("corners rounding shape square", "settings search keywords, space separated, add synonyms in your language")
-                    description: I18n.tr("50 is the Material default.", "radius strength slider description")
+                    text: I18n.tr("Square controls", "global component corner rounding")
+                    keywords: I18n.tr("corners rounding shape square omarchy", "settings search keywords, space separated, add synonyms in your language")
+                    description: I18n.tr("Omarchy Files uses the desktop's square control style.", "radius strength slider description")
                     minimumLabel: I18n.tr("Square", "radius strength slider label at zero")
-                    value: SettingsData.radiusStrength
+                    value: 0
                     minimum: 0
                     maximum: 100
                     unit: ""
-                    onSliderValueChanged: newValue => SettingsData.radiusStrength = newValue
+                    onSliderValueChanged: () => {}
                 }
             }
 
@@ -958,7 +958,7 @@ Item {
 
                 OptionGroupRow {
                     text: I18n.tr("Font source", "font source setting label")
-                    keywords: I18n.tr("font family typeface dms system qt", "settings search keywords, space separated, add synonyms in your language")
+                    keywords: I18n.tr("font family typeface omarchy system qt", "settings search keywords, space separated, add synonyms in your language")
                     optionList: root.fontSourceOptions
                     current: SettingsData.fontSource
                     onPicked: value => SettingsData.fontSource = value
@@ -968,7 +968,7 @@ Item {
                     visible: SettingsData.fontSource === "auto" && !Theme.typography.followingDms
                     iconName: "info"
                     iconColor: Theme.surfaceVariantText
-                    title: I18n.tr("Dux Shell not detected, using %1.", "auto font source status when DMS is missing").arg(Theme.fontFamily)
+                    title: I18n.tr("Using the system font: %1.", "auto font source status when Omarchy is active").arg(Theme.fontFamily)
                 }
 
                 FontFamilyRow {

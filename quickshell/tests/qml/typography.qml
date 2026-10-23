@@ -47,7 +47,7 @@ ShellRoot {
     }
 
     Component.onCompleted: {
-        check("the app defaults to the bundled fonts", [Theme.fontFamily, Theme.monoFontFamily, Theme.displayFontFamily], [DC.Fonts.sans, DC.Fonts.mono, DC.Fonts.display]);
+        check("the app auto mode uses the system font", [Theme.fontFamily, Theme.monoFontFamily, Theme.displayFontFamily], [Qt.application.font.family, "monospace", DC.Fonts.display]);
 
         const custom = sourceComponent.createObject(fixture, {
             "source": "custom"
