@@ -1,7 +1,7 @@
 # Maintainer: Omarchy Files contributors <https://github.com/spalencsar/omarchy-files>
 
 pkgname=omarchy-files-git
-pkgver=0.0.0.r0.00000000
+pkgver=0.1.0.r0.00000000
 pkgrel=1
 pkgdesc='Standalone Wayland file manager for Omarchy'
 arch=('x86_64' 'aarch64')
@@ -27,7 +27,16 @@ sha256sums=('SKIP' '6922ebc1d70969a9bb1807c25517d90d1404b8f0a1869c4dd883e10d7290
 
 pkgver() {
   cd "$srcdir/$pkgname"
-  printf '0.0.0.r%s.%s' "$(git rev-list --count HEAD)" "$(git rev-parse --short=8 HEAD)"
+  local tag count
+  tag="$(git describe --tags --abbrev=0 2>/dev/null || true)"
+  if [[ -z "$tag" ]]; then
+    tag="0.0.0"
+    count="$(git rev-list --count HEAD)"
+  else
+    tag="${tag#v}"
+    count="$(git rev-list --count "$tag"..HEAD)"
+  fi
+  printf '%s.r%s.%s' "$tag" "$count" "$(git rev-parse --short=8 HEAD)"
 }
 
 prepare() {
