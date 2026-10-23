@@ -67,8 +67,8 @@ read_ini_value() {
 
 print_vfs_recovery() {
     printf 'Quickshell fills the VFS config in itself, but only into a file that already\n' >&2
-    printf 'exists; it never creates one. The nix develop shell touches it for you, so\n' >&2
-    printf 'outside that shell you have to create it yourself. The VFS also lives under\n' >&2
+    printf 'exists; it never creates one. Create it before running this check. The VFS\n' >&2
+    printf 'also lives under\n' >&2
     printf 'the XDG runtime directory, so a reboot removes it and leaves the file\n' >&2
     printf 'dangling, which makes a plain touch fail. Recreate both with:\n' >&2
     printf '  rm -f %q\n' "${qmlls_config}" >&2

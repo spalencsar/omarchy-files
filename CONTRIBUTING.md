@@ -38,7 +38,7 @@ Everything under `quickshell/DCommon/` is shared across the DMS suite and lives 
 
 1. Edit files under `dux-qml-common/` (or through the `quickshell/DCommon` symlink, same files) and test in the running app. For isolated widget work, the library is its own runnable config with a gallery: `qs -p dux-qml-common`.
 2. Commit and PR those changes in the `dux-qml-common` repo.
-3. Once merged, bump the pointer here with `make update-common` and commit the submodule change together with `flake.lock`.
+3. Once merged, bump the pointer here with `make update-common` and commit the submodule change.
 
 If a library change reads a new app-singleton property, add it to `quickshell/Common/Theme.qml` or `SettingsData.qml` in the same PR that bumps the pointer.
 

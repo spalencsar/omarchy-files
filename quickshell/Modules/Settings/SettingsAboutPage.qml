@@ -91,7 +91,7 @@ Item {
     }
 
     SettingsPage {
-        OmarchyAboutHeader { version: root.version ? `omarchy-files ${root.version}` : "omarchy-files"; onGithubRequested: DuxFilesService.openUri(root.githubUrl) }
+        OmarchyAboutHeader { version: root.version ? `omarchy-files ${root.version}` : "omarchy-files" }
 
         SettingsGroup {
             SettingsLinkRow {
@@ -100,14 +100,6 @@ Item {
                 keywords: I18n.tr("documentation help manual", "settings search keywords, space separated, add synonyms in your language")
                 subtitle: root.host(root.docsUrl)
                 url: root.docsUrl
-            }
-
-            SettingsLinkRow {
-                iconName: "code"
-                title: I18n.tr("GitHub", "about page resource button")
-                keywords: I18n.tr("source code repository issues", "settings search keywords, space separated, add synonyms in your language")
-                subtitle: root.host(root.githubUrl)
-                url: root.githubUrl
             }
         }
 

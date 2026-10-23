@@ -9,7 +9,13 @@ Built with [Quickshell](https://quickshell.org/) and [Go](https://go.dev/)
 
 </div>
 
-Omarchy Files is a standalone Wayland file manager for Omarchy. A small Go daemon does the file work and a Quickshell UI sits on top of it. It is derived from Dux Files and will gain Omarchy-native theme integration in this fork.
+Omarchy Files is a standalone Wayland file manager built specifically for
+[Omarchy](https://omarchy.org/). A small Go daemon performs file operations and
+a Quickshell UI provides a compact, theme-aware desktop experience.
+
+It is an independent fork of [Dux Files](https://github.com/duxlabs-dev/dux-files).
+The fork keeps the upstream MIT license and attribution while maintaining its
+own Omarchy-focused branding, packaging, and interface.
 
 ## Features
 
@@ -40,62 +46,66 @@ Can serve the desktop portal's file chooser, so other apps get the same window, 
 **Desktop integration**
 Owns `org.freedesktop.FileManager1`, so "show in folder" from browsers and other apps lands here.
 
-## Installation
+## Installation on Omarchy
 
-### From source
+Omarchy Files is supported on Omarchy/Arch Linux. It is distributed as a local
+Arch package so the binary, desktop entry, icon, D-Bus files, and user service
+are installed and removed together.
 
-You need Go and `quickshell`.
+### Build and install the Arch package
 
 ```bash
 git clone --recurse-submodules https://github.com/spalencsar/omarchy-files.git
 cd omarchy-files
-make
-sudo make install
+cd distro/arch
+makepkg -Cfs
+sudo pacman -U ./omarchy-files-git-*.pkg.tar.zst
 ```
 
-`make install` puts the `omarchy-files` binary (UI included), the desktop entry, icon, metainfo, polkit policy and the D-Bus activation files under `/usr/local`. `sudo make uninstall` removes them.
+When pacman offers to reinstall the same package version, confirm it. Development
+packages currently use a stable local version number, so this is expected.
 
-To keep it running in the background so windows open instantly:
+Start it once for the current session, or enable the user service for instant
+folder opening after login:
 
 ```bash
-make install-systemd
-systemctl --user enable --now omarchy-files
+systemctl --user enable --now omarchy-files.service
 ```
 
-### NixOS / home-manager
+After a package upgrade, restart the existing daemon:
 
-```nix
-{
-  inputs.omarchy-files.url = "github:duxlabs-dev/omarchy-files";
-
-  # home-manager or NixOS
-  imports = [ inputs.omarchy-files.homeModules.omarchy-files ];
-  programs.omarchy-files.enable = true;
-}
+```bash
+omarchy-files kill
+systemctl --user restart omarchy-files.service
 ```
 
-Use `nixosModules.omarchy-files` for a NixOS configuration. `programs.omarchy-files.systemd.enable` starts it with the session, and `programs.omarchy-files.portal.enable` registers the open and save dialogs.
+### Development build
 
-### Flatpak
+For development, install the build dependencies available on Omarchy and run:
 
-See [distro/flatpak/README.md](distro/flatpak/README.md).
+```bash
+make
+make test
+make test-qml
+```
 
 ### Optional dependencies
 
-Picked up from `PATH` when the daemon starts:
+These Arch packages are detected when the daemon starts:
 
 | package | enables |
 | --- | --- |
 | `bubblewrap` | runs external thumbnailers in a sandbox, like gnome-desktop does |
 | `ffmpegthumbnailer` | video thumbnails |
-| `poppler` (`poppler-utils` on Debian) | pdf thumbnails |
+| `poppler` | PDF thumbnails |
 | `gvfs` | network shares and the trash on removable drives |
 | `udisks2` | the devices sidebar |
 
 Images in png, jpeg, gif, bmp, tiff and webp are decoded in-process. Anything else uses the freedesktop thumbnailers installed on the system, so packages that ship one (glycin, gsf, evince, totem) just work. `omarchy-files ipc system.capabilities` shows what was found.
 
-PDF previews use the optional `QtQuick.Pdf` QML module: `qt6-webengine` on Arch, `qt6-qtpdf` on Fedora, `qt6-pdf-imports` on openSUSE, `qml6-module-qtquick-pdf` on Debian and Ubuntu. The nix package wires it in by default, `omarchy-files.override { withPdfPreview = false; }` drops it.
-Without it, the preview shows an installation hint; image previews and the rest of the file manager still work.
+PDF previews use the optional `QtQuick.Pdf` QML module, supplied by
+`qt6-webengine` on Arch. Without it, the preview shows an installation hint;
+image previews and the rest of the file manager still work.
 
 ## Usage
 
@@ -161,18 +171,18 @@ omarchy-files portal uninstall   # put things back
 
 This puts omarchy-files first for the FileChooser in your `~/.config/xdg-desktop-portal/<desktop>-portals.conf`, keeps the old backend as a fallback, and remembers what it changed. xdg-desktop-portal only reads its config at startup, so it has to restart. Both the settings page and the CLI ask first, since a restart cancels dialogs other apps have open.
 
-Apps that use the portal pick it up: Flatpak apps, Chromium browsers, Firefox with `widget.use-xdg-desktop-portal.file-picker` set to 1, GTK 4 apps with `GDK_DEBUG=portals` and Qt apps with `QT_QPA_PLATFORMTHEME=xdgdesktopportal`. Apps that draw their own dialogs are unchanged.
+Portal-aware applications pick it up, including Chromium browsers, Firefox with
+`widget.use-xdg-desktop-portal.file-picker` set to `1`, GTK 4 applications with
+`GDK_DEBUG=portals`, and Qt applications with
+`QT_QPA_PLATFORMTHEME=xdgdesktopportal`. Applications that draw their own
+dialogs are unchanged.
 
-The dialog is its own window. Qt 6.12 and Quickshell can't attach it to the calling app's window, so `modal` is ignored. Without the systemd unit the first dialog is a cold start. A niri rule to float it:
+The dialog is its own window. Qt 6.12 and Quickshell cannot attach it to the
+calling app's window, so `modal` is ignored. Without the user service the first
+dialog is a cold start.
 
-```kdl
-window-rule {
-    match app-id=r#"^dev\.duxlabs\.files$"# title=r#"^(Open|Save|Select|Upload|Export|Import)"#
-    open-floating true
-}
-```
-
-Packagers: install `assets/portal/omarchy-files.portal` under `share/xdg-desktop-portal/portals/` and the service file under `share/dbus-1/services/` with the binary path substituted. Don't ship a `portals.conf` that prefers it. The Flatpak build can't register the backend because Flatpak exports no portal files.
+The Omarchy package installs the portal metadata and activation service. It does
+not select Omarchy Files as the portal backend until you explicitly enable it.
 
 ## Repository Structure
 
@@ -187,7 +197,7 @@ omarchy-files/
 │   ├── Modules/        # Windows, panes, dialogs, settings
 │   └── translations/   # POEditor catalogs
 ├── dux-qml-common/    # Shared widget library (submodule, linked as quickshell/DCommon)
-├── distro/             # Nix and Flatpak packaging
+├── distro/             # Arch packaging and development distribution files
 └── assets/             # Icon, desktop entry, D-Bus, portal and systemd files
 ```
 
@@ -200,7 +210,8 @@ make test                                                 # Go tests
 make test-qml                                             # QML tests
 ```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, the shared widget library, translations and our rules on AI generated code.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, the shared widget library,
+translations, and contributor guidance.
 
 ## License
 

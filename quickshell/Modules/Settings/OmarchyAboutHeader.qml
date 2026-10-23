@@ -5,34 +5,38 @@ import qs.DCommon.Widgets
 Rectangle {
     id: root
     property string version: ""
-    signal githubRequested
 
     width: parent?.width ?? 0
-    height: 152
+    height: 96
     radius: Theme.cornerRadiusS
     color: Theme.surfaceContainer
     border.width: Theme.outlineWidth
     border.color: Theme.outlineVariant
 
+    Image {
+        id: appIcon
+        anchors.left: parent.left
+        anchors.leftMargin: Theme.spacingL
+        anchors.verticalCenter: parent.verticalCenter
+        width: 56
+        height: 56
+        source: Qt.resolvedUrl("../../assets/omarchy-files.svg")
+        sourceSize.width: width
+        sourceSize.height: height
+        fillMode: Image.PreserveAspectFit
+    }
+
     Column {
-        anchors.centerIn: parent
-        spacing: Theme.spacingXS
+        anchors.left: appIcon.right
+        anchors.leftMargin: Theme.spacingM
+        anchors.right: parent.right
+        anchors.rightMargin: Theme.spacingL
+        anchors.verticalCenter: parent.verticalCenter
+        spacing: 2
 
-        StyledText { anchors.horizontalCenter: parent.horizontalCenter; text: I18n.tr("Omarchy Files", "about page product name"); color: Theme.surfaceText; font.pixelSize: Theme.fontSizeXXLarge; font.weight: Theme.fontWeightMedium }
-        StyledText { anchors.horizontalCenter: parent.horizontalCenter; text: I18n.tr("Standalone Wayland file manager for Omarchy", "about page product description"); color: Theme.surfaceVariantText; font.pixelSize: Theme.fontSizeSmall }
-        StyledText { anchors.horizontalCenter: parent.horizontalCenter; text: root.version; color: Theme.surfaceVariantText; font.pixelSize: Theme.fontSizeSmall }
-        StyledText { anchors.horizontalCenter: parent.horizontalCenter; text: I18n.tr("Maintained by Sebastian Palencsar", "about page maintainer credit"); color: Theme.surfaceVariantText; font.pixelSize: Theme.fontSizeSmall }
-
-        Rectangle {
-            width: actionLabel.implicitWidth + Theme.spacingL * 2
-            height: Theme.buttonHeightXS
-            anchors.horizontalCenter: parent.horizontalCenter
-            radius: Theme.cornerRadiusS
-            color: "transparent"
-            border.width: Theme.outlineWidth
-            border.color: Theme.outlineVariant
-            StyledText { id: actionLabel; anchors.centerIn: parent; text: I18n.tr("View project on GitHub", "about page project link"); color: Theme.primary; font.pixelSize: Theme.fontSizeSmall }
-            MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: root.githubRequested() }
-        }
+        StyledText { text: I18n.tr("Omarchy Files", "about page product name"); color: Theme.surfaceText; font.pixelSize: Theme.fontSizeXLarge; font.weight: Theme.fontWeightMedium }
+        StyledText { text: I18n.tr("Standalone Wayland file manager for Omarchy", "about page product description"); color: Theme.surfaceVariantText; font.pixelSize: Theme.fontSizeSmall }
+        StyledText { text: root.version; color: Theme.surfaceVariantText; font.pixelSize: Theme.fontSizeSmall }
+        StyledText { text: I18n.tr("Maintained by Sebastian Palencsar · based on Dux Files", "about page maintainer and upstream credit"); color: Theme.surfaceVariantText; font.pixelSize: Theme.fontSizeSmall }
     }
 }

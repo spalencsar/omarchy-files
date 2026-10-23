@@ -65,7 +65,7 @@ That behavior should remain unchanged. Changing portal preference or restarting
 ## First change set
 
 1. Rename every external identity above atomically, including generated paths,
-   tests, source imports, release automation, Nix and Flatpak manifests.
+   tests, source imports, release automation, and distribution manifests.
 2. Preserve the upstream MIT license and attribution; update application
    metadata to identify this fork accurately.
 3. Run `make`, `make test`, `make test-qml`, plus `git diff --check`.

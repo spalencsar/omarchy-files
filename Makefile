@@ -78,10 +78,9 @@ lint-qml:
 test-qml:
 	@python3 $(SHELL_DIR)/tests/run-qml.py
 
-# Bump dux-qml-common everywhere it is pinned: submodule pointer + nix flake input.
+# Bump the shared QML widget library submodule.
 update-common:
 	git submodule update --remote --merge dux-qml-common
-	nix --extra-experimental-features 'nix-command flakes' flake update dank-qml-common
 
 i18n-extract:
 	@python3 $(SHELL_DIR)/translations/extract_translations.py
@@ -192,7 +191,7 @@ help:
 	@echo "  clean / test / fmt / vet"
 	@echo "  lint-qml           - qmllint shell.qml through the Quickshell tooling VFS (needs quickshell/.qmlls.ini)"
 	@echo "  test-qml           - Run the shell logic tests and the offscreen QML fixtures"
-	@echo "  update-common      - Bump the dux-qml-common submodule + flake input"
+	@echo "  update-common      - Bump the dux-qml-common submodule"
 	@echo "  i18n-extract       - Regenerate translations/en.json from I18n.tr() calls"
 	@echo "  i18n-local         - Re-extract and show added/removed terms (no POEditor)"
 	@echo "  i18n-test          - Extract and validate, no POEditor calls"
