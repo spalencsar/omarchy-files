@@ -205,7 +205,7 @@ Singleton {
             // unrelated hues into every control, which is exactly the visual we
             // are avoiding here.
             "softPrimaryContainer": colors.selection || container,
-            "onPrimaryContainer": colors.selection_foreground || text,
+            "onPrimaryContainer": text,
             "secondary": colors.accent,
             "secondaryContainer": container,
             "onSecondaryContainer": text,
@@ -229,7 +229,9 @@ Singleton {
             "surfaceContainerHigh": elevated,
             "surfaceContainerHighest": elevated,
             "selectedContainer": colors.selection || fallback.selectedContainer,
-            "onSelectedContainer": colors.selection_foreground || fallback.onSelectedContainer,
+            // Some Omarchy themes use a black selection_foreground together
+            // with a nearly black selection. Keep file-manager rows readable.
+            "onSelectedContainer": text,
             "error": colors.red || fallback.error,
             "errorText": colors.selection_foreground || fallback.errorText,
             "errorContainer": container,
@@ -299,8 +301,11 @@ Singleton {
     property color surfaceContainerHigh: currentThemeData.surfaceContainerHigh
     property color surfaceContainerHighest: currentThemeData.surfaceContainerHighest || surfaceContainerHigh
     readonly property color hostSurface: surface
-    readonly property color cardSurface: surfaceContainer
-    readonly property color chipSurface: surfaceContainerHigh
+    // The file canvas needs a distinguishable desktop surface.  Using the raw
+    // background here made an all-black, borderless application even when the
+    // active Omarchy theme provides an elevated background.
+    readonly property color cardSurface: surfaceContainerHigh
+    readonly property color chipSurface: surfaceContainerLow
     readonly property color chipSurfaceNested: surfaceContainerHighest
     property color inverseSurface: currentThemeData.inverseSurface || surfaceText
     property color inverseOnSurface: currentThemeData.inverseOnSurface || surface

@@ -27,7 +27,7 @@ SettingsRow {
         toggled(!checked);
     }
 
-    DToggle {
+    OmarchyToggle {
         hideText: true
         text: root.text
         description: root.description

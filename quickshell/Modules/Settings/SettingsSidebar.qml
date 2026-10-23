@@ -112,12 +112,19 @@ Item {
             padding: Theme.spacingL
             spacing: SettingsMetrics.sidebarGroupGap
 
-            DSearchField {
+            DTextField {
                 id: searchField
 
                 width: navColumn.width - navColumn.padding * 2
-                controlHeight: Theme.buttonHeightM
+                height: Theme.buttonHeightXS
+                implicitHeight: Theme.buttonHeightXS
+                controlHeight: Theme.buttonHeightXS
+                cornerRadius: Theme.cornerRadiusS
                 backgroundColor: Theme.surfaceContainerLowest
+                normalBorderColor: Theme.outlineVariant
+                focusedBorderColor: Theme.primary
+                borderWidth: Theme.outlineWidth
+                focusedBorderWidth: Theme.outlineWidthFocused
                 placeholderText: I18n.tr("Search settings", "placeholder in the settings search field")
                 onAccepted: root.searchAccepted()
             }

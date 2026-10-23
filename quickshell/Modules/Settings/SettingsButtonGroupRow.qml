@@ -40,6 +40,10 @@ SettingsRow {
         selectionMode: "single"
         size: "small"
         spacing: root.spacing
+        selectedColor: Theme.surfaceContainerLow
+        selectedContentColor: Theme.primary
+        unselectedColor: Theme.surfaceContainerLowest
+        unselectedContentColor: Theme.surfaceVariantText
         enabled: root.enabled
         maximumWidth: root.compact ? root.width - SettingsMetrics.rowPaddingH * 2 : -1
         onSelectionChanged: (index, selected) => root.selectionChanged(index, selected)

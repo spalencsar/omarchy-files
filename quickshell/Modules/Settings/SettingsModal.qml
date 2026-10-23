@@ -88,6 +88,10 @@ FloatingWindow {
                 z: 10
                 controls: windowControls
                 title: I18n.tr("Settings", "settings window header title")
+                // Settings is an Omarchy surface too; window controls belong to
+                // Hyprland, not inside a second client-side titlebar.
+                visible: false
+                height: 0
                 onCloseRequested: settingsModal.hide()
 
                 DActionButton {

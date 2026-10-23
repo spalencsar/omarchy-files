@@ -25,6 +25,12 @@ SettingsRow {
         Accessible.name: root.text
         Accessible.description: root.description + (root.description ? " · " : "") + currentValue
         width: Math.min(dropdownWidth, root.width - SettingsMetrics.rowPaddingH * 2)
+        triggerHeight: Theme.buttonHeightXS
+        triggerRadius: Theme.cornerRadiusS
+        backgroundColor: Theme.surfaceContainerLowest
+        hoverBackgroundColor: Theme.surfaceContainerLow
+        normalBorderColor: Theme.outlineVariant
+        focusedBorderColor: Theme.primary
         Component.onCompleted: currentValue = root.currentValue
         onValueChanged: value => root.valueChanged(value)
     }

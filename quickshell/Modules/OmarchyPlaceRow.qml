@@ -34,6 +34,22 @@ StyledButton {
     readonly property bool showAction: actionIcon !== "" && (hovered || actionArea.containsMouse)
     readonly property color contentColor: !enabled ? Theme.onSurface_38 : selected ? Theme.onSelectedContainer : Theme.surfaceText
 
+    function iconGlyph() {
+        if (glyph !== "")
+            return glyph;
+        if (iconName.startsWith("user-trash"))
+            return "delete";
+        if (iconName.startsWith("drive-removable"))
+            return "usb";
+        if (iconName.startsWith("drive-"))
+            return "hard_drive";
+        if (iconName === "lock")
+            return "lock";
+        if (iconName.startsWith("folder") || iconName.startsWith("user-") || iconName === "inode-directory")
+            return "folder";
+        return "draft";
+    }
+
     focusPolicy: Qt.TabFocus
     width: parent?.width ?? 0
     implicitHeight: Math.max(Theme.buttonHeightXS + Theme.spacingXS, labels.implicitHeight + Theme.spacingS)
@@ -73,7 +89,9 @@ StyledButton {
             Layout.preferredHeight: Theme.iconSizeMedium
 
             DSpinner { anchors.centerIn: parent; visible: row.busy; size: Theme.iconSizeSmall; color: Theme.primary }
-            FileIcon { anchors.centerIn: parent; visible: !row.busy && !row.showAction; iconName: row.iconName; glyph: row.glyph; size: Theme.iconSizeMedium; color: row.selected ? Theme.primary : Theme.surfaceVariantText }
+            // Do not resolve desktop icon-theme artwork here: several themes
+            // ship the purple circular folders that made this look like DMS.
+            DIcon { anchors.centerIn: parent; visible: !row.busy && !row.showAction; name: row.iconGlyph(); size: Theme.iconSizeMedium; color: row.selected ? Theme.primary : Theme.surfaceVariantText }
             DIcon { anchors.centerIn: parent; visible: !row.busy && row.showAction; name: row.actionIcon; size: Theme.iconSizeMedium; color: Theme.primary }
 
             MouseArea {

@@ -34,9 +34,7 @@ Rectangle {
         }
     }
 
-    readonly property var accentPair: Theme.accent(accent)
-    readonly property color badgeColor: accentPair?.container ?? Theme.withAlpha(Theme.primary, Theme.tonalTintAlpha)
-    readonly property color glyphColor: accentPair?.onContainer ?? Theme.primary
+    readonly property color glyphColor: root.active ? Theme.primary : Theme.surfaceVariantText
     readonly property real topRadius: isFirstInGroup ? Theme.groupedListOuterRadius : Theme.groupedListInnerRadius
     readonly property real bottomRadius: isLastInGroup ? Theme.groupedListOuterRadius : Theme.groupedListInnerRadius
 
@@ -46,11 +44,11 @@ Rectangle {
     topRightRadius: topRadius
     bottomLeftRadius: bottomRadius
     bottomRightRadius: bottomRadius
-    border.width: Theme.layerOutlineWidth
-    border.color: Theme.outlineMedium
+    border.width: active ? Theme.outlineWidth : 0
+    border.color: active ? Theme.outlineVariant : "transparent"
     color: {
         if (active)
-            return SettingsMetrics.selectedRowColor;
+            return Theme.surfaceContainerLow;
         if (highlighted)
             return Theme.blend(SettingsMetrics.rowColor, Theme.primary, SettingsMetrics.highlightBlend);
         return SettingsMetrics.rowColor;
@@ -106,24 +104,13 @@ Rectangle {
         visible: root.activeFocus
     }
 
-    Rectangle {
-        id: iconCircle
+    Item {
+        id: iconSlot
         width: SettingsMetrics.navIconSize
         height: SettingsMetrics.navIconSize
-        radius: Theme.fullRadius(width, height)
         anchors.left: parent.left
         anchors.leftMargin: Theme.spacingL
         anchors.verticalCenter: parent.verticalCenter
-        color: root.badgeColor
-
-        Behavior on color {
-            enabled: Theme.animationsEnabled
-            ColorAnimation {
-                duration: SettingsMetrics.fadeDuration
-                easing.type: Easing.BezierSpline
-                easing.bezierCurve: Theme.expressiveCurves.expressiveEffects
-            }
-        }
 
         DIcon {
             anchors.centerIn: parent
@@ -147,7 +134,7 @@ Rectangle {
 
     Column {
         id: textColumn
-        anchors.left: iconCircle.right
+        anchors.left: iconSlot.right
         anchors.leftMargin: Theme.spacingM
         anchors.right: countBadge.visible ? countBadge.left : parent.right
         anchors.rightMargin: countBadge.visible ? Theme.spacingM : Theme.spacingL
