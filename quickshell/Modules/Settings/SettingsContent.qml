@@ -941,15 +941,15 @@ Item {
                 title: I18n.tr("Omarchy appearance", "appearance settings section label")
 
                 SettingsSliderRow {
-                    text: I18n.tr("Square controls", "global component corner rounding")
-                    keywords: I18n.tr("corners rounding shape square omarchy", "settings search keywords, space separated, add synonyms in your language")
-                    description: I18n.tr("Omarchy Files uses the desktop's square control style.", "radius strength slider description")
-                    minimumLabel: I18n.tr("Square", "radius strength slider label at zero")
-                    value: 0
+                    text: I18n.tr("Corner rounding", "global component corner rounding")
+                    keywords: I18n.tr("corners rounding shape omarchy", "settings search keywords, space separated, add synonyms in your language")
+                    description: I18n.tr("Keep controls compact with Omarchy-style, restrained corners.", "radius strength slider description")
+                    minimumLabel: I18n.tr("Sharp", "radius strength slider label at zero")
+                    value: SettingsData.radiusStrength
                     minimum: 0
                     maximum: 100
                     unit: ""
-                    onSliderValueChanged: () => {}
+                    onSliderValueChanged: value => SettingsData.radiusStrength = value
                 }
             }
 

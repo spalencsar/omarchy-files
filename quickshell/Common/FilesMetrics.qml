@@ -16,7 +16,9 @@ Singleton {
     readonly property real sidebarSectionSpacing: Theme.spacingL
     readonly property int sidebarOverlayBreakpoint: FileBrowserMetrics.sidebarBreakpoint
 
-    readonly property real topbarControlSize: FileBrowserMetrics.controlSize
+    // Keep the app chrome denser than the file-view controls. The reference is
+    // a terminal-like Omarchy surface, not a touch-first Material toolbar.
+    readonly property real topbarControlSize: Theme.buttonHeightXS
     readonly property real topbarSpacing: FileBrowserMetrics.controlSpacing
     readonly property real topbarGroupSpacing: Theme.spacingXS
 

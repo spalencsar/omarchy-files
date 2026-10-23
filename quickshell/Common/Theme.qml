@@ -200,9 +200,18 @@ Singleton {
         const muted = colors.muted || colors.dark_foreground || text;
         return Object.assign({}, fallback, {
             "primary": colors.accent,
-            "primaryText": colors.selection_foreground || fallback.primaryText,
-            "secondary": colors.blue || colors.cyan || fallback.secondary,
-            "tertiary": colors.magenta || colors.orange || fallback.tertiary,
+            "primaryText": colors.foreground || fallback.primaryText,
+            // Keep Omarchy colors literal. DMS/Material's tonal containers blend
+            // unrelated hues into every control, which is exactly the visual we
+            // are avoiding here.
+            "softPrimaryContainer": colors.selection || container,
+            "onPrimaryContainer": colors.selection_foreground || text,
+            "secondary": colors.accent,
+            "secondaryContainer": container,
+            "onSecondaryContainer": text,
+            "tertiary": colors.accent,
+            "tertiaryContainer": elevated,
+            "onTertiaryContainer": text,
             "surface": surface,
             "surfaceText": text,
             "surfaceVariant": elevated,
@@ -223,6 +232,8 @@ Singleton {
             "onSelectedContainer": colors.selection_foreground || fallback.onSelectedContainer,
             "error": colors.red || fallback.error,
             "errorText": colors.selection_foreground || fallback.errorText,
+            "errorContainer": container,
+            "errorContainerText": text,
             "warning": colors.yellow || fallback.warning,
             "info": colors.cyan || fallback.info,
             "success": colors.green || fallback.success,
@@ -436,9 +447,9 @@ Singleton {
     property real iconSizeLarge: 32
 
     readonly property real radiusStrength: SettingsData.radiusStrength
-    // Omarchy's own shell uses square control surfaces by default. This keeps
-    // Files visually part of the desktop instead of inheriting Material pills.
-    readonly property real shapeScale: 0
+    // Omarchy uses restrained corners and clear outlines, not Material pills.
+    // Cap the user preference so desktop controls stay compact and architectural.
+    readonly property real shapeScale: Math.min(0.45, Shape.scaleForStrength(radiusStrength))
     readonly property real fixedRadius: -1
     readonly property real cornerRadius: cornerRadiusM
     readonly property real cornerRadiusXXS: Shape.radius("xxs", shapeScale)

@@ -236,7 +236,7 @@ Item {
             onClicked: topbar.sidebarToggled()
         }
 
-        NavButtonPair {
+        OmarchyNavButtonPair {
             anchors.verticalCenter: parent.verticalCenter
             backEnabled: topbar.backEnabled
             forwardEnabled: topbar.forwardEnabled
@@ -292,7 +292,7 @@ Item {
             onClicked: topbar.splitToggled()
         }
 
-        FileSortButton {
+        OmarchySortButton {
             id: sortButton
 
             anchors.verticalCenter: parent.verticalCenter
@@ -458,7 +458,7 @@ Item {
         }
     }
 
-    DSearchField {
+    OmarchySearchField {
         id: search
 
         anchors.left: leftActions.right
