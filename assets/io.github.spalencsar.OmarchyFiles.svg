@@ -1,12 +1,9 @@
-<!-- folder glyph from Material Symbols Rounded, Apache License 2.0, https://github.com/google/material-design-icons -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#F5F0FF"/>
-      <stop offset="1" stop-color="#D0BCFF"/>
-    </linearGradient>
-  </defs>
-  <g transform="translate(0 64) scale(0.0666667)">
-    <path d="M140-160q-24 0-42-18.5T80-220v-520q0-23 18-41.5t42-18.5h256q12 0 23.5 5t19.5 13l42 42h339q23 0 41.5 18.5T880-680v460q0 23-18.5 41.5T820-160H140Z" fill="url(#body)"/>
-  </g>
+  <!-- Omarchy Files: a compact, high-contrast folder mark. -->
+  <rect x="4" y="4" width="56" height="56" rx="10" fill="#0b0c0b"/>
+  <rect x="4.75" y="4.75" width="54.5" height="54.5" rx="9.25" fill="none" stroke="#3f423c" stroke-width="1.5"/>
+  <path d="M14 24.5c0-2.5 2-4.5 4.5-4.5h9l4.5 5H45.5c2.5 0 4.5 2 4.5 4.5v15c0 2.5-2 4.5-4.5 4.5h-27c-2.5 0-4.5-2-4.5-4.5v-20Z" fill="#151814" stroke="#c9d6ad" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M14.5 31h35" stroke="#c9d6ad" stroke-width="2" stroke-linecap="round"/>
+  <path d="M22 38h13" stroke="#90a66d" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="42" cy="38" r="2" fill="#90a66d"/>
 </svg>
