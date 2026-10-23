@@ -301,11 +301,10 @@ Singleton {
     property color surfaceContainerHigh: currentThemeData.surfaceContainerHigh
     property color surfaceContainerHighest: currentThemeData.surfaceContainerHighest || surfaceContainerHigh
     readonly property color hostSurface: surface
-    // The file canvas needs a distinguishable desktop surface.  Using the raw
-    // background here made an all-black, borderless application even when the
-    // active Omarchy theme provides an elevated background.
-    readonly property color cardSurface: surfaceContainerHigh
-    readonly property color chipSurface: surfaceContainerLow
+    // Keep the file canvas on the active Omarchy background. Structural
+    // separation comes from the restrained outlines, not an invented grey panel.
+    readonly property color cardSurface: surfaceContainer
+    readonly property color chipSurface: surfaceContainerHigh
     readonly property color chipSurfaceNested: surfaceContainerHighest
     property color inverseSurface: currentThemeData.inverseSurface || surfaceText
     property color inverseOnSurface: currentThemeData.inverseOnSurface || surface

@@ -51,12 +51,17 @@ SettingsRow {
             Accessible.name: I18n.tr("Decrease", "slider row step down button")
             iconSize: Theme.iconSizeMedium
             iconColor: Theme.surfaceVariantText
+            circular: false
+            radius: Theme.cornerRadiusS
+            backgroundColor: Theme.surfaceContainerLowest
+            border.width: Theme.outlineWidth
+            border.color: Theme.outlineVariant
             enabled: root.enabled && slider.value > slider.minimum
             anchors.verticalCenter: parent.verticalCenter
             onClicked: root.nudge(-1)
         }
 
-        DSlider {
+        OmarchySlider {
             id: slider
             Accessible.name: root.text
             Accessible.description: root.description
@@ -76,6 +81,11 @@ SettingsRow {
             Accessible.name: I18n.tr("Increase", "slider row step up button")
             iconSize: Theme.iconSizeMedium
             iconColor: Theme.surfaceVariantText
+            circular: false
+            radius: Theme.cornerRadiusS
+            backgroundColor: Theme.surfaceContainerLowest
+            border.width: Theme.outlineWidth
+            border.color: Theme.outlineVariant
             enabled: root.enabled && slider.value < slider.maximum
             anchors.verticalCenter: parent.verticalCenter
             onClicked: root.nudge(1)

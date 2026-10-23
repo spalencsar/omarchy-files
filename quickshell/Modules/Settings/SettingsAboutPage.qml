@@ -91,19 +91,7 @@ Item {
     }
 
     SettingsPage {
-        DHeroCard {
-            brand: I18n.tr("Files", "main window title")
-            caption: root.version ? `omarchy-files ${root.version}` : "omarchy-files"
-
-            DButton {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: I18n.tr("View project on GitHub", "about page hero button, opens the project repository")
-                iconName: "code"
-                backgroundColor: Theme.primary
-                textColor: Theme.onPrimary
-                onClicked: DuxFilesService.openUri(root.githubUrl)
-            }
-        }
+        OmarchyAboutHeader { version: root.version ? `omarchy-files ${root.version}` : "omarchy-files"; onGithubRequested: DuxFilesService.openUri(root.githubUrl) }
 
         SettingsGroup {
             SettingsLinkRow {
