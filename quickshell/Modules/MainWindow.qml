@@ -469,6 +469,10 @@ FloatingWindow {
             anchors.right: parent.right
             controls: windowControls
             title: window.title
+            // Omarchy delegates window management to Hyprland.  A client-side
+            // titlebar (and especially a lone close chip) only recreates DMS.
+            visible: false
+            height: 0
             onCloseRequested: window.requestClose()
 
             JobsButton {

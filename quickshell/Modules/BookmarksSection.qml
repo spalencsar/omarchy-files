@@ -70,7 +70,7 @@ FilePlaceSection {
         spacing: Theme.spacingXXS
         onReordered: indices => BookmarksService.reorder(section.fullOrder(indices.map(index => section.bookmarks[index].path)))
 
-        delegate: FilePlaceRow {
+        delegate: OmarchyPlaceRow {
             id: row
 
             required property var modelData

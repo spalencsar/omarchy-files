@@ -114,7 +114,7 @@ FilePlaceSection {
             width: section.width
             spacing: FileBrowserMetrics.sidebarRowGap
 
-            FilePlaceRow {
+            OmarchyPlaceRow {
                 label: section.groupTitle(group.modelData.key)
                 glyph: "sports_esports"
                 actionIcon: section.expanded(group.modelData.key) ? "expand_less" : "expand_more"
@@ -126,7 +126,7 @@ FilePlaceSection {
             Repeater {
                 model: section.expanded(group.modelData.key) ? group.modelData.places : []
 
-                FilePlaceRow {
+                OmarchyPlaceRow {
                     required property var modelData
 
                     label: section.placeTitle(modelData)

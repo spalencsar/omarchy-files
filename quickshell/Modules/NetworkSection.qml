@@ -31,7 +31,7 @@ FilePlaceSection {
     Repeater {
         model: NetworkService.networkMounts
 
-        FilePlaceRow {
+        OmarchyPlaceRow {
             required property var modelData
 
             label: modelData.name
@@ -51,7 +51,7 @@ FilePlaceSection {
         }
     }
 
-    FilePlaceRow {
+    OmarchyPlaceRow {
         visible: NetworkService.available
         label: I18n.tr("Connect to Server…", "sidebar entry opening the connect to server dialog")
         iconName: "folder-remote"

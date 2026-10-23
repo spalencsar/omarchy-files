@@ -9,4 +9,6 @@ DTextField {
     focusedBorderColor: Theme.primary
     borderWidth: Theme.outlineWidth
     focusedBorderWidth: Theme.outlineWidthFocused
+    height: FilesMetrics.topbarControlSize
+    implicitHeight: FilesMetrics.topbarControlSize
 }

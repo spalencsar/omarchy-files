@@ -32,7 +32,7 @@ DFlickable {
         for (const child of item.children) {
             if (!child.visible)
                 continue;
-            if (child instanceof FilePlaceRow) {
+            if (child instanceof OmarchyPlaceRow) {
                 out.push(child);
                 continue;
             }
@@ -42,7 +42,7 @@ DFlickable {
 
     function focusedRow() {
         const item = Window.activeFocusItem;
-        return item instanceof FilePlaceRow && rows().includes(item) ? item : null;
+        return item instanceof OmarchyPlaceRow && rows().includes(item) ? item : null;
     }
 
     function focusRow(row) {

@@ -116,7 +116,7 @@ FilePlaceSection {
     Repeater {
         model: section.shownDevices
 
-        FilePlaceRow {
+        OmarchyPlaceRow {
             required property var modelData
 
             label: modelData.mounted && modelData.mountPoint ? modelData.mountPoint : modelData.name || modelData.label || I18n.tr("File system", "storage volume containing the root directory")
@@ -157,7 +157,7 @@ FilePlaceSection {
     Repeater {
         model: NetworkService.portables
 
-        FilePlaceRow {
+        OmarchyPlaceRow {
             required property var modelData
 
             label: modelData.name
@@ -176,7 +176,7 @@ FilePlaceSection {
     Repeater {
         model: NetworkService.deviceMounts
 
-        FilePlaceRow {
+        OmarchyPlaceRow {
             required property var modelData
 
             label: modelData.name
