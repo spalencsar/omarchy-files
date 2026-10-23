@@ -7,7 +7,7 @@ Rectangle {
     property string version: ""
     signal githubRequested
 
-    height: 116
+    height: 152
     radius: Theme.cornerRadiusS
     color: Theme.surfaceContainer
     border.width: Theme.outlineWidth
@@ -15,10 +15,12 @@ Rectangle {
 
     Column {
         anchors.centerIn: parent
-        spacing: Theme.spacingS
+        spacing: Theme.spacingXS
 
         StyledText { anchors.horizontalCenter: parent.horizontalCenter; text: I18n.tr("Omarchy Files", "about page product name"); color: Theme.surfaceText; font.pixelSize: Theme.fontSizeXXLarge; font.weight: Theme.fontWeightMedium }
+        StyledText { anchors.horizontalCenter: parent.horizontalCenter; text: I18n.tr("Standalone Wayland file manager for Omarchy", "about page product description"); color: Theme.surfaceVariantText; font.pixelSize: Theme.fontSizeSmall }
         StyledText { anchors.horizontalCenter: parent.horizontalCenter; text: root.version; color: Theme.surfaceVariantText; font.pixelSize: Theme.fontSizeSmall }
+        StyledText { anchors.horizontalCenter: parent.horizontalCenter; text: I18n.tr("Maintained by Sebastian Palencsar", "about page maintainer credit"); color: Theme.surfaceVariantText; font.pixelSize: Theme.fontSizeSmall }
 
         Rectangle {
             width: actionLabel.implicitWidth + Theme.spacingL * 2
