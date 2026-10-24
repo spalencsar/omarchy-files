@@ -18,6 +18,7 @@ Singleton {
     property var portals: ({})
     property var features: ({})
     property var thumbnailers: []
+    property var optionalDependencies: ({})
 
     // Unknown features count as available so nothing flickers out at startup.
     function available(name) {
@@ -51,6 +52,7 @@ Singleton {
         portals = data.portals || {};
         features = data.features || {};
         thumbnailers = data.thumbnailers || [];
+        optionalDependencies = data.optionalDependencies || {};
         loaded = true;
     }
 

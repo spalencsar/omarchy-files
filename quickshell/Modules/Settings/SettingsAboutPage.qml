@@ -63,6 +63,58 @@ Item {
         }
     ]
 
+    readonly property var optionalFeatureRows: [
+        {
+            "id": "dsearch",
+            "label": I18n.tr("Indexed search", "optional feature row on the about page"),
+            "available": SandboxService.optionalDependencies.dsearch === true,
+            "availableSubtitle": I18n.tr("DankSearch is installed. Enable its user service to keep the index up to date.", "optional feature status on the about page"),
+            "install": "yay -S dsearch-bin && systemctl --user enable --now dsearch"
+        },
+        {
+            "id": "bubblewrap",
+            "label": I18n.tr("Sandboxed thumbnails", "optional feature row on the about page"),
+            "available": SandboxService.optionalDependencies.bubblewrap === true,
+            "availableSubtitle": I18n.tr("External thumbnailers run in a sandbox.", "optional feature status on the about page"),
+            "install": "sudo pacman -S bubblewrap"
+        },
+        {
+            "id": "ffmpegthumbnailer",
+            "label": I18n.tr("Video thumbnails", "optional feature row on the about page"),
+            "available": SandboxService.optionalDependencies.ffmpegthumbnailer === true,
+            "availableSubtitle": I18n.tr("Video thumbnails are available.", "optional feature status on the about page"),
+            "install": "sudo pacman -S ffmpegthumbnailer"
+        },
+        {
+            "id": "poppler",
+            "label": I18n.tr("PDF thumbnails", "optional feature row on the about page"),
+            "available": SandboxService.optionalDependencies.poppler === true,
+            "availableSubtitle": I18n.tr("PDF thumbnails are available.", "optional feature status on the about page"),
+            "install": "sudo pacman -S poppler"
+        },
+        {
+            "id": "pdfPreview",
+            "label": I18n.tr("PDF preview", "optional feature row on the about page"),
+            "available": PdfService.available,
+            "availableSubtitle": I18n.tr("PDF files can be previewed in the file manager.", "optional feature status on the about page"),
+            "install": "sudo pacman -S qt6-webengine"
+        },
+        {
+            "id": "network",
+            "label": I18n.tr("Network locations", "optional feature row on the about page"),
+            "available": NetworkService.available,
+            "availableSubtitle": I18n.tr("Network shares can be connected and browsed.", "optional feature status on the about page"),
+            "install": "sudo pacman -S gvfs"
+        },
+        {
+            "id": "devices",
+            "label": I18n.tr("Drives and removable media", "optional feature row on the about page"),
+            "available": DevicesService.available,
+            "availableSubtitle": I18n.tr("Drives can be mounted and ejected.", "optional feature status on the about page"),
+            "install": "sudo pacman -S udisks2"
+        }
+    ]
+
     function host(url) {
         return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
     }
@@ -89,6 +141,22 @@ Item {
             "color": Theme.success
         };
     }
+
+    function optionalStatus(row) {
+        if (row.available)
+            return {
+                "text": I18n.tr("Available", "optional feature status on the about page"),
+                "color": Theme.success,
+                "subtitle": row.availableSubtitle
+            };
+        return {
+            "text": I18n.tr("Not installed", "optional feature status on the about page"),
+            "color": Theme.surfaceVariantText,
+            "subtitle": I18n.tr("Install: %1", "optional feature install command on the about page").arg(row.install)
+        };
+    }
+
+    Component.onCompleted: PdfService.ensureProbed()
 
     SettingsPage {
         OmarchyAboutHeader { version: root.version ? `omarchy-files ${root.version}` : "omarchy-files" }
@@ -155,6 +223,26 @@ Item {
 
                     title: modelData.label
                     keywords: I18n.tr("capability available sandbox", "settings search keywords, space separated, add synonyms in your language")
+                    trailingBadge: status.text
+                    trailingBadgeColor: status.color
+                }
+            }
+        }
+
+        SettingsCard {
+            title: I18n.tr("Optional features", "about page section listing optional packages")
+
+            Repeater {
+                model: root.optionalFeatureRows
+
+                SettingsRow {
+                    required property var modelData
+
+                    readonly property var status: root.optionalStatus(modelData)
+
+                    title: modelData.label
+                    subtitle: status.subtitle
+                    keywords: I18n.tr("optional packages install dsearch thumbnails preview network drives", "settings search keywords, space separated, add synonyms in your language")
                     trailingBadge: status.text
                     trailingBadgeColor: status.color
                 }

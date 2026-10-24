@@ -2,11 +2,12 @@ package ipc
 
 import (
 	"context"
+	"os/exec"
 
+	"github.com/duxlabs-dev/dux-go/ipc/params"
 	"github.com/spalencsar/omarchy-files/core/internal/filemanager1"
 	"github.com/spalencsar/omarchy-files/core/internal/portal"
 	"github.com/spalencsar/omarchy-files/core/internal/sandbox"
-	"github.com/duxlabs-dev/dux-go/ipc/params"
 )
 
 func HandleSystem(ctx context.Context, w *ConnWriter, req Request, deps Deps) {
@@ -90,7 +91,8 @@ func HandleSystem(ctx context.Context, w *ConnWriter, req Request, deps Deps) {
 
 type capabilitiesResponse struct {
 	sandbox.Capabilities
-	Thumbnailers []string `json:"thumbnailers"`
+	Thumbnailers         []string        `json:"thumbnailers"`
+	OptionalDependencies map[string]bool `json:"optionalDependencies"`
 }
 
 func capabilities(deps Deps) capabilitiesResponse {
@@ -108,9 +110,23 @@ func capabilities(deps Deps) capabilitiesResponse {
 	if caps.Filesystems == nil {
 		caps.Filesystems = []string{}
 	}
-	out := capabilitiesResponse{Capabilities: caps, Thumbnailers: []string{}}
+	out := capabilitiesResponse{
+		Capabilities: caps,
+		Thumbnailers: []string{},
+		OptionalDependencies: map[string]bool{
+			"dsearch":           commandAvailable("dsearch"),
+			"bubblewrap":        commandAvailable("bwrap"),
+			"ffmpegthumbnailer": commandAvailable("ffmpegthumbnailer"),
+			"poppler":           commandAvailable("pdftoppm"),
+		},
+	}
 	if deps.Files != nil {
 		out.Thumbnailers = append(out.Thumbnailers, deps.Files.Capabilities()...)
 	}
 	return out
+}
+
+func commandAvailable(name string) bool {
+	_, err := exec.LookPath(name)
+	return err == nil
 }

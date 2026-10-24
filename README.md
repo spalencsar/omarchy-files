@@ -105,6 +105,7 @@ These Arch packages are detected when the daemon starts:
 | `bubblewrap` | runs external thumbnailers in a sandbox, like gnome-desktop does |
 | `ffmpegthumbnailer` | video thumbnails |
 | `poppler` | PDF thumbnails |
+| `qt6-webengine` | in-app PDF preview |
 | `gvfs` | network shares and the trash on removable drives |
 | `udisks2` | the devices sidebar |
 

@@ -196,13 +196,6 @@
     "comment": ""
   },
   {
-    "term": "50 is the Material default.",
-    "translation": "",
-    "context": "radius strength slider description",
-    "reference": "",
-    "comment": ""
-  },
-  {
     "term": "? or F1 in the main window.",
     "translation": "",
     "context": "keyboard shortcuts settings row description",
@@ -392,6 +385,13 @@
     "comment": ""
   },
   {
+    "term": "Ascending",
+    "translation": "",
+    "context": "file browser sort order option",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Ask",
     "translation": "",
     "context": "drag label when the drop opens a copy, move or link menu",
@@ -415,7 +415,7 @@
   {
     "term": "Auto",
     "translation": "",
-    "context": "color source button group option following DMS | font source button group option following DMS | theme mode button group option",
+    "context": "color source button group option following Omarchy | font source button group option following Omarchy | theme mode button group option",
     "reference": "",
     "comment": ""
   },
@@ -436,7 +436,7 @@
   {
     "term": "Available",
     "translation": "",
-    "context": "capability status on the about page",
+    "context": "capability status on the about page | optional feature status on the about page",
     "reference": "",
     "comment": ""
   },
@@ -784,6 +784,13 @@
     "comment": ""
   },
   {
+    "term": "Corner rounding",
+    "translation": "",
+    "context": "global component corner rounding",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Could not read that file, expected a JSON color theme.",
     "translation": "",
     "context": "custom theme error when file is invalid",
@@ -861,6 +868,13 @@
     "comment": ""
   },
   {
+    "term": "DankSearch is installed. Enable its user service to keep the index up to date.",
+    "translation": "",
+    "context": "optional feature status on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Dark",
     "translation": "",
     "context": "theme mode button group option",
@@ -910,9 +924,16 @@
     "comment": ""
   },
   {
+    "term": "Delete from remote server?",
+    "translation": "",
+    "context": "permanent delete confirmation header for a network mount",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Delete permanently",
     "translation": "",
-    "context": "context menu entry deleting the selection for good",
+    "context": "confirming permanent deletion from a remote server | context menu entry deleting files from a remote server | context menu entry deleting the selection for good",
     "reference": "",
     "comment": ""
   },
@@ -927,6 +948,13 @@
     "term": "Deleting",
     "translation": "",
     "context": "file operation in progress",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Descending",
+    "translation": "",
+    "context": "file browser sort order option",
     "reference": "",
     "comment": ""
   },
@@ -948,6 +976,13 @@
     "term": "Disconnect",
     "translation": "",
     "context": "network mount action",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Disconnected from %1. Open views returned to Home.",
+    "translation": "",
+    "context": "message after disconnecting a remote server, %1 is its name",
     "reference": "",
     "comment": ""
   },
@@ -1015,6 +1050,13 @@
     "comment": ""
   },
   {
+    "term": "Drives and removable media",
+    "translation": "",
+    "context": "optional feature row on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Drives are unavailable because the sandbox cannot reach udisks2",
     "translation": "",
     "context": "explanation when the flatpak lacks the udisks2 permission",
@@ -1025,6 +1067,13 @@
     "term": "Drives are unavailable because udisks2 is not running",
     "translation": "",
     "context": "sidebar explanation when the device service is missing",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Drives can be mounted and ejected.",
+    "translation": "",
+    "context": "optional feature status on the about page",
     "reference": "",
     "comment": ""
   },
@@ -1067,13 +1116,6 @@
     "term": "Duration",
     "translation": "",
     "context": "animation duration slider label",
-    "reference": "",
-    "comment": ""
-  },
-  {
-    "term": "Dux Shell not detected, using %1.",
-    "translation": "",
-    "context": "auto font source status when DMS is missing",
     "reference": "",
     "comment": ""
   },
@@ -1165,6 +1207,13 @@
     "term": "Expand",
     "translation": "",
     "context": "games sidebar action showing a launcher's folders",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "External thumbnailers run in a sandbox.",
+    "translation": "",
+    "context": "optional feature status on the about page",
     "reference": "",
     "comment": ""
   },
@@ -1316,7 +1365,7 @@
     "comment": ""
   },
   {
-    "term": "Follow Dux Shell colors, falling back to a preset.",
+    "term": "Follow the active Omarchy theme, falling back to a preset.",
     "translation": "",
     "context": "color source description for auto",
     "reference": "",
@@ -1431,13 +1480,6 @@
     "term": "Getting around",
     "translation": "",
     "context": "keyboard shortcut group",
-    "reference": "",
-    "comment": ""
-  },
-  {
-    "term": "GitHub",
-    "translation": "",
-    "context": "about page resource button",
     "reference": "",
     "comment": ""
   },
@@ -1568,6 +1610,20 @@
     "comment": ""
   },
   {
+    "term": "Indexed search",
+    "translation": "",
+    "context": "optional feature row on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Install: %1",
+    "translation": "",
+    "context": "optional feature install command on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Invert the selection",
     "translation": "",
     "context": "keyboard shortcut",
@@ -1620,6 +1676,13 @@
     "term": "Keep both",
     "translation": "",
     "context": "file conflict dialog button to keep both items",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Keep controls compact with Omarchy-style, restrained corners.",
+    "translation": "",
+    "context": "radius strength slider description",
     "reference": "",
     "comment": ""
   },
@@ -1746,6 +1809,13 @@
     "term": "MIT License",
     "translation": "",
     "context": "about page license footer link",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Maintained by Sebastian Palencsar · based on Dux Files",
+    "translation": "",
+    "context": "about page maintainer and upstream credit",
     "reference": "",
     "comment": ""
   },
@@ -1932,6 +2002,13 @@
     "comment": ""
   },
   {
+    "term": "Network locations",
+    "translation": "",
+    "context": "optional feature row on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Network locations are unavailable because gvfs is not running",
     "translation": "",
     "context": "sidebar explanation when the network service is missing",
@@ -1942,6 +2019,13 @@
     "term": "Network locations are unavailable because the sandbox cannot reach gvfs",
     "translation": "",
     "context": "explanation when the flatpak lacks the gvfs permissions",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Network shares can be connected and browsed.",
+    "translation": "",
+    "context": "optional feature status on the about page",
     "reference": "",
     "comment": ""
   },
@@ -2058,6 +2142,13 @@
     "comment": ""
   },
   {
+    "term": "Not installed",
+    "translation": "",
+    "context": "optional feature status on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Nothing is running",
     "translation": "",
     "context": "jobs popover empty state",
@@ -2100,7 +2191,21 @@
     "comment": ""
   },
   {
-    "term": "Omarchy and Dux Shell themes not detected, using the %1 preset.",
+    "term": "Omarchy Files",
+    "translation": "",
+    "context": "about page product name",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Omarchy appearance",
+    "translation": "",
+    "context": "appearance settings section label",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Omarchy theme not detected, using the %1 preset.",
     "translation": "",
     "context": "auto color source status when no desktop theme is active",
     "reference": "",
@@ -2254,6 +2359,13 @@
     "comment": ""
   },
   {
+    "term": "Optional features",
+    "translation": "",
+    "context": "about page section listing optional packages",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Orange",
     "translation": "",
     "context": "color palette name",
@@ -2289,9 +2401,37 @@
     "comment": ""
   },
   {
+    "term": "PDF files can be previewed in the file manager.",
+    "translation": "",
+    "context": "optional feature status on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "PDF preview",
+    "translation": "",
+    "context": "optional feature row on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "PDF preview is not available. Install Qt PDF support to view this file.",
     "translation": "",
     "context": "large preview warning when the optional Qt PDF module is missing",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "PDF thumbnails",
+    "translation": "",
+    "context": "optional feature row on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "PDF thumbnails are available.",
+    "translation": "",
+    "context": "optional feature status on the about page",
     "reference": "",
     "comment": ""
   },
@@ -2502,13 +2642,6 @@
     "term": "Quit",
     "translation": "",
     "context": "close behavior button group option to quit the app",
-    "reference": "",
-    "comment": ""
-  },
-  {
-    "term": "Radius strength",
-    "translation": "",
-    "context": "global component corner rounding",
     "reference": "",
     "comment": ""
   },
@@ -2821,6 +2954,13 @@
     "comment": ""
   },
   {
+    "term": "Sandboxed thumbnails",
+    "translation": "",
+    "context": "optional feature row on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Save",
     "translation": "",
     "context": "dialog button to confirm a name | file browser save button",
@@ -2982,16 +3122,16 @@
     "comment": ""
   },
   {
-    "term": "Shape",
+    "term": "Shared with other apps.",
     "translation": "",
-    "context": "appearance settings section label",
+    "context": "setting description for the recently used files list",
     "reference": "",
     "comment": ""
   },
   {
-    "term": "Shared with other apps.",
+    "term": "Sharp",
     "translation": "",
-    "context": "setting description for the recently used files list",
+    "context": "radius strength slider label at zero",
     "reference": "",
     "comment": ""
   },
@@ -3122,6 +3262,13 @@
     "comment": ""
   },
   {
+    "term": "Sort By",
+    "translation": "",
+    "context": "file browser sort menu section header",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Sort by",
     "translation": "",
     "context": "setting label for the default sort key",
@@ -3157,9 +3304,9 @@
     "comment": ""
   },
   {
-    "term": "Square",
+    "term": "Standalone Wayland file manager for Omarchy",
     "translation": "",
-    "context": "radius strength slider label at zero",
+    "context": "about page product description",
     "reference": "",
     "comment": ""
   },
@@ -3342,6 +3489,13 @@
     "term": "This month",
     "translation": "",
     "context": "search filter chip for files changed in the last thirty days",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "This remote location does not provide a trash. %1 will be deleted permanently. This cannot be undone.",
+    "translation": "",
+    "context": "permanent delete explanation for a network mount",
     "reference": "",
     "comment": ""
   },
@@ -3563,16 +3717,16 @@
     "comment": ""
   },
   {
-    "term": "Using Dux Shell dynamic colors.",
+    "term": "Using active Omarchy theme colors.",
     "translation": "",
-    "context": "auto color source status when DMS is active",
+    "context": "auto color source status when Omarchy is active",
     "reference": "",
     "comment": ""
   },
   {
-    "term": "Using active Omarchy theme colors.",
+    "term": "Using the system font: %1.",
     "translation": "",
-    "context": "auto color source status when Omarchy is active",
+    "context": "auto font source status when Omarchy is active",
     "reference": "",
     "comment": ""
   },
@@ -3598,16 +3752,23 @@
     "comment": ""
   },
   {
-    "term": "View",
+    "term": "Video thumbnails",
     "translation": "",
-    "context": "keyboard shortcut group",
+    "context": "optional feature row on the about page",
     "reference": "",
     "comment": ""
   },
   {
-    "term": "View project on GitHub",
+    "term": "Video thumbnails are available.",
     "translation": "",
-    "context": "about page hero button, opens the project repository",
+    "context": "optional feature status on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "View",
+    "translation": "",
+    "context": "keyboard shortcut group",
     "reference": "",
     "comment": ""
   },
@@ -3745,7 +3906,7 @@
     "comment": ""
   },
   {
-    "term": "corners rounding shape square",
+    "term": "corners rounding shape omarchy",
     "translation": "",
     "context": "settings search keywords, space separated, add synonyms in your language",
     "reference": "",
@@ -3871,7 +4032,7 @@
     "comment": ""
   },
   {
-    "term": "font family typeface dms system qt",
+    "term": "font family typeface omarchy system qt",
     "translation": "",
     "context": "settings search keywords, space separated, add synonyms in your language",
     "reference": "",
@@ -4011,6 +4172,13 @@
     "comment": ""
   },
   {
+    "term": "optional packages install dsearch thumbnails preview network drives",
+    "translation": "",
+    "context": "settings search keywords, space separated, add synonyms in your language",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "order direction ascending reverse",
     "translation": "",
     "context": "settings search keywords, space separated, add synonyms in your language",
@@ -4025,7 +4193,7 @@
     "comment": ""
   },
   {
-    "term": "palette dms preset custom accent",
+    "term": "palette omarchy preset custom accent",
     "translation": "",
     "context": "settings search keywords, space separated, add synonyms in your language",
     "reference": "",
@@ -4096,13 +4264,6 @@
   },
   {
     "term": "size column entries",
-    "translation": "",
-    "context": "settings search keywords, space separated, add synonyms in your language",
-    "reference": "",
-    "comment": ""
-  },
-  {
-    "term": "source code repository issues",
     "translation": "",
     "context": "settings search keywords, space separated, add synonyms in your language",
     "reference": "",
