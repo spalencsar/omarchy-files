@@ -4,6 +4,7 @@ import (
 	"context"
 	"os/exec"
 
+	duxipc "github.com/duxlabs-dev/dux-go/ipc"
 	"github.com/duxlabs-dev/dux-go/ipc/params"
 	"github.com/spalencsar/omarchy-files/core/internal/filemanager1"
 	"github.com/spalencsar/omarchy-files/core/internal/portal"
@@ -91,8 +92,13 @@ func HandleSystem(ctx context.Context, w *ConnWriter, req Request, deps Deps) {
 
 type capabilitiesResponse struct {
 	sandbox.Capabilities
-	Thumbnailers         []string        `json:"thumbnailers"`
-	OptionalDependencies map[string]bool `json:"optionalDependencies"`
+	Thumbnailers         []string                      `json:"thumbnailers"`
+	OptionalDependencies map[string]optionalDependency `json:"optionalDependencies"`
+}
+
+type optionalDependency struct {
+	Installed bool `json:"installed"`
+	Active    bool `json:"active,omitempty"`
 }
 
 func capabilities(deps Deps) capabilitiesResponse {
@@ -113,11 +119,11 @@ func capabilities(deps Deps) capabilitiesResponse {
 	out := capabilitiesResponse{
 		Capabilities: caps,
 		Thumbnailers: []string{},
-		OptionalDependencies: map[string]bool{
-			"dsearch":           commandAvailable("dsearch"),
-			"bubblewrap":        commandAvailable("bwrap"),
-			"ffmpegthumbnailer": commandAvailable("ffmpegthumbnailer"),
-			"poppler":           commandAvailable("pdftoppm"),
+		OptionalDependencies: map[string]optionalDependency{
+			"dsearch":           dsearchDependency(),
+			"bubblewrap":        {Installed: commandAvailable("bwrap")},
+			"ffmpegthumbnailer": {Installed: commandAvailable("ffmpegthumbnailer")},
+			"poppler":           {Installed: commandAvailable("pdftoppm")},
 		},
 	}
 	if deps.Files != nil {
@@ -129,4 +135,14 @@ func capabilities(deps Deps) capabilitiesResponse {
 func commandAvailable(name string) bool {
 	_, err := exec.LookPath(name)
 	return err == nil
+}
+
+func dsearchDependency() optionalDependency {
+	dependency := optionalDependency{Installed: commandAvailable("dsearch")}
+	if !dependency.Installed {
+		return dependency
+	}
+	_, err := duxipc.FindRunningSocket("danksearch")
+	dependency.Active = err == nil
+	return dependency
 }

@@ -176,7 +176,7 @@
   {
     "term": "API",
     "context": "API",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:184",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:212",
     "comment": "about page daemon api version column label"
   },
   {
@@ -190,6 +190,12 @@
     "context": "Accessed",
     "reference": "Modules/PropertiesDialog.qml:100",
     "comment": "properties row showing when an item was last read"
+  },
+  {
+    "term": "Active",
+    "context": "Active",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:144",
+    "comment": "optional search index status on the about page"
   },
   {
     "term": "Add or remove one item",
@@ -374,7 +380,7 @@
   {
     "term": "Available",
     "context": "Available",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:140, Modules/Settings/SettingsAboutPage.qml:148",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:133, Modules/Settings/SettingsAboutPage.qml:154, Modules/Settings/SettingsAboutPage.qml:163",
     "comment": "capability status on the about page | optional feature status on the about page"
   },
   {
@@ -392,7 +398,7 @@
   {
     "term": "Backend",
     "context": "Backend",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:175",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:203",
     "comment": "about page daemon section header"
   },
   {
@@ -458,7 +464,7 @@
   {
     "term": "Capabilities",
     "context": "Capabilities",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:214",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:242",
     "comment": "about page daemon capabilities label"
   },
   {
@@ -608,7 +614,7 @@
   {
     "term": "Connected",
     "context": "Connected",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:192",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:220",
     "comment": "about page daemon status value"
   },
   {
@@ -744,9 +750,15 @@
     "comment": "color palette name"
   },
   {
-    "term": "DankSearch is installed. Enable its user service to keep the index up to date.",
-    "context": "DankSearch is installed. Enable its user service to keep the index up to date.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:71",
+    "term": "DankSearch is installed, but its user service is not running.",
+    "context": "DankSearch is installed, but its user service is not running.",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:67",
+    "comment": "optional feature status on the about page"
+  },
+  {
+    "term": "DankSearch is searching from its index.",
+    "context": "DankSearch is searching from its index.",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:66",
     "comment": "optional feature status on the about page"
   },
   {
@@ -860,7 +872,7 @@
   {
     "term": "Docs",
     "context": "Docs",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:167",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:195",
     "comment": "about page resource button"
   },
   {
@@ -902,7 +914,7 @@
   {
     "term": "Drives and removable media",
     "context": "Drives and removable media",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:111",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:104",
     "comment": "optional feature row on the about page"
   },
   {
@@ -920,7 +932,7 @@
   {
     "term": "Drives can be mounted and ejected.",
     "context": "Drives can be mounted and ejected.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:113",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:106",
     "comment": "optional feature status on the about page"
   },
   {
@@ -1040,7 +1052,7 @@
   {
     "term": "External thumbnailers run in a sandbox.",
     "context": "External thumbnailers run in a sandbox.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:78",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:73",
     "comment": "optional feature status on the about page"
   },
   {
@@ -1382,14 +1394,20 @@
   {
     "term": "Indexed search",
     "context": "Indexed search",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:69",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:65",
     "comment": "optional feature row on the about page"
   },
   {
     "term": "Install: %1",
     "context": "Install: %1",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:155",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:158, Modules/Settings/SettingsAboutPage.qml:158, Modules/Settings/SettingsAboutPage.qml:183",
     "comment": "optional feature install command on the about page"
+  },
+  {
+    "term": "Installed",
+    "context": "Installed",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:146, Modules/Settings/SettingsAboutPage.qml:167",
+    "comment": "optional package status on the about page"
   },
   {
     "term": "Invert the selection",
@@ -1550,7 +1568,7 @@
   {
     "term": "MIT License",
     "context": "MIT License",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:254",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:282",
     "comment": "about page license footer link"
   },
   {
@@ -1718,7 +1736,7 @@
   {
     "term": "Network locations",
     "context": "Network locations",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:104",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:97",
     "comment": "optional feature row on the about page"
   },
   {
@@ -1736,7 +1754,7 @@
   {
     "term": "Network shares can be connected and browsed.",
     "context": "Network shares can be connected and browsed.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:106",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:99",
     "comment": "optional feature status on the about page"
   },
   {
@@ -1838,7 +1856,7 @@
   {
     "term": "Not installed",
     "context": "Not installed",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:153",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:181",
     "comment": "optional feature status on the about page"
   },
   {
@@ -1874,7 +1892,7 @@
   {
     "term": "Offline",
     "context": "Offline",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:192",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:220",
     "comment": "about page daemon status value"
   },
   {
@@ -2024,7 +2042,7 @@
   {
     "term": "Optional features",
     "context": "Optional features",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:233",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:261",
     "comment": "about page section listing optional packages"
   },
   {
@@ -2060,13 +2078,13 @@
   {
     "term": "PDF files can be previewed in the file manager.",
     "context": "PDF files can be previewed in the file manager.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:99",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:92",
     "comment": "optional feature status on the about page"
   },
   {
     "term": "PDF preview",
     "context": "PDF preview",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:97",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:90",
     "comment": "optional feature row on the about page"
   },
   {
@@ -2078,13 +2096,13 @@
   {
     "term": "PDF thumbnails",
     "context": "PDF thumbnails",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:90",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:84",
     "comment": "optional feature row on the about page"
   },
   {
     "term": "PDF thumbnails are available.",
     "context": "PDF thumbnails are available.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:92",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:85",
     "comment": "optional feature status on the about page"
   },
   {
@@ -2528,13 +2546,13 @@
   {
     "term": "Sandbox",
     "context": "Sandbox",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:207",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:235",
     "comment": "about page row naming the flatpak id"
   },
   {
     "term": "Sandboxed thumbnails",
     "context": "Sandboxed thumbnails",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:76",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:72",
     "comment": "optional feature row on the about page"
   },
   {
@@ -2614,12 +2632,6 @@
     "context": "Search the disk",
     "reference": "Modules/SearchChips.qml:165",
     "comment": "search chip bypassing the danksearch index and walking the folder"
-  },
-  {
-    "term": "Search with the danksearch index",
-    "context": "Search with the danksearch index",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:62",
-    "comment": "capability row on the about page"
   },
   {
     "term": "Search your home folder",
@@ -2786,7 +2798,7 @@
   {
     "term": "Socket",
     "context": "Socket",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:200",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:228",
     "comment": "about page daemon socket row label"
   },
   {
@@ -2840,7 +2852,7 @@
   {
     "term": "Status",
     "context": "Status",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:190",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:218",
     "comment": "about page daemon status column label"
   },
   {
@@ -3096,6 +3108,12 @@
     "comment": "appearance settings section label"
   },
   {
+    "term": "Unavailable",
+    "context": "Unavailable",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:156",
+    "comment": "optional runtime feature status on the about page"
+  },
+  {
     "term": "Unavailable until its drive is mounted",
     "context": "Unavailable until its drive is mounted",
     "reference": "Modules/GamesSection.qml:135",
@@ -3122,7 +3140,7 @@
   {
     "term": "Unknown",
     "context": "Unknown",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:126",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:119",
     "comment": "capability status when the daemon did not report it"
   },
   {
@@ -3200,7 +3218,7 @@
   {
     "term": "Version",
     "context": "Version",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:178",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:206",
     "comment": "about page daemon version column label"
   },
   {
@@ -3218,13 +3236,13 @@
   {
     "term": "Video thumbnails",
     "context": "Video thumbnails",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:83",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:78",
     "comment": "optional feature row on the about page"
   },
   {
     "term": "Video thumbnails are available.",
     "context": "Video thumbnails are available.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:85",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:79",
     "comment": "optional feature status on the about page"
   },
   {
@@ -3332,7 +3350,7 @@
   {
     "term": "capability available sandbox",
     "context": "capability available sandbox",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:225",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:253",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
@@ -3362,25 +3380,25 @@
   {
     "term": "daemon connected offline socket",
     "context": "daemon connected offline socket",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:191",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:219",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
     "term": "daemon path unix",
     "context": "daemon path unix",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:201",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:229",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
     "term": "daemon protocol",
     "context": "daemon protocol",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:185",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:213",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
     "term": "daemon release build",
     "context": "daemon release build",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:179",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:207",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
@@ -3416,7 +3434,7 @@
   {
     "term": "documentation help manual",
     "context": "documentation help manual",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:168",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:196",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
@@ -3434,7 +3452,7 @@
   {
     "term": "flatpak app id",
     "context": "flatpak app id",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:208",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:236",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
@@ -3578,7 +3596,7 @@
   {
     "term": "optional packages install dsearch thumbnails preview network drives",
     "context": "optional packages install dsearch thumbnails preview network drives",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:245",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:273",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {

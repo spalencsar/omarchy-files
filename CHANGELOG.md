@@ -9,6 +9,8 @@ All notable changes to Omarchy Files are documented here.
 - An optional-features section in **Settings → About**. It reports the
   availability of DankSearch, thumbnail helpers, PDF preview, network shares,
   and removable drives, with manual installation commands where applicable.
+- DankSearch now distinguishes **Not installed**, **Installed**, and
+  **Active**; the duplicate, misleading index capability entry was removed.
 - `dsearch-bin` is documented as the recommended AUR package for indexed,
   recursive search.
 

@@ -56,10 +56,6 @@ Item {
         {
             "id": "elevation",
             "label": I18n.tr("Retry as administrator", "file operation error dialog action")
-        },
-        {
-            "id": "indexSearch",
-            "label": I18n.tr("Search with the danksearch index", "capability row on the about page")
         }
     ]
 
@@ -67,49 +63,46 @@ Item {
         {
             "id": "dsearch",
             "label": I18n.tr("Indexed search", "optional feature row on the about page"),
-            "available": SandboxService.optionalDependencies.dsearch === true,
-            "availableSubtitle": I18n.tr("DankSearch is installed. Enable its user service to keep the index up to date.", "optional feature status on the about page"),
+            "availableSubtitle": I18n.tr("DankSearch is searching from its index.", "optional feature status on the about page"),
+            "installedSubtitle": I18n.tr("DankSearch is installed, but its user service is not running.", "optional feature status on the about page"),
             "install": "yay -S dsearch-bin && systemctl --user enable --now dsearch"
         },
         {
             "id": "bubblewrap",
             "label": I18n.tr("Sandboxed thumbnails", "optional feature row on the about page"),
-            "available": SandboxService.optionalDependencies.bubblewrap === true,
             "availableSubtitle": I18n.tr("External thumbnailers run in a sandbox.", "optional feature status on the about page"),
             "install": "sudo pacman -S bubblewrap"
         },
         {
             "id": "ffmpegthumbnailer",
             "label": I18n.tr("Video thumbnails", "optional feature row on the about page"),
-            "available": SandboxService.optionalDependencies.ffmpegthumbnailer === true,
             "availableSubtitle": I18n.tr("Video thumbnails are available.", "optional feature status on the about page"),
             "install": "sudo pacman -S ffmpegthumbnailer"
         },
         {
             "id": "poppler",
             "label": I18n.tr("PDF thumbnails", "optional feature row on the about page"),
-            "available": SandboxService.optionalDependencies.poppler === true,
             "availableSubtitle": I18n.tr("PDF thumbnails are available.", "optional feature status on the about page"),
             "install": "sudo pacman -S poppler"
         },
         {
             "id": "pdfPreview",
             "label": I18n.tr("PDF preview", "optional feature row on the about page"),
-            "available": PdfService.available,
+            "kind": "pdfPreview",
             "availableSubtitle": I18n.tr("PDF files can be previewed in the file manager.", "optional feature status on the about page"),
             "install": "sudo pacman -S qt6-webengine"
         },
         {
             "id": "network",
             "label": I18n.tr("Network locations", "optional feature row on the about page"),
-            "available": NetworkService.available,
+            "kind": "network",
             "availableSubtitle": I18n.tr("Network shares can be connected and browsed.", "optional feature status on the about page"),
             "install": "sudo pacman -S gvfs"
         },
         {
             "id": "devices",
             "label": I18n.tr("Drives and removable media", "optional feature row on the about page"),
-            "available": DevicesService.available,
+            "kind": "devices",
             "availableSubtitle": I18n.tr("Drives can be mounted and ejected.", "optional feature status on the about page"),
             "install": "sudo pacman -S udisks2"
         }
@@ -143,12 +136,47 @@ Item {
     }
 
     function optionalStatus(row) {
-        if (row.available)
+        const dependency = SandboxService.optionalDependencies[row.id] || {};
+        if (row.id === "dsearch") {
+            if (!dependency.installed)
+                return optionalMissing(row);
+            if (dependency.active)
+                return optionalAvailable(row, I18n.tr("Active", "optional search index status on the about page"));
             return {
-                "text": I18n.tr("Available", "optional feature status on the about page"),
-                "color": Theme.success,
-                "subtitle": row.availableSubtitle
+                "text": I18n.tr("Installed", "optional package status on the about page"),
+                "color": Theme.tertiary,
+                "subtitle": row.installedSubtitle
             };
+        }
+        if (row.kind === "network" || row.kind === "devices") {
+            const available = row.kind === "network" ? NetworkService.available : DevicesService.available;
+            if (available)
+                return optionalAvailable(row, I18n.tr("Available", "optional feature status on the about page"));
+            return {
+                "text": I18n.tr("Unavailable", "optional runtime feature status on the about page"),
+                "color": Theme.error,
+                "subtitle": row.kind === "network" ? (NetworkService.reason || I18n.tr("Install: %1", "optional feature install command on the about page").arg(row.install)) : (DevicesService.reason || I18n.tr("Install: %1", "optional feature install command on the about page").arg(row.install))
+            };
+        }
+        if (row.kind === "pdfPreview") {
+            if (PdfService.available)
+                return optionalAvailable(row, I18n.tr("Available", "optional feature status on the about page"));
+            return optionalMissing(row);
+        }
+        if (dependency.installed)
+            return optionalAvailable(row, I18n.tr("Installed", "optional package status on the about page"));
+        return optionalMissing(row);
+    }
+
+    function optionalAvailable(row, text) {
+        return {
+            "text": text,
+            "color": Theme.success,
+            "subtitle": row.availableSubtitle
+        };
+    }
+
+    function optionalMissing(row) {
         return {
             "text": I18n.tr("Not installed", "optional feature status on the about page"),
             "color": Theme.surfaceVariantText,

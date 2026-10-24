@@ -224,6 +224,13 @@
     "comment": ""
   },
   {
+    "term": "Active",
+    "translation": "",
+    "context": "optional search index status on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Add or remove one item",
     "translation": "",
     "context": "keyboard shortcut",
@@ -868,7 +875,14 @@
     "comment": ""
   },
   {
-    "term": "DankSearch is installed. Enable its user service to keep the index up to date.",
+    "term": "DankSearch is installed, but its user service is not running.",
+    "translation": "",
+    "context": "optional feature status on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "DankSearch is searching from its index.",
     "translation": "",
     "context": "optional feature status on the about page",
     "reference": "",
@@ -1620,6 +1634,13 @@
     "term": "Install: %1",
     "translation": "",
     "context": "optional feature install command on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Installed",
+    "translation": "",
+    "context": "optional package status on the about page",
     "reference": "",
     "comment": ""
   },
@@ -3052,13 +3073,6 @@
     "comment": ""
   },
   {
-    "term": "Search with the danksearch index",
-    "translation": "",
-    "context": "capability row on the about page",
-    "reference": "",
-    "comment": ""
-  },
-  {
     "term": "Search your home folder",
     "translation": "",
     "context": "keyboard shortcut opening search with the Home scope",
@@ -3608,6 +3622,13 @@
     "term": "Typography",
     "translation": "",
     "context": "appearance settings section label",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Unavailable",
+    "translation": "",
+    "context": "optional runtime feature status on the about page",
     "reference": "",
     "comment": ""
   },
