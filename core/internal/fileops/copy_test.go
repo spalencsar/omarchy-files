@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/require"
+	"golang.org/x/sys/unix"
 )
 
 func TestCopyPreservesModeAndTime(t *testing.T) {
@@ -30,6 +31,24 @@ func TestCopyPreservesModeAndTime(t *testing.T) {
 	require.NoError(t, err)
 	require.Equal(t, os.FileMode(0o640), info.Mode().Perm())
 	require.Equal(t, stamp.Unix(), info.ModTime().Unix())
+	require.Empty(t, tempsIn(t, dest))
+}
+
+func TestCopyFallsBackWhenRenameNoReplaceIsUnsupported(t *testing.T) {
+	previous := renameAt2
+	renameAt2 = func(_ int, _ string, _ int, _ string, _ uint) error { return unix.EINVAL }
+	t.Cleanup(func() { renameAt2 = previous })
+
+	root := t.TempDir()
+	src := write(t, filepath.Join(root, "src", "note.txt"), "hello")
+	dest := filepath.Join(root, "dest")
+	require.NoError(t, os.Mkdir(dest, 0o755))
+
+	manager, bus := newHarness(t)
+	view := run(t, manager, bus, spec{kind: KindCopy, sources: []string{src}, dest: dest})
+
+	require.Equal(t, StateDone, view.State)
+	require.Equal(t, "hello", read(t, filepath.Join(dest, "note.txt")))
 	require.Empty(t, tempsIn(t, dest))
 }
 
