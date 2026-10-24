@@ -32,7 +32,7 @@ Tabs, a split view with two panes, and list, grid and column views. Sort and vie
 Type to jump to a name or filter the folder, jump to any folder you have visited before, and reopen closed tabs.
 
 **Search**
-Recursive search by name with filters. Uses [danksearch](https://github.com/duxlabs-dev/dux-search) when it is running and walks the tree when it isn't.
+Recursive search by name with filters. Uses the [DankSearch](https://github.com/duxlabs-dev/dux-search) index when its `dsearch` service is running and walks the tree when it is not.
 
 **File operations**
 Copy, move, rename, trash and delete run as jobs with progress and conflict handling, and most of them can be undone. Denied operations offer Retry as administrator through polkit.
@@ -101,6 +101,7 @@ These Arch packages are detected when the daemon starts:
 
 | package | enables |
 | --- | --- |
+| `dsearch-bin` (AUR) | DankSearch index for fast recursive search; install with `yay -S dsearch-bin`, then run `systemctl --user enable --now dsearch` |
 | `bubblewrap` | runs external thumbnailers in a sandbox, like gnome-desktop does |
 | `ffmpegthumbnailer` | video thumbnails |
 | `poppler` | PDF thumbnails |

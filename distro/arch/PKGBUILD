@@ -10,6 +10,7 @@ license=('MIT')
 depends=('quickshell' 'polkit')
 makedepends=('git' 'go' 'make')
 optdepends=(
+  'dsearch-bin: indexed recursive search (AUR)'
   'bubblewrap: sandbox external thumbnailers'
   'ffmpegthumbnailer: video thumbnails'
   'poppler: PDF thumbnails'
