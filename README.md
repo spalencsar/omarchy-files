@@ -224,3 +224,7 @@ translations, and contributor guidance.
 ## License
 
 MIT License - See [LICENSE](LICENSE) for details.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for release notes and unreleased changes.
