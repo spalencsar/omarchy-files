@@ -27,14 +27,14 @@ sha256sums=('SKIP' '6922ebc1d70969a9bb1807c25517d90d1404b8f0a1869c4dd883e10d7290
 
 pkgver() {
   cd "$srcdir/$pkgname"
-  local tag count
-  tag="$(git describe --tags --abbrev=0 2>/dev/null || true)"
-  if [[ -z "$tag" ]]; then
+  local tag tag_ref count
+  tag_ref="$(git describe --tags --abbrev=0 2>/dev/null || true)"
+  if [[ -z "$tag_ref" ]]; then
     tag="0.0.0"
     count="$(git rev-list --count HEAD)"
   else
-    tag="${tag#v}"
-    count="$(git rev-list --count "$tag"..HEAD)"
+    tag="${tag_ref#v}"
+    count="$(git rev-list --count "$tag_ref"..HEAD)"
   fi
   printf '%s.r%s.%s' "$tag" "$count" "$(git rev-parse --short=8 HEAD)"
 }
