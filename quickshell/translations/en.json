@@ -176,7 +176,7 @@
   {
     "term": "API",
     "context": "API",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:212",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:213",
     "comment": "about page daemon api version column label"
   },
   {
@@ -398,7 +398,7 @@
   {
     "term": "Backend",
     "context": "Backend",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:203",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:204",
     "comment": "about page daemon section header"
   },
   {
@@ -464,7 +464,7 @@
   {
     "term": "Capabilities",
     "context": "Capabilities",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:242",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:243",
     "comment": "about page daemon capabilities label"
   },
   {
@@ -614,7 +614,7 @@
   {
     "term": "Connected",
     "context": "Connected",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:220",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:221",
     "comment": "about page daemon status value"
   },
   {
@@ -640,6 +640,12 @@
     "context": "Copy",
     "reference": "Common/Shortcuts.qml:424, Modules/DragActionChip.qml:30, Modules/DragController.qml:103, Modules/FileContextMenu.qml:152, Modules/Settings/SettingsContent.qml:108",
     "comment": "context menu entry copying the selection"
+  },
+  {
+    "term": "Copy command",
+    "context": "Copy command",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:315",
+    "comment": "optional feature help box action"
   },
   {
     "term": "Copy location path",
@@ -872,7 +878,7 @@
   {
     "term": "Docs",
     "context": "Docs",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:195",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:196",
     "comment": "about page resource button"
   },
   {
@@ -1398,9 +1404,15 @@
     "comment": "optional feature row on the about page"
   },
   {
+    "term": "Install in a terminal",
+    "context": "Install in a terminal",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:296",
+    "comment": "optional feature help box heading"
+  },
+  {
     "term": "Install: %1",
     "context": "Install: %1",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:158, Modules/Settings/SettingsAboutPage.qml:158, Modules/Settings/SettingsAboutPage.qml:183",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:158, Modules/Settings/SettingsAboutPage.qml:158",
     "comment": "optional feature install command on the about page"
   },
   {
@@ -1568,7 +1580,7 @@
   {
     "term": "MIT License",
     "context": "MIT License",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:282",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:337",
     "comment": "about page license footer link"
   },
   {
@@ -1892,7 +1904,7 @@
   {
     "term": "Offline",
     "context": "Offline",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:220",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:221",
     "comment": "about page daemon status value"
   },
   {
@@ -2042,7 +2054,7 @@
   {
     "term": "Optional features",
     "context": "Optional features",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:261",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:262",
     "comment": "about page section listing optional packages"
   },
   {
@@ -2448,6 +2460,12 @@
     "comment": "dialog button restarting xdg-desktop-portal"
   },
   {
+    "term": "Restart Omarchy Files afterwards to refresh this status.",
+    "context": "Restart Omarchy Files afterwards to refresh this status.",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:324",
+    "comment": "optional feature help box restart note"
+  },
+  {
     "term": "Restart the portal service",
     "context": "Restart the portal service",
     "reference": "Modules/Settings/SettingsContent.qml:643",
@@ -2546,7 +2564,7 @@
   {
     "term": "Sandbox",
     "context": "Sandbox",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:235",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:236",
     "comment": "about page row naming the flatpak id"
   },
   {
@@ -2798,7 +2816,7 @@
   {
     "term": "Socket",
     "context": "Socket",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:228",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:229",
     "comment": "about page daemon socket row label"
   },
   {
@@ -2852,7 +2870,7 @@
   {
     "term": "Status",
     "context": "Status",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:218",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:219",
     "comment": "about page daemon status column label"
   },
   {
@@ -3004,6 +3022,12 @@
     "context": "This month",
     "reference": "Common/SearchFilters.qml:76",
     "comment": "search filter chip for files changed in the last thirty days"
+  },
+  {
+    "term": "This optional component is not installed.",
+    "context": "This optional component is not installed.",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:183",
+    "comment": "optional feature status on the about page"
   },
   {
     "term": "This remote location does not provide a trash. %1 will be deleted permanently. This cannot be undone.",
@@ -3218,7 +3242,7 @@
   {
     "term": "Version",
     "context": "Version",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:206",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:207",
     "comment": "about page daemon version column label"
   },
   {
@@ -3350,7 +3374,7 @@
   {
     "term": "capability available sandbox",
     "context": "capability available sandbox",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:253",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:254",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
@@ -3380,25 +3404,25 @@
   {
     "term": "daemon connected offline socket",
     "context": "daemon connected offline socket",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:219",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:220",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
     "term": "daemon path unix",
     "context": "daemon path unix",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:229",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:230",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
     "term": "daemon protocol",
     "context": "daemon protocol",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:213",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:214",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
     "term": "daemon release build",
     "context": "daemon release build",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:207",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:208",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
@@ -3434,7 +3458,7 @@
   {
     "term": "documentation help manual",
     "context": "documentation help manual",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:196",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:197",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
@@ -3452,7 +3476,7 @@
   {
     "term": "flatpak app id",
     "context": "flatpak app id",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:236",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:237",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
@@ -3596,7 +3620,7 @@
   {
     "term": "optional packages install dsearch thumbnails preview network drives",
     "context": "optional packages install dsearch thumbnails preview network drives",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:273",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:274",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {

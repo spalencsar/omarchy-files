@@ -749,6 +749,13 @@
     "comment": ""
   },
   {
+    "term": "Copy command",
+    "translation": "",
+    "context": "optional feature help box action",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Copy location path",
     "translation": "",
     "context": "menu entry copying the current path to the clipboard",
@@ -1627,6 +1634,13 @@
     "term": "Indexed search",
     "translation": "",
     "context": "optional feature row on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Install in a terminal",
+    "translation": "",
+    "context": "optional feature help box heading",
     "reference": "",
     "comment": ""
   },
@@ -2856,6 +2870,13 @@
     "comment": ""
   },
   {
+    "term": "Restart Omarchy Files afterwards to refresh this status.",
+    "translation": "",
+    "context": "optional feature help box restart note",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Restart the portal service",
     "translation": "",
     "context": "settings row restarting xdg-desktop-portal",
@@ -3503,6 +3524,13 @@
     "term": "This month",
     "translation": "",
     "context": "search filter chip for files changed in the last thirty days",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "This optional component is not installed.",
+    "translation": "",
+    "context": "optional feature status on the about page",
     "reference": "",
     "comment": ""
   },

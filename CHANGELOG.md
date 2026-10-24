@@ -13,6 +13,8 @@ All notable changes to Omarchy Files are documented here.
   **Active**; the duplicate, misleading index capability entry was removed.
 - `dsearch-bin` is documented as the recommended AUR package for indexed,
   recursive search.
+- Missing optional components now show a compact installation panel with a
+  copyable command and a note to restart Omarchy Files before rechecking.
 
 ### Changed
 

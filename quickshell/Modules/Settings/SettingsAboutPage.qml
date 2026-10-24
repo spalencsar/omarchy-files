@@ -180,7 +180,8 @@ Item {
         return {
             "text": I18n.tr("Not installed", "optional feature status on the about page"),
             "color": Theme.surfaceVariantText,
-            "subtitle": I18n.tr("Install: %1", "optional feature install command on the about page").arg(row.install)
+            "subtitle": I18n.tr("This optional component is not installed.", "optional feature status on the about page"),
+            "missing": true
         };
     }
 
@@ -273,6 +274,60 @@ Item {
                     keywords: I18n.tr("optional packages install dsearch thumbnails preview network drives", "settings search keywords, space separated, add synonyms in your language")
                     trailingBadge: status.text
                     trailingBadgeColor: status.color
+
+                    body: Rectangle {
+                        visible: status.missing === true
+                        width: parent.width
+                        implicitHeight: helpContent.implicitHeight + Theme.spacingL * 2
+                        radius: Theme.cornerRadiusS
+                        color: Theme.surfaceContainerLow
+                        border.width: Theme.outlineWidth
+                        border.color: Theme.outlineVariant
+
+                        Column {
+                            id: helpContent
+
+                            anchors.fill: parent
+                            anchors.margins: Theme.spacingL
+                            spacing: Theme.spacingS
+
+                            StyledText {
+                                width: parent.width
+                                text: I18n.tr("Install in a terminal", "optional feature help box heading")
+                                font.pixelSize: Theme.fontSizeSmall
+                                font.weight: Theme.fontWeightMedium
+                                color: Theme.surfaceText
+                            }
+
+                            StyledText {
+                                width: parent.width
+                                text: modelData.install
+                                font.pixelSize: Theme.fontSizeSmall
+                                font.family: "monospace"
+                                color: Theme.primary
+                                wrapMode: Text.WordWrap
+                            }
+
+                            Row {
+                                spacing: Theme.spacingS
+
+                                DButton {
+                                    text: I18n.tr("Copy command", "optional feature help box action")
+                                    buttonHeight: Theme.buttonHeightXS
+                                    backgroundColor: "transparent"
+                                    textColor: Theme.primary
+                                    onClicked: Paths.copyPathToClipboard(modelData.install)
+                                }
+
+                                StyledText {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    text: I18n.tr("Restart Omarchy Files afterwards to refresh this status.", "optional feature help box restart note")
+                                    font.pixelSize: Theme.fontSizeSmall
+                                    color: Theme.surfaceVariantText
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
