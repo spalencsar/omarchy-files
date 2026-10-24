@@ -161,6 +161,43 @@ QtObject {
         closeTabsAt(tabs.map((_, other) => other).filter(other => other > index), index);
     }
 
+    // A gvfs mount disappears immediately after disconnecting. Keeping a tab
+    // pointed at its FUSE path leaves an unusable, stale file view behind, so
+    // replace every affected pane (including background tabs) before that can
+    // happen. Return whether any tab was changed.
+    function replacePathsUnder(rootPath, replacement) {
+        if (!rootPath || !replacement || tabs.length === 0)
+            return false;
+        const root = rootPath.length > 1 && rootPath.endsWith("/") ? rootPath.slice(0, -1) : rootPath;
+        const isInside = path => path === root || path.startsWith(root + "/");
+        let changed = false;
+        let currentChanged = false;
+        const next = tabs.map((state, index) => {
+            let tabChanged = false;
+            const panes = (state.panes ?? []).map(pane => {
+                if (!pane || !isInside(pane.path || ""))
+                    return pane;
+                changed = true;
+                tabChanged = true;
+                if (index === currentTab)
+                    currentChanged = true;
+                return Object.assign({}, pane, {
+                    "path": replacement
+                });
+            });
+            return tabChanged ? Object.assign({}, state, {
+                "panes": panes
+            }) : state;
+        });
+        if (!changed)
+            return false;
+        tabs = next;
+        if (currentChanged)
+            applyTab(currentTab);
+        persistTabs();
+        return true;
+    }
+
     function duplicateTab(index) {
         if (!tabState(index))
             return;

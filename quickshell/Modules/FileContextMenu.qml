@@ -18,6 +18,7 @@ FileMenu {
     property bool inResults: false
     property bool inTrash: false
     property bool inRecent: false
+    property bool remoteSelection: false
     property int trashCount: 0
     property int recentCount: 0
 
@@ -237,17 +238,18 @@ FileMenu {
         },
         {
             "id": "trash",
-            "icon": "delete",
-            "label": I18n.tr("Move to Trash", "context menu entry trashing the selection"),
+            "icon": remoteSelection ? "delete_forever" : "delete",
+            "label": remoteSelection ? I18n.tr("Delete permanently", "context menu entry deleting files from a remote server") : I18n.tr("Move to Trash", "context menu entry trashing the selection"),
             "enabled": selectionCount > 0,
-            "visible": !shiftHeld
+            "visible": !shiftHeld,
+            "danger": remoteSelection
         },
         {
             "id": "deletePermanently",
             "icon": "delete_forever",
             "label": I18n.tr("Delete permanently", "context menu entry deleting the selection for good"),
             "enabled": selectionCount > 0,
-            "visible": shiftHeld,
+            "visible": shiftHeld && !remoteSelection,
             "danger": true
         },
         {

@@ -143,6 +143,14 @@ FloatingWindow {
         activePane.navigate(path);
     }
 
+    function leaveDisconnectedMount(mount) {
+        if (!mount?.path)
+            return;
+        if (!tabManager.replacePathsUnder(mount.path, Paths.strip(Paths.home)))
+            return;
+        ToastService.info(I18n.tr("Disconnected from %1. Open views returned to Home.", "message after disconnecting a remote server, %1 is its name").arg(mount.name || mount.uri));
+    }
+
     function openLocations(locations, fresh) {
         locations.forEach((location, index) => openLocation(location, index > 0 || (!fresh && SettingsData.openLocationIn === "tab")));
     }
@@ -302,6 +310,10 @@ FloatingWindow {
 
         function onRequestFailed(message, code) {
             ToastService.info(FileFormat.operationError(code, message));
+        }
+
+        function onDisconnected(mount) {
+            window.leaveDisconnectedMount(mount);
         }
     }
 
@@ -475,9 +487,6 @@ FloatingWindow {
             height: 0
             onCloseRequested: window.requestClose()
 
-            JobsButton {
-                anchors.verticalCenter: parent.verticalCenter
-            }
         }
 
         Item {

@@ -24,6 +24,7 @@ Singleton {
     signal askRequested(var ask)
     signal requestFailed(string message, string code)
     signal connected(var mount)
+    signal disconnected(var mount)
 
     readonly property DaemonTopic _network: DaemonTopic {
         transport: root.transport
@@ -84,9 +85,30 @@ Singleton {
     }
 
     function disconnect(id, callback) {
+        // Keep the mount snapshot: the daemon publishes the new (mount-less)
+        // list after unmounting, but windows need the old local path to leave
+        // it safely.
+        const mount = root.mounts.find(candidate => candidate.id === id);
         _send("network.disconnect", {
             "id": id
-        }, callback);
+        }, result => {
+            if (!result.error && mount)
+                root.disconnected(mount);
+            callback?.(result);
+        });
+    }
+
+    function remoteMountForPath(path) {
+        if (!path)
+            return null;
+        return root.networkMounts.find(mount => {
+            const mountPath = mount.path?.length > 1 && mount.path.endsWith("/") ? mount.path.slice(0, -1) : mount.path;
+            return mountPath && (path === mountPath || path.startsWith(mountPath + "/"));
+        }) ?? null;
+    }
+
+    function isRemotePath(path) {
+        return remoteMountForPath(path) !== null;
     }
 
     function forget(uri) {

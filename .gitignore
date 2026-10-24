@@ -65,6 +65,10 @@ CLAUDE-temp.md
 AGENTS-activeContext.md
 AGENTS-temp.md
 
+# Local agent workspace notes; never ship these in the source repository.
+AGENTS.md
+MEMORY.md
+
 # Auto-generated theme files
 *.generated.*
 niri-colors.generated.kdl

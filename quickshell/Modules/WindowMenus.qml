@@ -24,6 +24,11 @@ Item {
         return entries.length > 0 && entries.every(entry => !entry.isDir && FilesFormat.extractable(entry.mime));
     }
 
+    function selectionIsRemote() {
+        const paths = mainWindow.selectedPaths();
+        return paths.length > 0 && paths.every(path => NetworkService.isRemotePath(path));
+    }
+
     function showItemMenu(pointX, pointY, modifiers) {
         activeModifiers = modifiers ?? Qt.NoModifier;
         openWithMenu.close();
@@ -133,6 +138,7 @@ Item {
         inResults: live && menus.mainWindow.activePane.resultsActive
         inTrash: live && menus.mainWindow.activePane.trashActive
         inRecent: live && menus.mainWindow.activePane.recentActive
+        remoteSelection: live && menus.selectionIsRemote()
         selectedBookmarked: live && menus.selectionIsDirectory() && BookmarksService.has(menus.mainWindow.selectedPaths()[0] ?? "")
         onActionTriggered: id => menus.mainWindow.actions.runAction(id)
         onClosed: live = false

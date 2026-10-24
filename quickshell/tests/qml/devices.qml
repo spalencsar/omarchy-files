@@ -16,6 +16,7 @@ ShellRoot {
     property var responses: ({})
     property var asks: []
     property var failedRequests: []
+    property var disconnected: []
 
     function check(label, actual, expected) {
         const ok = JSON.stringify(actual) === JSON.stringify(expected);
@@ -116,6 +117,10 @@ ShellRoot {
         target: NetworkService
         function onAskRequested(ask) {
             fixture.asks = fixture.asks.concat([ask.id]);
+        }
+
+        function onDisconnected(mount) {
+            fixture.disconnected = fixture.disconnected.concat([mount.path]);
         }
     }
 
@@ -227,6 +232,7 @@ ShellRoot {
         sent = [];
         NetworkService.refresh();
         check("mounts split by kind", [NetworkService.networkMounts.length, NetworkService.deviceMounts.length], [1, 1]);
+        check("remote mount detection covers descendants", [NetworkService.isRemotePath("/run/user/1000/gvfs/share/photos/a.jpg"), NetworkService.isRemotePath("/home/me/a.jpg")], [true, false]);
         check("portables stored", NetworkService.portables.length, 1);
         check("installed schemes stored", NetworkService.schemes, ["sftp", "smb"]);
         check("recent servers stored", NetworkService.servers.length, 1);
@@ -265,6 +271,13 @@ ShellRoot {
         NetworkService.connectTo("ftp://share/", null);
         check("connect clears the busy flag", NetworkService.connecting, false);
         check("connect refreshes recent servers", lastRequest().method, "network.recent");
+
+        responses["network.disconnect"] = {
+            "id": "share",
+            "mounted": false
+        };
+        NetworkService.disconnect("share", null);
+        check("disconnect keeps the old path for windows", disconnected, ["/run/user/1000/gvfs/share"]);
 
         emit("network", {
             "kind": "mounts",

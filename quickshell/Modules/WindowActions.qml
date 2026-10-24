@@ -508,6 +508,13 @@ QtObject {
     function trashPaths(paths, subject) {
         if (paths.length === 0)
             return;
+        // GVFS FUSE paths for SFTP/SMB/NFS commonly have no freedesktop trash
+        // support. Never try to manufacture a .Trash directory there: offer a
+        // clearly-confirmed server-side deletion instead.
+        if (paths.every(path => NetworkService.isRemotePath(path))) {
+            mainWindow.dialogs.confirmRemoteDelete(paths, subject);
+            return;
+        }
         if (!SettingsData.confirmTrash) {
             FileOpsService.trash(paths, opScope);
             return;

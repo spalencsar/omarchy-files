@@ -12,7 +12,7 @@ Item {
 
     property int propertiesRequest: 0
 
-    readonly property bool anyOpen: conflictDialog.visible || errorDialog.visible || archivePasswordDialog.visible || confirmDialog.visible || openConfirmDialog.visible || openWithDialog.visible || executableDialog.visible || trustDialog.visible || unlockDialog.visible || connectDialog.visible || credentialDialog.visible || propertiesDialog.visible || shortcutsOverlay.visible || compressDialog.visible || renameBookmarkDialog.visible || trashConfirmDialog.visible || emptyTrashDialog.visible || clearRecentDialog.visible || (extractPickerLoader.item?.visible ?? false) || (transferPickerLoader.item?.visible ?? false)
+    readonly property bool anyOpen: conflictDialog.visible || errorDialog.visible || archivePasswordDialog.visible || confirmDialog.visible || remoteDeleteDialog.visible || openConfirmDialog.visible || openWithDialog.visible || executableDialog.visible || trustDialog.visible || unlockDialog.visible || connectDialog.visible || credentialDialog.visible || propertiesDialog.visible || shortcutsOverlay.visible || compressDialog.visible || renameBookmarkDialog.visible || trashConfirmDialog.visible || emptyTrashDialog.visible || clearRecentDialog.visible || (extractPickerLoader.item?.visible ?? false) || (transferPickerLoader.item?.visible ?? false)
 
     function openSettings() {
         settingsLoader.active = true;
@@ -87,6 +87,12 @@ Item {
         confirmDialog.pending = paths;
         confirmDialog.subject = subject;
         confirmDialog.open();
+    }
+
+    function confirmRemoteDelete(paths, subject) {
+        remoteDeleteDialog.pending = paths;
+        remoteDeleteDialog.subject = subject;
+        remoteDeleteDialog.open();
     }
 
     function confirmEmptyTrash() {
@@ -332,6 +338,20 @@ Item {
 
         title: I18n.tr("Delete permanently?", "permanent delete confirmation header")
         message: I18n.tr("%1 will be deleted permanently. This cannot be undone.", "permanent delete confirmation explanation").arg(subject)
+        onConfirmed: {
+            FileOpsService.deletePermanently(pending);
+            pending = [];
+        }
+    }
+
+    ConfirmDialog {
+        id: remoteDeleteDialog
+
+        property var pending: []
+
+        title: I18n.tr("Delete from remote server?", "permanent delete confirmation header for a network mount")
+        message: I18n.tr("This remote location does not provide a trash. %1 will be deleted permanently. This cannot be undone.", "permanent delete explanation for a network mount").arg(subject)
+        confirmText: I18n.tr("Delete permanently", "confirming permanent deletion from a remote server")
         onConfirmed: {
             FileOpsService.deletePermanently(pending);
             pending = [];
