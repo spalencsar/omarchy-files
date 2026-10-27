@@ -48,13 +48,13 @@ prepare() {
 
 build() {
   cd "$srcdir/$pkgname"
-  GOFLAGS='-buildvcs=false' make
-  GOFLAGS='-buildvcs=false' make -C core completions
+  GOFLAGS='-buildvcs=false -trimpath' make
+  GOFLAGS='-buildvcs=false -trimpath' make -C core completions
 }
 
 check() {
   cd "$srcdir/$pkgname"
-  GOFLAGS='-buildvcs=false' make test
+  GOFLAGS='-buildvcs=false -trimpath' make test
 }
 
 package() {

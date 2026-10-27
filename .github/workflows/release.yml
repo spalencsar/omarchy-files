@@ -66,7 +66,7 @@ jobs:
           BINARY_NAME="omarchy-files-${{ matrix.goos }}-${{ matrix.goarch }}"
           make -C core sync-shell
           cd core
-          go build -tags withshell -ldflags "-s -w -X main.Version=${VERSION#v} -X main.Commit=${{ github.sha }} -X main.BuildTime=${BUILD_TIME}" -o "../${BINARY_NAME}" ./cmd/omarchy-files
+          go build -trimpath -tags withshell -ldflags "-s -w -X main.Version=${VERSION#v} -X main.Commit=${{ github.sha }} -X main.BuildTime=${BUILD_TIME}" -o "../${BINARY_NAME}" ./cmd/omarchy-files
           cd ..
           gzip -c "${BINARY_NAME}" > "${BINARY_NAME}.gz"
           tar -czf "${BINARY_NAME}.tar.gz" "${BINARY_NAME}"
