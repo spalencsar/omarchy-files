@@ -2,7 +2,7 @@
 
 All notable changes to Omarchy Files are documented here.
 
-## Unreleased
+## [0.1.1] - 2026-10-27
 
 ### Added
 
@@ -21,9 +21,12 @@ All notable changes to Omarchy Files are documented here.
 - Document `qt6-webengine` as the optional dependency that enables in-app PDF
   preview.
 - Preserve the version tag when deriving Arch development package versions.
+- Strip local build paths from Arch packages and release binaries.
 
 ### Fixed
 
+- Open the file-operation progress popover automatically for transfers that
+  take longer than a brief moment, so copying and moving are visibly active.
 - Complete copy operations correctly on NFS mounts that reject Linux
   `renameat2` semantics.
 - Treat files on network mounts safely: delete permanently only after a clear
@@ -38,4 +41,5 @@ All notable changes to Omarchy Files are documented here.
   Dux Files, with branded Arch packaging, a user service, and a live
   Omarchy-theme adapter.
 
+[0.1.1]: https://github.com/spalencsar/omarchy-files/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/spalencsar/omarchy-files/releases/tag/v0.1.0
