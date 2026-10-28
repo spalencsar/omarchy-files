@@ -98,4 +98,33 @@ Singleton {
             return I18n.tr("%1 %2 to “%3”", "file operation summary: action, source, destination").arg(verb).arg(subject).arg(destination);
         return I18n.tr("%1 %2", "file operation summary: action and source").arg(verb).arg(subject);
     }
+
+    function currentItem(job) {
+        if (job?.progress?.estimating)
+            return I18n.tr("Estimating…", "file operation is still measuring the work");
+        const path = job?.progress?.currentPath ?? "";
+        return path === "" ? I18n.tr("Preparing…", "file operation has not started an item yet") : (FilePaths.baseName(path) || path);
+    }
+
+    function route(job) {
+        const sources = job?.sources ?? [];
+        const destination = job?.dest ?? "";
+        if (sources.length === 0 || destination === "")
+            return "";
+        const source = sources.length === 1
+            ? sources[0]
+            : I18n.tr("%1 items", "number of items in a file operation").arg(sources.length);
+        return I18n.tr("%1 → %2", "file operation source and destination paths").arg(source).arg(destination);
+    }
+
+    function progress(job) {
+        const value = job?.progress;
+        if (!value)
+            return "";
+        if (value.bytesTotal > 0)
+            return I18n.tr("%1 / %2", "file operation transferred size and total size").arg(FileFormat.size(value.bytesDone)).arg(FileFormat.size(value.bytesTotal));
+        if (value.filesTotal > 0)
+            return I18n.tr("%1 / %2 items", "file operation completed and total item count").arg(value.filesDone).arg(value.filesTotal);
+        return "";
+    }
 }

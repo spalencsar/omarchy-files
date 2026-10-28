@@ -151,6 +151,9 @@ ShellRoot {
             "scope": "w1"
         });
         check("copy summary", JobLabels.summary(FileOpsService.jobs[0]), "Copying “a.txt” to “dest”");
+        check("copy route", JobLabels.route(FileOpsService.jobs[0]), "/tmp/a.txt → /tmp/dest");
+        check("copy preparing item", JobLabels.currentItem(FileOpsService.jobs[0]), "Preparing…");
+        check("copy byte progress", JobLabels.progress(FileOpsService.jobs[0]), "0 B / 10 B");
         check("disconnected operation title", FilesFormat.operationError("DISCONNECTED", ""), "The network location is disconnected");
         check("job stored from the response", states(), ["j1:running"]);
 
@@ -168,6 +171,8 @@ ShellRoot {
             }
         });
         check("progress applied", FileOpsService.jobs[0].progress.bytesDone, 5);
+        check("current item label", JobLabels.currentItem(FileOpsService.jobs[0]), "a.txt");
+        check("updated byte progress", JobLabels.progress(FileOpsService.jobs[0]), "5 B / 10 B");
         check("no finish yet", finished, []);
 
         handler({

@@ -14,6 +14,20 @@
     "comment": ""
   },
   {
+    "term": "%1 / %2",
+    "translation": "",
+    "context": "file operation transferred size and total size",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "%1 / %2 items",
+    "translation": "",
+    "context": "file operation completed and total item count",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "%1 already exist in this folder. Do you want to overwrite them?",
     "translation": "",
     "context": "file chooser overwrite dialog message, %1 lists the file names",
@@ -184,7 +198,7 @@
   {
     "term": "%1 → %2",
     "translation": "",
-    "context": "desktop notification body: source and destination",
+    "context": "desktop notification body: source and destination | file operation source and destination paths",
     "reference": "",
     "comment": ""
   },
@@ -2698,6 +2712,13 @@
     "term": "Prefixes",
     "translation": "",
     "context": "games setting label hiding wine prefixes",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Preparing…",
+    "translation": "",
+    "context": "file operation has not started an item yet",
     "reference": "",
     "comment": ""
   },

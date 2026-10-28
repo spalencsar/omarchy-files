@@ -6,6 +6,9 @@ All notable changes to Omarchy Files are documented here.
 
 ### Added
 
+- A keyboard-accessible hover detail card for the persistent transfer
+  indicator. It shows the current item, source and destination, progress,
+  transfer speed, and remaining time without opening the full job list.
 - A persistent transfer indicator in the lower-left corner. Its compact
   progress remains visible across folder and tab navigation, while a click
   expands job details and cancellation controls.

@@ -12,6 +12,18 @@
     "comment": "file operation summary: action, source, destination"
   },
   {
+    "term": "%1 / %2",
+    "context": "%1 / %2",
+    "reference": "Modules/JobLabels.qml:125",
+    "comment": "file operation transferred size and total size"
+  },
+  {
+    "term": "%1 / %2 items",
+    "context": "%1 / %2 items",
+    "reference": "Modules/JobLabels.qml:127",
+    "comment": "file operation completed and total item count"
+  },
+  {
     "term": "%1 already exist in this folder. Do you want to overwrite them?",
     "context": "%1 already exist in this folder. Do you want to overwrite them?",
     "reference": "Modules/ChooserWindow.qml:828",
@@ -80,7 +92,7 @@
   {
     "term": "%1 items",
     "context": "%1 items",
-    "reference": "Modules/JobLabels.qml:95, Services/FileOpsService.qml:340",
+    "reference": "Modules/JobLabels.qml:95, Modules/JobLabels.qml:116, Services/FileOpsService.qml:340",
     "comment": "number of items in a completed file operation | number of items in a file operation"
   },
   {
@@ -158,8 +170,8 @@
   {
     "term": "%1 → %2",
     "context": "%1 → %2",
-    "reference": "Services/FileOpsService.qml:343",
-    "comment": "desktop notification body: source and destination"
+    "reference": "Modules/JobLabels.qml:117, Services/FileOpsService.qml:343",
+    "comment": "desktop notification body: source and destination | file operation source and destination paths"
   },
   {
     "term": "%1, %2 matches",
@@ -1058,7 +1070,7 @@
   {
     "term": "Estimating…",
     "context": "Estimating…",
-    "reference": "Modules/JobRow.qml:30",
+    "reference": "Modules/JobLabels.qml:104, Modules/JobRow.qml:30",
     "comment": "file operation is still measuring the work"
   },
   {
@@ -1172,7 +1184,7 @@
   {
     "term": "File operations",
     "context": "File operations",
-    "reference": "Modules/JobsPopover.qml:39, Modules/TransferIndicator.qml:120",
+    "reference": "Modules/JobsPopover.qml:39, Modules/TransferIndicator.qml:176",
     "comment": "jobs popover header"
   },
   {
@@ -2314,6 +2326,12 @@
     "context": "Prefixes",
     "reference": "Modules/Settings/SettingsContent.qml:1278",
     "comment": "games setting label hiding wine prefixes"
+  },
+  {
+    "term": "Preparing…",
+    "context": "Preparing…",
+    "reference": "Modules/JobLabels.qml:106",
+    "comment": "file operation has not started an item yet"
   },
   {
     "term": "Preset",
