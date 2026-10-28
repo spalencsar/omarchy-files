@@ -299,7 +299,7 @@ func (r *runner) deleteAll() error {
 		if !r.guarded(path) {
 			return errors.New("changed since the operation it would replay: " + path)
 		}
-		err := r.retry(path, func(fs FS) error { return fs.RemoveAll(path) })
+		err := r.deleteTree(path)
 		switch {
 		case errors.Is(err, errSkipped):
 			continue
@@ -309,9 +309,62 @@ func (r *runner) deleteAll() error {
 			return err
 		}
 		forgetTrashed(path)
-		counted := r.scanned[path]
-		r.advance(path, max(counted.files, 1), counted.bytes)
 	}
+	r.finishEstimate()
+	return nil
+}
+
+// deleteTree removes children before their parent and advances progress for
+// every entry. os.RemoveAll only returns once for an entire tree, which makes
+// slow network deletes look frozen and delays cancellation until the end.
+func (r *runner) deleteTree(path string) error {
+	var info os.FileInfo
+	if err := r.retry(path, func(fs FS) error {
+		var statErr error
+		info, statErr = fs.Lstat(path)
+		return statErr
+	}); err != nil {
+		return err
+	}
+
+	incomplete := false
+	if info.IsDir() {
+		var children []os.DirEntry
+		if err := r.retry(path, func(fs FS) error {
+			var readErr error
+			children, readErr = fs.ReadDir(path)
+			return readErr
+		}); err != nil {
+			return err
+		}
+		for _, child := range children {
+			if r.job.closed() {
+				return context.Canceled
+			}
+			err := r.deleteTree(filepath.Join(path, child.Name()))
+			switch {
+			case err == nil:
+			case errors.Is(err, errSkipped):
+				incomplete = true
+			case errors.Is(err, context.Canceled):
+				return err
+			default:
+				return err
+			}
+		}
+		if incomplete {
+			return errSkipped
+		}
+	}
+
+	if err := r.retry(path, func(fs FS) error { return fs.Remove(path) }); err != nil {
+		return err
+	}
+	var bytes int64
+	if info.Mode().IsRegular() {
+		bytes = info.Size()
+	}
+	r.advance(path, 1, bytes)
 	return nil
 }
 

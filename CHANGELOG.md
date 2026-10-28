@@ -21,6 +21,8 @@ All notable changes to Omarchy Files are documented here.
 - Rebase running file operations onto a GVfs share's current mountpoint after
   a remount, and report a disconnected network location explicitly when the
   share is no longer available.
+- Report permanent-delete progress entry by entry instead of appearing frozen
+  while one monolithic recursive removal blocks on a slow NFS or GVfs mount.
 
 ## [0.1.1] - 2026-10-27
 

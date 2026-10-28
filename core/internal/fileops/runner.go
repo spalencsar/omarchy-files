@@ -255,6 +255,19 @@ func (r *runner) setTotals(count int, bytes int64, estimating bool) {
 	r.job.tick(true)
 }
 
+func (r *runner) finishEstimate() {
+	if !r.estimating {
+		return
+	}
+	r.estimating = false
+	r.job.mu.Lock()
+	r.job.progress.FilesTotal = max(r.job.progress.FilesTotal, r.job.progress.FilesDone)
+	r.job.progress.BytesTotal = max(r.job.progress.BytesTotal, r.job.progress.BytesDone)
+	r.job.progress.Estimating = false
+	r.job.mu.Unlock()
+	r.job.tick(true)
+}
+
 func (r *runner) targets() []pair {
 	if len(r.job.spec.pairs) > 0 {
 		return r.job.spec.pairs
