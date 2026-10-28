@@ -1,0 +1,91 @@
+name: Sync Marketplace Plugin
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 5 * * *"
+
+concurrency:
+  group: sync-marketplace-plugin
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out Marketplace repository
+        uses: actions/checkout@v6
+        with:
+          path: plugin
+
+      - name: Check out canonical application repository
+        uses: actions/checkout@v6
+        with:
+          repository: spalencsar/omarchy-files
+          ref: master
+          path: upstream
+
+      - name: Read latest application release
+        id: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag=$(gh release view --repo spalencsar/omarchy-files --json tagName --jq .tagName)
+          version=${tag#v}
+          mkdir -p checksums
+          gh release download "$tag" \
+            --repo spalencsar/omarchy-files \
+            --pattern 'omarchy-files-linux-amd64.gz.sha256' \
+            --pattern 'omarchy-files-linux-arm64.gz.sha256' \
+            --dir checksums
+          amd64=$(awk '{print $1}' checksums/omarchy-files-linux-amd64.gz.sha256)
+          arm64=$(awk '{print $1}' checksums/omarchy-files-linux-arm64.gz.sha256)
+          test -n "$version" && test -n "$amd64" && test -n "$arm64"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "amd64=$amd64" >> "$GITHUB_OUTPUT"
+          echo "arm64=$arm64" >> "$GITHUB_OUTPUT"
+
+      - name: Render plugin from canonical source
+        env:
+          APP_VERSION: ${{ steps.release.outputs.version }}
+          AMD64_SHA256: ${{ steps.release.outputs.amd64 }}
+          ARM64_SHA256: ${{ steps.release.outputs.arm64 }}
+        run: |
+          cp -a upstream/distro/omarchy-plugin/. plugin/
+          mkdir -p plugin/assets
+          cp upstream/assets/io.github.spalencsar.OmarchyFiles.desktop plugin/assets/
+          cp upstream/assets/io.github.spalencsar.OmarchyFiles.svg plugin/assets/
+          cp upstream/docs/screenshots/main-window.png plugin/preview.png
+          cp upstream/LICENSE plugin/LICENSE
+          sed -i \
+            -e "s/@APP_VERSION@/${APP_VERSION}/g" \
+            -e "s/@AMD64_SHA256@/${AMD64_SHA256}/g" \
+            -e "s/@ARM64_SHA256@/${ARM64_SHA256}/g" \
+            plugin/install-omarchy.sh plugin/manifest.json plugin/README.md
+          chmod 0755 plugin/install-omarchy.sh plugin/uninstall-app.sh
+
+      - name: Validate generated plugin
+        run: |
+          bash -n plugin/install-omarchy.sh plugin/uninstall-app.sh
+          jq -e . plugin/manifest.json >/dev/null
+          if grep -R '@APP_VERSION@\|@AMD64_SHA256@\|@ARM64_SHA256@' \
+            plugin/install-omarchy.sh plugin/manifest.json plugin/README.md; then
+            echo 'Unresolved template placeholder' >&2
+            exit 1
+          fi
+
+      - name: Commit generated update
+        working-directory: plugin
+        run: |
+          git add -- .
+          if git diff --cached --quiet; then
+            echo 'Marketplace plugin is already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "chore: sync Omarchy Files v${{ steps.release.outputs.version }}"
+          git push

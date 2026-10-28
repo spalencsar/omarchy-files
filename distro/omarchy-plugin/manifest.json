@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.spalencsar.omarchy-files",
+  "name": "Omarchy Files",
+  "version": "1.0.0",
+  "author": "Sebastian Palencsar",
+  "license": "MIT",
+  "description": "Launch the Omarchy-native file manager from the Omarchy bar.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Omarchy Files",
+    "description": "Open Omarchy Files or install its pinned user-local release.",
+    "category": "System",
+    "aliases": [
+      "files",
+      "folders",
+      "file manager"
+    ],
+    "allowMultiple": false,
+    "defaultSection": "left"
+  }
+}
