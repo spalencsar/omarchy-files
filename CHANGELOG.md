@@ -4,6 +4,8 @@ All notable changes to Omarchy Files are documented here.
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-10-28
+
 ### Added
 
 - A keyboard-accessible hover detail card for the persistent transfer
@@ -66,5 +68,7 @@ All notable changes to Omarchy Files are documented here.
   Dux Files, with branded Arch packaging, a user service, and a live
   Omarchy-theme adapter.
 
+[Unreleased]: https://github.com/spalencsar/omarchy-files/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/spalencsar/omarchy-files/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/spalencsar/omarchy-files/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/spalencsar/omarchy-files/releases/tag/v0.1.0
