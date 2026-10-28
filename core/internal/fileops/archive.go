@@ -34,7 +34,8 @@ func (r *runner) compress() error {
 	tmp := r.tempPath(target)
 
 	var out *os.File
-	if err := r.retryLocal(tmp, func() error {
+	if err := r.retryLocal(tmp, func(resolved string) error {
+		tmp = resolved
 		created, err := os.OpenFile(tmp, os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0o644)
 		out = created
 		return err
@@ -65,9 +66,9 @@ func (r *runner) compress() error {
 		_ = os.Remove(tmp)
 		return err
 	}
-	if err := renameNoReplace(tmp, target); err != nil {
+	if err := r.retry(target, func(fs FS) error { return fs.Rename(tmp, target, true) }); err != nil {
 		_ = os.Remove(tmp)
-		return err
+		return skipToNil(err)
 	}
 	r.remember(KindDelete, target, "")
 	return nil
@@ -146,7 +147,8 @@ func (r *runner) pack(w archiveWriter, src string) error {
 		}
 
 		var in *os.File
-		if err := r.retryLocal(path, func() error {
+		if err := r.retryLocal(path, func(resolved string) error {
+			path = resolved
 			opened, err := os.Open(path)
 			in = opened
 			return err

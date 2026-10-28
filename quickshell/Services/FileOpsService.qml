@@ -3,6 +3,7 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import Quickshell
+import qs.Common
 import qs.Services
 
 Singleton {
@@ -14,6 +15,8 @@ Singleton {
 
     property var jobs: []
     property string lastDestination: ""
+    property bool notificationsEnabled: true
+    property var notificationSender: command => Quickshell.execDetached(command)
 
     readonly property int activeCount: jobs.filter(job => job.state !== "done" && job.state !== "failed").length
 
@@ -28,6 +31,7 @@ Singleton {
     signal jobFinished(var job)
 
     property var _byId: ({})
+    property var _notifiedFinished: ({})
 
     readonly property DaemonTopic _jobs: DaemonTopic {
         transport: root.transport
@@ -273,7 +277,76 @@ Singleton {
         if (!finished)
             return;
         jobFinished(job);
+        _notifyFinished(job);
         _historyTimeout.restart();
+    }
+
+    function _notifyFinished(job) {
+        if (!notificationsEnabled || _notifiedFinished[job.id] === true || !_isTransfer(job.kind))
+            return;
+        _notifiedFinished[job.id] = true;
+
+        const failed = job.state === "failed";
+        const cancelled = job.cancelled === true;
+        const title = failed
+            ? I18n.tr("File operation failed", "desktop notification title for a failed transfer")
+            : cancelled
+            ? I18n.tr("File operation cancelled", "desktop notification title for a cancelled transfer")
+            : _completionTitle(job.kind);
+        const body = failed && (job.error || job.code)
+            ? (job.error || job.code)
+            : _completionBody(job);
+
+        notificationSender([
+            "omarchy", "notification", "send",
+            "--app-name", "Omarchy Files",
+            "-i", "io.github.spalencsar.OmarchyFiles",
+            "-u", failed ? "critical" : "normal",
+            "-t", "6000",
+            title, body,
+            "--exec", "omarchy-files", "show"
+        ]);
+    }
+
+    function _isTransfer(kind) {
+        return ["copy", "move", "compress", "extract", "duplicate", "link", "newFolderWith"].includes(kind);
+    }
+
+    function _completionTitle(kind) {
+        switch (kind) {
+        case "copy":
+            return I18n.tr("Copy complete", "desktop notification title after copying files");
+        case "move":
+            return I18n.tr("Move complete", "desktop notification title after moving files");
+        case "compress":
+            return I18n.tr("Archive created", "desktop notification title after compressing files");
+        case "extract":
+            return I18n.tr("Extraction complete", "desktop notification title after extracting files");
+        case "duplicate":
+            return I18n.tr("Duplication complete", "desktop notification title after duplicating files");
+        case "link":
+            return I18n.tr("Links created", "desktop notification title after linking files");
+        case "newFolderWith":
+            return I18n.tr("Folder created", "desktop notification title after creating a folder from files");
+        default:
+            return I18n.tr("File operation complete", "desktop notification title after a transfer");
+        }
+    }
+
+    function _completionBody(job) {
+        const sources = job?.sources ?? [];
+        const source = sources.length === 1
+            ? _baseName(sources[0])
+            : I18n.tr("%1 items", "number of items in a completed file operation").arg(sources.length);
+        const destination = _baseName(job?.dest ?? "");
+        if (source !== "" && destination !== "")
+            return I18n.tr("%1 → %2", "desktop notification body: source and destination").arg(source).arg(destination);
+        return source || destination || I18n.tr("The file operation finished successfully.", "desktop notification body after a transfer");
+    }
+
+    function _baseName(path) {
+        const parts = String(path || "").split("/").filter(part => part !== "");
+        return parts.length > 0 ? parts[parts.length - 1] : "";
     }
 
     readonly property Timer _historyTimeout: Timer {

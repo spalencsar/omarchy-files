@@ -1,6 +1,7 @@
 package netmount
 
 import (
+	"os"
 	"path/filepath"
 	"testing"
 	"time"
@@ -49,7 +50,11 @@ func TestServersSurviveARestart(t *testing.T) {
 	reloaded := newServerStore(dir).list()
 	require.Len(t, reloaded, 1)
 	assert.Equal(t, "smb", reloaded[0].Scheme)
-	assert.FileExists(t, filepath.Join(dir, "servers.json"))
+	path := filepath.Join(dir, "servers.json")
+	assert.FileExists(t, path)
+	info, err := os.Stat(path)
+	require.NoError(t, err)
+	assert.Equal(t, os.FileMode(0o600), info.Mode().Perm())
 }
 
 func TestServersForgetDropsOne(t *testing.T) {

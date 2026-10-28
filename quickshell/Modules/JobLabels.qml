@@ -3,6 +3,7 @@ pragma Singleton
 import QtQuick
 import Quickshell
 import qs.Common
+import qs.DCommon.FileBrowser
 
 Singleton {
     readonly property var kinds: ({
@@ -82,5 +83,19 @@ Singleton {
 
     function done(kind) {
         return kinds[kind]?.done ?? "";
+    }
+
+    function summary(job) {
+        const verb = active(job?.kind ?? "");
+        const sources = job?.sources ?? [];
+        if (sources.length === 0)
+            return verb;
+        const subject = sources.length === 1
+            ? `“${FilePaths.baseName(sources[0]) || sources[0]}”`
+            : I18n.tr("%1 items", "number of items in a file operation").arg(sources.length);
+        const destination = FilePaths.baseName(job?.dest ?? "") || (job?.dest ?? "");
+        if (destination !== "" && ["copy", "move", "extract", "link", "newFolderWith"].includes(job.kind))
+            return I18n.tr("%1 %2 to “%3”", "file operation summary: action, source, destination").arg(verb).arg(subject).arg(destination);
+        return I18n.tr("%1 %2", "file operation summary: action and source").arg(verb).arg(subject);
     }
 }

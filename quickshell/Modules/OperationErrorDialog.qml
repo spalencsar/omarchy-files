@@ -30,7 +30,7 @@ OverlayDialog {
     }
 
     onFailureChanged: failure ? open() : close()
-    title: failure ? FileFormat.operationError(failure.code, failure.message) : ""
+    title: failure ? FilesFormat.operationError(failure.code, failure.message) : ""
     supportingText: failure ? failure.path : ""
     closeEnabled: false
 

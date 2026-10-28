@@ -127,7 +127,7 @@ Singleton {
         }
     }
 
-    FileView {
+    PrivateFileView {
         id: settingsFile
         path: root.settingsPath
         blockLoading: true

@@ -2,6 +2,26 @@
 
 All notable changes to Omarchy Files are documented here.
 
+## [Unreleased]
+
+### Added
+
+- A persistent transfer indicator in the lower-left corner. Its compact
+  progress remains visible across folder and tab navigation, while a click
+  expands job details and cancellation controls.
+- One Omarchy desktop notification when a copy, move, archive, extract,
+  duplicate, link, or folder-creation transfer completes, is cancelled, or
+  fails. Clicking the notification brings Omarchy Files back into view.
+
+### Fixed
+
+- Protect app-owned configuration, session history, saved network locations,
+  bookmarks, and thumbnail caches from other local users. Existing storage is
+  migrated to owner-only permissions when the daemon starts.
+- Rebase running file operations onto a GVfs share's current mountpoint after
+  a remount, and report a disconnected network location explicitly when the
+  share is no longer available.
+
 ## [0.1.1] - 2026-10-27
 
 ### Added

@@ -11,6 +11,10 @@ import (
 
 	"github.com/spf13/cobra"
 
+	"github.com/duxlabs-dev/dux-go/files"
+	"github.com/duxlabs-dev/dux-go/log"
+	dankpaths "github.com/duxlabs-dev/dux-go/paths"
+	"github.com/godbus/dbus/v5"
 	"github.com/spalencsar/omarchy-files/core/internal/bookmarks"
 	"github.com/spalencsar/omarchy-files/core/internal/clipboard"
 	"github.com/spalencsar/omarchy-files/core/internal/colorscheme"
@@ -23,13 +27,10 @@ import (
 	"github.com/spalencsar/omarchy-files/core/internal/mimeapps"
 	"github.com/spalencsar/omarchy-files/core/internal/netmount"
 	"github.com/spalencsar/omarchy-files/core/internal/portal"
+	"github.com/spalencsar/omarchy-files/core/internal/privatefiles"
 	"github.com/spalencsar/omarchy-files/core/internal/sandbox"
 	"github.com/spalencsar/omarchy-files/core/internal/search"
 	"github.com/spalencsar/omarchy-files/core/internal/settings"
-	"github.com/duxlabs-dev/dux-go/files"
-	"github.com/duxlabs-dev/dux-go/log"
-	dankpaths "github.com/duxlabs-dev/dux-go/paths"
-	"github.com/godbus/dbus/v5"
 )
 
 var daemonCmd = &cobra.Command{
@@ -95,6 +96,9 @@ func (s *daemonServices) Close() {
 }
 
 func bootDaemonServices(ctx context.Context, ownsWindow bool) (*daemonServices, error) {
+	if err := secureAppStorage(); err != nil {
+		return nil, fmt.Errorf("secure app storage: %w", err)
+	}
 	caps := sandbox.Current()
 	if caps.Sandboxed {
 		log.Infof("sandboxed as %s (host filesystem: %v)", caps.AppID, caps.HostFilesystem)
@@ -125,6 +129,7 @@ func bootDaemonServices(ctx context.Context, ownsWindow bool) (*daemonServices, 
 	if err := networkService.Start(); err != nil {
 		log.Warnf("gvfs unavailable: %v", err)
 	}
+	opsManager.SetPathResolver(networkService)
 
 	clipboardService := clipboard.NewService()
 	opsManager.SetImageSource(clipboardService)
@@ -250,6 +255,20 @@ func startPortalChooser(deps ipc.Deps, caps sandbox.Capabilities) (*filechooser.
 var mimeDB = sync.OnceValue(func() *mimeapps.DB { return mimeapps.LoadDB(mimeapps.MimeDirs()) })
 
 var appPaths = dankpaths.New("omarchy-files")
+
+func secureAppStorage() error {
+	resolvers := []func() (string, error){appPaths.ConfigDir, appPaths.StateDir, appPaths.CacheDir}
+	for _, resolve := range resolvers {
+		dir, err := resolve()
+		if err != nil {
+			return err
+		}
+		if err := privatefiles.Harden(dir); err != nil {
+			return err
+		}
+	}
+	return nil
+}
 
 func configHome() string {
 	dir, err := appPaths.ConfigDir()

@@ -1,5 +1,19 @@
 [
   {
+    "term": "%1 %2",
+    "translation": "",
+    "context": "file operation summary: action and source",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "%1 %2 to “%3”",
+    "translation": "",
+    "context": "file operation summary: action, source, destination",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "%1 already exist in this folder. Do you want to overwrite them?",
     "translation": "",
     "context": "file chooser overwrite dialog message, %1 lists the file names",
@@ -73,6 +87,13 @@
     "term": "%1 is password protected.",
     "translation": "",
     "context": "archive password dialog explanation",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "%1 items",
+    "translation": "",
+    "context": "number of items in a completed file operation | number of items in a file operation",
     "reference": "",
     "comment": ""
   },
@@ -157,6 +178,13 @@
     "term": "%1 …",
     "translation": "",
     "context": "properties size row while the folder is still being measured",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "%1 → %2",
+    "translation": "",
+    "context": "desktop notification body: source and destination",
     "reference": "",
     "comment": ""
   },
@@ -380,7 +408,7 @@
   {
     "term": "Archive created",
     "translation": "",
-    "context": "toast after compressing files",
+    "context": "desktop notification title after compressing files | toast after compressing files",
     "reference": "",
     "comment": ""
   },
@@ -752,6 +780,13 @@
     "term": "Copy command",
     "translation": "",
     "context": "optional feature help box action",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Copy complete",
+    "translation": "",
+    "context": "desktop notification title after copying files",
     "reference": "",
     "comment": ""
   },
@@ -1134,6 +1169,13 @@
     "comment": ""
   },
   {
+    "term": "Duplication complete",
+    "translation": "",
+    "context": "desktop notification title after duplicating files",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Duration",
     "translation": "",
     "context": "animation duration slider label",
@@ -1288,9 +1330,37 @@
     "comment": ""
   },
   {
+    "term": "Extraction complete",
+    "translation": "",
+    "context": "desktop notification title after extracting files",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Family",
     "translation": "",
     "context": "font family dropdown label",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "File operation cancelled",
+    "translation": "",
+    "context": "desktop notification title for a cancelled transfer",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "File operation complete",
+    "translation": "",
+    "context": "desktop notification title after a transfer",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "File operation failed",
+    "translation": "",
+    "context": "desktop notification title for a failed transfer",
     "reference": "",
     "comment": ""
   },
@@ -1347,6 +1417,13 @@
     "term": "Focus the sidebar",
     "translation": "",
     "context": "keyboard shortcut",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Folder created",
+    "translation": "",
+    "context": "desktop notification title after creating a folder from files",
     "reference": "",
     "comment": ""
   },
@@ -1792,6 +1869,13 @@
     "comment": ""
   },
   {
+    "term": "Links created",
+    "translation": "",
+    "context": "desktop notification title after linking files",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Links to",
     "translation": "",
     "context": "properties row showing a symlink target",
@@ -1914,6 +1998,13 @@
     "term": "Move",
     "translation": "",
     "context": "drag label for moving files",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Move complete",
+    "translation": "",
+    "context": "desktop notification title after moving files",
     "reference": "",
     "comment": ""
   },
@@ -3437,9 +3528,23 @@
     "comment": ""
   },
   {
+    "term": "The file operation finished successfully.",
+    "translation": "",
+    "context": "desktop notification body after a transfer",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "The files themselves stay where they are.",
     "translation": "",
     "context": "explanation under the clear recent confirmation",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "The network location is disconnected",
+    "translation": "",
+    "context": "file operation error",
     "reference": "",
     "comment": ""
   },

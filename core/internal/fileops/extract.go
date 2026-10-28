@@ -61,7 +61,8 @@ func (r *runner) unpack(archive string) (created string, dir bool, err error) {
 
 func (r *runner) unpackWith(archive string, format archiveFormat, password string) (string, bool, error) {
 	var in *os.File
-	if err := r.retryLocal(archive, func() error {
+	if err := r.retryLocal(archive, func(resolved string) error {
+		archive = resolved
 		opened, err := os.Open(archive)
 		in = opened
 		return err

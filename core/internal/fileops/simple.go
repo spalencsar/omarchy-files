@@ -170,7 +170,9 @@ func (r *runner) pasteImage() error {
 	r.setTotals(1, int64(len(data)), false)
 
 	tmp := r.tempPath(path)
-	err := r.retryLocal(path, func() error {
+	err := r.retryLocal(path, func(resolved string) error {
+		path = resolved
+		tmp = r.tempPath(path)
 		if err := os.WriteFile(tmp, data, 0o644); err != nil {
 			return err
 		}

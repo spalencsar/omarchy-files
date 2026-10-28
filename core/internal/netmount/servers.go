@@ -86,7 +86,7 @@ func (s *serverStore) load() {
 }
 
 func (s *serverStore) save() error {
-	if err := os.MkdirAll(filepath.Dir(s.path), 0o755); err != nil {
+	if err := os.MkdirAll(filepath.Dir(s.path), 0o700); err != nil {
 		return err
 	}
 	raw, err := json.MarshalIndent(s.items, "", "  ")

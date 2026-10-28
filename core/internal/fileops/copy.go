@@ -247,7 +247,8 @@ func (r *runner) transferLink(src, dst string, move, noReplace bool) error {
 func (r *runner) transferFile(src, dst string, info os.FileInfo, move, noReplace bool) error {
 	tmp := r.tempPath(dst)
 	made := &creation{path: tmp}
-	if err := r.retryLocal(src, func() error {
+	if err := r.retryLocal(src, func(resolved string) error {
+		src = resolved
 		made.discard()
 		return r.copyBytes(src, tmp, info, made)
 	}); err != nil {

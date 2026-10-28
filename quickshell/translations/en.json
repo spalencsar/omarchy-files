@@ -1,5 +1,17 @@
 [
   {
+    "term": "%1 %2",
+    "context": "%1 %2",
+    "reference": "Modules/JobLabels.qml:99",
+    "comment": "file operation summary: action and source"
+  },
+  {
+    "term": "%1 %2 to “%3”",
+    "context": "%1 %2 to “%3”",
+    "reference": "Modules/JobLabels.qml:98",
+    "comment": "file operation summary: action, source, destination"
+  },
+  {
     "term": "%1 already exist in this folder. Do you want to overwrite them?",
     "context": "%1 already exist in this folder. Do you want to overwrite them?",
     "reference": "Modules/ChooserWindow.qml:828",
@@ -32,7 +44,7 @@
   {
     "term": "%1 h %2 min left",
     "context": "%1 h %2 min left",
-    "reference": "Common/FilesFormat.qml:54",
+    "reference": "Common/FilesFormat.qml:60",
     "comment": "time left for a file operation, in hours and minutes"
   },
   {
@@ -66,6 +78,12 @@
     "comment": "archive password dialog explanation"
   },
   {
+    "term": "%1 items",
+    "context": "%1 items",
+    "reference": "Modules/JobLabels.qml:95, Services/FileOpsService.qml:340",
+    "comment": "number of items in a completed file operation | number of items in a file operation"
+  },
+  {
     "term": "%1 items copied",
     "context": "%1 items copied",
     "reference": "Modules/PaneStatus.qml:33",
@@ -92,7 +110,7 @@
   {
     "term": "%1 min left",
     "context": "%1 min left",
-    "reference": "Common/FilesFormat.qml:53",
+    "reference": "Common/FilesFormat.qml:59",
     "comment": "time left for a file operation, in minutes"
   },
   {
@@ -104,7 +122,7 @@
   {
     "term": "%1 s left",
     "context": "%1 s left",
-    "reference": "Common/FilesFormat.qml:50",
+    "reference": "Common/FilesFormat.qml:56",
     "comment": "time left for a file operation, in seconds"
   },
   {
@@ -128,7 +146,7 @@
   {
     "term": "%1 · %2",
     "context": "%1 · %2",
-    "reference": "Common/FilesFormat.qml:62, Modules/PaneStatus.qml:22, Modules/PropertiesDialog.qml:106",
+    "reference": "Common/FilesFormat.qml:68, Modules/PaneStatus.qml:22, Modules/PropertiesDialog.qml:106",
     "comment": "folder status: item count then hidden count | properties size row: bytes then item count | transfer speed then time left"
   },
   {
@@ -136,6 +154,12 @@
     "context": "%1 …",
     "reference": "Modules/PropertiesDialog.qml:107",
     "comment": "properties size row while the folder is still being measured"
+  },
+  {
+    "term": "%1 → %2",
+    "context": "%1 → %2",
+    "reference": "Services/FileOpsService.qml:343",
+    "comment": "desktop notification body: source and destination"
   },
   {
     "term": "%1, %2 matches",
@@ -146,7 +170,7 @@
   {
     "term": "%1/s",
     "context": "%1/s",
-    "reference": "Common/FilesFormat.qml:60",
+    "reference": "Common/FilesFormat.qml:66",
     "comment": "transfer speed, %1 is a size such as 12 MB"
   },
   {
@@ -224,25 +248,25 @@
   {
     "term": "Administrator access is not available",
     "context": "Administrator access is not available",
-    "reference": "Common/FilesFormat.qml:20",
+    "reference": "Common/FilesFormat.qml:26",
     "comment": "file operation error dialog explanation"
   },
   {
     "term": "Administrator access is not available because pkexec is not installed",
     "context": "Administrator access is not available because pkexec is not installed",
-    "reference": "Common/FilesFormat.qml:16",
+    "reference": "Common/FilesFormat.qml:22",
     "comment": "file operation error dialog explanation"
   },
   {
     "term": "Administrator access is not available because the polkit policy is not installed",
     "context": "Administrator access is not available because the polkit policy is not installed",
-    "reference": "Common/FilesFormat.qml:18",
+    "reference": "Common/FilesFormat.qml:24",
     "comment": "file operation error dialog explanation"
   },
   {
     "term": "Administrator access is not available inside the sandbox",
     "context": "Administrator access is not available inside the sandbox",
-    "reference": "Common/FilesFormat.qml:14",
+    "reference": "Common/FilesFormat.qml:20",
     "comment": "file operation error dialog explanation"
   },
   {
@@ -326,8 +350,8 @@
   {
     "term": "Archive created",
     "context": "Archive created",
-    "reference": "Modules/JobLabels.qml:39",
-    "comment": "toast after compressing files"
+    "reference": "Modules/JobLabels.qml:40, Services/FileOpsService.qml:322",
+    "comment": "desktop notification title after compressing files | toast after compressing files"
   },
   {
     "term": "Archives",
@@ -452,7 +476,7 @@
   {
     "term": "Cancel",
     "context": "Cancel",
-    "reference": "Modules/ArchivePasswordDialog.qml:65, Modules/ChooserWindow.qml:782, Modules/CompressDialog.qml:105, Modules/ConfirmDialog.qml:25, Modules/ConflictDialog.qml:65, Modules/ConnectServerDialog.qml:110, Modules/CredentialDialog.qml:147, Modules/DragController.qml:130, Modules/ExecutableDialog.qml:31, Modules/JobRow.qml:70, Modules/NameDialog.qml:39, Modules/OpenWithDialog.qml:160, Modules/OperationErrorDialog.qml:69, Modules/UnlockDialog.qml:58",
+    "reference": "Modules/ArchivePasswordDialog.qml:65, Modules/ChooserWindow.qml:782, Modules/CompressDialog.qml:105, Modules/ConfirmDialog.qml:25, Modules/ConflictDialog.qml:65, Modules/ConnectServerDialog.qml:110, Modules/CredentialDialog.qml:147, Modules/DragController.qml:130, Modules/ExecutableDialog.qml:31, Modules/JobRow.qml:68, Modules/NameDialog.qml:39, Modules/OpenWithDialog.qml:160, Modules/OperationErrorDialog.qml:69, Modules/UnlockDialog.qml:58",
     "comment": "dialog button to cancel"
   },
   {
@@ -470,13 +494,13 @@
   {
     "term": "Changing owner",
     "context": "Changing owner",
-    "reference": "Modules/JobLabels.qml:74",
+    "reference": "Modules/JobLabels.qml:75",
     "comment": "file operation in progress"
   },
   {
     "term": "Changing permissions",
     "context": "Changing permissions",
-    "reference": "Modules/JobLabels.qml:70",
+    "reference": "Modules/JobLabels.qml:71",
     "comment": "file operation in progress"
   },
   {
@@ -566,7 +590,7 @@
   {
     "term": "Compressing",
     "context": "Compressing",
-    "reference": "Modules/JobLabels.qml:38",
+    "reference": "Modules/JobLabels.qml:39",
     "comment": "file operation in progress"
   },
   {
@@ -632,7 +656,7 @@
   {
     "term": "Copied",
     "context": "Copied",
-    "reference": "Modules/JobLabels.qml:11",
+    "reference": "Modules/JobLabels.qml:12",
     "comment": "toast after copying files"
   },
   {
@@ -648,9 +672,15 @@
     "comment": "optional feature help box action"
   },
   {
+    "term": "Copy complete",
+    "context": "Copy complete",
+    "reference": "Services/FileOpsService.qml:318",
+    "comment": "desktop notification title after copying files"
+  },
+  {
     "term": "Copy location path",
     "context": "Copy location path",
-    "reference": "Common/Shortcuts.qml:515, Modules/FileContextMenu.qml:261, Modules/FilesTopbar.qml:432, Modules/PlaceMenu.qml:77",
+    "reference": "Common/Shortcuts.qml:515, Modules/FileContextMenu.qml:261, Modules/FilesTopbar.qml:425, Modules/PlaceMenu.qml:77",
     "comment": "menu entry copying the current path to the clipboard"
   },
   {
@@ -674,7 +704,7 @@
   {
     "term": "Copying",
     "context": "Copying",
-    "reference": "Modules/JobLabels.qml:10",
+    "reference": "Modules/JobLabels.qml:11",
     "comment": "file operation in progress"
   },
   {
@@ -716,7 +746,7 @@
   {
     "term": "Creating",
     "context": "Creating",
-    "reference": "Modules/JobLabels.qml:58, Modules/JobLabels.qml:62, Modules/JobLabels.qml:66",
+    "reference": "Modules/JobLabels.qml:59, Modules/JobLabels.qml:63, Modules/JobLabels.qml:67",
     "comment": "file operation in progress"
   },
   {
@@ -830,7 +860,7 @@
   {
     "term": "Deleting",
     "context": "Deleting",
-    "reference": "Modules/JobLabels.qml:26",
+    "reference": "Modules/JobLabels.qml:27",
     "comment": "file operation in progress"
   },
   {
@@ -926,7 +956,7 @@
   {
     "term": "Drives are unavailable because the sandbox cannot reach udisks2",
     "context": "Drives are unavailable because the sandbox cannot reach udisks2",
-    "reference": "Common/FilesFormat.qml:31",
+    "reference": "Common/FilesFormat.qml:37",
     "comment": "explanation when the flatpak lacks the udisks2 permission"
   },
   {
@@ -962,14 +992,20 @@
   {
     "term": "Duplicated",
     "context": "Duplicated",
-    "reference": "Modules/JobLabels.qml:47",
+    "reference": "Modules/JobLabels.qml:48",
     "comment": "toast after copying files beside themselves"
   },
   {
     "term": "Duplicating",
     "context": "Duplicating",
-    "reference": "Modules/JobLabels.qml:46",
+    "reference": "Modules/JobLabels.qml:47",
     "comment": "file operation in progress"
+  },
+  {
+    "term": "Duplication complete",
+    "context": "Duplication complete",
+    "reference": "Services/FileOpsService.qml:326",
+    "comment": "desktop notification title after duplicating files"
   },
   {
     "term": "Duration",
@@ -1010,7 +1046,7 @@
   {
     "term": "Emptying the trash",
     "context": "Emptying the trash",
-    "reference": "Modules/JobLabels.qml:30",
+    "reference": "Modules/JobLabels.qml:31",
     "comment": "file operation in progress"
   },
   {
@@ -1100,8 +1136,14 @@
   {
     "term": "Extracting",
     "context": "Extracting",
-    "reference": "Modules/JobLabels.qml:42",
+    "reference": "Modules/JobLabels.qml:43",
     "comment": "file operation in progress"
+  },
+  {
+    "term": "Extraction complete",
+    "context": "Extraction complete",
+    "reference": "Services/FileOpsService.qml:324",
+    "comment": "desktop notification title after extracting files"
   },
   {
     "term": "Family",
@@ -1110,9 +1152,27 @@
     "comment": "font family dropdown label"
   },
   {
+    "term": "File operation cancelled",
+    "context": "File operation cancelled",
+    "reference": "Services/FileOpsService.qml:294",
+    "comment": "desktop notification title for a cancelled transfer"
+  },
+  {
+    "term": "File operation complete",
+    "context": "File operation complete",
+    "reference": "Services/FileOpsService.qml:332",
+    "comment": "desktop notification title after a transfer"
+  },
+  {
+    "term": "File operation failed",
+    "context": "File operation failed",
+    "reference": "Services/FileOpsService.qml:292",
+    "comment": "desktop notification title for a failed transfer"
+  },
+  {
     "term": "File operations",
     "context": "File operations",
-    "reference": "Modules/JobsButton.qml:14, Modules/JobsPopover.qml:39",
+    "reference": "Modules/JobsPopover.qml:39, Modules/TransferIndicator.qml:120",
     "comment": "jobs popover header"
   },
   {
@@ -1156,6 +1216,12 @@
     "context": "Focus the sidebar",
     "reference": "Common/Shortcuts.qml:245",
     "comment": "keyboard shortcut"
+  },
+  {
+    "term": "Folder created",
+    "context": "Folder created",
+    "reference": "Services/FileOpsService.qml:330",
+    "comment": "desktop notification title after creating a folder from files"
   },
   {
     "term": "Folders",
@@ -1352,7 +1418,7 @@
   {
     "term": "Image pasted",
     "context": "Image pasted",
-    "reference": "Modules/JobLabels.qml:51",
+    "reference": "Modules/JobLabels.qml:52",
     "comment": "toast after writing a clipboard image into the folder"
   },
   {
@@ -1490,7 +1556,7 @@
   {
     "term": "Keyboard shortcuts",
     "context": "Keyboard shortcuts",
-    "reference": "Common/Shortcuts.qml:366, Modules/FilesTopbar.qml:454, Modules/ShortcutsOverlay.qml:12, Modules/Settings/SettingsContent.qml:798",
+    "reference": "Common/Shortcuts.qml:366, Modules/FilesTopbar.qml:447, Modules/ShortcutsOverlay.qml:12, Modules/Settings/SettingsContent.qml:798",
     "comment": "overlay listing every keyboard shortcut"
   },
   {
@@ -1532,8 +1598,14 @@
   {
     "term": "Linking",
     "context": "Linking",
-    "reference": "Modules/JobLabels.qml:54",
+    "reference": "Modules/JobLabels.qml:55",
     "comment": "file operation in progress"
+  },
+  {
+    "term": "Links created",
+    "context": "Links created",
+    "reference": "Services/FileOpsService.qml:328",
+    "comment": "desktop notification title after linking files"
   },
   {
     "term": "Links to",
@@ -1622,7 +1694,7 @@
   {
     "term": "More actions",
     "context": "More actions",
-    "reference": "Modules/FilesTopbar.qml:320",
+    "reference": "Modules/FilesTopbar.qml:313",
     "comment": "tooltip on the overflow menu button"
   },
   {
@@ -1642,6 +1714,12 @@
     "context": "Move",
     "reference": "Modules/DragActionChip.qml:38, Modules/DragController.qml:112, Modules/Settings/SettingsContent.qml:112",
     "comment": "drag label for moving files"
+  },
+  {
+    "term": "Move complete",
+    "context": "Move complete",
+    "reference": "Services/FileOpsService.qml:320",
+    "comment": "desktop notification title after moving files"
   },
   {
     "term": "Move the tab left",
@@ -1700,25 +1778,25 @@
   {
     "term": "Moved",
     "context": "Moved",
-    "reference": "Modules/JobLabels.qml:15",
+    "reference": "Modules/JobLabels.qml:16",
     "comment": "toast after moving files"
   },
   {
     "term": "Moved to trash",
     "context": "Moved to trash",
-    "reference": "Modules/JobLabels.qml:19",
+    "reference": "Modules/JobLabels.qml:20",
     "comment": "toast after trashing files"
   },
   {
     "term": "Moving",
     "context": "Moving",
-    "reference": "Modules/JobLabels.qml:14",
+    "reference": "Modules/JobLabels.qml:15",
     "comment": "file operation in progress"
   },
   {
     "term": "Moving to trash",
     "context": "Moving to trash",
-    "reference": "Modules/JobLabels.qml:18",
+    "reference": "Modules/JobLabels.qml:19",
     "comment": "file operation in progress"
   },
   {
@@ -1760,7 +1838,7 @@
   {
     "term": "Network locations are unavailable because the sandbox cannot reach gvfs",
     "context": "Network locations are unavailable because the sandbox cannot reach gvfs",
-    "reference": "Common/FilesFormat.qml:33",
+    "reference": "Common/FilesFormat.qml:39",
     "comment": "explanation when the flatpak lacks the gvfs permissions"
   },
   {
@@ -1802,7 +1880,7 @@
   {
     "term": "New window",
     "context": "New window",
-    "reference": "Common/Shortcuts.qml:158, Modules/FilesTopbar.qml:416",
+    "reference": "Common/Shortcuts.qml:158, Modules/FilesTopbar.qml:409",
     "comment": "menu entry opening another file manager window"
   },
   {
@@ -1844,25 +1922,25 @@
   {
     "term": "Not available",
     "context": "Not available",
-    "reference": "Common/FilesFormat.qml:43, Modules/PropertiesOpenWith.qml:35",
+    "reference": "Common/FilesFormat.qml:49, Modules/PropertiesOpenWith.qml:35",
     "comment": "explanation for a feature the environment does not permit"
   },
   {
     "term": "Not available because the sandbox cannot start programs on the host",
     "context": "Not available because the sandbox cannot start programs on the host",
-    "reference": "Common/FilesFormat.qml:35",
+    "reference": "Common/FilesFormat.qml:41",
     "comment": "explanation for a feature that needs flatpak-spawn"
   },
   {
     "term": "Not available inside the sandbox",
     "context": "Not available inside the sandbox",
-    "reference": "Common/FilesFormat.qml:27",
+    "reference": "Common/FilesFormat.qml:33",
     "comment": "explanation for a feature the flatpak sandbox blocks"
   },
   {
     "term": "Not available without access to the host filesystem",
     "context": "Not available without access to the host filesystem",
-    "reference": "Common/FilesFormat.qml:29",
+    "reference": "Common/FilesFormat.qml:35",
     "comment": "explanation for a feature that needs the flatpak host filesystem permission"
   },
   {
@@ -1934,7 +2012,7 @@
   {
     "term": "Only the window process serves the portal",
     "context": "Only the window process serves the portal",
-    "reference": "Common/FilesFormat.qml:39",
+    "reference": "Common/FilesFormat.qml:45",
     "comment": "explanation when a daemon without a window answers a portal question"
   },
   {
@@ -1994,7 +2072,7 @@
   {
     "term": "Open in terminal",
     "context": "Open in terminal",
-    "reference": "Common/Shortcuts.qml:53, Modules/FileContextMenu.qml:328, Modules/FilesTopbar.qml:447, Modules/Settings/SettingsAboutPage.qml:42, Modules/Settings/SettingsContent.qml:1118",
+    "reference": "Common/Shortcuts.qml:53, Modules/FileContextMenu.qml:328, Modules/FilesTopbar.qml:440, Modules/Settings/SettingsAboutPage.qml:42, Modules/Settings/SettingsContent.qml:1118",
     "comment": "context menu entry opening a terminal"
   },
   {
@@ -2168,7 +2246,7 @@
   {
     "term": "Pasting image",
     "context": "Pasting image",
-    "reference": "Modules/JobLabels.qml:50",
+    "reference": "Modules/JobLabels.qml:51",
     "comment": "file operation in progress"
   },
   {
@@ -2264,7 +2342,7 @@
   {
     "term": "Properties",
     "context": "Properties",
-    "reference": "Common/Shortcuts.qml:522, Modules/FileContextMenu.qml:273, Modules/FileContextMenu.qml:345, Modules/FilesTopbar.qml:424, Modules/PlaceMenu.qml:87",
+    "reference": "Common/Shortcuts.qml:522, Modules/FileContextMenu.qml:273, Modules/FileContextMenu.qml:345, Modules/FilesTopbar.qml:417, Modules/PlaceMenu.qml:87",
     "comment": "menu entry showing details about the current folder"
   },
   {
@@ -2360,7 +2438,7 @@
   {
     "term": "Reload",
     "context": "Reload",
-    "reference": "Common/Shortcuts.qml:359, Modules/FileContextMenu.qml:44, Modules/FileContextMenu.qml:87, Modules/FileContextMenu.qml:322, Modules/FilesTopbar.qml:439",
+    "reference": "Common/Shortcuts.qml:359, Modules/FileContextMenu.qml:44, Modules/FileContextMenu.qml:87, Modules/FileContextMenu.qml:322, Modules/FilesTopbar.qml:432",
     "comment": "menu entry re-reading the current folder"
   },
   {
@@ -2408,13 +2486,13 @@
   {
     "term": "Renamed",
     "context": "Renamed",
-    "reference": "Modules/JobLabels.qml:35",
+    "reference": "Modules/JobLabels.qml:36",
     "comment": "toast after renaming a file"
   },
   {
     "term": "Renaming",
     "context": "Renaming",
-    "reference": "Modules/JobLabels.qml:34",
+    "reference": "Modules/JobLabels.qml:35",
     "comment": "file operation in progress"
   },
   {
@@ -2486,13 +2564,13 @@
   {
     "term": "Restored",
     "context": "Restored",
-    "reference": "Modules/JobLabels.qml:23",
+    "reference": "Modules/JobLabels.qml:24",
     "comment": "toast after restoring items from the trash"
   },
   {
     "term": "Restoring",
     "context": "Restoring",
-    "reference": "Modules/JobLabels.qml:22",
+    "reference": "Modules/JobLabels.qml:23",
     "comment": "file operation in progress"
   },
   {
@@ -2624,7 +2702,7 @@
   {
     "term": "Search in Files",
     "context": "Search in Files",
-    "reference": "Common/Shortcuts.qml:137, Modules/ChooserWindow.qml:589, Modules/FilesTopbar.qml:479, Modules/Settings/SettingsContent.qml:1178",
+    "reference": "Common/Shortcuts.qml:137, Modules/ChooserWindow.qml:589, Modules/FilesTopbar.qml:472, Modules/Settings/SettingsContent.qml:1178",
     "comment": "placeholder in the search field"
   },
   {
@@ -2690,7 +2768,7 @@
   {
     "term": "Settings",
     "context": "Settings",
-    "reference": "Common/Shortcuts.qml:373, Modules/FilesTopbar.qml:461, Modules/Settings/SettingsModal.qml:90",
+    "reference": "Common/Shortcuts.qml:373, Modules/FilesTopbar.qml:454, Modules/Settings/SettingsModal.qml:90",
     "comment": "settings window header title"
   },
   {
@@ -2852,7 +2930,7 @@
   {
     "term": "Split view",
     "context": "Split view",
-    "reference": "Common/Shortcuts.qml:224, Modules/FilesTopbar.qml:298, Modules/FilesTopbar.qml:389",
+    "reference": "Common/Shortcuts.qml:224, Modules/FilesTopbar.qml:291, Modules/FilesTopbar.qml:382",
     "comment": "tooltip on the button showing a second pane"
   },
   {
@@ -2946,10 +3024,22 @@
     "comment": "dialog message before restarting xdg-desktop-portal"
   },
   {
+    "term": "The file operation finished successfully.",
+    "context": "The file operation finished successfully.",
+    "reference": "Services/FileOpsService.qml:344",
+    "comment": "desktop notification body after a transfer"
+  },
+  {
     "term": "The files themselves stay where they are.",
     "context": "The files themselves stay where they are.",
     "reference": "Modules/WindowDialogs.qml:328",
     "comment": "explanation under the clear recent confirmation"
+  },
+  {
+    "term": "The network location is disconnected",
+    "context": "The network location is disconnected",
+    "reference": "Common/FilesFormat.qml:13",
+    "comment": "file operation error"
   },
   {
     "term": "The portal list is managed by the system.",
@@ -2966,7 +3056,7 @@
   {
     "term": "The system application chooser opens instead",
     "context": "The system application chooser opens instead",
-    "reference": "Common/FilesFormat.qml:37",
+    "reference": "Common/FilesFormat.qml:43",
     "comment": "explanation when open with is handed to the desktop portal"
   },
   {
@@ -3008,7 +3098,7 @@
   {
     "term": "This instance cannot reach the session bus.",
     "context": "This instance cannot reach the session bus.",
-    "reference": "Common/FilesFormat.qml:41",
+    "reference": "Common/FilesFormat.qml:47",
     "comment": "file manager registration setting description when the daemon has no session bus connection"
   },
   {
@@ -3272,7 +3362,7 @@
   {
     "term": "View",
     "context": "View",
-    "reference": "Common/Shortcuts.qml:583, Modules/FilesTopbar.qml:269, Modules/Settings/SettingsContent.qml:651",
+    "reference": "Common/Shortcuts.qml:583, Modules/FilesTopbar.qml:262, Modules/Settings/SettingsContent.qml:651",
     "comment": "keyboard shortcut group"
   },
   {
@@ -3320,7 +3410,7 @@
   {
     "term": "Working",
     "context": "Working",
-    "reference": "Modules/JobLabels.qml:80",
+    "reference": "Modules/JobLabels.qml:81",
     "comment": "file operation in progress"
   },
   {

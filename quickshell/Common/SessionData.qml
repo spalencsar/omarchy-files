@@ -105,7 +105,7 @@ Singleton {
         }
     }
 
-    FileView {
+    PrivateFileView {
         id: sessionFile
 
         path: root.sessionPath

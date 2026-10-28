@@ -76,6 +76,7 @@ type Manager struct {
 	mu       sync.Mutex
 	elevator Elevator
 	images   ImageSource
+	resolver PathResolver
 	nextID   int
 	active   map[string]*job
 	order    []string
@@ -121,6 +122,18 @@ func (m *Manager) SetImageSource(src ImageSource) {
 	m.mu.Lock()
 	defer m.mu.Unlock()
 	m.images = src
+}
+
+func (m *Manager) SetPathResolver(resolver PathResolver) {
+	m.mu.Lock()
+	defer m.mu.Unlock()
+	m.resolver = resolver
+}
+
+func (m *Manager) pathResolver() PathResolver {
+	m.mu.Lock()
+	defer m.mu.Unlock()
+	return m.resolver
 }
 
 func (m *Manager) imageSource() ImageSource {

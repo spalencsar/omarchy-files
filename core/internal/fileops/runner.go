@@ -118,8 +118,21 @@ func (r *runner) retry(path string, step func(FS) error) error {
 	return r.attempt(path, step, true)
 }
 
-func (r *runner) retryLocal(path string, step func() error) error {
-	return r.attempt(path, func(FS) error { return step() }, false)
+func (r *runner) retryLocal(path string, step func(string) error) error {
+	return r.attempt(path, func(fs FS) error {
+		resolved, err := resolveThrough(fs, path)
+		if err != nil {
+			return err
+		}
+		return step(resolved)
+	}, false)
+}
+
+func resolveThrough(fs FS, path string) (string, error) {
+	if resolving, ok := fs.(resolvingFS); ok {
+		return resolving.path(path)
+	}
+	return path, nil
 }
 
 func (r *runner) attempt(path string, step func(FS) error, mayElevate bool) error {
@@ -152,13 +165,18 @@ func (r *runner) attempt(path string, step func(FS) error, mayElevate bool) erro
 }
 
 func (r *runner) fs(elevated bool) FS {
+	var base FS
 	if !elevated {
-		return local
+		base = local
+	} else if elevator := r.job.mgr.currentElevator(); elevator != nil {
+		base = elevator
+	} else {
+		base = local
 	}
-	if elevator := r.job.mgr.currentElevator(); elevator != nil {
-		return elevator
+	if resolver := r.job.mgr.pathResolver(); resolver != nil {
+		return resolvingFS{FS: base, resolver: resolver}
 	}
-	return local
+	return base
 }
 
 func (r *runner) canElevate(err error) bool {

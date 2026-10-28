@@ -46,6 +46,13 @@ func read(t *testing.T, path string) string {
 	return string(data)
 }
 
+func assertMode(t *testing.T, path string, want os.FileMode) {
+	t.Helper()
+	info, err := os.Stat(path)
+	require.NoError(t, err)
+	assert.Equal(t, want, info.Mode().Perm(), path)
+}
+
 func sysPortal(env Env, name string) string {
 	return filepath.Join(env.DataDir, "xdg-desktop-portal", "portals", name+".portal")
 }
@@ -216,6 +223,8 @@ func TestInstallIntoExistingUserFile(t *testing.T) {
 	state, ok := readState(env)
 	require.True(t, ok)
 	assert.Equal(t, installState{ConfigPath: path, ConfigExisted: true, WrittenLine: Interface + "=omarchy-files;gtk;", CreatedPortal: true, CreatedService: true}, state)
+	assertMode(t, stateDir(env), 0o700)
+	assertMode(t, statePath(env), 0o600)
 
 	status, err = Uninstall(env)
 	require.NoError(t, err)

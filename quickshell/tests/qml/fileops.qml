@@ -2,6 +2,8 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import Quickshell
+import qs.Common
+import qs.Modules
 import qs.Services
 
 ShellRoot {
@@ -16,6 +18,7 @@ ShellRoot {
     property var nextError: ""
     property var finished: []
     property var requestErrors: []
+    property var notifications: []
 
     function check(label, actual, expected) {
         const ok = JSON.stringify(actual) === JSON.stringify(expected);
@@ -124,11 +127,18 @@ ShellRoot {
         }
     }
 
+    TransferIndicator {
+        id: transferIndicator
+    }
+
     function states() {
         return FileOpsService.jobs.map(job => `${job.id}:${job.state}`);
     }
 
     Component.onCompleted: {
+        FileOpsService.notificationSender = command => {
+            fixture.notifications = fixture.notifications.concat([command]);
+        };
         FileOpsService.transport = fakeTransport;
 
         check("subscribed once", subscriptions, 1);
@@ -140,6 +150,8 @@ ShellRoot {
             "dest": "/tmp/dest",
             "scope": "w1"
         });
+        check("copy summary", JobLabels.summary(FileOpsService.jobs[0]), "Copying “a.txt” to “dest”");
+        check("disconnected operation title", FilesFormat.operationError("DISCONNECTED", ""), "The network location is disconnected");
         check("job stored from the response", states(), ["j1:running"]);
 
         handler({
@@ -189,6 +201,13 @@ ShellRoot {
         check("finished signal", finished, ["j1"]);
         check("no conflict left", FileOpsService.jobs[0].conflict, undefined);
         check("idle", FileOpsService.activeCount, 0);
+        check("completion notification", notifications.length, 1);
+        check("notification title", notifications[0][11], "Copy complete");
+        check("notification body", notifications[0][12], "a.txt → dest");
+        FileOpsService._notifyFinished(job("j1", {
+            "state": "done"
+        }));
+        check("completion notification only once", notifications.length, 1);
 
         handler({
             "kind": "job",

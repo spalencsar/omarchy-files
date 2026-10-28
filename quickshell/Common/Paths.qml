@@ -78,7 +78,7 @@ Singleton {
     }
 
     Process {
-        command: ["mkdir", "-p", root.strip(root.imagecache), root.configDir, root.strip(root.stateDir)]
+        command: ["install", "-d", "-m", "700", root.strip(root.cache), root.strip(root.imagecache), root.configDir, root.strip(root.stateDir)]
         running: true
         onExited: code => {
             if (code !== 0)

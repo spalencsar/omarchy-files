@@ -228,7 +228,7 @@ Singleton {
         onTriggered: root._write()
     }
 
-    FileView {
+    PrivateFileView {
         id: file
 
         path: root.filePath

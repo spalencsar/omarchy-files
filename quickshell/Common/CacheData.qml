@@ -31,7 +31,7 @@ Singleton {
         }
     }
 
-    FileView {
+    PrivateFileView {
         id: cacheFile
 
         property bool loaded: false

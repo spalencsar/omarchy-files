@@ -8,6 +8,12 @@ import qs.DCommon.FileBrowser
 Singleton {
     id: root
 
+    function operationError(code, fallback) {
+        if (code === "DISCONNECTED")
+            return I18n.tr("The network location is disconnected", "file operation error");
+        return FileFormat.operationError(code, fallback);
+    }
+
     function elevationUnavailable(reason) {
         switch (reason) {
         case "SANDBOXED":

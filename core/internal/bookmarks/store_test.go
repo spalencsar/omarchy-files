@@ -107,6 +107,9 @@ func TestAddRemoveRenameReorderRoundTrip(t *testing.T) {
 	entries, err := os.ReadDir(dir)
 	require.NoError(t, err)
 	require.Len(t, entries, 1, "no temp file left behind")
+	info, err := os.Stat(filepath.Join(dir, FileName))
+	require.NoError(t, err)
+	assert.Equal(t, os.FileMode(0o600), info.Mode().Perm())
 
 	reopened := New(nil, dir, "")
 	require.NoError(t, reopened.Start())

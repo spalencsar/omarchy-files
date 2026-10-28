@@ -252,13 +252,6 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         spacing: FilesMetrics.topbarSpacing
 
-        // This used to live in the hidden client-side window header, making
-        // copies and moves appear to do nothing. Keep it in the visible bar so
-        // an active job is always discoverable and its progress can be opened.
-        JobsButton {
-            anchors.verticalCenter: parent.verticalCenter
-        }
-
         FlatButton {
             id: viewButton
 

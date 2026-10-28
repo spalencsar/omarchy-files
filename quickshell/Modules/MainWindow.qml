@@ -674,6 +674,13 @@ FloatingWindow {
             anchors.fill: parent
             onClosed: window.activePane.focusBody()
         }
+
+        TransferIndicator {
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+            anchors.leftMargin: Theme.spacingL
+            anchors.bottomMargin: Theme.spacingL
+        }
     }
 
     Instantiator {

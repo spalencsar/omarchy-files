@@ -69,7 +69,7 @@ func New(bus Publisher, configDir, gtkFile string) *Store {
 
 // The directory is watched, not the file: other editors replace it by rename.
 func (s *Store) Start() error {
-	if err := os.MkdirAll(s.dir, 0o755); err != nil {
+	if err := os.MkdirAll(s.dir, 0o700); err != nil {
 		return err
 	}
 	s.mu.Lock()
@@ -238,7 +238,7 @@ func (s *Store) write(items []Bookmark) error {
 		return err
 	}
 	data = append(data, '\n')
-	if err := atomicfile.WriteFile(s.file, data, 0o644); err != nil {
+	if err := atomicfile.WriteFile(s.file, data, 0o600); err != nil {
 		return err
 	}
 	s.lastWritten = data

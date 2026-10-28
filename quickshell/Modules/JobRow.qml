@@ -47,13 +47,11 @@ Item {
             spacing: Theme.spacingS
 
             StyledText {
-                text: JobLabels.active(row.job.kind)
+                Layout.fillWidth: true
+                text: JobLabels.summary(row.job)
                 color: Theme.surfaceText
                 font.pixelSize: Theme.fontSizeMedium
-            }
-
-            Item {
-                Layout.fillWidth: true
+                elide: Text.ElideMiddle
             }
 
             StyledText {

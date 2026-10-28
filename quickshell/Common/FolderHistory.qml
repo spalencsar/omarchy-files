@@ -121,7 +121,7 @@ Singleton {
         onTriggered: root.save()
     }
 
-    FileView {
+    PrivateFileView {
         id: historyFile
 
         blockLoading: true
