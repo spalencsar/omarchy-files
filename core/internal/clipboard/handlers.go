@@ -1,9 +1,9 @@
 package clipboard
 
 import (
-	"github.com/spalencsar/omarchy-files/core/internal/wire"
 	"github.com/duxlabs-dev/dux-go/ipc"
 	"github.com/duxlabs-dev/dux-go/ipc/params"
+	"github.com/spalencsar/omarchy-files/core/internal/wire"
 )
 
 func (s *Service) Handle(w *ipc.ConnWriter, req ipc.Request) {

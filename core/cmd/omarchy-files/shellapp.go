@@ -3,18 +3,18 @@ package main
 import (
 	"context"
 
-	"github.com/spalencsar/omarchy-files/core/internal/shellembed"
 	"github.com/duxlabs-dev/dux-go/shellapp"
+	"github.com/spalencsar/omarchy-files/core/internal/shellembed"
 )
 
 var shellApp = shellapp.New(shellapp.Config{
-	ID:       "omarchy-files",
+	ID:        "omarchy-files",
 	EnvPrefix: "OMARCHY_FILES",
-	QSAppID:  "io.github.spalencsar.OmarchyFiles",
-	Version:  Version,
-	Embedded: embeddedShell{},
-	Boot:     bootBackend,
-	ExtraEnv: uiEnv,
+	QSAppID:   "io.github.spalencsar.OmarchyFiles",
+	Version:   Version,
+	Embedded:  embeddedShell{},
+	Boot:      bootBackend,
+	ExtraEnv:  uiEnv,
 })
 
 var (

@@ -5,11 +5,11 @@ import (
 	"errors"
 	"strings"
 
+	"github.com/duxlabs-dev/dux-go/ipc/params"
+	"github.com/duxlabs-dev/dux-go/paths"
 	"github.com/spalencsar/omarchy-files/core/internal/fileops"
 	"github.com/spalencsar/omarchy-files/core/internal/location"
 	"github.com/spalencsar/omarchy-files/core/internal/wire"
-	"github.com/duxlabs-dev/dux-go/ipc/params"
-	"github.com/duxlabs-dev/dux-go/paths"
 )
 
 func hostEnv() location.Env {

@@ -9,10 +9,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/spalencsar/omarchy-files/core/internal/fileops"
 	"github.com/duxlabs-dev/dux-go/files"
 	"github.com/duxlabs-dev/dux-go/paths"
 	"github.com/duxlabs-dev/dux-go/trash"
+	"github.com/spalencsar/omarchy-files/core/internal/fileops"
 )
 
 const trashDateLayout = "2006-01-02T15:04:05"

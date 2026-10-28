@@ -3,12 +3,12 @@ package main
 import (
 	"time"
 
+	"github.com/duxlabs-dev/dux-go/log"
+	dankpaths "github.com/duxlabs-dev/dux-go/paths"
 	"github.com/spalencsar/omarchy-files/core/internal/filechooser"
 	"github.com/spalencsar/omarchy-files/core/internal/mimeapps"
 	"github.com/spalencsar/omarchy-files/core/internal/recent"
 	"github.com/spalencsar/omarchy-files/core/internal/settings"
-	"github.com/duxlabs-dev/dux-go/log"
-	dankpaths "github.com/duxlabs-dev/dux-go/paths"
 )
 
 const (

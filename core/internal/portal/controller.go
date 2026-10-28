@@ -8,9 +8,9 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/godbus/dbus/v5"
 	"github.com/spalencsar/omarchy-files/core/internal/filechooser"
 	"github.com/spalencsar/omarchy-files/core/internal/portalsetup"
-	"github.com/godbus/dbus/v5"
 )
 
 const (

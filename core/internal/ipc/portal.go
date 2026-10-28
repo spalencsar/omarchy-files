@@ -4,8 +4,8 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/spalencsar/omarchy-files/core/internal/filechooser"
 	"github.com/duxlabs-dev/dux-go/ipc/params"
+	"github.com/spalencsar/omarchy-files/core/internal/filechooser"
 )
 
 type ChooserUI struct{ Deps Deps }

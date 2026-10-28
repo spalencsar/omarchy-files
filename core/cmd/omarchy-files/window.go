@@ -5,10 +5,10 @@ import (
 
 	"github.com/spf13/cobra"
 
+	"github.com/duxlabs-dev/dux-go/paths"
 	"github.com/spalencsar/omarchy-files/core/internal/fileops"
 	"github.com/spalencsar/omarchy-files/core/internal/location"
 	"github.com/spalencsar/omarchy-files/core/internal/sandbox"
-	"github.com/duxlabs-dev/dux-go/paths"
 )
 
 var showCmd = &cobra.Command{

@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/spalencsar/omarchy-files/core/internal/dbusutil"
 	"github.com/godbus/dbus/v5"
+	"github.com/spalencsar/omarchy-files/core/internal/dbusutil"
 )
 
 const (

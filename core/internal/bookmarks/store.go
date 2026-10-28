@@ -13,8 +13,8 @@ import (
 
 	"github.com/fsnotify/fsnotify"
 
-	"github.com/spalencsar/omarchy-files/core/internal/atomicfile"
 	"github.com/duxlabs-dev/dux-go/log"
+	"github.com/spalencsar/omarchy-files/core/internal/atomicfile"
 )
 
 const (

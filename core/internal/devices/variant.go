@@ -1,8 +1,8 @@
 package devices
 
 import (
-	"github.com/spalencsar/omarchy-files/core/internal/dbusutil"
 	"github.com/godbus/dbus/v5"
+	"github.com/spalencsar/omarchy-files/core/internal/dbusutil"
 )
 
 func stringOf(v dbus.Variant) string {

@@ -4,6 +4,7 @@ import (
 	"context"
 	"strings"
 
+	"github.com/duxlabs-dev/dux-go/ipc/params"
 	"github.com/spalencsar/omarchy-files/core/internal/bookmarks"
 	"github.com/spalencsar/omarchy-files/core/internal/clipboard"
 	"github.com/spalencsar/omarchy-files/core/internal/devices"
@@ -11,7 +12,6 @@ import (
 	"github.com/spalencsar/omarchy-files/core/internal/mimeapps"
 	"github.com/spalencsar/omarchy-files/core/internal/netmount"
 	"github.com/spalencsar/omarchy-files/core/internal/search"
-	"github.com/duxlabs-dev/dux-go/ipc/params"
 )
 
 func Route(ctx context.Context, w *ConnWriter, req Request, deps Deps) {

@@ -3,6 +3,8 @@ package main
 import (
 	"os"
 
+	"github.com/duxlabs-dev/dux-go/files"
+	"github.com/duxlabs-dev/dux-go/log"
 	"github.com/spalencsar/omarchy-files/core/internal/devices"
 	"github.com/spalencsar/omarchy-files/core/internal/fileops"
 	"github.com/spalencsar/omarchy-files/core/internal/ipc"
@@ -10,8 +12,6 @@ import (
 	"github.com/spalencsar/omarchy-files/core/internal/sandbox"
 	"github.com/spalencsar/omarchy-files/core/internal/search"
 	"github.com/spalencsar/omarchy-files/core/internal/settings"
-	"github.com/duxlabs-dev/dux-go/files"
-	"github.com/duxlabs-dev/dux-go/log"
 )
 
 func noServices(*ipc.EventBus) (ipc.Deps, func()) { return ipc.Deps{}, func() {} }

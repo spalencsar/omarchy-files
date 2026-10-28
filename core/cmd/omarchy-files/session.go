@@ -11,10 +11,10 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/spalencsar/omarchy-files/core/internal/ipc"
-	"github.com/spalencsar/omarchy-files/core/internal/sandbox"
 	"github.com/duxlabs-dev/dux-go/ipc/params"
 	"github.com/duxlabs-dev/dux-go/log"
+	"github.com/spalencsar/omarchy-files/core/internal/ipc"
+	"github.com/spalencsar/omarchy-files/core/internal/sandbox"
 )
 
 type event struct {

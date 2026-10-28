@@ -5,10 +5,10 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/spalencsar/omarchy-files/core/internal/wire"
 	"github.com/duxlabs-dev/dux-go/files"
 	"github.com/duxlabs-dev/dux-go/ipc"
 	"github.com/duxlabs-dev/dux-go/ipc/params"
+	"github.com/spalencsar/omarchy-files/core/internal/wire"
 )
 
 func Handles(method string) bool {

@@ -9,11 +9,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/spalencsar/omarchy-files/core/internal/helper"
-	"github.com/spalencsar/omarchy-files/core/internal/wire"
 	"github.com/duxlabs-dev/dux-go/files"
 	"github.com/duxlabs-dev/dux-go/ipc"
 	"github.com/duxlabs-dev/dux-go/ipc/params"
+	"github.com/spalencsar/omarchy-files/core/internal/helper"
+	"github.com/spalencsar/omarchy-files/core/internal/wire"
 )
 
 func (m *Manager) Handle(_ context.Context, w *ipc.ConnWriter, req ipc.Request) {

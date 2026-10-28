@@ -6,9 +6,9 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/spalencsar/omarchy-files/core/internal/dbustest"
 	"github.com/godbus/dbus/v5"
 	"github.com/godbus/dbus/v5/introspect"
+	"github.com/spalencsar/omarchy-files/core/internal/dbustest"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

@@ -1,6 +1,7 @@
 package ipc
 
 import (
+	"github.com/duxlabs-dev/dux-go/files"
 	"github.com/spalencsar/omarchy-files/core/internal/bookmarks"
 	"github.com/spalencsar/omarchy-files/core/internal/clipboard"
 	"github.com/spalencsar/omarchy-files/core/internal/colorscheme"
@@ -14,7 +15,6 @@ import (
 	"github.com/spalencsar/omarchy-files/core/internal/sandbox"
 	"github.com/spalencsar/omarchy-files/core/internal/search"
 	"github.com/spalencsar/omarchy-files/core/internal/settings"
-	"github.com/duxlabs-dev/dux-go/files"
 )
 
 type Deps struct {

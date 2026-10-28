@@ -5,10 +5,10 @@ import (
 	"context"
 	"slices"
 
-	"github.com/spalencsar/omarchy-files/core/internal/recent"
-	"github.com/spalencsar/omarchy-files/core/internal/wire"
 	"github.com/duxlabs-dev/dux-go/files"
 	"github.com/duxlabs-dev/dux-go/ipc/params"
+	"github.com/spalencsar/omarchy-files/core/internal/recent"
+	"github.com/spalencsar/omarchy-files/core/internal/wire"
 )
 
 const recentLimit = 1000
