@@ -107,7 +107,7 @@
   {
     "term": "%1 items",
     "translation": "",
-    "context": "number of items in a completed file operation | number of items in a file operation",
+    "context": "number of items in a file operation",
     "reference": "",
     "comment": ""
   },
@@ -198,7 +198,7 @@
   {
     "term": "%1 → %2",
     "translation": "",
-    "context": "desktop notification body: source and destination | file operation source and destination paths",
+    "context": "file operation source and destination paths",
     "reference": "",
     "comment": ""
   },
@@ -2380,6 +2380,13 @@
     "comment": ""
   },
   {
+    "term": "Open Omarchy Files for details.",
+    "translation": "",
+    "context": "desktop notification body after a failed transfer",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Open and save dialogs",
     "translation": "",
     "context": "general settings section label for the portal file chooser",
@@ -3551,7 +3558,14 @@
   {
     "term": "The file operation finished successfully.",
     "translation": "",
-    "context": "desktop notification body after a transfer",
+    "context": "desktop notification body after a successful transfer",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "The file operation was cancelled.",
+    "translation": "",
+    "context": "desktop notification body after a cancelled transfer",
     "reference": "",
     "comment": ""
   },

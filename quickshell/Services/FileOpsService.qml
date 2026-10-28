@@ -293,9 +293,11 @@ Singleton {
             : cancelled
             ? I18n.tr("File operation cancelled", "desktop notification title for a cancelled transfer")
             : _completionTitle(job.kind);
-        const body = failed && (job.error || job.code)
-            ? (job.error || job.code)
-            : _completionBody(job);
+        const body = failed
+            ? I18n.tr("Open Omarchy Files for details.", "desktop notification body after a failed transfer")
+            : cancelled
+            ? I18n.tr("The file operation was cancelled.", "desktop notification body after a cancelled transfer")
+            : I18n.tr("The file operation finished successfully.", "desktop notification body after a successful transfer");
 
         notificationSender([
             "omarchy", "notification", "send",
@@ -331,22 +333,6 @@ Singleton {
         default:
             return I18n.tr("File operation complete", "desktop notification title after a transfer");
         }
-    }
-
-    function _completionBody(job) {
-        const sources = job?.sources ?? [];
-        const source = sources.length === 1
-            ? _baseName(sources[0])
-            : I18n.tr("%1 items", "number of items in a completed file operation").arg(sources.length);
-        const destination = _baseName(job?.dest ?? "");
-        if (source !== "" && destination !== "")
-            return I18n.tr("%1 → %2", "desktop notification body: source and destination").arg(source).arg(destination);
-        return source || destination || I18n.tr("The file operation finished successfully.", "desktop notification body after a transfer");
-    }
-
-    function _baseName(path) {
-        const parts = String(path || "").split("/").filter(part => part !== "");
-        return parts.length > 0 ? parts[parts.length - 1] : "";
     }
 
     readonly property Timer _historyTimeout: Timer {

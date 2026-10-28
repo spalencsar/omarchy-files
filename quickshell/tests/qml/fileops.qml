@@ -208,11 +208,26 @@ ShellRoot {
         check("idle", FileOpsService.activeCount, 0);
         check("completion notification", notifications.length, 1);
         check("notification title", notifications[0][11], "Copy complete");
-        check("notification body", notifications[0][12], "a.txt → dest");
+        check("notification body", notifications[0][12], "The file operation finished successfully.");
+        check("completion arguments hide file names", notifications[0].join(" ").includes("a.txt"), false);
+        check("completion arguments hide destination names", notifications[0].join(" ").includes("dest"), false);
         FileOpsService._notifyFinished(job("j1", {
             "state": "done"
         }));
         check("completion notification only once", notifications.length, 1);
+
+        FileOpsService._notifyFinished(job("j-private", {
+            "state": "failed",
+            "sources": ["/private/Confidential acquisition.txt"],
+            "dest": "/private/Secret project",
+            "code": "EPERM",
+            "error": "permission denied for Confidential acquisition.txt"
+        }));
+        check("failure notification", notifications.length, 2);
+        check("failure notification title", notifications[1][11], "File operation failed");
+        check("failure notification body", notifications[1][12], "Open Omarchy Files for details.");
+        check("failure arguments hide private names", notifications[1].join(" ").includes("Confidential"), false);
+        check("failure arguments hide raw errors", notifications[1].join(" ").includes("permission denied"), false);
 
         handler({
             "kind": "job",
