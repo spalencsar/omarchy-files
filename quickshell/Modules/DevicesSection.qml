@@ -6,7 +6,7 @@ import qs.Services
 import qs.DCommon.Widgets
 import qs.DCommon.FileBrowser
 
-FilePlaceSection {
+OmarchyPlaceSection {
     id: section
 
     property string busyId: ""
@@ -89,7 +89,7 @@ FilePlaceSection {
         }
     }
 
-    title: I18n.tr("Devices", "sidebar section listing drives and volumes")
+    divider: true
     emptyText: {
         if (DevicesService.available)
             return "";
@@ -119,8 +119,7 @@ FilePlaceSection {
         OmarchyPlaceRow {
             required property var modelData
 
-            label: modelData.mounted && modelData.mountPoint ? modelData.mountPoint : modelData.name || modelData.label || I18n.tr("File system", "storage volume containing the root directory")
-            subtitle: modelData.device || ""
+            label: section.labelFor(modelData)
             iconName: modelData.encrypted && !modelData.unlocked ? "lock" : modelData.iconName
             ringValue: modelData.mounted ? DevicesService.usageRatio(modelData.mountPoint) : -1
             selected: modelData.mounted && (modelData.mountPoints?.length ? modelData.mountPoints : [modelData.mountPoint]).includes(section.currentPath)
@@ -185,6 +184,7 @@ FilePlaceSection {
             actionTooltip: I18n.tr("Disconnect", "network mount action")
             busy: section.busyId === modelData.id
             dropPath: modelData.path
+            selected: modelData.path === section.currentPath
             onClicked: section.navigateRequested(modelData.path)
             onMiddleClicked: section.tabRequested(modelData.path)
             onDropped: drop => section.dropRequested(modelData.path, drop)
@@ -194,5 +194,11 @@ FilePlaceSection {
                 NetworkService.disconnect(modelData.id, () => section.busyId = "");
             }
         }
+    }
+
+    function labelFor(device) {
+        if (device.mounted && device.mountPoint === "/")
+            return I18n.tr("Computer", "sidebar entry for the root file system");
+        return device.name || device.label || (device.mounted && device.mountPoint ? FilePaths.baseName(device.mountPoint) : "") || I18n.tr("File system", "storage volume containing the root directory");
     }
 }

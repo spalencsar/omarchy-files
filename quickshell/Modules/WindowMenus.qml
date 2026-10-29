@@ -54,7 +54,19 @@ Item {
         openWithMenu.close();
         itemMenu.close();
         const point = mainWindow.activePane.mapToItem(anchorItem, pointX, pointY);
-        backgroundMenu.openAt(point.x, point.y);
+        openBackgroundAt(point.x, point.y);
+    }
+
+    function showFolderActionsMenu() {
+        const pointX = itemMenu.x;
+        const pointY = itemMenu.y;
+        itemMenu.close();
+        openBackgroundAt(pointX, pointY);
+    }
+
+    function openBackgroundAt(pointX, pointY) {
+        mainWindow.activePane.selection.clear();
+        backgroundMenu.openAt(pointX, pointY);
     }
 
     function showOpenWithMenu(mimes, paths, source) {

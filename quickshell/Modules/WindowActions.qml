@@ -50,6 +50,7 @@ QtObject {
         case "copyPath":
         case "bookmark":
         case "bookmarkSelected":
+        case "folderActions":
         case "gitStage":
         case "gitUnstage":
         case "gitStageAll":
@@ -76,6 +77,7 @@ QtObject {
         case "compress":
         case "extract":
         case "bookmark":
+        case "folderActions":
         case "gitStage":
         case "gitUnstage":
         case "gitStageAll":
@@ -126,6 +128,9 @@ QtObject {
             return;
         case "openWithMenu":
             mainWindow.menus.showOpenWithMenu([], mainWindow.selectedPaths(), "item");
+            return;
+        case "folderActions":
+            mainWindow.menus.showFolderActionsMenu();
             return;
         case "openFolderWith":
             mainWindow.menus.showOpenWithMenu(["inode/directory"], [currentPath], "background");

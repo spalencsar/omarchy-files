@@ -6,17 +6,17 @@ import qs.Services
 import qs.DCommon.Widgets
 import qs.DCommon.FileBrowser
 
-FilePlaceSection {
+OmarchyPlaceSection {
     id: section
 
     property string busyId: ""
+    property string currentPath: ""
 
     signal navigateRequested(string path)
     signal tabRequested(string path)
     signal dropRequested(string path, var drop)
     signal connectRequested
 
-    title: I18n.tr("Network", "sidebar section listing remote locations")
     emptyText: {
         if (NetworkService.available)
             return "";
@@ -40,6 +40,7 @@ FilePlaceSection {
             actionTooltip: I18n.tr("Disconnect", "network mount action")
             busy: section.busyId === modelData.id
             dropPath: modelData.path
+            selected: modelData.path === section.currentPath
             onClicked: section.navigateRequested(modelData.path)
             onMiddleClicked: section.tabRequested(modelData.path)
             onDropped: drop => section.dropRequested(modelData.path, drop)

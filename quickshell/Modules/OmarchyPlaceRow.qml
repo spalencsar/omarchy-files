@@ -31,7 +31,7 @@ StyledButton {
     signal springLoaded
     signal middleClicked
 
-    readonly property bool showAction: actionIcon !== "" && (hovered || actionArea.containsMouse)
+    readonly property bool showAction: actionIcon !== "" && (hovered || actionArea.containsMouse || visualFocus)
     readonly property color contentColor: !enabled ? Theme.onSurface_38 : selected ? Theme.onSelectedContainer : Theme.surfaceText
 
     function iconGlyph() {
@@ -91,8 +91,28 @@ StyledButton {
             DSpinner { anchors.centerIn: parent; visible: row.busy; size: Theme.iconSizeSmall; color: Theme.primary }
             // Do not resolve desktop icon-theme artwork here: several themes
             // ship the purple circular folders that made this look like DMS.
-            DIcon { anchors.centerIn: parent; visible: !row.busy && !row.showAction; name: row.iconGlyph(); size: Theme.iconSizeMedium; color: row.selected ? Theme.primary : Theme.surfaceVariantText }
-            DIcon { anchors.centerIn: parent; visible: !row.busy && row.showAction; name: row.actionIcon; size: Theme.iconSizeMedium; color: Theme.primary }
+            DIcon { anchors.centerIn: parent; visible: !row.busy; name: row.iconGlyph(); size: Theme.iconSizeMedium; color: row.selected ? Theme.primary : Theme.surfaceVariantText }
+        }
+
+        ColumnLayout {
+            id: labels
+            Layout.fillWidth: true
+            spacing: 0
+            StyledText { Layout.fillWidth: true; text: row.label; color: row.contentColor; font.pixelSize: Theme.fontSizeMedium; wrapMode: Text.NoWrap; elide: Text.ElideMiddle }
+            StyledText { Layout.fillWidth: true; visible: row.subtitle !== ""; text: row.subtitle; color: row.selected || !row.enabled ? row.contentColor : Theme.surfaceVariantText; font.pixelSize: Theme.fontSizeSmall; wrapMode: Text.NoWrap; elide: Text.ElideMiddle }
+        }
+
+        Item {
+            Layout.preferredWidth: row.actionIcon !== "" ? Theme.iconSizeMedium : 0
+            Layout.preferredHeight: Theme.iconSizeMedium
+
+            DIcon {
+                anchors.centerIn: parent
+                visible: row.showAction && !row.busy
+                name: row.actionIcon
+                size: Theme.iconSizeMedium
+                color: Theme.primary
+            }
 
             MouseArea {
                 id: actionArea
@@ -102,14 +122,6 @@ StyledButton {
                 cursorShape: Qt.PointingHandCursor
                 onClicked: row.actionTriggered()
             }
-        }
-
-        ColumnLayout {
-            id: labels
-            Layout.fillWidth: true
-            spacing: 0
-            StyledText { Layout.fillWidth: true; text: row.label; color: row.contentColor; font.pixelSize: Theme.fontSizeMedium; wrapMode: Text.NoWrap; elide: Text.ElideMiddle }
-            StyledText { Layout.fillWidth: true; visible: row.subtitle !== ""; text: row.subtitle; color: row.selected || !row.enabled ? row.contentColor : Theme.surfaceVariantText; font.pixelSize: Theme.fontSizeSmall; wrapMode: Text.NoWrap; elide: Text.ElideMiddle }
         }
     }
 }

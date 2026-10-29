@@ -15,6 +15,20 @@ All notable changes to Omarchy Files are documented here.
   never discarded, and selected paths are passed to Git through standard input
   instead of process arguments.
 
+### Changed
+
+- Restructure the sidebar around clear separator-based groups: fixed places,
+  personal bookmarks, then drives and network locations. Device paths now live
+  in tooltips, duplicate mounted bookmarks are hidden, and mount/disconnect
+  actions appear at the trailing edge on hover or keyboard focus.
+
+### Fixed
+
+- Keep current-folder actions reachable when a dense list leaves no empty
+  background to right-click. Every item menu now links to the folder menu for
+  creating folders or documents, pasting, reloading, terminal actions, and
+  other operations that target the folder being viewed.
+
 ## [0.1.3] - 2026-10-28
 
 ### Fixed

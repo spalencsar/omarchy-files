@@ -154,7 +154,7 @@ DFlickable {
         id: sections
 
         width: sidebar.width
-        spacing: FilesMetrics.sidebarSectionSpacing
+        spacing: 0
 
         BookmarksSection {
             id: bookmarksSection
@@ -179,6 +179,8 @@ DFlickable {
         }
 
         DevicesSection {
+            id: devicesSection
+
             width: sections.width
             currentPath: sidebar.currentPath
             onNavigateRequested: path => sidebar.navigateRequested(path)
@@ -189,6 +191,8 @@ DFlickable {
 
         NetworkSection {
             width: sections.width
+            currentPath: sidebar.currentPath
+            divider: !devicesSection.visible
             onNavigateRequested: path => sidebar.navigateRequested(path)
             onTabRequested: path => sidebar.tabRequested(path)
             onConnectRequested: sidebar.connectRequested()

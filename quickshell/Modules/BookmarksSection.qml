@@ -6,7 +6,7 @@ import qs.Services
 import qs.DCommon.Widgets
 import qs.DCommon.FileBrowser
 
-FilePlaceSection {
+OmarchyPlaceSection {
     id: section
 
     property string currentPath: ""
@@ -18,7 +18,57 @@ FilePlaceSection {
     signal trashMenuRequested(real pointX, real pointY)
     signal recentMenuRequested(real pointX, real pointY)
 
-    readonly property var bookmarks: BookmarksService.entries.filter(entry => entry.path !== RecentService.path || RecentService.shown)
+    readonly property string homePath: DirectoryService.userDirs.find(dir => dir.key === "home")?.path ?? ""
+    readonly property var essentialPaths: [homePath, RecentService.path, TrashService.path].filter(path => path !== "")
+    readonly property var essentials: essentialEntries()
+    readonly property var bookmarks: savedEntries()
+
+    function normalize(path) {
+        return path?.length > 1 && path.endsWith("/") ? path.slice(0, -1) : path ?? "";
+    }
+
+    function mountedPaths() {
+        const paths = [];
+        for (const device of DevicesService.devices) {
+            for (const path of device.mountPoints ?? [device.mountPoint]) {
+                if (path)
+                    paths.push(normalize(path));
+            }
+        }
+        for (const mount of NetworkService.mounts) {
+            if (mount.path)
+                paths.push(normalize(mount.path));
+        }
+        return paths;
+    }
+
+    function essentialEntries() {
+        const entries = [];
+        for (const path of essentialPaths) {
+            if (path === RecentService.path && !RecentService.shown)
+                continue;
+            const entry = BookmarksService.entries.find(candidate => candidate.path === path);
+            if (entry)
+                entries.push(entry);
+        }
+        return entries;
+    }
+
+    function savedEntries() {
+        const mounts = mountedPaths();
+        return BookmarksService.entries.filter(entry => {
+            if (essentialPaths.includes(entry.path))
+                return false;
+            return !mounts.includes(normalize(entry.path));
+        });
+    }
+
+    function reorderSaved(orderedPaths) {
+        const visible = new Set(bookmarks.map(entry => entry.path));
+        const queue = orderedPaths.slice();
+        const ordered = BookmarksService.paths.map(path => visible.has(path) ? queue.shift() : path);
+        BookmarksService.reorder(ordered.concat(queue));
+    }
 
     function kindOf(path) {
         switch (path) {
@@ -33,16 +83,6 @@ FilePlaceSection {
 
     function targetOf(entry) {
         return entry.path === TrashService.path ? TrashService.filesPath : entry.path;
-    }
-
-    function fullOrder(visible) {
-        const all = BookmarksService.paths;
-        const order = visible.slice();
-        all.forEach((path, index) => {
-            if (!order.includes(path))
-                order.splice(index, 0, path);
-        });
-        return order;
     }
 
     function placeFor(path) {
@@ -60,7 +100,102 @@ FilePlaceSection {
         return entry.icon || placeFor(entry.path)?.iconName || "folder";
     }
 
-    title: I18n.tr("Places", "sidebar section listing the user's places and saved folders")
+    component BookmarkRow: OmarchyPlaceRow {
+        id: row
+
+        required property var modelData
+        property int orderIndex: -1
+        property bool reorderable: false
+
+        readonly property string kind: section.kindOf(modelData.path)
+        readonly property bool recent: kind === "recent"
+        readonly property bool trash: kind === "trash"
+        readonly property bool saved: kind === "bookmark"
+        readonly property string target: section.targetOf(modelData)
+        readonly property bool dragging: reorderable && reorderList.draggingIndex === orderIndex
+
+        label: recent ? I18n.tr("Recent", "recent files view header and sidebar entry") : trash ? I18n.tr("Trash", "trash view header and sidebar entry") : section.labelFor(modelData)
+        glyph: recent ? "history" : ""
+        iconName: recent ? "" : trash ? (TrashService.count > 0 ? "user-trash-full" : "user-trash") : section.iconFor(modelData)
+        tooltipText: {
+            if (recent)
+                return RecentService.count < 0 ? "" : RecentService.count > 0 ? FileFormat.count(RecentService.count) : I18n.tr("No recent files", "recent files view placeholder when nothing was opened yet");
+            if (trash)
+                return TrashService.count > 0 ? FileFormat.count(TrashService.count) : I18n.tr("Trash is empty", "trash view placeholder and sidebar tooltip when nothing is trashed");
+            return modelData.path;
+        }
+        selected: target === section.currentPath
+        dropPath: recent ? "" : target
+        springLoad: saved
+        z: dragging ? 1 : 0
+        opacity: dragging ? Theme.pendingOpacity : 1
+        onClicked: section.navigateRequested(target)
+        onMiddleClicked: section.tabRequested(target)
+        onDropped: drop => section.dropRequested(target, drop)
+        onSpringLoaded: section.navigateRequested(target)
+
+        Behavior on y {
+            enabled: reorderList.animateLayout && !row.dragging && Theme.animationsEnabled
+            NumberAnimation {
+                duration: Theme.expressiveDurations.expressiveDefaultSpatial
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: Theme.expressiveCurves.expressiveFastSpatial
+            }
+        }
+
+        TapHandler {
+            acceptedButtons: Qt.RightButton
+            onTapped: point => {
+                const mapped = row.mapToItem(section, point.position.x, point.position.y);
+                switch (row.kind) {
+                case "recent":
+                    section.recentMenuRequested(mapped.x, mapped.y);
+                    return;
+                case "trash":
+                    section.trashMenuRequested(mapped.x, mapped.y);
+                    return;
+                default:
+                    section.menuRequested(row.modelData.path, mapped.x, mapped.y);
+                }
+            }
+        }
+
+        DragHandler {
+            target: null
+            xAxis.enabled: false
+            enabled: row.reorderable && reorderList.count > 1
+            onGrabChanged: (transition, point) => {
+                switch (transition) {
+                case PointerDevice.GrabExclusive:
+                    reorderList.begin(row.orderIndex, reorderList.mapFromItem(null, point.scenePressPosition.x, point.scenePressPosition.y));
+                    reorderList.dragTo(reorderList.mapFromItem(null, point.scenePosition.x, point.scenePosition.y));
+                    return;
+                case PointerDevice.UngrabExclusive:
+                    reorderList.finish();
+                    return;
+                case PointerDevice.CancelGrabExclusive:
+                    reorderList.cancel();
+                    return;
+                }
+            }
+            onCentroidChanged: {
+                if (!active || !row.dragging)
+                    return;
+                reorderList.dragTo(reorderList.mapFromItem(null, centroid.scenePosition.x, centroid.scenePosition.y));
+            }
+        }
+    }
+
+    Repeater {
+        model: section.essentials
+
+        BookmarkRow {}
+    }
+
+    OmarchySidebarDivider {
+        visible: section.essentials.length > 0 && section.bookmarks.length > 0
+        height: visible ? implicitHeight : 0
+    }
 
     DReorderList {
         id: reorderList
@@ -68,92 +203,14 @@ FilePlaceSection {
         width: section.width
         model: section.bookmarks
         spacing: Theme.spacingXXS
-        onReordered: indices => BookmarksService.reorder(section.fullOrder(indices.map(index => section.bookmarks[index].path)))
+        onReordered: indices => section.reorderSaved(indices.map(index => section.bookmarks[index].path))
 
-        delegate: OmarchyPlaceRow {
-            id: row
-
-            required property var modelData
+        delegate: BookmarkRow {
             required property int index
 
-            readonly property string kind: section.kindOf(modelData.path)
-            readonly property bool recent: kind === "recent"
-            readonly property bool trash: kind === "trash"
-            readonly property bool saved: kind === "bookmark"
-            readonly property string target: section.targetOf(modelData)
-            readonly property bool dragging: reorderList.draggingIndex === index
-
+            orderIndex: index
+            reorderable: true
             width: reorderList.width
-            label: recent ? I18n.tr("Recent", "recent files view header and sidebar entry") : trash ? I18n.tr("Trash", "trash view header and sidebar entry") : section.labelFor(modelData)
-            glyph: recent ? "history" : ""
-            iconName: recent ? "" : trash ? (TrashService.count > 0 ? "user-trash-full" : "user-trash") : section.iconFor(modelData)
-            tooltipText: {
-                if (recent)
-                    return RecentService.count < 0 ? "" : RecentService.count > 0 ? FileFormat.count(RecentService.count) : I18n.tr("No recent files", "recent files view placeholder when nothing was opened yet");
-                if (trash)
-                    return TrashService.count > 0 ? FileFormat.count(TrashService.count) : I18n.tr("Trash is empty", "trash view placeholder and sidebar tooltip when nothing is trashed");
-                return "";
-            }
-            selected: target === section.currentPath
-            dropPath: recent ? "" : target
-            springLoad: saved
-            z: dragging ? 1 : 0
-            opacity: dragging ? Theme.pendingOpacity : 1
-            onClicked: section.navigateRequested(target)
-            onMiddleClicked: section.tabRequested(target)
-            onDropped: drop => section.dropRequested(target, drop)
-            onSpringLoaded: section.navigateRequested(target)
-
-            Behavior on y {
-                enabled: reorderList.animateLayout && !row.dragging && Theme.animationsEnabled
-                NumberAnimation {
-                    duration: Theme.expressiveDurations.expressiveDefaultSpatial
-                    easing.type: Easing.BezierSpline
-                    easing.bezierCurve: Theme.expressiveCurves.expressiveFastSpatial
-                }
-            }
-
-            TapHandler {
-                acceptedButtons: Qt.RightButton
-                onTapped: point => {
-                    const mapped = row.mapToItem(section, point.position.x, point.position.y);
-                    switch (row.kind) {
-                    case "recent":
-                        section.recentMenuRequested(mapped.x, mapped.y);
-                        return;
-                    case "trash":
-                        section.trashMenuRequested(mapped.x, mapped.y);
-                        return;
-                    default:
-                        section.menuRequested(row.modelData.path, mapped.x, mapped.y);
-                    }
-                }
-            }
-
-            DragHandler {
-                target: null
-                xAxis.enabled: false
-                enabled: reorderList.count > 1
-                onGrabChanged: (transition, point) => {
-                    switch (transition) {
-                    case PointerDevice.GrabExclusive:
-                        reorderList.begin(row.index, reorderList.mapFromItem(null, point.scenePressPosition.x, point.scenePressPosition.y));
-                        reorderList.dragTo(reorderList.mapFromItem(null, point.scenePosition.x, point.scenePosition.y));
-                        return;
-                    case PointerDevice.UngrabExclusive:
-                        reorderList.finish();
-                        return;
-                    case PointerDevice.CancelGrabExclusive:
-                        reorderList.cancel();
-                        return;
-                    }
-                }
-                onCentroidChanged: {
-                    if (!active || !row.dragging)
-                        return;
-                    reorderList.dragTo(reorderList.mapFromItem(null, centroid.scenePosition.x, centroid.scenePosition.y));
-                }
-            }
         }
     }
 }

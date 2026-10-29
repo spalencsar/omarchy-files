@@ -143,6 +143,14 @@ FileMenu {
             "enabled": hasDirectory && selectionCount === 1
         },
         {
+            "id": "folderActions",
+            "icon": "folder_open",
+            "label": I18n.tr("Current folder", "submenu opening actions for the folder currently being viewed rather than the selected item"),
+            "enabled": true,
+            "visible": !crossFolder,
+            "submenu": true
+        },
+        {
             "id": "separator"
         },
         {

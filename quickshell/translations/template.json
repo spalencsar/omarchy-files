@@ -721,6 +721,13 @@
     "comment": ""
   },
   {
+    "term": "Computer",
+    "translation": "",
+    "context": "sidebar entry for the root file system",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Confirm",
     "translation": "",
     "context": "dialog header for a question the server asked",
@@ -920,6 +927,13 @@
     "term": "Ctrl+Wheel resizes per window.",
     "translation": "",
     "context": "icon size setting description",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Current folder",
+    "translation": "",
+    "context": "submenu opening actions for the folder currently being viewed rather than the selected item",
     "reference": "",
     "comment": ""
   },
@@ -1561,13 +1575,6 @@
     "comment": ""
   },
   {
-    "term": "Games",
-    "translation": "",
-    "context": "sidebar section listing game libraries",
-    "reference": "",
-    "comment": ""
-  },
-  {
     "term": "Games and prefixes Heroic installed.",
     "translation": "",
     "context": "heroic games setting description",
@@ -2186,7 +2193,7 @@
   {
     "term": "Network",
     "translation": "",
-    "context": "sidebar section listing network locations | sidebar section listing remote locations",
+    "context": "sidebar section listing network locations",
     "reference": "",
     "comment": ""
   },
@@ -2719,13 +2726,6 @@
     "term": "Pink",
     "translation": "",
     "context": "color palette name",
-    "reference": "",
-    "comment": ""
-  },
-  {
-    "term": "Places",
-    "translation": "",
-    "context": "sidebar section listing the user's places and saved folders",
     "reference": "",
     "comment": ""
   },

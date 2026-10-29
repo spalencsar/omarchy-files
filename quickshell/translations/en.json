@@ -140,7 +140,7 @@
   {
     "term": "%1 used · %2 free · %3 total",
     "context": "%1 used · %2 free · %3 total",
-    "reference": "Modules/DevicesSection.qml:132",
+    "reference": "Modules/DevicesSection.qml:131",
     "comment": "storage volume usage, free space and total capacity"
   },
   {
@@ -566,19 +566,19 @@
   {
     "term": "Close other tabs",
     "context": "Close other tabs",
-    "reference": "Modules/WindowMenus.qml:243",
+    "reference": "Modules/WindowMenus.qml:255",
     "comment": "tab context menu entry closing every tab but this one"
   },
   {
     "term": "Close tab",
     "context": "Close tab",
-    "reference": "Common/Shortcuts.qml:173, Modules/FilesTab.qml:108, Modules/WindowMenus.qml:233",
+    "reference": "Common/Shortcuts.qml:173, Modules/FilesTab.qml:108, Modules/WindowMenus.qml:245",
     "comment": "tooltip on the button closing a tab"
   },
   {
     "term": "Close tabs to the right",
     "context": "Close tabs to the right",
-    "reference": "Modules/WindowMenus.qml:253",
+    "reference": "Modules/WindowMenus.qml:265",
     "comment": "tab context menu entry closing the tabs after this one"
   },
   {
@@ -614,8 +614,14 @@
   {
     "term": "Compress…",
     "context": "Compress…",
-    "reference": "Modules/FileContextMenu.qml:205",
+    "reference": "Modules/FileContextMenu.qml:213",
     "comment": "context menu entry packing the selection into an archive"
+  },
+  {
+    "term": "Computer",
+    "context": "Computer",
+    "reference": "Modules/DevicesSection.qml:201",
+    "comment": "sidebar entry for the root file system"
   },
   {
     "term": "Confirm",
@@ -650,7 +656,7 @@
   {
     "term": "Connect to Server…",
     "context": "Connect to Server…",
-    "reference": "Modules/NetworkSection.qml:56",
+    "reference": "Modules/NetworkSection.qml:57",
     "comment": "sidebar entry opening the connect to server dialog"
   },
   {
@@ -680,7 +686,7 @@
   {
     "term": "Copy",
     "context": "Copy",
-    "reference": "Common/Shortcuts.qml:424, Modules/DragActionChip.qml:30, Modules/DragController.qml:103, Modules/FileContextMenu.qml:157, Modules/Settings/SettingsContent.qml:108",
+    "reference": "Common/Shortcuts.qml:424, Modules/DragActionChip.qml:30, Modules/DragController.qml:103, Modules/FileContextMenu.qml:165, Modules/Settings/SettingsContent.qml:108",
     "comment": "context menu entry copying the selection"
   },
   {
@@ -698,19 +704,19 @@
   {
     "term": "Copy location path",
     "context": "Copy location path",
-    "reference": "Common/Shortcuts.qml:515, Modules/FileContextMenu.qml:291, Modules/FilesTopbar.qml:425, Modules/PlaceMenu.qml:77",
+    "reference": "Common/Shortcuts.qml:515, Modules/FileContextMenu.qml:299, Modules/FilesTopbar.qml:425, Modules/PlaceMenu.qml:77",
     "comment": "menu entry copying the current path to the clipboard"
   },
   {
     "term": "Copy name",
     "context": "Copy name",
-    "reference": "Modules/FileContextMenu.qml:297",
+    "reference": "Modules/FileContextMenu.qml:305",
     "comment": "context menu entry copying the selected item names to the clipboard"
   },
   {
     "term": "Copy repository-relative path",
     "context": "Copy repository-relative path",
-    "reference": "Modules/FileContextMenu.qml:261",
+    "reference": "Modules/FileContextMenu.qml:269",
     "comment": "Git action copying selected paths relative to the repository root"
   },
   {
@@ -722,7 +728,7 @@
   {
     "term": "Copy to…",
     "context": "Copy to…",
-    "reference": "Modules/FileContextMenu.qml:169",
+    "reference": "Modules/FileContextMenu.qml:177",
     "comment": "context menu entry copying the selection into a chosen folder"
   },
   {
@@ -792,6 +798,12 @@
     "comment": "icon size setting description"
   },
   {
+    "term": "Current folder",
+    "context": "Current folder",
+    "reference": "Modules/FileContextMenu.qml:148",
+    "comment": "submenu opening actions for the folder currently being viewed rather than the selected item"
+  },
+  {
     "term": "Custom",
     "context": "Custom",
     "reference": "Modules/Settings/SettingsContent.qml:38, Modules/Settings/SettingsContent.qml:53",
@@ -800,7 +812,7 @@
   {
     "term": "Cut",
     "context": "Cut",
-    "reference": "Common/Shortcuts.qml:432, Modules/FileContextMenu.qml:151",
+    "reference": "Common/Shortcuts.qml:432, Modules/FileContextMenu.qml:159",
     "comment": "context menu entry marking the selection for a move"
   },
   {
@@ -872,7 +884,7 @@
   {
     "term": "Delete permanently",
     "context": "Delete permanently",
-    "reference": "Common/Shortcuts.qml:471, Modules/FileContextMenu.qml:76, Modules/FileContextMenu.qml:272, Modules/FileContextMenu.qml:280, Modules/WindowDialogs.qml:354",
+    "reference": "Common/Shortcuts.qml:471, Modules/FileContextMenu.qml:76, Modules/FileContextMenu.qml:280, Modules/FileContextMenu.qml:288, Modules/WindowDialogs.qml:354",
     "comment": "confirming permanent deletion from a remote server | context menu entry deleting files from a remote server | context menu entry deleting the selection for good"
   },
   {
@@ -908,13 +920,13 @@
   {
     "term": "Devices",
     "context": "Devices",
-    "reference": "Modules/DevicesSection.qml:92, Modules/Settings/SettingsSidebar.qml:77, Modules/Settings/SettingsAboutPage.qml:34, Modules/Settings/SettingsContent.qml:20",
+    "reference": "Modules/Settings/SettingsSidebar.qml:77, Modules/Settings/SettingsAboutPage.qml:34, Modules/Settings/SettingsContent.qml:20",
     "comment": "sidebar section listing drives and volumes"
   },
   {
     "term": "Disconnect",
     "context": "Disconnect",
-    "reference": "Modules/DevicesSection.qml:185, Modules/NetworkSection.qml:40",
+    "reference": "Modules/DevicesSection.qml:184, Modules/NetworkSection.qml:40",
     "comment": "network mount action"
   },
   {
@@ -1010,13 +1022,13 @@
   {
     "term": "Duplicate",
     "context": "Duplicate",
-    "reference": "Common/Shortcuts.qml:494, Modules/FileContextMenu.qml:188",
+    "reference": "Common/Shortcuts.qml:494, Modules/FileContextMenu.qml:196",
     "comment": "context menu entry copying the selection beside itself"
   },
   {
     "term": "Duplicate tab",
     "context": "Duplicate tab",
-    "reference": "Modules/WindowMenus.qml:212",
+    "reference": "Modules/WindowMenus.qml:224",
     "comment": "tab context menu entry opening a copy of this tab beside it"
   },
   {
@@ -1064,7 +1076,7 @@
   {
     "term": "Empty file",
     "context": "Empty file",
-    "reference": "Modules/WindowMenus.qml:160",
+    "reference": "Modules/WindowMenus.qml:172",
     "comment": "new document menu entry creating a blank file"
   },
   {
@@ -1136,7 +1148,7 @@
   {
     "term": "Extract here",
     "context": "Extract here",
-    "reference": "Modules/FileContextMenu.qml:212",
+    "reference": "Modules/FileContextMenu.qml:220",
     "comment": "context menu entry unpacking the selected archives"
   },
   {
@@ -1148,7 +1160,7 @@
   {
     "term": "Extract to…",
     "context": "Extract to…",
-    "reference": "Modules/FileContextMenu.qml:219",
+    "reference": "Modules/FileContextMenu.qml:227",
     "comment": "context menu entry unpacking the selected archives into a chosen folder"
   },
   {
@@ -1208,7 +1220,7 @@
   {
     "term": "File system",
     "context": "File system",
-    "reference": "Modules/DevicesSection.qml:122",
+    "reference": "Modules/DevicesSection.qml:202",
     "comment": "storage volume containing the root directory"
   },
   {
@@ -1338,12 +1350,6 @@
     "comment": "search chip also matching names whose letters appear in order"
   },
   {
-    "term": "Games",
-    "context": "Games",
-    "reference": "Modules/GamesSection.qml:104",
-    "comment": "sidebar section listing game libraries"
-  },
-  {
     "term": "Games and prefixes Heroic installed.",
     "context": "Games and prefixes Heroic installed.",
     "reference": "Modules/Settings/SettingsContent.qml:1253",
@@ -1454,7 +1460,7 @@
   {
     "term": "Home",
     "context": "Home",
-    "reference": "Common/SearchFilters.qml:51, Modules/BookmarksSection.qml:55, Modules/TabManager.qml:230",
+    "reference": "Common/SearchFilters.qml:51, Modules/TabManager.qml:230, Modules/BookmarksSection.qml:95",
     "comment": "sidebar entry for the user's home folder"
   },
   {
@@ -1760,7 +1766,7 @@
   {
     "term": "Mount",
     "context": "Mount",
-    "reference": "Modules/DevicesSection.qml:80, Modules/DevicesSection.qml:166",
+    "reference": "Modules/DevicesSection.qml:80, Modules/DevicesSection.qml:165",
     "comment": "device action"
   },
   {
@@ -1808,7 +1814,7 @@
   {
     "term": "Move to Trash",
     "context": "Move to Trash",
-    "reference": "Common/Shortcuts.qml:463, Modules/DragActionChip.qml:36, Modules/FileContextMenu.qml:272, Modules/WindowDialogs.qml:261, Modules/WindowDialogs.qml:263",
+    "reference": "Common/Shortcuts.qml:463, Modules/DragActionChip.qml:36, Modules/FileContextMenu.qml:280, Modules/WindowDialogs.qml:261, Modules/WindowDialogs.qml:263",
     "comment": "context menu entry trashing the selection"
   },
   {
@@ -1820,7 +1826,7 @@
   {
     "term": "Move to…",
     "context": "Move to…",
-    "reference": "Modules/FileContextMenu.qml:163",
+    "reference": "Modules/FileContextMenu.qml:171",
     "comment": "context menu entry moving the selection into a chosen folder"
   },
   {
@@ -1874,8 +1880,8 @@
   {
     "term": "Network",
     "context": "Network",
-    "reference": "Modules/NetworkSection.qml:19, Modules/Settings/SettingsAboutPage.qml:38",
-    "comment": "sidebar section listing network locations | sidebar section listing remote locations"
+    "reference": "Modules/Settings/SettingsAboutPage.qml:38",
+    "comment": "sidebar section listing network locations"
   },
   {
     "term": "Network locations",
@@ -1910,19 +1916,19 @@
   {
     "term": "New document",
     "context": "New document",
-    "reference": "Modules/FileContextMenu.qml:318",
+    "reference": "Modules/FileContextMenu.qml:326",
     "comment": "context menu entry creating a file from a template"
   },
   {
     "term": "New folder",
     "context": "New folder",
-    "reference": "Common/Shortcuts.qml:501, Modules/ChooserWindow.qml:529, Modules/FileContextMenu.qml:312",
+    "reference": "Common/Shortcuts.qml:501, Modules/ChooserWindow.qml:529, Modules/FileContextMenu.qml:320",
     "comment": "file browser toolbar button creating a folder | new folder dialog header"
   },
   {
     "term": "New folder with selection",
     "context": "New folder with selection",
-    "reference": "Common/Shortcuts.qml:508, Modules/FileContextMenu.qml:195",
+    "reference": "Common/Shortcuts.qml:508, Modules/FileContextMenu.qml:203",
     "comment": "context menu entry moving the selection into a new folder"
   },
   {
@@ -1952,7 +1958,7 @@
   {
     "term": "No recent files",
     "context": "No recent files",
-    "reference": "Modules/BookmarksSection.qml:92, Modules/RecentView.qml:186",
+    "reference": "Modules/RecentView.qml:186, Modules/BookmarksSection.qml:122",
     "comment": "recent files view placeholder when nothing was opened yet"
   },
   {
@@ -2138,7 +2144,7 @@
   {
     "term": "Open in terminal",
     "context": "Open in terminal",
-    "reference": "Common/Shortcuts.qml:53, Modules/FileContextMenu.qml:358, Modules/FilesTopbar.qml:440, Modules/Settings/SettingsAboutPage.qml:42, Modules/Settings/SettingsContent.qml:1118",
+    "reference": "Common/Shortcuts.qml:53, Modules/FileContextMenu.qml:366, Modules/FilesTopbar.qml:440, Modules/Settings/SettingsAboutPage.qml:42, Modules/Settings/SettingsContent.qml:1118",
     "comment": "context menu entry opening a terminal"
   },
   {
@@ -2156,7 +2162,7 @@
   {
     "term": "Open repository in terminal",
     "context": "Open repository in terminal",
-    "reference": "Modules/FileContextMenu.qml:390",
+    "reference": "Modules/FileContextMenu.qml:398",
     "comment": "Git action opening a terminal at the repository root"
   },
   {
@@ -2168,7 +2174,7 @@
   {
     "term": "Open the containing folder",
     "context": "Open the containing folder",
-    "reference": "Common/Shortcuts.qml:39, Modules/FileContextMenu.qml:226",
+    "reference": "Common/Shortcuts.qml:39, Modules/FileContextMenu.qml:234",
     "comment": "keyboard shortcut"
   },
   {
@@ -2198,7 +2204,7 @@
   {
     "term": "Open with",
     "context": "Open with",
-    "reference": "Common/Shortcuts.qml:46, Modules/FileContextMenu.qml:117, Modules/FileContextMenu.qml:365, Modules/OpenWithDialog.qml:94, Modules/PropertiesDialog.qml:143, Modules/Settings/SettingsAboutPage.qml:50",
+    "reference": "Common/Shortcuts.qml:46, Modules/FileContextMenu.qml:117, Modules/FileContextMenu.qml:373, Modules/OpenWithDialog.qml:94, Modules/PropertiesDialog.qml:143, Modules/Settings/SettingsAboutPage.qml:50",
     "comment": "open with dialog header"
   },
   {
@@ -2222,7 +2228,7 @@
   {
     "term": "Other application…",
     "context": "Other application…",
-    "reference": "Modules/WindowMenus.qml:331",
+    "reference": "Modules/WindowMenus.qml:343",
     "comment": "open with menu entry opening the full application picker"
   },
   {
@@ -2294,25 +2300,25 @@
   {
     "term": "Paste",
     "context": "Paste",
-    "reference": "Common/Shortcuts.qml:440, Modules/FileContextMenu.qml:325",
+    "reference": "Common/Shortcuts.qml:440, Modules/FileContextMenu.qml:333",
     "comment": "context menu entry pasting the clipboard here"
   },
   {
     "term": "Paste as link",
     "context": "Paste as link",
-    "reference": "Common/Shortcuts.qml:448, Modules/FileContextMenu.qml:331",
+    "reference": "Common/Shortcuts.qml:448, Modules/FileContextMenu.qml:339",
     "comment": "context menu entry creating symlinks from the clipboard"
   },
   {
     "term": "Paste into folder",
     "context": "Paste into folder",
-    "reference": "Modules/FileContextMenu.qml:175",
+    "reference": "Modules/FileContextMenu.qml:183",
     "comment": "context menu entry pasting the clipboard into the selected folder"
   },
   {
     "term": "Pasted image",
     "context": "Pasted image",
-    "reference": "Modules/WindowActions.qml:588",
+    "reference": "Modules/WindowActions.qml:593",
     "comment": "file name for an image pasted from the clipboard"
   },
   {
@@ -2332,12 +2338,6 @@
     "context": "Pink",
     "reference": "Common/Theme.qml:108",
     "comment": "color palette name"
-  },
-  {
-    "term": "Places",
-    "context": "Places",
-    "reference": "Modules/BookmarksSection.qml:63",
-    "comment": "sidebar section listing the user's places and saved folders"
   },
   {
     "term": "Playful",
@@ -2420,7 +2420,7 @@
   {
     "term": "Properties",
     "context": "Properties",
-    "reference": "Common/Shortcuts.qml:522, Modules/FileContextMenu.qml:303, Modules/FileContextMenu.qml:400, Modules/FilesTopbar.qml:417, Modules/PlaceMenu.qml:87",
+    "reference": "Common/Shortcuts.qml:522, Modules/FileContextMenu.qml:311, Modules/FileContextMenu.qml:408, Modules/FilesTopbar.qml:417, Modules/PlaceMenu.qml:87",
     "comment": "menu entry showing details about the current folder"
   },
   {
@@ -2462,7 +2462,7 @@
   {
     "term": "Recent",
     "context": "Recent",
-    "reference": "Modules/BookmarksSection.qml:87, Modules/ConnectServerDialog.qml:85, Modules/RecentView.qml:110, Modules/TabManager.qml:228",
+    "reference": "Modules/ConnectServerDialog.qml:85, Modules/RecentView.qml:110, Modules/TabManager.qml:228, Modules/BookmarksSection.qml:117",
     "comment": "header above previously used servers | recent files view header and sidebar entry"
   },
   {
@@ -2516,7 +2516,7 @@
   {
     "term": "Reload",
     "context": "Reload",
-    "reference": "Common/Shortcuts.qml:359, Modules/FileContextMenu.qml:49, Modules/FileContextMenu.qml:92, Modules/FileContextMenu.qml:352, Modules/FilesTopbar.qml:432",
+    "reference": "Common/Shortcuts.qml:359, Modules/FileContextMenu.qml:49, Modules/FileContextMenu.qml:92, Modules/FileContextMenu.qml:360, Modules/FilesTopbar.qml:432",
     "comment": "menu entry re-reading the current folder"
   },
   {
@@ -2540,7 +2540,7 @@
   {
     "term": "Remove from Recent",
     "context": "Remove from Recent",
-    "reference": "Modules/FileContextMenu.qml:237, Modules/RecentView.qml:34",
+    "reference": "Modules/FileContextMenu.qml:245, Modules/RecentView.qml:34",
     "comment": "action dropping the selected files from the recently used list without touching the files"
   },
   {
@@ -2552,7 +2552,7 @@
   {
     "term": "Rename",
     "context": "Rename",
-    "reference": "Common/Shortcuts.qml:455, Modules/FileContextMenu.qml:181, Modules/PlaceMenu.qml:53, Modules/WindowDialogs.qml:233, Modules/WindowDialogs.qml:234",
+    "reference": "Common/Shortcuts.qml:455, Modules/FileContextMenu.qml:189, Modules/PlaceMenu.qml:53, Modules/WindowDialogs.qml:233, Modules/WindowDialogs.qml:234",
     "comment": "rename dialog header"
   },
   {
@@ -2582,7 +2582,7 @@
   {
     "term": "Reopen the closed tab",
     "context": "Reopen the closed tab",
-    "reference": "Common/Shortcuts.qml:180, Modules/WindowMenus.qml:221",
+    "reference": "Common/Shortcuts.qml:180, Modules/WindowMenus.qml:233",
     "comment": "keyboard shortcut"
   },
   {
@@ -2840,7 +2840,7 @@
   {
     "term": "Select all",
     "context": "Select all",
-    "reference": "Common/Shortcuts.qml:380, Modules/FileContextMenu.qml:43, Modules/FileContextMenu.qml:86, Modules/FileContextMenu.qml:340",
+    "reference": "Common/Shortcuts.qml:380, Modules/FileContextMenu.qml:43, Modules/FileContextMenu.qml:86, Modules/FileContextMenu.qml:348",
     "comment": "menu entry selecting every item in the folder"
   },
   {
@@ -2906,7 +2906,7 @@
   {
     "term": "Show hidden files",
     "context": "Show hidden files",
-    "reference": "Common/Shortcuts.qml:316, Modules/ChooserWindow.qml:546, Modules/FileContextMenu.qml:346, Modules/SearchChips.qml:157, Modules/Settings/SettingsContent.qml:677",
+    "reference": "Common/Shortcuts.qml:316, Modules/ChooserWindow.qml:546, Modules/FileContextMenu.qml:354, Modules/SearchChips.qml:157, Modules/Settings/SettingsContent.qml:677",
     "comment": "file browser toolbar toggle | menu entry listing dot files"
   },
   {
@@ -3032,13 +3032,13 @@
   {
     "term": "Stage",
     "context": "Stage",
-    "reference": "Modules/FileContextMenu.qml:247",
+    "reference": "Modules/FileContextMenu.qml:255",
     "comment": "Git action adding selected paths to the index"
   },
   {
     "term": "Stage all changes",
     "context": "Stage all changes",
-    "reference": "Modules/FileContextMenu.qml:376",
+    "reference": "Modules/FileContextMenu.qml:384",
     "comment": "Git action adding every repository change to the index"
   },
   {
@@ -3284,13 +3284,13 @@
   {
     "term": "Trash",
     "context": "Trash",
-    "reference": "Modules/BookmarksSection.qml:87, Modules/TabManager.qml:226, Modules/TrashView.qml:107, Modules/Settings/SettingsAboutPage.qml:26",
+    "reference": "Modules/TabManager.qml:226, Modules/TrashView.qml:107, Modules/BookmarksSection.qml:117, Modules/Settings/SettingsAboutPage.qml:26",
     "comment": "capability row on the about page | trash view header and sidebar entry"
   },
   {
     "term": "Trash is empty",
     "context": "Trash is empty",
-    "reference": "Modules/BookmarksSection.qml:94, Modules/TrashView.qml:182",
+    "reference": "Modules/TrashView.qml:182, Modules/BookmarksSection.qml:124",
     "comment": "trash view placeholder and sidebar tooltip when nothing is trashed"
   },
   {
@@ -3386,25 +3386,25 @@
   {
     "term": "Unstage",
     "context": "Unstage",
-    "reference": "Modules/FileContextMenu.qml:254",
+    "reference": "Modules/FileContextMenu.qml:262",
     "comment": "Git action removing selected paths from the index"
   },
   {
     "term": "Unstage all changes",
     "context": "Unstage all changes",
-    "reference": "Modules/FileContextMenu.qml:383",
+    "reference": "Modules/FileContextMenu.qml:391",
     "comment": "Git action removing every repository change from the index"
   },
   {
     "term": "Untitled document",
     "context": "Untitled document",
-    "reference": "Modules/WindowMenus.qml:114",
+    "reference": "Modules/WindowMenus.qml:126",
     "comment": "default name for a new empty file"
   },
   {
     "term": "Untitled folder",
     "context": "Untitled folder",
-    "reference": "Modules/ChooserWindow.qml:365, Modules/WindowActions.qml:320, Modules/WindowActions.qml:512",
+    "reference": "Modules/ChooserWindow.qml:365, Modules/WindowActions.qml:325, Modules/WindowActions.qml:517",
     "comment": "default name for a new folder"
   },
   {

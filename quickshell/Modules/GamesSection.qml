@@ -6,7 +6,7 @@ import qs.Services
 import qs.DCommon.Widgets
 import qs.DCommon.FileBrowser
 
-FilePlaceSection {
+OmarchyPlaceSection {
     id: section
 
     property string currentPath: ""
@@ -101,7 +101,7 @@ FilePlaceSection {
     }
 
     visible: shown.length > 0
-    title: I18n.tr("Games", "sidebar section listing game libraries")
+    divider: true
 
     Repeater {
         model: section.shown
