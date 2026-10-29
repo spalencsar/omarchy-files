@@ -49,9 +49,13 @@ FloatingWindow {
     readonly property string currentPath: activePane.path
     readonly property bool dialogOpen: dialogs.anyOpen
     readonly property bool textEditing: surface.focusItem instanceof TextInput || surface.focusItem instanceof TextEdit
+    // DTextField wraps its native text input, so focusItem alone is not a
+    // reliable way to identify every text-editing state. Keep file actions
+    // away from the location and search editors explicitly as well.
+    readonly property bool inputEditing: textEditing || activePane.editingPath || topbar.searchFocused
     readonly property bool sidebarFocused: sidebarHost.focused
     readonly property bool tabRowFocused: ItemTree.isInside(surface.focusItem, tabRow)
-    readonly property bool shortcutsEnabled: !dialogOpen && !textEditing && !(preview?.open ?? false)
+    readonly property bool shortcutsEnabled: !dialogOpen && !inputEditing && !(preview?.open ?? false)
     readonly property bool lastActive: WindowService.lastActiveId === windowId
     readonly property var previewTarget: {
         const entries = selectedEntries();
@@ -158,7 +162,7 @@ FloatingWindow {
     function openLocation(location, inNewTab) {
         switch (location.kind) {
         case "servers":
-            dialogs.askServer();
+            openPath(NetworkService.path, inNewTab);
             return;
         case "recent":
             openPath(RecentService.path, inNewTab);
@@ -454,7 +458,7 @@ FloatingWindow {
         }
 
         Keys.onPressed: event => {
-            if (window.textEditing)
+            if (window.inputEditing)
                 return;
             if (!window.sidebarFocused && !ItemTree.isInside(surface.focusItem, window.activePane)) {
                 window.activePane.handleStrayKey(event);
@@ -542,6 +546,7 @@ FloatingWindow {
                 previewExpandable: window.previewExpandable
                 trashActive: window.activePane.trashActive
                 recentActive: window.activePane.recentActive
+                networkActive: window.activePane.networkActive
                 filterText: window.activePane.nameFilter
                 currentPath: window.currentPath
                 onFilterChanged: text => window.activePane.nameFilter = text
@@ -655,8 +660,81 @@ FloatingWindow {
         }
 
         Item {
+            id: editorOverlay
+
             anchors.fill: parent
             z: 1
+
+            Item {
+                id: editorContextTarget
+
+                readonly property Item editor: window.activePane.editingPath || topbar.searchFocused ? surface.focusItem : null
+                readonly property point editorOrigin: editor ? editor.mapToItem(editorOverlay, 0, 0) : Qt.point(0, 0)
+
+                x: editorOrigin.x
+                y: editorOrigin.y
+                width: editor?.width ?? 0
+                height: editor?.height ?? 0
+                visible: editor !== null
+                z: 1
+
+                TapHandler {
+                    acceptedButtons: Qt.RightButton
+                    onTapped: point => {
+                        const mapped = editorContextTarget.mapToItem(editorOverlay, point.position.x, point.position.y);
+                        textEditMenu.target = editorContextTarget.editor;
+                        textEditMenu.openAt(mapped.x, mapped.y);
+                    }
+                }
+            }
+
+            FileMenu {
+                id: textEditMenu
+
+                property Item target: null
+
+                // Retain focus in the text field: losing it closes the path
+                // editor before a Paste action can update the text.
+                focus: false
+
+                function run(method) {
+                    const editor = target;
+                    close();
+                    if (!editor || typeof editor[method] !== "function")
+                        return;
+                    editor[method]();
+                }
+
+                FileMenuItem {
+                    text: I18n.tr("Cut", "text field context menu action")
+                    iconName: "content_cut"
+                    enabled: (textEditMenu.target?.selectedText?.length ?? 0) > 0 && !(textEditMenu.target?.readOnly ?? true)
+                    onClicked: textEditMenu.run("cut")
+                }
+
+                FileMenuItem {
+                    text: I18n.tr("Copy", "text field context menu action")
+                    iconName: "content_copy"
+                    enabled: (textEditMenu.target?.selectedText?.length ?? 0) > 0
+                    onClicked: textEditMenu.run("copy")
+                }
+
+                FileMenuItem {
+                    text: I18n.tr("Paste", "text field context menu action")
+                    iconName: "content_paste"
+                    enabled: !(textEditMenu.target?.readOnly ?? true)
+                    onClicked: textEditMenu.run("paste")
+                }
+
+                FileMenuDivider {}
+
+                FileMenuItem {
+                    text: I18n.tr("Select all", "text field context menu action")
+                    iconName: "select_all"
+                    enabled: (textEditMenu.target?.text?.length ?? 0) > 0
+                    onClicked: textEditMenu.run("selectAll")
+                }
+            }
 
             TapHandler {
                 acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton

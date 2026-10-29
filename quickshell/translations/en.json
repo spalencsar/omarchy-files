@@ -26,19 +26,19 @@
   {
     "term": "%1 already exist in this folder. Do you want to overwrite them?",
     "context": "%1 already exist in this folder. Do you want to overwrite them?",
-    "reference": "Modules/ChooserWindow.qml:828",
+    "reference": "Modules/ChooserWindow.qml:827",
     "comment": "file chooser overwrite dialog message, %1 lists the file names"
   },
   {
     "term": "%1 already exists in this folder.",
     "context": "%1 already exists in this folder.",
-    "reference": "Modules/ChooserWindow.qml:828, Modules/ConflictDialog.qml:32",
+    "reference": "Modules/ChooserWindow.qml:827, Modules/ConflictDialog.qml:32",
     "comment": "file conflict dialog explanation"
   },
   {
     "term": "%1 bookmarks imported",
     "context": "%1 bookmarks imported",
-    "reference": "Modules/MainWindow.qml:118",
+    "reference": "Modules/MainWindow.qml:122",
     "comment": "toast after importing gtk bookmarks"
   },
   {
@@ -116,7 +116,7 @@
   {
     "term": "%1 matching “%2”",
     "context": "%1 matching “%2”",
-    "reference": "Modules/FilesPane.qml:857, Modules/RecentView.qml:42, Modules/TrashView.qml:40",
+    "reference": "Modules/FilesPane.qml:895, Modules/RecentView.qml:42, Modules/TrashView.qml:40",
     "comment": "filter bar above a folder listing, count then the typed text"
   },
   {
@@ -208,6 +208,12 @@
     "context": "? or F1 in the main window.",
     "reference": "Modules/Settings/SettingsContent.qml:800",
     "comment": "keyboard shortcuts settings row description"
+  },
+  {
+    "term": "AFP",
+    "context": "AFP",
+    "reference": "Modules/NetworkView.qml:52",
+    "comment": "network protocol name"
   },
   {
     "term": "API",
@@ -426,6 +432,12 @@
     "comment": "capability status on the about page | optional feature status on the about page"
   },
   {
+    "term": "Available protocols: %1. You can also paste a complete address such as sftp://host/path.",
+    "context": "Available protocols: %1. You can also paste a complete address such as sftp://host/path.",
+    "reference": "Modules/NetworkView.qml:218",
+    "comment": "network page help listing supported server protocols, %1 is the protocol list"
+  },
+  {
     "term": "Back",
     "context": "Back",
     "reference": "Common/Shortcuts.qml:100, Modules/OmarchyNavButtonPair.qml:22",
@@ -494,7 +506,7 @@
   {
     "term": "Cancel",
     "context": "Cancel",
-    "reference": "Modules/ArchivePasswordDialog.qml:65, Modules/ChooserWindow.qml:782, Modules/CompressDialog.qml:105, Modules/ConfirmDialog.qml:25, Modules/ConflictDialog.qml:65, Modules/ConnectServerDialog.qml:110, Modules/CredentialDialog.qml:147, Modules/DragController.qml:130, Modules/ExecutableDialog.qml:31, Modules/JobRow.qml:68, Modules/NameDialog.qml:39, Modules/OpenWithDialog.qml:160, Modules/OperationErrorDialog.qml:69, Modules/UnlockDialog.qml:58",
+    "reference": "Modules/ArchivePasswordDialog.qml:65, Modules/ChooserWindow.qml:781, Modules/CompressDialog.qml:105, Modules/ConfirmDialog.qml:25, Modules/ConflictDialog.qml:65, Modules/ConnectServerDialog.qml:110, Modules/CredentialDialog.qml:147, Modules/DragController.qml:130, Modules/ExecutableDialog.qml:31, Modules/JobRow.qml:68, Modules/NameDialog.qml:39, Modules/OpenWithDialog.qml:160, Modules/OperationErrorDialog.qml:69, Modules/UnlockDialog.qml:58",
     "comment": "dialog button to cancel"
   },
   {
@@ -596,7 +608,7 @@
   {
     "term": "Column view",
     "context": "Column view",
-    "reference": "Common/Shortcuts.qml:267, Modules/FilesTopbar.qml:45, Modules/Settings/SettingsContent.qml:68",
+    "reference": "Common/Shortcuts.qml:267, Modules/FilesTopbar.qml:46, Modules/Settings/SettingsContent.qml:68",
     "comment": "view mode showing folders side by side"
   },
   {
@@ -638,8 +650,8 @@
   {
     "term": "Connect",
     "context": "Connect",
-    "reference": "Modules/ConnectServerDialog.qml:114",
-    "comment": "connect to server dialog action"
+    "reference": "Modules/ConnectServerDialog.qml:114, Modules/NetworkView.qml:203",
+    "comment": "connect to server action | connect to server dialog action"
   },
   {
     "term": "Connect anonymously",
@@ -654,22 +666,16 @@
     "comment": "connect to server dialog header"
   },
   {
-    "term": "Connect to Server…",
-    "context": "Connect to Server…",
-    "reference": "Modules/NetworkSection.qml:57",
-    "comment": "sidebar entry opening the connect to server dialog"
-  },
-  {
     "term": "Connected",
     "context": "Connected",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:227",
-    "comment": "about page daemon status value"
+    "reference": "Modules/NetworkView.qml:237, Modules/Settings/SettingsAboutPage.qml:227",
+    "comment": "about page daemon status value | heading above active network shares"
   },
   {
     "term": "Connected, but the share has no local folder. The gvfs FUSE service may not be running.",
     "context": "Connected, but the share has no local folder. The gvfs FUSE service may not be running.",
-    "reference": "Modules/ConnectServerDialog.qml:46",
-    "comment": "connect dialog error when a mounted share has no fuse path"
+    "reference": "Modules/ConnectServerDialog.qml:46, Modules/NetworkView.qml:116",
+    "comment": "connect dialog error when a mounted share has no fuse path | network page error when a mounted share has no fuse path"
   },
   {
     "term": "Contents",
@@ -686,8 +692,8 @@
   {
     "term": "Copy",
     "context": "Copy",
-    "reference": "Common/Shortcuts.qml:424, Modules/DragActionChip.qml:30, Modules/DragController.qml:103, Modules/FileContextMenu.qml:165, Modules/Settings/SettingsContent.qml:108",
-    "comment": "context menu entry copying the selection"
+    "reference": "Common/Shortcuts.qml:424, Modules/DragActionChip.qml:30, Modules/DragController.qml:103, Modules/FileContextMenu.qml:165, Modules/MainWindow.qml:716, Modules/Settings/SettingsContent.qml:108",
+    "comment": "context menu entry copying the selection | text field context menu action"
   },
   {
     "term": "Copy command",
@@ -704,7 +710,7 @@
   {
     "term": "Copy location path",
     "context": "Copy location path",
-    "reference": "Common/Shortcuts.qml:515, Modules/FileContextMenu.qml:299, Modules/FilesTopbar.qml:425, Modules/PlaceMenu.qml:77",
+    "reference": "Common/Shortcuts.qml:515, Modules/FileContextMenu.qml:299, Modules/FilesTopbar.qml:427, Modules/PlaceMenu.qml:77",
     "comment": "menu entry copying the current path to the clipboard"
   },
   {
@@ -812,8 +818,8 @@
   {
     "term": "Cut",
     "context": "Cut",
-    "reference": "Common/Shortcuts.qml:432, Modules/FileContextMenu.qml:159",
-    "comment": "context menu entry marking the selection for a move"
+    "reference": "Common/Shortcuts.qml:432, Modules/FileContextMenu.qml:159, Modules/MainWindow.qml:709",
+    "comment": "context menu entry marking the selection for a move | text field context menu action"
   },
   {
     "term": "Cyan",
@@ -926,13 +932,13 @@
   {
     "term": "Disconnect",
     "context": "Disconnect",
-    "reference": "Modules/DevicesSection.qml:184, Modules/NetworkSection.qml:40",
+    "reference": "Modules/DevicesSection.qml:184, Modules/NetworkSection.qml:38, Modules/NetworkView.qml:265",
     "comment": "network mount action"
   },
   {
     "term": "Disconnected from %1. Open views returned to Home.",
     "context": "Disconnected from %1. Open views returned to Home.",
-    "reference": "Modules/MainWindow.qml:151",
+    "reference": "Modules/MainWindow.qml:155",
     "comment": "message after disconnecting a remote server, %1 is its name"
   },
   {
@@ -1094,7 +1100,7 @@
   {
     "term": "Enter filename...",
     "context": "Enter filename...",
-    "reference": "Modules/ChooserWindow.qml:763",
+    "reference": "Modules/ChooserWindow.qml:762",
     "comment": "file browser save filename input placeholder"
   },
   {
@@ -1186,6 +1192,18 @@
     "context": "Extraction complete",
     "reference": "Services/FileOpsService.qml:326",
     "comment": "desktop notification title after extracting files"
+  },
+  {
+    "term": "FTP",
+    "context": "FTP",
+    "reference": "Modules/NetworkView.qml:50",
+    "comment": "network protocol name"
+  },
+  {
+    "term": "FTPS",
+    "context": "FTPS",
+    "reference": "Modules/NetworkView.qml:51",
+    "comment": "network protocol name"
   },
   {
     "term": "Family",
@@ -1316,8 +1334,8 @@
   {
     "term": "Forget",
     "context": "Forget",
-    "reference": "Modules/Settings/SettingsContent.qml:415",
-    "comment": "dialog button clearing the remembered folder settings"
+    "reference": "Modules/NetworkView.qml:299, Modules/Settings/SettingsContent.qml:415",
+    "comment": "action removing a server from network history | dialog button clearing the remembered folder settings"
   },
   {
     "term": "Forget all folder settings",
@@ -1442,7 +1460,7 @@
   {
     "term": "Grid view",
     "context": "Grid view",
-    "reference": "Common/Shortcuts.qml:260, Modules/ChooserWindow.qml:554, Modules/FilesTopbar.qml:40, Modules/Settings/SettingsContent.qml:64",
+    "reference": "Common/Shortcuts.qml:260, Modules/ChooserWindow.qml:553, Modules/FilesTopbar.qml:41, Modules/Settings/SettingsContent.qml:64",
     "comment": "file browser toolbar button switching to the grid | view mode showing items as tiles"
   },
   {
@@ -1460,7 +1478,7 @@
   {
     "term": "Home",
     "context": "Home",
-    "reference": "Common/SearchFilters.qml:51, Modules/TabManager.qml:230, Modules/BookmarksSection.qml:95",
+    "reference": "Common/SearchFilters.qml:51, Modules/TabManager.qml:232, Modules/BookmarksSection.qml:105",
     "comment": "sidebar entry for the user's home folder"
   },
   {
@@ -1484,13 +1502,13 @@
   {
     "term": "Import",
     "context": "Import",
-    "reference": "Modules/MainWindow.qml:116",
+    "reference": "Modules/MainWindow.qml:120",
     "comment": "toast action importing gtk bookmarks"
   },
   {
     "term": "Import your GTK bookmarks?",
     "context": "Import your GTK bookmarks?",
-    "reference": "Modules/MainWindow.qml:115",
+    "reference": "Modules/MainWindow.qml:119",
     "comment": "toast offering to copy the gtk file chooser bookmarks once"
   },
   {
@@ -1610,7 +1628,7 @@
   {
     "term": "Keyboard shortcuts",
     "context": "Keyboard shortcuts",
-    "reference": "Common/Shortcuts.qml:366, Modules/FilesTopbar.qml:447, Modules/ShortcutsOverlay.qml:12, Modules/Settings/SettingsContent.qml:798",
+    "reference": "Common/Shortcuts.qml:366, Modules/FilesTopbar.qml:449, Modules/ShortcutsOverlay.qml:12, Modules/Settings/SettingsContent.qml:798",
     "comment": "overlay listing every keyboard shortcut"
   },
   {
@@ -1676,7 +1694,7 @@
   {
     "term": "List view",
     "context": "List view",
-    "reference": "Common/Shortcuts.qml:253, Modules/ChooserWindow.qml:554, Modules/FilesTopbar.qml:35, Modules/Settings/SettingsContent.qml:60",
+    "reference": "Common/Shortcuts.qml:253, Modules/ChooserWindow.qml:553, Modules/FilesTopbar.qml:36, Modules/Settings/SettingsContent.qml:60",
     "comment": "file browser toolbar button switching to the list | view mode showing one row per item"
   },
   {
@@ -1754,7 +1772,7 @@
   {
     "term": "More actions",
     "context": "More actions",
-    "reference": "Modules/FilesTopbar.qml:313",
+    "reference": "Modules/FilesTopbar.qml:315",
     "comment": "tooltip on the overflow menu button"
   },
   {
@@ -1860,6 +1878,12 @@
     "comment": "file operation in progress"
   },
   {
+    "term": "NFS",
+    "context": "NFS",
+    "reference": "Modules/NetworkView.qml:47",
+    "comment": "network protocol name"
+  },
+  {
     "term": "Name",
     "context": "Name",
     "reference": "Modules/CompressDialog.qml:67, Modules/NameDialog.qml:33, Modules/PropertiesDialog.qml:190, Modules/OmarchySortButton.qml:17, Modules/Settings/SettingsContent.qml:85",
@@ -1880,8 +1904,8 @@
   {
     "term": "Network",
     "context": "Network",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:38",
-    "comment": "sidebar section listing network locations"
+    "reference": "Modules/TabManager.qml:230, Modules/BookmarksSection.qml:53, Modules/BookmarksSection.qml:128, Modules/NetworkView.qml:158, Modules/Settings/SettingsAboutPage.qml:38",
+    "comment": "network locations page and sidebar entry | sidebar section listing network locations"
   },
   {
     "term": "Network locations",
@@ -1892,8 +1916,8 @@
   {
     "term": "Network locations are unavailable because gvfs is not running",
     "context": "Network locations are unavailable because gvfs is not running",
-    "reference": "Modules/NetworkSection.qml:27",
-    "comment": "sidebar explanation when the network service is missing"
+    "reference": "Modules/NetworkSection.qml:25, Modules/NetworkView.qml:225",
+    "comment": "network page explanation when the network service is missing | sidebar explanation when the network service is missing"
   },
   {
     "term": "Network locations are unavailable because the sandbox cannot reach gvfs",
@@ -1922,7 +1946,7 @@
   {
     "term": "New folder",
     "context": "New folder",
-    "reference": "Common/Shortcuts.qml:501, Modules/ChooserWindow.qml:529, Modules/FileContextMenu.qml:320",
+    "reference": "Common/Shortcuts.qml:501, Modules/ChooserWindow.qml:528, Modules/FileContextMenu.qml:320",
     "comment": "file browser toolbar button creating a folder | new folder dialog header"
   },
   {
@@ -1940,7 +1964,7 @@
   {
     "term": "New window",
     "context": "New window",
-    "reference": "Common/Shortcuts.qml:158, Modules/FilesTopbar.qml:409",
+    "reference": "Common/Shortcuts.qml:158, Modules/FilesTopbar.qml:411",
     "comment": "menu entry opening another file manager window"
   },
   {
@@ -1956,15 +1980,21 @@
     "comment": "thumbnail size cap slider label at zero"
   },
   {
+    "term": "No network locations are connected",
+    "context": "No network locations are connected",
+    "reference": "Modules/NetworkView.qml:246",
+    "comment": "empty state on the network locations page"
+  },
+  {
     "term": "No recent files",
     "context": "No recent files",
-    "reference": "Modules/RecentView.qml:186, Modules/BookmarksSection.qml:122",
+    "reference": "Modules/RecentView.qml:186, Modules/BookmarksSection.qml:133",
     "comment": "recent files view placeholder when nothing was opened yet"
   },
   {
     "term": "No results",
     "context": "No results",
-    "reference": "Modules/FilesPane.qml:660, Modules/RecentView.qml:186, Modules/SearchResults.qml:40, Modules/TrashView.qml:182, Modules/Settings/SettingsContent.qml:479",
+    "reference": "Modules/FilesPane.qml:682, Modules/RecentView.qml:186, Modules/SearchResults.qml:40, Modules/TrashView.qml:182, Modules/Settings/SettingsContent.qml:479",
     "comment": "search results header when nothing matched"
   },
   {
@@ -2144,7 +2174,7 @@
   {
     "term": "Open in terminal",
     "context": "Open in terminal",
-    "reference": "Common/Shortcuts.qml:53, Modules/FileContextMenu.qml:366, Modules/FilesTopbar.qml:440, Modules/Settings/SettingsAboutPage.qml:42, Modules/Settings/SettingsContent.qml:1118",
+    "reference": "Common/Shortcuts.qml:53, Modules/FileContextMenu.qml:366, Modules/FilesTopbar.qml:442, Modules/Settings/SettingsAboutPage.qml:42, Modules/Settings/SettingsContent.qml:1118",
     "comment": "context menu entry opening a terminal"
   },
   {
@@ -2192,7 +2222,7 @@
   {
     "term": "Open the preview in a large view",
     "context": "Open the preview in a large view",
-    "reference": "Common/Shortcuts.qml:331, Modules/FilesTopbar.qml:49",
+    "reference": "Common/Shortcuts.qml:331, Modules/FilesTopbar.qml:50",
     "comment": "keyboard shortcut opening the preview overlay"
   },
   {
@@ -2300,8 +2330,8 @@
   {
     "term": "Paste",
     "context": "Paste",
-    "reference": "Common/Shortcuts.qml:440, Modules/FileContextMenu.qml:333",
-    "comment": "context menu entry pasting the clipboard here"
+    "reference": "Common/Shortcuts.qml:440, Modules/FileContextMenu.qml:333, Modules/MainWindow.qml:723",
+    "comment": "context menu entry pasting the clipboard here | text field context menu action"
   },
   {
     "term": "Paste as link",
@@ -2402,7 +2432,7 @@
   {
     "term": "Preview",
     "context": "Preview",
-    "reference": "Common/Shortcuts.qml:324, Modules/ChooserWindow.qml:564, Modules/FilesTopbar.qml:48",
+    "reference": "Common/Shortcuts.qml:324, Modules/ChooserWindow.qml:563, Modules/FilesTopbar.qml:49",
     "comment": "view menu entry and shortcut showing or hiding the preview drawer"
   },
   {
@@ -2410,6 +2440,12 @@
     "context": "Preview the next or previous selected item",
     "reference": "Common/Shortcuts.qml:338",
     "comment": "keyboard shortcut"
+  },
+  {
+    "term": "Previous",
+    "context": "Previous",
+    "reference": "Modules/NetworkView.qml:282",
+    "comment": "heading above previously used servers"
   },
   {
     "term": "Previous tab",
@@ -2420,7 +2456,7 @@
   {
     "term": "Properties",
     "context": "Properties",
-    "reference": "Common/Shortcuts.qml:522, Modules/FileContextMenu.qml:311, Modules/FileContextMenu.qml:408, Modules/FilesTopbar.qml:417, Modules/PlaceMenu.qml:87",
+    "reference": "Common/Shortcuts.qml:522, Modules/FileContextMenu.qml:311, Modules/FileContextMenu.qml:408, Modules/FilesTopbar.qml:419, Modules/PlaceMenu.qml:87",
     "comment": "menu entry showing details about the current folder"
   },
   {
@@ -2462,7 +2498,7 @@
   {
     "term": "Recent",
     "context": "Recent",
-    "reference": "Modules/ConnectServerDialog.qml:85, Modules/RecentView.qml:110, Modules/TabManager.qml:228, Modules/BookmarksSection.qml:117",
+    "reference": "Modules/ConnectServerDialog.qml:85, Modules/RecentView.qml:110, Modules/TabManager.qml:228, Modules/BookmarksSection.qml:128",
     "comment": "header above previously used servers | recent files view header and sidebar entry"
   },
   {
@@ -2510,13 +2546,13 @@
   {
     "term": "Relevance",
     "context": "Relevance",
-    "reference": "Modules/FilesTopbar.qml:58",
+    "reference": "Modules/FilesTopbar.qml:59",
     "comment": "sort criterion for search results, best match first"
   },
   {
     "term": "Reload",
     "context": "Reload",
-    "reference": "Common/Shortcuts.qml:359, Modules/FileContextMenu.qml:49, Modules/FileContextMenu.qml:92, Modules/FileContextMenu.qml:360, Modules/FilesTopbar.qml:432",
+    "reference": "Common/Shortcuts.qml:359, Modules/FileContextMenu.qml:49, Modules/FileContextMenu.qml:92, Modules/FileContextMenu.qml:360, Modules/FilesTopbar.qml:434",
     "comment": "menu entry re-reading the current folder"
   },
   {
@@ -2588,7 +2624,7 @@
   {
     "term": "Replace",
     "context": "Replace",
-    "reference": "Modules/ChooserWindow.qml:829, Modules/ConflictDialog.qml:84",
+    "reference": "Modules/ChooserWindow.qml:828, Modules/ConflictDialog.qml:84",
     "comment": "file conflict dialog button to overwrite the existing item"
   },
   {
@@ -2606,7 +2642,7 @@
   {
     "term": "Reset this folder",
     "context": "Reset this folder",
-    "reference": "Modules/FilesTopbar.qml:51",
+    "reference": "Modules/FilesTopbar.qml:52",
     "comment": "view menu entry dropping this folder's own sort and view"
   },
   {
@@ -2730,6 +2766,24 @@
     "comment": "executable file dialog header"
   },
   {
+    "term": "SFTP",
+    "context": "SFTP",
+    "reference": "Modules/NetworkView.qml:44",
+    "comment": "network protocol name"
+  },
+  {
+    "term": "SMB / Windows share",
+    "context": "SMB / Windows share",
+    "reference": "Modules/NetworkView.qml:46",
+    "comment": "network protocol name"
+  },
+  {
+    "term": "SSH",
+    "context": "SSH",
+    "reference": "Modules/NetworkView.qml:45",
+    "comment": "network protocol name"
+  },
+  {
     "term": "Sandbox",
     "context": "Sandbox",
     "reference": "Modules/Settings/SettingsAboutPage.qml:242",
@@ -2768,7 +2822,7 @@
   {
     "term": "Saving %1 into the chosen folder",
     "context": "Saving %1 into the chosen folder",
-    "reference": "Modules/ChooserWindow.qml:735",
+    "reference": "Modules/ChooserWindow.qml:734",
     "comment": "file chooser footer listing the names an app wants to save"
   },
   {
@@ -2792,7 +2846,7 @@
   {
     "term": "Search in Files",
     "context": "Search in Files",
-    "reference": "Common/Shortcuts.qml:137, Modules/ChooserWindow.qml:589, Modules/FilesTopbar.qml:472, Modules/Settings/SettingsContent.qml:1178",
+    "reference": "Common/Shortcuts.qml:137, Modules/ChooserWindow.qml:588, Modules/FilesTopbar.qml:475, Modules/Settings/SettingsContent.qml:1178",
     "comment": "placeholder in the search field"
   },
   {
@@ -2810,7 +2864,7 @@
   {
     "term": "Search subfolders",
     "context": "Search subfolders",
-    "reference": "Modules/FilesPane.qml:871",
+    "reference": "Modules/FilesPane.qml:909",
     "comment": "chip that turns the folder filter into a recursive search"
   },
   {
@@ -2840,8 +2894,8 @@
   {
     "term": "Select all",
     "context": "Select all",
-    "reference": "Common/Shortcuts.qml:380, Modules/FileContextMenu.qml:43, Modules/FileContextMenu.qml:86, Modules/FileContextMenu.qml:348",
-    "comment": "menu entry selecting every item in the folder"
+    "reference": "Common/Shortcuts.qml:380, Modules/FileContextMenu.qml:43, Modules/FileContextMenu.qml:86, Modules/FileContextMenu.qml:348, Modules/MainWindow.qml:732",
+    "comment": "menu entry selecting every item in the folder | text field context menu action"
   },
   {
     "term": "Select folder",
@@ -2856,9 +2910,15 @@
     "comment": "keyboard shortcut group"
   },
   {
+    "term": "Server address",
+    "context": "Server address",
+    "reference": "Modules/NetworkView.qml:76",
+    "comment": "placeholder in the network page connection field"
+  },
+  {
     "term": "Settings",
     "context": "Settings",
-    "reference": "Common/Shortcuts.qml:373, Modules/FilesTopbar.qml:454, Modules/Settings/SettingsModal.qml:90",
+    "reference": "Common/Shortcuts.qml:373, Modules/FilesTopbar.qml:456, Modules/Settings/SettingsModal.qml:90",
     "comment": "settings window header title"
   },
   {
@@ -2906,7 +2966,7 @@
   {
     "term": "Show hidden files",
     "context": "Show hidden files",
-    "reference": "Common/Shortcuts.qml:316, Modules/ChooserWindow.qml:546, Modules/FileContextMenu.qml:354, Modules/SearchChips.qml:157, Modules/Settings/SettingsContent.qml:677",
+    "reference": "Common/Shortcuts.qml:316, Modules/ChooserWindow.qml:545, Modules/FileContextMenu.qml:354, Modules/SearchChips.qml:157, Modules/Settings/SettingsContent.qml:677",
     "comment": "file browser toolbar toggle | menu entry listing dot files"
   },
   {
@@ -3020,7 +3080,7 @@
   {
     "term": "Split view",
     "context": "Split view",
-    "reference": "Common/Shortcuts.qml:224, Modules/FilesTopbar.qml:291, Modules/FilesTopbar.qml:382",
+    "reference": "Common/Shortcuts.qml:224, Modules/FilesTopbar.qml:292, Modules/FilesTopbar.qml:384",
     "comment": "tooltip on the button showing a second pane"
   },
   {
@@ -3200,7 +3260,7 @@
   {
     "term": "This folder is empty",
     "context": "This folder is empty",
-    "reference": "Modules/FilesPane.qml:661",
+    "reference": "Modules/FilesPane.qml:683",
     "comment": "empty directory placeholder"
   },
   {
@@ -3212,7 +3272,7 @@
   {
     "term": "This item already exists",
     "context": "This item already exists",
-    "reference": "Modules/ChooserWindow.qml:827, Modules/ConflictDialog.qml:31",
+    "reference": "Modules/ChooserWindow.qml:826, Modules/ConflictDialog.qml:31",
     "comment": "file conflict dialog header"
   },
   {
@@ -3278,19 +3338,19 @@
   {
     "term": "Toggle sidebar",
     "context": "Toggle sidebar",
-    "reference": "Common/Shortcuts.qml:238, Modules/ChooserWindow.qml:512, Modules/FilesTopbar.qml:235",
+    "reference": "Common/Shortcuts.qml:238, Modules/ChooserWindow.qml:511, Modules/FilesTopbar.qml:236",
     "comment": "tooltip on the button showing or hiding the sidebar"
   },
   {
     "term": "Trash",
     "context": "Trash",
-    "reference": "Modules/TabManager.qml:226, Modules/TrashView.qml:107, Modules/BookmarksSection.qml:117, Modules/Settings/SettingsAboutPage.qml:26",
+    "reference": "Modules/TabManager.qml:226, Modules/TrashView.qml:107, Modules/BookmarksSection.qml:128, Modules/Settings/SettingsAboutPage.qml:26",
     "comment": "capability row on the about page | trash view header and sidebar entry"
   },
   {
     "term": "Trash is empty",
     "context": "Trash is empty",
-    "reference": "Modules/TrashView.qml:182, Modules/BookmarksSection.qml:124",
+    "reference": "Modules/TrashView.qml:182, Modules/BookmarksSection.qml:135",
     "comment": "trash view placeholder and sidebar tooltip when nothing is trashed"
   },
   {
@@ -3422,7 +3482,7 @@
   {
     "term": "Use these settings for all folders",
     "context": "Use these settings for all folders",
-    "reference": "Modules/FilesTopbar.qml:50",
+    "reference": "Modules/FilesTopbar.qml:51",
     "comment": "view menu entry making this folder's sort and view the defaults"
   },
   {
@@ -3482,7 +3542,7 @@
   {
     "term": "View",
     "context": "View",
-    "reference": "Common/Shortcuts.qml:583, Modules/FilesTopbar.qml:262, Modules/Settings/SettingsContent.qml:651",
+    "reference": "Common/Shortcuts.qml:583, Modules/FilesTopbar.qml:263, Modules/Settings/SettingsContent.qml:651",
     "comment": "keyboard shortcut group"
   },
   {
@@ -3502,6 +3562,18 @@
     "context": "Waiting",
     "reference": "Modules/JobRow.qml:28",
     "comment": "file operation is queued"
+  },
+  {
+    "term": "WebDAV",
+    "context": "WebDAV",
+    "reference": "Modules/NetworkView.qml:48",
+    "comment": "network protocol name"
+  },
+  {
+    "term": "WebDAV (secure)",
+    "context": "WebDAV (secure)",
+    "reference": "Modules/NetworkView.qml:49",
+    "comment": "network protocol name"
   },
   {
     "term": "Weight",

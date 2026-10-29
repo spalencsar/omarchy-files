@@ -474,7 +474,6 @@ FloatingWindow {
                 onNavigateRequested: path => pane.navigate(path)
                 onTabRequested: path => pane.navigate(path)
                 onUnlockRequested: device => unlockDialog.ask(device)
-                onConnectRequested: connectDialog.ask()
                 onLeaveRequested: pane.focusBody()
             }
         }

@@ -138,6 +138,7 @@ ShellRoot {
             case "network.mounts":
                 result = {
                     available: true,
+                    schemes: ["sftp", "smb"],
                     mounts: [
                         {
                             id: "nas",
@@ -314,6 +315,16 @@ ShellRoot {
             verify(home !== undefined);
             check(home.actionIcon, "");
             check(home.actionTooltip, "");
+            const network = rows.find(item => item.label === "Network");
+            verify(network !== undefined);
+            check(network.glyph, "lan");
+            network.clicked();
+            check(pane.path, NetworkService.path);
+            check(pane.networkActive, true);
+            verify(pane.networkView !== null);
+            check(pane.networkView.selectedScheme, "sftp");
+            check(pane.networkView.connectionTarget("user@server/path"), "sftp://user@server/path");
+            check(pane.networkView.connectionTarget("smb://server/share"), "smb://server/share");
             check(projects.actionTooltip, "Unmount");
             check(system.ringValue, 0.25);
             check(projects.ringValue, 0.6);
@@ -330,6 +341,12 @@ ShellRoot {
                 error: "cancelled",
                 code: "CANCELLED"
             });
+            win.splitView = true;
+            wait(100);
+            verify(win.secondPane !== null);
+            win.activePaneIndex = 0;
+            mouseClick(win.secondPane, win.secondPane.width - 4, 4);
+            check(win.activePaneIndex, 1);
             pane.restoreState({
                 path: "computer:",
                 back: ["/tmp", "computer:"]

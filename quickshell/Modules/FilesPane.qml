@@ -46,9 +46,11 @@ FocusScope {
     readonly property bool resultsActive: searchModel.active
     readonly property bool trashActive: !resultsActive && TrashService.filesPath !== "" && browser.path === TrashService.filesPath
     readonly property bool recentActive: !resultsActive && browser.path === RecentService.path
-    readonly property bool virtualActive: trashActive || recentActive
+    readonly property bool networkActive: !resultsActive && browser.path === NetworkService.path
+    readonly property bool virtualActive: trashActive || recentActive || networkActive
     readonly property var trashView: trashActive ? trashLoader.item : null
     readonly property var recentView: recentActive ? recentLoader.item : null
+    readonly property var networkView: networkActive ? networkLoader.item : null
     readonly property var snapshotView: trashView ?? recentView
     readonly property var overlay: resultsActive ? results : snapshotView
     readonly property string effectiveSortKey: resultsActive ? searchModel.sortKey : snapshotView?.model.sortKey ?? sortKey
@@ -225,6 +227,10 @@ FocusScope {
             snapshotView.refresh();
             return;
         }
+        if (networkActive) {
+            NetworkService.refresh();
+            return;
+        }
         browser.refresh();
     }
 
@@ -324,6 +330,10 @@ FocusScope {
         }
         if (snapshotView && !editingPath) {
             snapshotView.focusBody();
+            return;
+        }
+        if (networkView && !editingPath) {
+            networkView.focusBody();
             return;
         }
         browser.focusBody();
@@ -474,6 +484,18 @@ FocusScope {
         onActiveChanged: {
             if (!active)
                 pane.forwardWheelEnd();
+        }
+    }
+
+    // A split pane is the unit of focus, not just its file rows.  Observe every
+    // primary-button press inside the pane so clicks on breadcrumbs, headers or
+    // otherwise empty space activate the pane before the child control handles
+    // the same event.
+    TapHandler {
+        acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
+        onPressedChanged: {
+            if (pressed)
+                pane.focusRequested();
         }
     }
 
@@ -650,7 +672,7 @@ FocusScope {
         thumbnailSizeLimit: pane.thumbnailSizeLimit
         networkThumbnails: SettingsData.networkThumbnails
         folderJump: FolderHistory
-        unlistedPaths: [TrashService.filesPath, RecentService.path]
+        unlistedPaths: [TrashService.filesPath, RecentService.path, NetworkService.path]
         header: pane.filtering ? filterHeader : null
         pathBarTrailing: paneStatus
         emptyText: {
@@ -816,6 +838,22 @@ FocusScope {
             onColumnResizeRequested: (id, width) => pane.setColumnWidth(id, width)
             onPreviewToggleRequested: pane.previewToggleRequested()
             onPreviewResized: width => pane.setPreviewWidth(width)
+            onFocusRequested: pane.focusRequested()
+            onBackRequested: pane.back()
+            onForwardRequested: pane.forward()
+        }
+    }
+
+    Loader {
+        id: networkLoader
+
+        anchors.fill: parent
+        active: pane.networkActive
+        visible: !pane.editingPath
+        sourceComponent: NetworkView {
+            outlined: pane.showActiveOutline && pane.active
+            onNavigateRequested: path => pane.navigate(path)
+            onTabRequested: path => pane.tabRequested(path)
             onFocusRequested: pane.focusRequested()
             onBackRequested: pane.back()
             onForwardRequested: pane.forward()

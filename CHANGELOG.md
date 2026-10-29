@@ -20,10 +20,22 @@ All notable changes to Omarchy Files are documented here.
 - Restructure the sidebar around clear separator-based groups: fixed places,
   personal bookmarks, then drives and network locations. Device paths now live
   in tooltips, duplicate mounted bookmarks are hidden, and mount/disconnect
-  actions appear at the trailing edge on hover or keyboard focus.
+  actions appear at the trailing edge on hover or keyboard focus. Network is
+  now a fixed destination below Home and opens a dedicated page for connecting
+  to servers, browsing active shares, disconnecting them, and reconnecting to
+  or forgetting previously used servers. Active shares remain in the sidebar
+  as quick-access locations.
 
 ### Fixed
 
+- Restored normal text copy and Escape-to-breadcrumb behaviour in the editable
+  location bar by keeping file-selection shortcuts inactive while it has focus.
+  The location and search fields now also expose Cut, Copy, Paste and Select all
+  from their right-click menu.
+
+- Activate either side of split view from any click inside that pane, including
+  breadcrumbs, headers, and empty list space, instead of leaving focus stuck on
+  the left pane.
 - Keep current-folder actions reachable when a dense list leaves no empty
   background to right-click. Every item menu now links to the folder menu for
   creating folders or documents, pasting, reloading, terminal actions, and

@@ -21,13 +21,14 @@ Item {
     property bool sortDescending: false
     property bool trashActive: false
     property bool recentActive: false
+    property bool networkActive: false
     property string filterText: ""
     property string currentPath: ""
     property bool searchFocused: false
     property bool folderRemembered: false
     property bool folderHasSettings: false
 
-    readonly property bool virtualActive: trashActive || recentActive
+    readonly property bool virtualActive: trashActive || recentActive || networkActive
     readonly property var viewModes: [
         {
             "value": "list",
@@ -256,7 +257,7 @@ Item {
             id: viewButton
 
             anchors.verticalCenter: parent.verticalCenter
-            visible: !topbar.compact
+            visible: !topbar.compact && !topbar.networkActive
             iconName: topbar.currentViewMode.icon
             backgroundColor: Theme.chipSurface
             tooltipText: I18n.tr("View", "keyboard shortcut group")
@@ -265,7 +266,7 @@ Item {
 
         FlatButton {
             anchors.verticalCenter: parent.verticalCenter
-            visible: !topbar.compact
+            visible: !topbar.compact && !topbar.networkActive
             iconName: "view_sidebar"
             iconColor: topbar.previewOpen ? Theme.onPrimary : Theme.surfaceText
             backgroundColor: topbar.previewOpen ? Theme.primary : Theme.chipSurface
@@ -275,7 +276,7 @@ Item {
 
         FlatButton {
             anchors.verticalCenter: parent.verticalCenter
-            visible: !topbar.compact && topbar.previewExpandable
+            visible: !topbar.compact && !topbar.networkActive && topbar.previewExpandable
             iconName: "open_in_full"
             backgroundColor: Theme.chipSurface
             tooltipText: topbar.previewExpandLabel
@@ -296,6 +297,7 @@ Item {
             id: sortButton
 
             anchors.verticalCenter: parent.verticalCenter
+            visible: !topbar.networkActive
             keys: topbar.activeSortKeys
             sortKey: topbar.sortKey
             descending: topbar.sortDescending
@@ -461,6 +463,7 @@ Item {
     OmarchySearchField {
         id: search
 
+        visible: !topbar.networkActive
         anchors.left: leftActions.right
         anchors.right: rightActions.left
         anchors.leftMargin: FilesMetrics.topbarSpacing

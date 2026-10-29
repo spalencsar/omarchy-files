@@ -80,7 +80,6 @@ Item {
         }
         onTabRequested: path => host.mainWindow.tabManager.newTab(path, true)
         onUnlockRequested: device => host.mainWindow.dialogs.askUnlock(device)
-        onConnectRequested: host.mainWindow.dialogs.askServer()
         onBookmarkMenuRequested: (path, pointX, pointY) => host.mainWindow.menus.presentPlaceMenu("bookmark", path, sidebar, pointX, pointY)
         onTrashMenuRequested: (pointX, pointY) => host.mainWindow.menus.presentPlaceMenu("trash", TrashService.filesPath, sidebar, pointX, pointY)
         onRecentMenuRequested: (pointX, pointY) => host.mainWindow.menus.presentPlaceMenu("recent", RecentService.path, sidebar, pointX, pointY)

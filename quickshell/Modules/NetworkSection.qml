@@ -15,8 +15,6 @@ OmarchyPlaceSection {
     signal navigateRequested(string path)
     signal tabRequested(string path)
     signal dropRequested(string path, var drop)
-    signal connectRequested
-
     emptyText: {
         if (NetworkService.available)
             return "";
@@ -52,11 +50,4 @@ OmarchyPlaceSection {
         }
     }
 
-    OmarchyPlaceRow {
-        visible: NetworkService.available
-        label: I18n.tr("Connect to Server…", "sidebar entry opening the connect to server dialog")
-        iconName: "folder-remote"
-        busy: NetworkService.connecting
-        onClicked: section.connectRequested()
-    }
 }

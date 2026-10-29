@@ -245,6 +245,13 @@
     "comment": ""
   },
   {
+    "term": "AFP",
+    "translation": "",
+    "context": "network protocol name",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "API",
     "translation": "",
     "context": "about page daemon api version column label",
@@ -497,6 +504,13 @@
     "comment": ""
   },
   {
+    "term": "Available protocols: %1. You can also paste a complete address such as sftp://host/path.",
+    "translation": "",
+    "context": "network page help listing supported server protocols, %1 is the protocol list",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Back",
     "translation": "",
     "context": "tooltip on the button going to the previous location",
@@ -744,7 +758,7 @@
   {
     "term": "Connect",
     "translation": "",
-    "context": "connect to server dialog action",
+    "context": "connect to server action | connect to server dialog action",
     "reference": "",
     "comment": ""
   },
@@ -763,23 +777,16 @@
     "comment": ""
   },
   {
-    "term": "Connect to Server…",
-    "translation": "",
-    "context": "sidebar entry opening the connect to server dialog",
-    "reference": "",
-    "comment": ""
-  },
-  {
     "term": "Connected",
     "translation": "",
-    "context": "about page daemon status value",
+    "context": "about page daemon status value | heading above active network shares",
     "reference": "",
     "comment": ""
   },
   {
     "term": "Connected, but the share has no local folder. The gvfs FUSE service may not be running.",
     "translation": "",
-    "context": "connect dialog error when a mounted share has no fuse path",
+    "context": "connect dialog error when a mounted share has no fuse path | network page error when a mounted share has no fuse path",
     "reference": "",
     "comment": ""
   },
@@ -800,7 +807,7 @@
   {
     "term": "Copy",
     "translation": "",
-    "context": "context menu entry copying the selection",
+    "context": "context menu entry copying the selection | text field context menu action",
     "reference": "",
     "comment": ""
   },
@@ -947,7 +954,7 @@
   {
     "term": "Cut",
     "translation": "",
-    "context": "context menu entry marking the selection for a move",
+    "context": "context menu entry marking the selection for a move | text field context menu action",
     "reference": "",
     "comment": ""
   },
@@ -1386,6 +1393,20 @@
     "comment": ""
   },
   {
+    "term": "FTP",
+    "translation": "",
+    "context": "network protocol name",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "FTPS",
+    "translation": "",
+    "context": "network protocol name",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Family",
     "translation": "",
     "context": "font family dropdown label",
@@ -1535,7 +1556,7 @@
   {
     "term": "Forget",
     "translation": "",
-    "context": "dialog button clearing the remembered folder settings",
+    "context": "action removing a server from network history | dialog button clearing the remembered folder settings",
     "reference": "",
     "comment": ""
   },
@@ -2170,6 +2191,13 @@
     "comment": ""
   },
   {
+    "term": "NFS",
+    "translation": "",
+    "context": "network protocol name",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Name",
     "translation": "",
     "context": "file browser sort criterion option | label for a file name input",
@@ -2193,7 +2221,7 @@
   {
     "term": "Network",
     "translation": "",
-    "context": "sidebar section listing network locations",
+    "context": "network locations page and sidebar entry | sidebar section listing network locations",
     "reference": "",
     "comment": ""
   },
@@ -2207,7 +2235,7 @@
   {
     "term": "Network locations are unavailable because gvfs is not running",
     "translation": "",
-    "context": "sidebar explanation when the network service is missing",
+    "context": "network page explanation when the network service is missing | sidebar explanation when the network service is missing",
     "reference": "",
     "comment": ""
   },
@@ -2278,6 +2306,13 @@
     "term": "No limit",
     "translation": "",
     "context": "thumbnail size cap slider label at zero",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "No network locations are connected",
+    "translation": "",
+    "context": "empty state on the network locations page",
     "reference": "",
     "comment": ""
   },
@@ -2683,7 +2718,7 @@
   {
     "term": "Paste",
     "translation": "",
-    "context": "context menu entry pasting the clipboard here",
+    "context": "context menu entry pasting the clipboard here | text field context menu action",
     "reference": "",
     "comment": ""
   },
@@ -2810,6 +2845,13 @@
     "term": "Preview the next or previous selected item",
     "translation": "",
     "context": "keyboard shortcut",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Previous",
+    "translation": "",
+    "context": "heading above previously used servers",
     "reference": "",
     "comment": ""
   },
@@ -3185,6 +3227,27 @@
     "comment": ""
   },
   {
+    "term": "SFTP",
+    "translation": "",
+    "context": "network protocol name",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "SMB / Windows share",
+    "translation": "",
+    "context": "network protocol name",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "SSH",
+    "translation": "",
+    "context": "network protocol name",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Sandbox",
     "translation": "",
     "context": "about page row naming the flatpak id",
@@ -3313,7 +3376,7 @@
   {
     "term": "Select all",
     "translation": "",
-    "context": "menu entry selecting every item in the folder",
+    "context": "menu entry selecting every item in the folder | text field context menu action",
     "reference": "",
     "comment": ""
   },
@@ -3328,6 +3391,13 @@
     "term": "Selection",
     "translation": "",
     "context": "keyboard shortcut group",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Server address",
+    "translation": "",
+    "context": "placeholder in the network page connection field",
     "reference": "",
     "comment": ""
   },
@@ -4084,6 +4154,20 @@
     "term": "Waiting",
     "translation": "",
     "context": "file operation is queued",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "WebDAV",
+    "translation": "",
+    "context": "network protocol name",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "WebDAV (secure)",
+    "translation": "",
+    "context": "network protocol name",
     "reference": "",
     "comment": ""
   },

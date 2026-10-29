@@ -44,7 +44,7 @@ Accepted locations:
   trash:///                the home trash's files folder
   recent:///               recently used files
   computer:///             the root filesystem
-  network:///              the Connect to Server dialog
+  network:///              the network locations page
   admin:///path            the path; denied operations offer Retry as administrator
   sftp:// ssh:// smb:// ftp:// ftps:// dav:// davs:// nfs:// afp://
                            mounted through gvfs, then opened in a new tab`,

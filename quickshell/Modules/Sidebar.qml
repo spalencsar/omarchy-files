@@ -14,7 +14,6 @@ DFlickable {
     signal navigateRequested(string path)
     signal tabRequested(string path)
     signal unlockRequested(var device)
-    signal connectRequested
     signal dropRequested(string path, var drop)
     signal bookmarkMenuRequested(string path, real pointX, real pointY)
     signal bookmarkRenameRequested(string path)
@@ -192,10 +191,9 @@ DFlickable {
         NetworkSection {
             width: sections.width
             currentPath: sidebar.currentPath
-            divider: !devicesSection.visible
+            divider: true
             onNavigateRequested: path => sidebar.navigateRequested(path)
             onTabRequested: path => sidebar.tabRequested(path)
-            onConnectRequested: sidebar.connectRequested()
             onDropRequested: (path, drop) => sidebar.dropRequested(path, drop)
         }
 

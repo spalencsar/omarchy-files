@@ -8,6 +8,7 @@ import qs.Services
 Singleton {
     id: root
 
+    readonly property string path: "network:///"
     property var transport: DuxFilesService
 
     property var mounts: []

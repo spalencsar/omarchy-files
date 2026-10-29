@@ -19,7 +19,7 @@ OmarchyPlaceSection {
     signal recentMenuRequested(real pointX, real pointY)
 
     readonly property string homePath: DirectoryService.userDirs.find(dir => dir.key === "home")?.path ?? ""
-    readonly property var essentialPaths: [homePath, RecentService.path, TrashService.path].filter(path => path !== "")
+    readonly property var essentialPaths: [homePath, NetworkService.path, RecentService.path, TrashService.path].filter(path => path !== "")
     readonly property var essentials: essentialEntries()
     readonly property var bookmarks: savedEntries()
 
@@ -47,6 +47,14 @@ OmarchyPlaceSection {
         for (const path of essentialPaths) {
             if (path === RecentService.path && !RecentService.shown)
                 continue;
+            if (path === NetworkService.path) {
+                entries.push({
+                    "path": path,
+                    "label": I18n.tr("Network", "network locations page and sidebar entry"),
+                    "icon": ""
+                });
+                continue;
+            }
             const entry = BookmarksService.entries.find(candidate => candidate.path === path);
             if (entry)
                 entries.push(entry);
@@ -72,6 +80,8 @@ OmarchyPlaceSection {
 
     function kindOf(path) {
         switch (path) {
+        case NetworkService.path:
+            return "network";
         case RecentService.path:
             return "recent";
         case TrashService.path:
@@ -109,14 +119,15 @@ OmarchyPlaceSection {
 
         readonly property string kind: section.kindOf(modelData.path)
         readonly property bool recent: kind === "recent"
+        readonly property bool network: kind === "network"
         readonly property bool trash: kind === "trash"
         readonly property bool saved: kind === "bookmark"
         readonly property string target: section.targetOf(modelData)
         readonly property bool dragging: reorderable && reorderList.draggingIndex === orderIndex
 
-        label: recent ? I18n.tr("Recent", "recent files view header and sidebar entry") : trash ? I18n.tr("Trash", "trash view header and sidebar entry") : section.labelFor(modelData)
-        glyph: recent ? "history" : ""
-        iconName: recent ? "" : trash ? (TrashService.count > 0 ? "user-trash-full" : "user-trash") : section.iconFor(modelData)
+        label: network ? I18n.tr("Network", "network locations page and sidebar entry") : recent ? I18n.tr("Recent", "recent files view header and sidebar entry") : trash ? I18n.tr("Trash", "trash view header and sidebar entry") : section.labelFor(modelData)
+        glyph: network ? "lan" : recent ? "history" : ""
+        iconName: network || recent ? "" : trash ? (TrashService.count > 0 ? "user-trash-full" : "user-trash") : section.iconFor(modelData)
         tooltipText: {
             if (recent)
                 return RecentService.count < 0 ? "" : RecentService.count > 0 ? FileFormat.count(RecentService.count) : I18n.tr("No recent files", "recent files view placeholder when nothing was opened yet");
@@ -125,7 +136,7 @@ OmarchyPlaceSection {
             return modelData.path;
         }
         selected: target === section.currentPath
-        dropPath: recent ? "" : target
+        dropPath: recent || network ? "" : target
         springLoad: saved
         z: dragging ? 1 : 0
         opacity: dragging ? Theme.pendingOpacity : 1
@@ -148,6 +159,8 @@ OmarchyPlaceSection {
             onTapped: point => {
                 const mapped = row.mapToItem(section, point.position.x, point.position.y);
                 switch (row.kind) {
+                case "network":
+                    return;
                 case "recent":
                     section.recentMenuRequested(mapped.x, mapped.y);
                     return;
