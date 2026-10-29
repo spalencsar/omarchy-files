@@ -68,7 +68,7 @@
   {
     "term": "%1 hidden",
     "context": "%1 hidden",
-    "reference": "Modules/PaneStatus.qml:22",
+    "reference": "Modules/PaneStatus.qml:25",
     "comment": "count of hidden items left out of a folder listing"
   },
   {
@@ -98,13 +98,13 @@
   {
     "term": "%1 items copied",
     "context": "%1 items copied",
-    "reference": "Modules/PaneStatus.qml:33",
+    "reference": "Modules/PaneStatus.qml:36",
     "comment": "clipboard indicator for copied items"
   },
   {
     "term": "%1 items cut",
     "context": "%1 items cut",
-    "reference": "Modules/PaneStatus.qml:29",
+    "reference": "Modules/PaneStatus.qml:32",
     "comment": "clipboard indicator for cut items"
   },
   {
@@ -116,7 +116,7 @@
   {
     "term": "%1 matching “%2”",
     "context": "%1 matching “%2”",
-    "reference": "Modules/FilesPane.qml:714, Modules/RecentView.qml:42, Modules/TrashView.qml:40",
+    "reference": "Modules/FilesPane.qml:857, Modules/RecentView.qml:42, Modules/TrashView.qml:40",
     "comment": "filter bar above a folder listing, count then the typed text"
   },
   {
@@ -158,8 +158,8 @@
   {
     "term": "%1 · %2",
     "context": "%1 · %2",
-    "reference": "Common/FilesFormat.qml:68, Modules/PaneStatus.qml:22, Modules/PropertiesDialog.qml:106",
-    "comment": "folder status: item count then hidden count | properties size row: bytes then item count | transfer speed then time left"
+    "reference": "Common/FilesFormat.qml:68, Modules/PaneStatus.qml:25, Modules/PaneStatus.qml:77, Modules/PropertiesDialog.qml:106",
+    "comment": "compact Git status: branch then change count | folder status: item count then hidden count | properties size row: bytes then item count | transfer speed then time left"
   },
   {
     "term": "%1 …",
@@ -194,13 +194,13 @@
   {
     "term": "1 item copied",
     "context": "1 item copied",
-    "reference": "Modules/PaneStatus.qml:31",
+    "reference": "Modules/PaneStatus.qml:34",
     "comment": "clipboard indicator for a single copied item"
   },
   {
     "term": "1 item cut",
     "context": "1 item cut",
-    "reference": "Modules/PaneStatus.qml:27",
+    "reference": "Modules/PaneStatus.qml:30",
     "comment": "clipboard indicator for a single cut item"
   },
   {
@@ -212,7 +212,7 @@
   {
     "term": "API",
     "context": "API",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:213",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:219",
     "comment": "about page daemon api version column label"
   },
   {
@@ -230,7 +230,7 @@
   {
     "term": "Active",
     "context": "Active",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:144",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:150",
     "comment": "optional search index status on the about page"
   },
   {
@@ -248,8 +248,14 @@
   {
     "term": "Add to bookmarks",
     "context": "Add to bookmarks",
-    "reference": "Modules/FileContextMenu.qml:137",
+    "reference": "Modules/FileContextMenu.qml:142",
     "comment": "context menu entry pinning the selected folder to the sidebar"
+  },
+  {
+    "term": "Added to Git",
+    "context": "Added to Git",
+    "reference": "Modules/GitStatusBadge.qml:37",
+    "comment": "tooltip for a file added to the Git index"
   },
   {
     "term": "Address",
@@ -416,7 +422,7 @@
   {
     "term": "Available",
     "context": "Available",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:133, Modules/Settings/SettingsAboutPage.qml:154, Modules/Settings/SettingsAboutPage.qml:163",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:139, Modules/Settings/SettingsAboutPage.qml:160, Modules/Settings/SettingsAboutPage.qml:169",
     "comment": "capability status on the about page | optional feature status on the about page"
   },
   {
@@ -434,7 +440,7 @@
   {
     "term": "Backend",
     "context": "Backend",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:204",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:210",
     "comment": "about page daemon section header"
   },
   {
@@ -500,7 +506,7 @@
   {
     "term": "Capabilities",
     "context": "Capabilities",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:243",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:249",
     "comment": "about page daemon capabilities label"
   },
   {
@@ -524,13 +530,13 @@
   {
     "term": "Clear Recent",
     "context": "Clear Recent",
-    "reference": "Modules/FileContextMenu.qml:53, Modules/PlaceMenu.qml:109, Modules/RecentView.qml:35, Modules/WindowDialogs.qml:329",
+    "reference": "Modules/FileContextMenu.qml:58, Modules/PlaceMenu.qml:109, Modules/RecentView.qml:35, Modules/WindowDialogs.qml:329",
     "comment": "action emptying the recently used list without touching the files"
   },
   {
     "term": "Clear the clipboard",
     "context": "Clear the clipboard",
-    "reference": "Modules/PaneStatus.qml:88",
+    "reference": "Modules/PaneStatus.qml:126",
     "comment": "tooltip on the button dropping the copied or cut items"
   },
   {
@@ -560,19 +566,19 @@
   {
     "term": "Close other tabs",
     "context": "Close other tabs",
-    "reference": "Modules/WindowMenus.qml:238",
+    "reference": "Modules/WindowMenus.qml:243",
     "comment": "tab context menu entry closing every tab but this one"
   },
   {
     "term": "Close tab",
     "context": "Close tab",
-    "reference": "Common/Shortcuts.qml:173, Modules/FilesTab.qml:108, Modules/WindowMenus.qml:228",
+    "reference": "Common/Shortcuts.qml:173, Modules/FilesTab.qml:108, Modules/WindowMenus.qml:233",
     "comment": "tooltip on the button closing a tab"
   },
   {
     "term": "Close tabs to the right",
     "context": "Close tabs to the right",
-    "reference": "Modules/WindowMenus.qml:248",
+    "reference": "Modules/WindowMenus.qml:253",
     "comment": "tab context menu entry closing the tabs after this one"
   },
   {
@@ -608,7 +614,7 @@
   {
     "term": "Compress…",
     "context": "Compress…",
-    "reference": "Modules/FileContextMenu.qml:200",
+    "reference": "Modules/FileContextMenu.qml:205",
     "comment": "context menu entry packing the selection into an archive"
   },
   {
@@ -650,7 +656,7 @@
   {
     "term": "Connected",
     "context": "Connected",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:221",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:227",
     "comment": "about page daemon status value"
   },
   {
@@ -674,13 +680,13 @@
   {
     "term": "Copy",
     "context": "Copy",
-    "reference": "Common/Shortcuts.qml:424, Modules/DragActionChip.qml:30, Modules/DragController.qml:103, Modules/FileContextMenu.qml:152, Modules/Settings/SettingsContent.qml:108",
+    "reference": "Common/Shortcuts.qml:424, Modules/DragActionChip.qml:30, Modules/DragController.qml:103, Modules/FileContextMenu.qml:157, Modules/Settings/SettingsContent.qml:108",
     "comment": "context menu entry copying the selection"
   },
   {
     "term": "Copy command",
     "context": "Copy command",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:315",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:321",
     "comment": "optional feature help box action"
   },
   {
@@ -692,14 +698,20 @@
   {
     "term": "Copy location path",
     "context": "Copy location path",
-    "reference": "Common/Shortcuts.qml:515, Modules/FileContextMenu.qml:261, Modules/FilesTopbar.qml:425, Modules/PlaceMenu.qml:77",
+    "reference": "Common/Shortcuts.qml:515, Modules/FileContextMenu.qml:291, Modules/FilesTopbar.qml:425, Modules/PlaceMenu.qml:77",
     "comment": "menu entry copying the current path to the clipboard"
   },
   {
     "term": "Copy name",
     "context": "Copy name",
-    "reference": "Modules/FileContextMenu.qml:267",
+    "reference": "Modules/FileContextMenu.qml:297",
     "comment": "context menu entry copying the selected item names to the clipboard"
+  },
+  {
+    "term": "Copy repository-relative path",
+    "context": "Copy repository-relative path",
+    "reference": "Modules/FileContextMenu.qml:261",
+    "comment": "Git action copying selected paths relative to the repository root"
   },
   {
     "term": "Copy to",
@@ -710,7 +722,7 @@
   {
     "term": "Copy to…",
     "context": "Copy to…",
-    "reference": "Modules/FileContextMenu.qml:164",
+    "reference": "Modules/FileContextMenu.qml:169",
     "comment": "context menu entry copying the selection into a chosen folder"
   },
   {
@@ -788,7 +800,7 @@
   {
     "term": "Cut",
     "context": "Cut",
-    "reference": "Common/Shortcuts.qml:432, Modules/FileContextMenu.qml:146",
+    "reference": "Common/Shortcuts.qml:432, Modules/FileContextMenu.qml:151",
     "comment": "context menu entry marking the selection for a move"
   },
   {
@@ -800,13 +812,13 @@
   {
     "term": "DankSearch is installed, but its user service is not running.",
     "context": "DankSearch is installed, but its user service is not running.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:67",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:73",
     "comment": "optional feature status on the about page"
   },
   {
     "term": "DankSearch is searching from its index.",
     "context": "DankSearch is searching from its index.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:66",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:72",
     "comment": "optional feature status on the about page"
   },
   {
@@ -860,7 +872,7 @@
   {
     "term": "Delete permanently",
     "context": "Delete permanently",
-    "reference": "Common/Shortcuts.qml:471, Modules/FileContextMenu.qml:71, Modules/FileContextMenu.qml:242, Modules/FileContextMenu.qml:250, Modules/WindowDialogs.qml:354",
+    "reference": "Common/Shortcuts.qml:471, Modules/FileContextMenu.qml:76, Modules/FileContextMenu.qml:272, Modules/FileContextMenu.qml:280, Modules/WindowDialogs.qml:354",
     "comment": "confirming permanent deletion from a remote server | context menu entry deleting files from a remote server | context menu entry deleting the selection for good"
   },
   {
@@ -868,6 +880,12 @@
     "context": "Delete permanently?",
     "reference": "Modules/WindowDialogs.qml:339",
     "comment": "permanent delete confirmation header"
+  },
+  {
+    "term": "Deleted in Git",
+    "context": "Deleted in Git",
+    "reference": "Modules/GitStatusBadge.qml:39",
+    "comment": "tooltip for a file deleted from the Git worktree"
   },
   {
     "term": "Deleting",
@@ -920,7 +938,7 @@
   {
     "term": "Docs",
     "context": "Docs",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:196",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:202",
     "comment": "about page resource button"
   },
   {
@@ -962,7 +980,7 @@
   {
     "term": "Drives and removable media",
     "context": "Drives and removable media",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:104",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:110",
     "comment": "optional feature row on the about page"
   },
   {
@@ -980,7 +998,7 @@
   {
     "term": "Drives can be mounted and ejected.",
     "context": "Drives can be mounted and ejected.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:106",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:112",
     "comment": "optional feature status on the about page"
   },
   {
@@ -992,13 +1010,13 @@
   {
     "term": "Duplicate",
     "context": "Duplicate",
-    "reference": "Common/Shortcuts.qml:494, Modules/FileContextMenu.qml:183",
+    "reference": "Common/Shortcuts.qml:494, Modules/FileContextMenu.qml:188",
     "comment": "context menu entry copying the selection beside itself"
   },
   {
     "term": "Duplicate tab",
     "context": "Duplicate tab",
-    "reference": "Modules/WindowMenus.qml:207",
+    "reference": "Modules/WindowMenus.qml:212",
     "comment": "tab context menu entry opening a copy of this tab beside it"
   },
   {
@@ -1040,13 +1058,13 @@
   {
     "term": "Empty Trash",
     "context": "Empty Trash",
-    "reference": "Modules/FileContextMenu.qml:96, Modules/PlaceMenu.qml:97, Modules/TrashView.qml:33, Modules/WindowDialogs.qml:320",
+    "reference": "Modules/FileContextMenu.qml:101, Modules/PlaceMenu.qml:97, Modules/TrashView.qml:33, Modules/WindowDialogs.qml:320",
     "comment": "action deleting everything in the trash"
   },
   {
     "term": "Empty file",
     "context": "Empty file",
-    "reference": "Modules/WindowMenus.qml:155",
+    "reference": "Modules/WindowMenus.qml:160",
     "comment": "new document menu entry creating a blank file"
   },
   {
@@ -1106,7 +1124,7 @@
   {
     "term": "External thumbnailers run in a sandbox.",
     "context": "External thumbnailers run in a sandbox.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:73",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:79",
     "comment": "optional feature status on the about page"
   },
   {
@@ -1118,7 +1136,7 @@
   {
     "term": "Extract here",
     "context": "Extract here",
-    "reference": "Modules/FileContextMenu.qml:207",
+    "reference": "Modules/FileContextMenu.qml:212",
     "comment": "context menu entry unpacking the selected archives"
   },
   {
@@ -1130,7 +1148,7 @@
   {
     "term": "Extract to…",
     "context": "Extract to…",
-    "reference": "Modules/FileContextMenu.qml:214",
+    "reference": "Modules/FileContextMenu.qml:219",
     "comment": "context menu entry unpacking the selected archives into a chosen folder"
   },
   {
@@ -1368,6 +1386,24 @@
     "comment": "keyboard shortcut group"
   },
   {
+    "term": "Git branch %1, %2 changed",
+    "context": "Git branch %1, %2 changed",
+    "reference": "Modules/PaneStatus.qml:60",
+    "comment": "repository status: branch then number of changed paths"
+  },
+  {
+    "term": "Git conflict",
+    "context": "Git conflict",
+    "reference": "Modules/GitStatusBadge.qml:41",
+    "comment": "tooltip for a file with an unresolved Git conflict"
+  },
+  {
+    "term": "Git integration",
+    "context": "Git integration",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:65",
+    "comment": "optional feature row on the about page"
+  },
+  {
     "term": "Go to that tab",
     "context": "Go to that tab",
     "reference": "Common/Shortcuts.qml:203",
@@ -1478,25 +1514,25 @@
   {
     "term": "Indexed search",
     "context": "Indexed search",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:65",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:71",
     "comment": "optional feature row on the about page"
   },
   {
     "term": "Install in a terminal",
     "context": "Install in a terminal",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:296",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:302",
     "comment": "optional feature help box heading"
   },
   {
     "term": "Install: %1",
     "context": "Install: %1",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:158, Modules/Settings/SettingsAboutPage.qml:158",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:164, Modules/Settings/SettingsAboutPage.qml:164",
     "comment": "optional feature install command on the about page"
   },
   {
     "term": "Installed",
     "context": "Installed",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:146, Modules/Settings/SettingsAboutPage.qml:167",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:152, Modules/Settings/SettingsAboutPage.qml:173",
     "comment": "optional package status on the about page"
   },
   {
@@ -1664,7 +1700,7 @@
   {
     "term": "MIT License",
     "context": "MIT License",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:337",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:343",
     "comment": "about page license footer link"
   },
   {
@@ -1690,6 +1726,12 @@
     "context": "Modified",
     "reference": "Modules/PropertiesDialog.qml:98, Modules/OmarchySortButton.qml:19, Modules/Settings/SettingsContent.qml:93",
     "comment": "file browser sort criterion option | file list column header"
+  },
+  {
+    "term": "Modified in Git",
+    "context": "Modified in Git",
+    "reference": "Modules/GitStatusBadge.qml:42",
+    "comment": "tooltip for a file modified in the Git worktree"
   },
   {
     "term": "Monochrome",
@@ -1766,7 +1808,7 @@
   {
     "term": "Move to Trash",
     "context": "Move to Trash",
-    "reference": "Common/Shortcuts.qml:463, Modules/DragActionChip.qml:36, Modules/FileContextMenu.qml:242, Modules/WindowDialogs.qml:261, Modules/WindowDialogs.qml:263",
+    "reference": "Common/Shortcuts.qml:463, Modules/DragActionChip.qml:36, Modules/FileContextMenu.qml:272, Modules/WindowDialogs.qml:261, Modules/WindowDialogs.qml:263",
     "comment": "context menu entry trashing the selection"
   },
   {
@@ -1778,7 +1820,7 @@
   {
     "term": "Move to…",
     "context": "Move to…",
-    "reference": "Modules/FileContextMenu.qml:158",
+    "reference": "Modules/FileContextMenu.qml:163",
     "comment": "context menu entry moving the selection into a chosen folder"
   },
   {
@@ -1838,7 +1880,7 @@
   {
     "term": "Network locations",
     "context": "Network locations",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:97",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:103",
     "comment": "optional feature row on the about page"
   },
   {
@@ -1856,7 +1898,7 @@
   {
     "term": "Network shares can be connected and browsed.",
     "context": "Network shares can be connected and browsed.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:99",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:105",
     "comment": "optional feature status on the about page"
   },
   {
@@ -1868,19 +1910,19 @@
   {
     "term": "New document",
     "context": "New document",
-    "reference": "Modules/FileContextMenu.qml:288",
+    "reference": "Modules/FileContextMenu.qml:318",
     "comment": "context menu entry creating a file from a template"
   },
   {
     "term": "New folder",
     "context": "New folder",
-    "reference": "Common/Shortcuts.qml:501, Modules/ChooserWindow.qml:529, Modules/FileContextMenu.qml:282",
+    "reference": "Common/Shortcuts.qml:501, Modules/ChooserWindow.qml:529, Modules/FileContextMenu.qml:312",
     "comment": "file browser toolbar button creating a folder | new folder dialog header"
   },
   {
     "term": "New folder with selection",
     "context": "New folder with selection",
-    "reference": "Common/Shortcuts.qml:508, Modules/FileContextMenu.qml:190",
+    "reference": "Common/Shortcuts.qml:508, Modules/FileContextMenu.qml:195",
     "comment": "context menu entry moving the selection into a new folder"
   },
   {
@@ -1916,7 +1958,7 @@
   {
     "term": "No results",
     "context": "No results",
-    "reference": "Modules/FilesPane.qml:531, Modules/RecentView.qml:186, Modules/SearchResults.qml:40, Modules/TrashView.qml:182, Modules/Settings/SettingsContent.qml:479",
+    "reference": "Modules/FilesPane.qml:660, Modules/RecentView.qml:186, Modules/SearchResults.qml:40, Modules/TrashView.qml:182, Modules/Settings/SettingsContent.qml:479",
     "comment": "search results header when nothing matched"
   },
   {
@@ -1958,8 +2000,14 @@
   {
     "term": "Not installed",
     "context": "Not installed",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:181",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:187",
     "comment": "optional feature status on the about page"
+  },
+  {
+    "term": "Not tracked by Git",
+    "context": "Not tracked by Git",
+    "reference": "Modules/GitStatusBadge.qml:38",
+    "comment": "tooltip for a file Git does not track yet"
   },
   {
     "term": "Nothing is running",
@@ -1994,7 +2042,7 @@
   {
     "term": "Offline",
     "context": "Offline",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:221",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:227",
     "comment": "about page daemon status value"
   },
   {
@@ -2030,7 +2078,7 @@
   {
     "term": "Open",
     "context": "Open",
-    "reference": "Common/Shortcuts.qml:17, Modules/ChooserWindow.qml:58, Modules/FileContextMenu.qml:106, Modules/OpenWithDialog.qml:164, Modules/WindowDialogs.qml:251",
+    "reference": "Common/Shortcuts.qml:17, Modules/ChooserWindow.qml:58, Modules/FileContextMenu.qml:111, Modules/OpenWithDialog.qml:164, Modules/WindowDialogs.qml:251",
     "comment": "context menu entry opening a file | file browser open button"
   },
   {
@@ -2078,25 +2126,25 @@
   {
     "term": "Open in new tab",
     "context": "Open in new tab",
-    "reference": "Common/Shortcuts.qml:25, Modules/FileContextMenu.qml:119, Modules/PlaceMenu.qml:34",
+    "reference": "Common/Shortcuts.qml:25, Modules/FileContextMenu.qml:124, Modules/PlaceMenu.qml:34",
     "comment": "context menu entry opening a folder in a new tab"
   },
   {
     "term": "Open in new window",
     "context": "Open in new window",
-    "reference": "Modules/FileContextMenu.qml:125, Modules/PlaceMenu.qml:43",
+    "reference": "Modules/FileContextMenu.qml:130, Modules/PlaceMenu.qml:43",
     "comment": "context menu entry opening a folder in another window"
   },
   {
     "term": "Open in terminal",
     "context": "Open in terminal",
-    "reference": "Common/Shortcuts.qml:53, Modules/FileContextMenu.qml:328, Modules/FilesTopbar.qml:440, Modules/Settings/SettingsAboutPage.qml:42, Modules/Settings/SettingsContent.qml:1118",
+    "reference": "Common/Shortcuts.qml:53, Modules/FileContextMenu.qml:358, Modules/FilesTopbar.qml:440, Modules/Settings/SettingsAboutPage.qml:42, Modules/Settings/SettingsContent.qml:1118",
     "comment": "context menu entry opening a terminal"
   },
   {
     "term": "Open in the other pane",
     "context": "Open in the other pane",
-    "reference": "Common/Shortcuts.qml:32, Modules/FileContextMenu.qml:131",
+    "reference": "Common/Shortcuts.qml:32, Modules/FileContextMenu.qml:136",
     "comment": "context menu entry opening a folder beside the current one"
   },
   {
@@ -2104,6 +2152,12 @@
     "context": "Open items with",
     "reference": "Modules/Settings/SettingsContent.qml:746",
     "comment": "setting label choosing single or double click"
+  },
+  {
+    "term": "Open repository in terminal",
+    "context": "Open repository in terminal",
+    "reference": "Modules/FileContextMenu.qml:390",
+    "comment": "Git action opening a terminal at the repository root"
   },
   {
     "term": "Open the bookmark menu",
@@ -2114,7 +2168,7 @@
   {
     "term": "Open the containing folder",
     "context": "Open the containing folder",
-    "reference": "Common/Shortcuts.qml:39, Modules/FileContextMenu.qml:221",
+    "reference": "Common/Shortcuts.qml:39, Modules/FileContextMenu.qml:226",
     "comment": "keyboard shortcut"
   },
   {
@@ -2144,13 +2198,13 @@
   {
     "term": "Open with",
     "context": "Open with",
-    "reference": "Common/Shortcuts.qml:46, Modules/FileContextMenu.qml:112, Modules/FileContextMenu.qml:335, Modules/OpenWithDialog.qml:94, Modules/PropertiesDialog.qml:143, Modules/Settings/SettingsAboutPage.qml:50",
+    "reference": "Common/Shortcuts.qml:46, Modules/FileContextMenu.qml:117, Modules/FileContextMenu.qml:365, Modules/OpenWithDialog.qml:94, Modules/PropertiesDialog.qml:143, Modules/Settings/SettingsAboutPage.qml:50",
     "comment": "open with dialog header"
   },
   {
     "term": "Optional features",
     "context": "Optional features",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:262",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:268",
     "comment": "about page section listing optional packages"
   },
   {
@@ -2168,7 +2222,7 @@
   {
     "term": "Other application…",
     "context": "Other application…",
-    "reference": "Modules/WindowMenus.qml:323",
+    "reference": "Modules/WindowMenus.qml:331",
     "comment": "open with menu entry opening the full application picker"
   },
   {
@@ -2186,13 +2240,13 @@
   {
     "term": "PDF files can be previewed in the file manager.",
     "context": "PDF files can be previewed in the file manager.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:92",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:98",
     "comment": "optional feature status on the about page"
   },
   {
     "term": "PDF preview",
     "context": "PDF preview",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:90",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:96",
     "comment": "optional feature row on the about page"
   },
   {
@@ -2204,13 +2258,13 @@
   {
     "term": "PDF thumbnails",
     "context": "PDF thumbnails",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:84",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:90",
     "comment": "optional feature row on the about page"
   },
   {
     "term": "PDF thumbnails are available.",
     "context": "PDF thumbnails are available.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:85",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:91",
     "comment": "optional feature status on the about page"
   },
   {
@@ -2240,25 +2294,25 @@
   {
     "term": "Paste",
     "context": "Paste",
-    "reference": "Common/Shortcuts.qml:440, Modules/FileContextMenu.qml:295",
+    "reference": "Common/Shortcuts.qml:440, Modules/FileContextMenu.qml:325",
     "comment": "context menu entry pasting the clipboard here"
   },
   {
     "term": "Paste as link",
     "context": "Paste as link",
-    "reference": "Common/Shortcuts.qml:448, Modules/FileContextMenu.qml:301",
+    "reference": "Common/Shortcuts.qml:448, Modules/FileContextMenu.qml:331",
     "comment": "context menu entry creating symlinks from the clipboard"
   },
   {
     "term": "Paste into folder",
     "context": "Paste into folder",
-    "reference": "Modules/FileContextMenu.qml:170",
+    "reference": "Modules/FileContextMenu.qml:175",
     "comment": "context menu entry pasting the clipboard into the selected folder"
   },
   {
     "term": "Pasted image",
     "context": "Pasted image",
-    "reference": "Modules/WindowActions.qml:543",
+    "reference": "Modules/WindowActions.qml:588",
     "comment": "file name for an image pasted from the clipboard"
   },
   {
@@ -2366,7 +2420,7 @@
   {
     "term": "Properties",
     "context": "Properties",
-    "reference": "Common/Shortcuts.qml:522, Modules/FileContextMenu.qml:273, Modules/FileContextMenu.qml:345, Modules/FilesTopbar.qml:417, Modules/PlaceMenu.qml:87",
+    "reference": "Common/Shortcuts.qml:522, Modules/FileContextMenu.qml:303, Modules/FileContextMenu.qml:400, Modules/FilesTopbar.qml:417, Modules/PlaceMenu.qml:87",
     "comment": "menu entry showing details about the current folder"
   },
   {
@@ -2462,7 +2516,7 @@
   {
     "term": "Reload",
     "context": "Reload",
-    "reference": "Common/Shortcuts.qml:359, Modules/FileContextMenu.qml:44, Modules/FileContextMenu.qml:87, Modules/FileContextMenu.qml:322, Modules/FilesTopbar.qml:432",
+    "reference": "Common/Shortcuts.qml:359, Modules/FileContextMenu.qml:49, Modules/FileContextMenu.qml:92, Modules/FileContextMenu.qml:352, Modules/FilesTopbar.qml:432",
     "comment": "menu entry re-reading the current folder"
   },
   {
@@ -2480,13 +2534,13 @@
   {
     "term": "Remove bookmark",
     "context": "Remove bookmark",
-    "reference": "Modules/FileContextMenu.qml:137, Modules/PlaceMenu.qml:63",
+    "reference": "Modules/FileContextMenu.qml:142, Modules/PlaceMenu.qml:63",
     "comment": "tooltip on the bookmark button"
   },
   {
     "term": "Remove from Recent",
     "context": "Remove from Recent",
-    "reference": "Modules/FileContextMenu.qml:232, Modules/RecentView.qml:34",
+    "reference": "Modules/FileContextMenu.qml:237, Modules/RecentView.qml:34",
     "comment": "action dropping the selected files from the recently used list without touching the files"
   },
   {
@@ -2498,7 +2552,7 @@
   {
     "term": "Rename",
     "context": "Rename",
-    "reference": "Common/Shortcuts.qml:455, Modules/FileContextMenu.qml:176, Modules/PlaceMenu.qml:53, Modules/WindowDialogs.qml:233, Modules/WindowDialogs.qml:234",
+    "reference": "Common/Shortcuts.qml:455, Modules/FileContextMenu.qml:181, Modules/PlaceMenu.qml:53, Modules/WindowDialogs.qml:233, Modules/WindowDialogs.qml:234",
     "comment": "rename dialog header"
   },
   {
@@ -2514,6 +2568,12 @@
     "comment": "toast after renaming a file"
   },
   {
+    "term": "Renamed in Git",
+    "context": "Renamed in Git",
+    "reference": "Modules/GitStatusBadge.qml:40",
+    "comment": "tooltip for a file renamed in Git"
+  },
+  {
     "term": "Renaming",
     "context": "Renaming",
     "reference": "Modules/JobLabels.qml:35",
@@ -2522,7 +2582,7 @@
   {
     "term": "Reopen the closed tab",
     "context": "Reopen the closed tab",
-    "reference": "Common/Shortcuts.qml:180, Modules/WindowMenus.qml:216",
+    "reference": "Common/Shortcuts.qml:180, Modules/WindowMenus.qml:221",
     "comment": "keyboard shortcut"
   },
   {
@@ -2530,6 +2590,12 @@
     "context": "Replace",
     "reference": "Modules/ChooserWindow.qml:829, Modules/ConflictDialog.qml:84",
     "comment": "file conflict dialog button to overwrite the existing item"
+  },
+  {
+    "term": "Repository status and staging actions are available.",
+    "context": "Repository status and staging actions are available.",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:66",
+    "comment": "optional feature status on the about page"
   },
   {
     "term": "Reset the view",
@@ -2564,7 +2630,7 @@
   {
     "term": "Restart Omarchy Files afterwards to refresh this status.",
     "context": "Restart Omarchy Files afterwards to refresh this status.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:324",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:330",
     "comment": "optional feature help box restart note"
   },
   {
@@ -2582,7 +2648,7 @@
   {
     "term": "Restore",
     "context": "Restore",
-    "reference": "Modules/FileContextMenu.qml:62, Modules/FileOpenFlow.qml:213, Modules/TrashView.qml:32",
+    "reference": "Modules/FileContextMenu.qml:67, Modules/FileOpenFlow.qml:213, Modules/TrashView.qml:32",
     "comment": "trash action returning items to where they were deleted from"
   },
   {
@@ -2666,13 +2732,13 @@
   {
     "term": "Sandbox",
     "context": "Sandbox",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:236",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:242",
     "comment": "about page row naming the flatpak id"
   },
   {
     "term": "Sandboxed thumbnails",
     "context": "Sandboxed thumbnails",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:72",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:78",
     "comment": "optional feature row on the about page"
   },
   {
@@ -2744,7 +2810,7 @@
   {
     "term": "Search subfolders",
     "context": "Search subfolders",
-    "reference": "Modules/FilesPane.qml:728",
+    "reference": "Modules/FilesPane.qml:871",
     "comment": "chip that turns the folder filter into a recursive search"
   },
   {
@@ -2774,7 +2840,7 @@
   {
     "term": "Select all",
     "context": "Select all",
-    "reference": "Common/Shortcuts.qml:380, Modules/FileContextMenu.qml:38, Modules/FileContextMenu.qml:81, Modules/FileContextMenu.qml:310",
+    "reference": "Common/Shortcuts.qml:380, Modules/FileContextMenu.qml:43, Modules/FileContextMenu.qml:86, Modules/FileContextMenu.qml:340",
     "comment": "menu entry selecting every item in the folder"
   },
   {
@@ -2840,7 +2906,7 @@
   {
     "term": "Show hidden files",
     "context": "Show hidden files",
-    "reference": "Common/Shortcuts.qml:316, Modules/ChooserWindow.qml:546, Modules/FileContextMenu.qml:316, Modules/SearchChips.qml:157, Modules/Settings/SettingsContent.qml:677",
+    "reference": "Common/Shortcuts.qml:316, Modules/ChooserWindow.qml:546, Modules/FileContextMenu.qml:346, Modules/SearchChips.qml:157, Modules/Settings/SettingsContent.qml:677",
     "comment": "file browser toolbar toggle | menu entry listing dot files"
   },
   {
@@ -2918,7 +2984,7 @@
   {
     "term": "Socket",
     "context": "Socket",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:229",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:235",
     "comment": "about page daemon socket row label"
   },
   {
@@ -2964,6 +3030,18 @@
     "comment": "spring bounce setting label"
   },
   {
+    "term": "Stage",
+    "context": "Stage",
+    "reference": "Modules/FileContextMenu.qml:247",
+    "comment": "Git action adding selected paths to the index"
+  },
+  {
+    "term": "Stage all changes",
+    "context": "Stage all changes",
+    "reference": "Modules/FileContextMenu.qml:376",
+    "comment": "Git action adding every repository change to the index"
+  },
+  {
     "term": "Standalone Wayland file manager for Omarchy",
     "context": "Standalone Wayland file manager for Omarchy",
     "reference": "Modules/Settings/OmarchyAboutHeader.qml:38",
@@ -2972,7 +3050,7 @@
   {
     "term": "Status",
     "context": "Status",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:219",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:225",
     "comment": "about page daemon status column label"
   },
   {
@@ -3122,7 +3200,7 @@
   {
     "term": "This folder is empty",
     "context": "This folder is empty",
-    "reference": "Modules/FilesPane.qml:532",
+    "reference": "Modules/FilesPane.qml:661",
     "comment": "empty directory placeholder"
   },
   {
@@ -3146,7 +3224,7 @@
   {
     "term": "This optional component is not installed.",
     "context": "This optional component is not installed.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:183",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:189",
     "comment": "optional feature status on the about page"
   },
   {
@@ -3254,7 +3332,7 @@
   {
     "term": "Unavailable",
     "context": "Unavailable",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:156",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:162",
     "comment": "optional runtime feature status on the about page"
   },
   {
@@ -3284,7 +3362,7 @@
   {
     "term": "Unknown",
     "context": "Unknown",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:119",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:125",
     "comment": "capability status when the daemon did not report it"
   },
   {
@@ -3306,6 +3384,18 @@
     "comment": "setting description for opening archives"
   },
   {
+    "term": "Unstage",
+    "context": "Unstage",
+    "reference": "Modules/FileContextMenu.qml:254",
+    "comment": "Git action removing selected paths from the index"
+  },
+  {
+    "term": "Unstage all changes",
+    "context": "Unstage all changes",
+    "reference": "Modules/FileContextMenu.qml:383",
+    "comment": "Git action removing every repository change from the index"
+  },
+  {
     "term": "Untitled document",
     "context": "Untitled document",
     "reference": "Modules/WindowMenus.qml:114",
@@ -3314,7 +3404,7 @@
   {
     "term": "Untitled folder",
     "context": "Untitled folder",
-    "reference": "Modules/ChooserWindow.qml:365, Modules/WindowActions.qml:308, Modules/WindowActions.qml:482",
+    "reference": "Modules/ChooserWindow.qml:365, Modules/WindowActions.qml:320, Modules/WindowActions.qml:512",
     "comment": "default name for a new folder"
   },
   {
@@ -3362,7 +3452,7 @@
   {
     "term": "Version",
     "context": "Version",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:207",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:213",
     "comment": "about page daemon version column label"
   },
   {
@@ -3380,13 +3470,13 @@
   {
     "term": "Video thumbnails",
     "context": "Video thumbnails",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:78",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:84",
     "comment": "optional feature row on the about page"
   },
   {
     "term": "Video thumbnails are available.",
     "context": "Video thumbnails are available.",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:79",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:85",
     "comment": "optional feature status on the about page"
   },
   {
@@ -3494,7 +3584,7 @@
   {
     "term": "capability available sandbox",
     "context": "capability available sandbox",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:254",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:260",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
@@ -3524,25 +3614,25 @@
   {
     "term": "daemon connected offline socket",
     "context": "daemon connected offline socket",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:220",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:226",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
     "term": "daemon path unix",
     "context": "daemon path unix",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:230",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:236",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
     "term": "daemon protocol",
     "context": "daemon protocol",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:214",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:220",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
     "term": "daemon release build",
     "context": "daemon release build",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:208",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:214",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
@@ -3578,7 +3668,7 @@
   {
     "term": "documentation help manual",
     "context": "documentation help manual",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:197",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:203",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
@@ -3596,7 +3686,7 @@
   {
     "term": "flatpak app id",
     "context": "flatpak app id",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:237",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:243",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
@@ -3738,9 +3828,9 @@
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {
-    "term": "optional packages install dsearch thumbnails preview network drives",
-    "context": "optional packages install dsearch thumbnails preview network drives",
-    "reference": "Modules/Settings/SettingsAboutPage.qml:274",
+    "term": "optional packages install git repository dsearch thumbnails preview network drives",
+    "context": "optional packages install git repository dsearch thumbnails preview network drives",
+    "reference": "Modules/Settings/SettingsAboutPage.qml:280",
     "comment": "settings search keywords, space separated, add synonyms in your language"
   },
   {

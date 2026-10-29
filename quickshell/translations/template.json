@@ -184,7 +184,7 @@
   {
     "term": "%1 · %2",
     "translation": "",
-    "context": "folder status: item count then hidden count | properties size row: bytes then item count | transfer speed then time left",
+    "context": "compact Git status: branch then change count | folder status: item count then hidden count | properties size row: bytes then item count | transfer speed then time left",
     "reference": "",
     "comment": ""
   },
@@ -290,6 +290,13 @@
     "term": "Add to bookmarks",
     "translation": "",
     "context": "context menu entry pinning the selected folder to the sidebar",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Added to Git",
+    "translation": "",
+    "context": "tooltip for a file added to the Git index",
     "reference": "",
     "comment": ""
   },
@@ -819,6 +826,13 @@
     "comment": ""
   },
   {
+    "term": "Copy repository-relative path",
+    "translation": "",
+    "context": "Git action copying selected paths relative to the repository root",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Copy to",
     "translation": "",
     "context": "folder picker title for copying the selection",
@@ -1011,6 +1025,13 @@
     "term": "Delete permanently?",
     "translation": "",
     "context": "permanent delete confirmation header",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Deleted in Git",
+    "translation": "",
+    "context": "tooltip for a file deleted from the Git worktree",
     "reference": "",
     "comment": ""
   },
@@ -1596,6 +1617,27 @@
     "comment": ""
   },
   {
+    "term": "Git branch %1, %2 changed",
+    "translation": "",
+    "context": "repository status: branch then number of changed paths",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Git conflict",
+    "translation": "",
+    "context": "tooltip for a file with an unresolved Git conflict",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Git integration",
+    "translation": "",
+    "context": "optional feature row on the about page",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Go to that tab",
     "translation": "",
     "context": "keyboard shortcut",
@@ -1974,6 +2016,13 @@
     "comment": ""
   },
   {
+    "term": "Modified in Git",
+    "translation": "",
+    "context": "tooltip for a file modified in the Git worktree",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Monochrome",
     "translation": "",
     "context": "color palette name",
@@ -2289,6 +2338,13 @@
     "comment": ""
   },
   {
+    "term": "Not tracked by Git",
+    "translation": "",
+    "context": "tooltip for a file Git does not track yet",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Nothing is running",
     "translation": "",
     "context": "jobs popover empty state",
@@ -2453,6 +2509,13 @@
     "term": "Open items with",
     "translation": "",
     "context": "setting label choosing single or double click",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Open repository in terminal",
+    "translation": "",
+    "context": "Git action opening a terminal at the repository root",
     "reference": "",
     "comment": ""
   },
@@ -2933,6 +2996,13 @@
     "comment": ""
   },
   {
+    "term": "Renamed in Git",
+    "translation": "",
+    "context": "tooltip for a file renamed in Git",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Renaming",
     "translation": "",
     "context": "file operation in progress",
@@ -2950,6 +3020,13 @@
     "term": "Replace",
     "translation": "",
     "context": "file conflict dialog button to overwrite the existing item",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Repository status and staging actions are available.",
+    "translation": "",
+    "context": "optional feature status on the about page",
     "reference": "",
     "comment": ""
   },
@@ -3458,6 +3535,20 @@
     "comment": ""
   },
   {
+    "term": "Stage",
+    "translation": "",
+    "context": "Git action adding selected paths to the index",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Stage all changes",
+    "translation": "",
+    "context": "Git action adding every repository change to the index",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "Standalone Wayland file manager for Omarchy",
     "translation": "",
     "context": "about page product description",
@@ -3853,6 +3944,20 @@
     "term": "Unpacks into a folder beside it.",
     "translation": "",
     "context": "setting description for opening archives",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Unstage",
+    "translation": "",
+    "context": "Git action removing selected paths from the index",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "Unstage all changes",
+    "translation": "",
+    "context": "Git action removing every repository change from the index",
     "reference": "",
     "comment": ""
   },
@@ -4361,7 +4466,7 @@
     "comment": ""
   },
   {
-    "term": "optional packages install dsearch thumbnails preview network drives",
+    "term": "optional packages install git repository dsearch thumbnails preview network drives",
     "translation": "",
     "context": "settings search keywords, space separated, add synonyms in your language",
     "reference": "",

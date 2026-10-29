@@ -4,6 +4,17 @@ All notable changes to Omarchy Files are documented here.
 
 ## [Unreleased]
 
+### Added
+
+- Git-aware folders show the current branch and change count, plus compact
+  status badges for modified, added, untracked, deleted, renamed, and
+  conflicted files. Parent folders aggregate changes below them.
+- Safe repository actions in the file and background context menus: stage or
+  unstage selected paths, stage or unstage all changes, copy repository-relative
+  paths, and open the repository root in a terminal. Working-tree content is
+  never discarded, and selected paths are passed to Git through standard input
+  instead of process arguments.
+
 ## [0.1.3] - 2026-10-28
 
 ### Fixed

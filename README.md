@@ -54,6 +54,12 @@ Can serve the desktop portal's file chooser, so other apps get the same window, 
 **Desktop integration**
 Owns `org.freedesktop.FileManager1`, so "show in folder" from browsers and other apps lands here.
 
+**Git awareness**
+Shows the current branch and compact status badges inside repositories. Stage
+or unstage selected paths or the whole repository, copy repository-relative
+paths, and open the repository root in a terminal without turning the file
+manager into a full IDE.
+
 ## Installation on Omarchy
 
 Omarchy Files is supported on Omarchy/Arch Linux. Most users should install it
@@ -119,6 +125,7 @@ These Arch packages are detected when the daemon starts:
 
 | package | enables |
 | --- | --- |
+| `git` | repository status badges, branch summary and safe staging actions |
 | `dsearch-bin` (AUR) | DankSearch index for fast recursive search; install with `yay -S dsearch-bin`, then run `systemctl --user enable --now dsearch` |
 | `bubblewrap` | runs external thumbnailers in a sandbox, like gnome-desktop does |
 | `ffmpegthumbnailer` | video thumbnails |

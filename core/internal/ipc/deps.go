@@ -8,6 +8,7 @@ import (
 	"github.com/spalencsar/omarchy-files/core/internal/devices"
 	"github.com/spalencsar/omarchy-files/core/internal/filemanager1"
 	"github.com/spalencsar/omarchy-files/core/internal/fileops"
+	"github.com/spalencsar/omarchy-files/core/internal/gitstatus"
 	"github.com/spalencsar/omarchy-files/core/internal/mimeapps"
 	"github.com/spalencsar/omarchy-files/core/internal/netmount"
 	"github.com/spalencsar/omarchy-files/core/internal/portal"
@@ -24,6 +25,7 @@ type Deps struct {
 	ColorScheme *colorscheme.Watcher
 	Files       *files.Service
 	FileOps     *fileops.Manager
+	Git         *gitstatus.Service
 	Apps        *mimeapps.Service
 	Devices     *devices.Service
 	Network     *netmount.Service

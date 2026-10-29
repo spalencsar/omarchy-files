@@ -16,7 +16,7 @@ func NewServer(deps Deps) *Server {
 	cfg := dankipc.Config{
 		AppName:                "omarchy-files",
 		APIVersion:             APIVersion,
-		Capabilities:           []string{"subscribe", "ui", "system", "files", "files.op", "devices", "network", "clipboard", "search", "bookmarks", "games", "trash"},
+		Capabilities:           []string{"subscribe", "ui", "system", "files", "files.op", "devices", "network", "clipboard", "search", "bookmarks", "games", "git", "trash"},
 		DefaultSubscribeTopics: []string{"ui"},
 		Bus:                    deps.Bus,
 		OnSubscribe: func(topics []string, _ *Subscriber) {

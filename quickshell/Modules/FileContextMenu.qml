@@ -21,6 +21,11 @@ FileMenu {
     property bool remoteSelection: false
     property int trashCount: 0
     property int recentCount: 0
+    property bool gitRepository: false
+    property bool gitCanStage: false
+    property bool gitCanUnstage: false
+    property int gitChanged: 0
+    property int gitStaged: 0
 
     signal actionTriggered(string id)
 
@@ -237,6 +242,31 @@ FileMenu {
             "id": "separator"
         },
         {
+            "id": "gitStage",
+            "icon": "add_circle",
+            "label": I18n.tr("Stage", "Git action adding selected paths to the index"),
+            "enabled": gitCanStage,
+            "visible": gitRepository && gitCanStage
+        },
+        {
+            "id": "gitUnstage",
+            "icon": "remove_circle",
+            "label": I18n.tr("Unstage", "Git action removing selected paths from the index"),
+            "enabled": gitCanUnstage,
+            "visible": gitRepository && gitCanUnstage
+        },
+        {
+            "id": "copyGitRelativePath",
+            "icon": "account_tree",
+            "label": I18n.tr("Copy repository-relative path", "Git action copying selected paths relative to the repository root"),
+            "enabled": selectionCount > 0,
+            "visible": gitRepository
+        },
+        {
+            "id": "separator",
+            "visible": gitRepository
+        },
+        {
             "id": "trash",
             "icon": remoteSelection ? "delete_forever" : "delete",
             "label": remoteSelection ? I18n.tr("Delete permanently", "context menu entry deleting files from a remote server") : I18n.tr("Move to Trash", "context menu entry trashing the selection"),
@@ -335,6 +365,31 @@ FileMenu {
             "label": I18n.tr("Open with", "open with dialog header"),
             "enabled": true,
             "submenu": true
+        },
+        {
+            "id": "separator",
+            "visible": gitRepository
+        },
+        {
+            "id": "gitStageAll",
+            "icon": "add_circle",
+            "label": I18n.tr("Stage all changes", "Git action adding every repository change to the index"),
+            "enabled": gitChanged > 0,
+            "visible": gitRepository
+        },
+        {
+            "id": "gitUnstageAll",
+            "icon": "remove_circle",
+            "label": I18n.tr("Unstage all changes", "Git action removing every repository change from the index"),
+            "enabled": gitStaged > 0,
+            "visible": gitRepository
+        },
+        {
+            "id": "openRepositoryTerminal",
+            "icon": "terminal",
+            "label": I18n.tr("Open repository in terminal", "Git action opening a terminal at the repository root"),
+            "enabled": true,
+            "visible": gitRepository && SandboxService.available("terminal")
         },
         {
             "id": "separator"

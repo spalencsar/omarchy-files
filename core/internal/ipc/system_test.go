@@ -22,6 +22,9 @@ func TestSystemCapabilitiesReportsTheTable(t *testing.T) {
 	assert.Equal(t, true, result["sandboxed"])
 	assert.Equal(t, "com.example.App", result["appId"])
 	assert.Equal(t, []any{}, result["thumbnailers"])
+	optional, ok := result["optionalDependencies"].(map[string]any)
+	require.True(t, ok)
+	assert.Contains(t, optional, "git")
 
 	features, ok := result["features"].(map[string]any)
 	require.True(t, ok)

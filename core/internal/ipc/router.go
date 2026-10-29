@@ -9,6 +9,7 @@ import (
 	"github.com/spalencsar/omarchy-files/core/internal/clipboard"
 	"github.com/spalencsar/omarchy-files/core/internal/devices"
 	"github.com/spalencsar/omarchy-files/core/internal/games"
+	"github.com/spalencsar/omarchy-files/core/internal/gitstatus"
 	"github.com/spalencsar/omarchy-files/core/internal/mimeapps"
 	"github.com/spalencsar/omarchy-files/core/internal/netmount"
 	"github.com/spalencsar/omarchy-files/core/internal/search"
@@ -63,6 +64,12 @@ func Route(ctx context.Context, w *ConnWriter, req Request, deps Deps) {
 		deps.Bookmarks.Handle(w, req)
 	case games.Handles(req.Method):
 		games.Handle(w, req)
+	case gitstatus.Handles(req.Method):
+		if deps.Git == nil {
+			w.RespondError(req.ID, "Git service unavailable")
+			return
+		}
+		deps.Git.Handle(ctx, w, req)
 	case strings.HasPrefix(req.Method, "files.op."):
 		if deps.FileOps == nil {
 			w.RespondError(req.ID, "file operations unavailable")

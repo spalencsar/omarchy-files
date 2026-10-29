@@ -109,6 +109,12 @@ var Methods = []MethodSpec{
 
 	{Name: "games.list", Group: "games", Desc: "Game libraries found for Steam, Heroic and Lutris; a launcher without an installed game is left out"},
 
+	{Name: "git.status", Group: "git", Desc: "Repository, branch and normalized working-tree status for a local path", Params: []ParamSpec{req("path", "absolute local path")}},
+	{Name: "git.stage", Group: "git", Desc: "Stage selected paths without putting their names in process arguments", Params: []ParamSpec{req("path", "absolute path used to find the repository"), req("paths", "absolute paths inside that repository")}},
+	{Name: "git.unstage", Group: "git", Desc: "Unstage selected paths without changing their working-tree contents", Params: []ParamSpec{req("path", "absolute path used to find the repository"), req("paths", "absolute paths inside that repository")}},
+	{Name: "git.stageAll", Group: "git", Desc: "Stage every change in the repository", Params: []ParamSpec{req("path", "absolute path used to find the repository")}},
+	{Name: "git.unstageAll", Group: "git", Desc: "Unstage every change without changing working-tree contents", Params: []ParamSpec{req("path", "absolute path used to find the repository")}},
+
 	{Name: "network.mounts", Group: "network", Desc: "gvfs mounts, connectable schemes and portable devices waiting to be mounted"},
 	{Name: "network.connect", Group: "network", Desc: "Mount a network location, asking on the network topic when gvfs needs credentials", Params: []ParamSpec{req("uri", "for example sftp://host/path; a password in it is moved out before the uri is used"), opt("password", "answers the first password question")}},
 	{Name: "network.disconnect", Group: "network", Desc: "Unmount a gvfs mount", Params: []ParamSpec{req("id", "mount id, uri or path from network.mounts")}},

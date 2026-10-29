@@ -29,6 +29,14 @@ FocusScope {
     property bool dropEnabled: true
     property bool menusEnabled: true
     property int connectRequest: 0
+    property var gitState: ({
+            "available": true,
+            "repository": false,
+            "entries": [],
+            "byPath": ({})
+        })
+    property int gitRequest: 0
+    property var gitOverlayEntries: []
 
     readonly property alias path: browser.path
     readonly property alias canGoBack: browser.canGoBack
@@ -55,6 +63,11 @@ FocusScope {
     readonly property bool folderRemembered: SettingsData.rememberFolderViews && path !== "" && !virtualActive && !resultsActive
     readonly property bool singleClickActivates: SettingsData.clickToOpen === "single"
     readonly property real thumbnailSizeLimit: SettingsData.thumbnailSizeLimitMb > 0 ? SettingsData.thumbnailSizeLimitMb * 1000000 : -1
+    readonly property bool gitRepository: gitState.repository === true
+    readonly property string gitRoot: gitState.root ?? ""
+    readonly property string gitBranch: gitState.branch ?? ""
+    readonly property int gitChanged: gitState.changed ?? 0
+    readonly property int gitStaged: gitState.staged ?? 0
 
     signal activateRequested(var entry)
     signal openRequested(var entries)
@@ -213,6 +226,77 @@ FocusScope {
             return;
         }
         browser.refresh();
+    }
+
+    function scheduleGitRefresh() {
+        gitRefresh.restart();
+    }
+
+    function refreshGit() {
+        const target = path;
+        const request = ++gitRequest;
+        if (target === "" || virtualActive || resultsActive || NetworkService.isRemotePath(target)) {
+            gitState = {
+                "available": true,
+                "repository": false,
+                "entries": [],
+                "byPath": ({})
+            };
+            gitOverlayEntries = [];
+            return;
+        }
+        GitService.status(target, result => {
+            if (request !== gitRequest || target !== pane.path)
+                return;
+            if (result.error) {
+                gitState = {
+                    "available": true,
+                    "repository": false,
+                    "entries": [],
+                    "byPath": ({})
+                };
+                gitOverlayEntries = [];
+                return;
+            }
+            applyGitResult(result);
+        });
+    }
+
+    function applyGitResult(result) {
+        gitState = Object.assign({}, result, {
+            "entries": result.entries ?? [],
+            "byPath": GitService.entriesByPath(result)
+        });
+        gitOverlayEntries = (result.entries ?? []).filter(entry => FilePaths.parentOf(entry.path) === path);
+        gitOverlay.epoch++;
+    }
+
+    function gitStatusFor(path) {
+        return gitState.byPath?.[path] ?? null;
+    }
+
+    function gitCanStage(paths) {
+        return gitRepository && paths.some(path => gitStatusFor(path)?.unstaged === true);
+    }
+
+    function gitCanUnstage(paths) {
+        return gitRepository && paths.some(path => gitStatusFor(path)?.staged === true);
+    }
+
+    function runGitAction(action, paths) {
+        const done = result => {
+            if (result.error) {
+                ToastService.info(FileFormat.operationError(result.code, result.error));
+                return;
+            }
+            applyGitResult(result);
+        };
+        switch (action) {
+        case "stage": GitService.stage(path, paths, done); break;
+        case "unstage": GitService.unstage(path, paths, done); break;
+        case "stageAll": GitService.stageAll(path, done); break;
+        case "unstageAll": GitService.unstageAll(path, done); break;
+        }
     }
 
     function editPath() {
@@ -395,7 +479,16 @@ FocusScope {
 
     Keys.onPressed: event => handleKey(event)
 
-    onVirtualActiveChanged: refocus.restart()
+    onVirtualActiveChanged: {
+        refocus.restart();
+        scheduleGitRefresh();
+    }
+    onResultsActiveChanged: scheduleGitRefresh()
+    onPathChanged: scheduleGitRefresh()
+    onActiveChanged: {
+        if (active)
+            scheduleGitRefresh();
+    }
     onEditingPathChanged: {
         if (!editingPath && virtualActive)
             refocus.restart();
@@ -447,6 +540,34 @@ FocusScope {
         function onJobFinished(job) {
             if (pane.resultsActive && job.state === "done")
                 searchModel.refresh();
+            if (job.state === "done")
+                pane.scheduleGitRefresh();
+        }
+    }
+
+    Connections {
+        target: browser.directory
+        ignoreUnknownSignals: true
+
+        function onListed() { pane.scheduleGitRefresh(); }
+    }
+
+    Connections {
+        target: DuxFilesService
+
+        function onConnectedChanged() {
+            if (DuxFilesService.connected)
+                pane.scheduleGitRefresh();
+        }
+    }
+
+    Connections {
+        target: pane.Window.window
+        ignoreUnknownSignals: true
+
+        function onActiveChanged() {
+            if (pane.Window.active)
+                pane.scheduleGitRefresh();
         }
     }
 
@@ -482,6 +603,14 @@ FocusScope {
         backend: DirectoryService
         thumbnailsEnabled: SettingsData.thumbnails
         thumbnailSizeLimit: pane.thumbnailSizeLimit
+    }
+
+    Timer {
+        id: gitRefresh
+
+        interval: 300
+        repeat: false
+        onTriggered: pane.refreshGit()
     }
 
     FileBrowserView {
@@ -562,6 +691,17 @@ FocusScope {
         onLocationCancelled: pane.connectRequest++
         onFilterRequested: text => pane.filterRequested(text)
         onFilterFocusRequested: pane.filterFocusRequested()
+    }
+
+    GitStatusOverlay {
+        id: gitOverlay
+
+        pane: pane
+        state: ({
+                "repository": pane.gitRepository,
+                "entries": pane.gitOverlayEntries
+            })
+        visible: browser.visible
     }
 
     SearchResults {
@@ -690,6 +830,9 @@ FocusScope {
             hidden: pane.showHidden ? 0 : browser.directory.hiddenCount
             compact: pane.width < Theme.smallBreakpoint
             showClipboard: pane.active
+            gitRepository: pane.gitRepository
+            gitBranch: pane.gitBranch
+            gitChanged: pane.gitChanged
         }
     }
 

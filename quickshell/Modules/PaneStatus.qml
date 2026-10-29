@@ -13,6 +13,9 @@ Row {
     property int hidden: 0
     property bool compact: false
     property bool showClipboard: true
+    property bool gitRepository: false
+    property string gitBranch: ""
+    property int gitChanged: 0
 
     readonly property int clipboardCount: ClipboardService.paths.length
     readonly property string countText: {
@@ -42,6 +45,41 @@ Row {
         text: status.countText
         color: Theme.surfaceVariantText
         font.pixelSize: Theme.fontSizeSmall
+    }
+
+    Rectangle {
+        anchors.verticalCenter: parent.verticalCenter
+        visible: status.gitRepository
+        width: gitChip.implicitWidth + FileBrowserMetrics.pathPillPadding * 2
+        height: FileBrowserMetrics.pathPillHeight
+        radius: FileBrowserMetrics.pathPillRadius
+        color: Theme.chipSurface
+        border.width: Theme.outlineWidth
+        border.color: status.gitChanged > 0 ? Theme.warning : Theme.outlineVariant
+        Accessible.role: Accessible.StaticText
+        Accessible.name: I18n.tr("Git branch %1, %2 changed", "repository status: branch then number of changed paths").arg(status.gitBranch).arg(status.gitChanged)
+
+        Row {
+            id: gitChip
+
+            anchors.centerIn: parent
+            spacing: FileBrowserMetrics.pathPillSpacing
+
+            DIcon {
+                anchors.verticalCenter: parent.verticalCenter
+                name: "account_tree"
+                size: FileBrowserMetrics.pathIconSize
+                color: status.gitChanged > 0 ? Theme.warning : Theme.primary
+            }
+
+            StyledText {
+                anchors.verticalCenter: parent.verticalCenter
+                text: status.compact ? String(status.gitChanged) : I18n.tr("%1 · %2", "compact Git status: branch then change count").arg(status.gitBranch).arg(status.gitChanged)
+                color: Theme.surfaceText
+                font.pixelSize: Theme.fontSizeSmall
+                font.weight: Theme.fontWeightMedium
+            }
+        }
     }
 
     Rectangle {

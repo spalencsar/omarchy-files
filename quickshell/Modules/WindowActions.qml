@@ -50,6 +50,12 @@ QtObject {
         case "copyPath":
         case "bookmark":
         case "bookmarkSelected":
+        case "gitStage":
+        case "gitUnstage":
+        case "gitStageAll":
+        case "gitUnstageAll":
+        case "copyGitRelativePath":
+        case "openRepositoryTerminal":
             return "";
         default:
             return id;
@@ -70,6 +76,12 @@ QtObject {
         case "compress":
         case "extract":
         case "bookmark":
+        case "gitStage":
+        case "gitUnstage":
+        case "gitStageAll":
+        case "gitUnstageAll":
+        case "copyGitRelativePath":
+        case "openRepositoryTerminal":
             return "";
         case "pasteInto":
             return mainWindow.selectedPaths().length === 1 ? id : "";
@@ -319,6 +331,24 @@ QtObject {
         case "copyName":
             copyText(mainWindow.selectedEntries().map(entry => entry.name).join("\n"));
             return;
+        case "gitStage":
+            activePane.runGitAction("stage", mainWindow.selectedPaths());
+            return;
+        case "gitUnstage":
+            activePane.runGitAction("unstage", mainWindow.selectedPaths());
+            return;
+        case "gitStageAll":
+            activePane.runGitAction("stageAll", []);
+            return;
+        case "gitUnstageAll":
+            activePane.runGitAction("unstageAll", []);
+            return;
+        case "copyGitRelativePath":
+            copyGitRelativePaths();
+            return;
+        case "openRepositoryTerminal":
+            openRepositoryTerminal();
+            return;
         case "contextMenu":
             mainWindow.menus.showContextMenuAtCursor();
             return;
@@ -498,6 +528,21 @@ QtObject {
 
     function openTerminalHere() {
         AppsService.openTerminal(currentPath, response => mainWindow.openFlow.reportError(response));
+    }
+
+    function openRepositoryTerminal() {
+        if (activePane.gitRoot === "")
+            return;
+        AppsService.openTerminal(activePane.gitRoot, response => mainWindow.openFlow.reportError(response));
+    }
+
+    function copyGitRelativePaths() {
+        const root = activePane.gitRoot;
+        if (root === "")
+            return;
+        const prefix = root.endsWith("/") ? root : root + "/";
+        const relative = mainWindow.selectedPaths().map(path => path === root ? "." : path.startsWith(prefix) ? path.substring(prefix.length) : path);
+        copyText(relative.join("\n"));
     }
 
     function trashSelection() {

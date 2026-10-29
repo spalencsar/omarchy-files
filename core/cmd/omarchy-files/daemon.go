@@ -23,6 +23,7 @@ import (
 	"github.com/spalencsar/omarchy-files/core/internal/filechooser"
 	"github.com/spalencsar/omarchy-files/core/internal/filemanager1"
 	"github.com/spalencsar/omarchy-files/core/internal/fileops"
+	"github.com/spalencsar/omarchy-files/core/internal/gitstatus"
 	"github.com/spalencsar/omarchy-files/core/internal/ipc"
 	"github.com/spalencsar/omarchy-files/core/internal/mimeapps"
 	"github.com/spalencsar/omarchy-files/core/internal/netmount"
@@ -156,6 +157,7 @@ func bootDaemonServices(ctx context.Context, ownsWindow bool) (*daemonServices, 
 		ColorScheme: colorSchemeWatcher,
 		Files:       fileService,
 		FileOps:     opsManager,
+		Git:         gitstatus.NewService(),
 		Apps:        appService,
 		Devices:     deviceService,
 		Network:     networkService,

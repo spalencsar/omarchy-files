@@ -120,6 +120,7 @@ func capabilities(deps Deps) capabilitiesResponse {
 		Capabilities: caps,
 		Thumbnailers: []string{},
 		OptionalDependencies: map[string]optionalDependency{
+			"git":               {Installed: commandAvailable("git")},
 			"dsearch":           dsearchDependency(),
 			"bubblewrap":        {Installed: commandAvailable("bwrap")},
 			"ffmpegthumbnailer": {Installed: commandAvailable("ffmpegthumbnailer")},

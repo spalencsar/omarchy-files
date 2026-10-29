@@ -140,6 +140,11 @@ Item {
         inRecent: live && menus.mainWindow.activePane.recentActive
         remoteSelection: live && menus.selectionIsRemote()
         selectedBookmarked: live && menus.selectionIsDirectory() && BookmarksService.has(menus.mainWindow.selectedPaths()[0] ?? "")
+        gitRepository: live && menus.mainWindow.activePane.gitRepository
+        gitCanStage: live && menus.mainWindow.activePane.gitCanStage(menus.mainWindow.selectedPaths())
+        gitCanUnstage: live && menus.mainWindow.activePane.gitCanUnstage(menus.mainWindow.selectedPaths())
+        gitChanged: live ? menus.mainWindow.activePane.gitChanged : 0
+        gitStaged: live ? menus.mainWindow.activePane.gitStaged : 0
         onActionTriggered: id => menus.mainWindow.actions.runAction(id)
         onClosed: live = false
     }
@@ -286,6 +291,9 @@ Item {
         inRecent: menus.mainWindow.activePane.recentActive
         trashCount: TrashService.count
         recentCount: menus.mainWindow.activePane.recentView?.model.total ?? 0
+        gitRepository: menus.mainWindow.activePane.gitRepository
+        gitChanged: menus.mainWindow.activePane.gitChanged
+        gitStaged: menus.mainWindow.activePane.gitStaged
         onActionTriggered: id => menus.mainWindow.actions.runAction(id)
     }
 

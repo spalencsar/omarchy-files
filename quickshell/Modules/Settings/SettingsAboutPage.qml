@@ -61,6 +61,12 @@ Item {
 
     readonly property var optionalFeatureRows: [
         {
+            "id": "git",
+            "label": I18n.tr("Git integration", "optional feature row on the about page"),
+            "availableSubtitle": I18n.tr("Repository status and staging actions are available.", "optional feature status on the about page"),
+            "install": "sudo pacman -S git"
+        },
+        {
             "id": "dsearch",
             "label": I18n.tr("Indexed search", "optional feature row on the about page"),
             "availableSubtitle": I18n.tr("DankSearch is searching from its index.", "optional feature status on the about page"),
@@ -271,7 +277,7 @@ Item {
 
                     title: modelData.label
                     subtitle: status.subtitle
-                    keywords: I18n.tr("optional packages install dsearch thumbnails preview network drives", "settings search keywords, space separated, add synonyms in your language")
+                    keywords: I18n.tr("optional packages install git repository dsearch thumbnails preview network drives", "settings search keywords, space separated, add synonyms in your language")
                     trailingBadge: status.text
                     trailingBadgeColor: status.color
 
