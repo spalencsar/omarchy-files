@@ -7,6 +7,8 @@
 
 Built with [Quickshell](https://quickshell.org/) and [Go](https://go.dev/)
 
+[View Omarchy Files in the Omarchy Plugin Marketplace](https://plugins.omarchy.org/plugin.html?id=io.github.spalencsar.omarchy-files)
+
 </div>
 
 Omarchy Files is a standalone Wayland file manager built specifically for
@@ -54,9 +56,25 @@ Owns `org.freedesktop.FileManager1`, so "show in folder" from browsers and other
 
 ## Installation on Omarchy
 
-Omarchy Files is supported on Omarchy/Arch Linux. It is distributed as a local
-Arch package so the binary, desktop entry, icon, D-Bus files, and user service
-are installed and removed together.
+Omarchy Files is supported on Omarchy/Arch Linux. Most users should install it
+through the
+[Omarchy Plugin Marketplace](https://plugins.omarchy.org/plugin.html?id=io.github.spalencsar.omarchy-files).
+
+### Install from the Omarchy Plugin Marketplace
+
+```bash
+omarchy plugin add https://github.com/spalencsar/omarchy-files-omarchy --enable
+```
+
+This adds the Omarchy Files launcher to the bar. If the application is not
+installed yet, click the launcher and review the visible installation summary
+before confirming it. The installer downloads the pinned release, verifies its
+SHA-256 checksum, and installs it for the current user below `~/.local` without
+`sudo`, changing MIME defaults, enabling a service, or selecting a file chooser
+portal.
+
+Use the Arch package route below when you want full system package integration,
+including the polkit policy, D-Bus activation files, and optional user service.
 
 ### Build and install the Arch package
 
