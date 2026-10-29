@@ -4,7 +4,14 @@ All notable changes to Omarchy Files are documented here.
 
 ## [Unreleased]
 
+## [0.1.4] - 2026-10-29
+
 ### Added
+
+- Let the Omarchy Marketplace bar widget detect newer pinned application
+  releases for plugin-managed `~/.local` installations, show an update badge,
+  and reopen the confirmation-based installer. System package installations
+  remain under their package manager.
 
 - Git-aware folders show the current branch and change count, plus compact
   status badges for modified, added, untracked, deleted, renamed, and
@@ -114,7 +121,8 @@ All notable changes to Omarchy Files are documented here.
   Dux Files, with branded Arch packaging, a user service, and a live
   Omarchy-theme adapter.
 
-[Unreleased]: https://github.com/spalencsar/omarchy-files/compare/v0.1.3...HEAD
+[Unreleased]: https://github.com/spalencsar/omarchy-files/compare/v0.1.4...HEAD
+[0.1.4]: https://github.com/spalencsar/omarchy-files/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/spalencsar/omarchy-files/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/spalencsar/omarchy-files/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/spalencsar/omarchy-files/compare/v0.1.0...v0.1.1

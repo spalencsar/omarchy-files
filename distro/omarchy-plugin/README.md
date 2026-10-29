@@ -3,6 +3,10 @@
 This plugin adds an Omarchy Files launcher to the Omarchy bar. A click opens
 the installed file manager. If it is not installed yet, the same click opens a
 visible terminal installer for the pinned Omarchy Files v@APP_VERSION@ release.
+For an application previously installed by this plugin, the widget compares
+the installed version with that pinned release and shows an update badge when
+a newer one is available. Clicking the widget then opens the same visible,
+confirmation-based installer.
 
 ![Omarchy Files browsing a sterile demo workspace](preview.png)
 
@@ -21,6 +25,13 @@ omarchy plugin add https://github.com/spalencsar/omarchy-files-omarchy --enable
 The plugin recognizes Omarchy Files installed in `~/.local`, `/usr`, or
 `/usr/local`. When the application is missing, click the widget and review the
 installation summary in the terminal before confirming it.
+
+Run `omarchy plugin update io.github.spalencsar.omarchy-files` to fetch a newer
+Marketplace wrapper. If it pins a newer application release, the widget marks
+the update and offers its installer on the next click. This automatic detection
+only applies to the user-local `~/.local` installation managed by the plugin.
+Installations under `/usr` or `/usr/local` remain under their system package
+manager and are never shadowed automatically.
 
 ## What the installer does
 
