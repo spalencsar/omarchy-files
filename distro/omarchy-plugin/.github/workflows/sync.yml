@@ -64,7 +64,7 @@ jobs:
             -e "s/@APP_VERSION@/${APP_VERSION}/g" \
             -e "s/@AMD64_SHA256@/${AMD64_SHA256}/g" \
             -e "s/@ARM64_SHA256@/${ARM64_SHA256}/g" \
-            plugin/install-omarchy.sh plugin/manifest.json plugin/README.md
+            plugin/BarWidget.qml plugin/install-omarchy.sh plugin/manifest.json plugin/README.md
           chmod 0755 plugin/install-omarchy.sh plugin/uninstall-app.sh
 
       - name: Validate generated plugin
@@ -72,7 +72,7 @@ jobs:
           bash -n plugin/install-omarchy.sh plugin/uninstall-app.sh
           jq -e . plugin/manifest.json >/dev/null
           if grep -R '@APP_VERSION@\|@AMD64_SHA256@\|@ARM64_SHA256@' \
-            plugin/install-omarchy.sh plugin/manifest.json plugin/README.md; then
+            plugin/BarWidget.qml plugin/install-omarchy.sh plugin/manifest.json plugin/README.md; then
             echo 'Unresolved template placeholder' >&2
             exit 1
           fi

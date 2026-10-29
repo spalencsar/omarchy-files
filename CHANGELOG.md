@@ -4,6 +4,11 @@ All notable changes to Omarchy Files are documented here.
 
 ## [Unreleased]
 
+### Fixed
+
+- Keep the canonical Marketplace sync workflow aligned with the generated
+  wrapper so release rendering does not try to rewrite its own workflow file.
+
 ## [0.1.4] - 2026-10-29
 
 ### Added
