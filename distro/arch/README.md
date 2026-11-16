@@ -1,7 +1,7 @@
 # Arch package
 
 `PKGBUILD` produces `omarchy-files-git`, a development package built from the
-current `main` branch of this repository. It provides `omarchy-files` but does
+current `master` branch of this repository. It provides `omarchy-files` but does
 not install it as the default file manager, enable its user service, or select
 its portal backend.
 

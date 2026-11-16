@@ -11,6 +11,7 @@ Row {
 
     property int total: 0
     property int hidden: 0
+    property var selectedEntries: []
     property bool compact: false
     property bool showClipboard: true
     property bool gitRepository: false
@@ -18,11 +19,42 @@ Row {
     property int gitChanged: 0
 
     readonly property int clipboardCount: ClipboardService.paths.length
+    readonly property int selectedCount: selectedEntries?.length ?? 0
+    readonly property real selectedBytes: {
+        const entries = selectedEntries ?? [];
+        let totalBytes = 0;
+        let files = 0;
+        for (const entry of entries) {
+            if (entry?.isDir)
+                continue;
+            if ((entry?.size ?? -1) < 0)
+                return -1;
+            totalBytes += entry.size;
+            files++;
+        }
+        return files > 0 ? totalBytes : -1;
+    }
     readonly property string countText: {
         const items = FileFormat.count(total);
         if (hidden <= 0)
             return items;
         return I18n.tr("%1 · %2", "folder status: item count then hidden count").arg(items).arg(I18n.tr("%1 hidden", "count of hidden items left out of a folder listing").arg(hidden));
+    }
+    readonly property string selectionText: {
+        if (selectedCount <= 0)
+            return "";
+        const items = selectedCount === 1 ? I18n.tr("1 selected", "status line for a single selected item") : I18n.tr("%1 selected", "status line count of selected items").arg(selectedCount);
+        if (selectedBytes < 0)
+            return items;
+        return I18n.tr("%1 · %2", "folder status: selection count then size").arg(items).arg(FileFormat.size(selectedBytes));
+    }
+    readonly property string statusText: {
+        const showCount = !compact && (total > 0 || hidden > 0);
+        if (showCount && selectionText !== "")
+            return I18n.tr("%1 · %2", "folder status: item count then selection").arg(countText).arg(selectionText);
+        if (showCount)
+            return countText;
+        return selectionText;
     }
     readonly property string clipboardText: {
         switch (true) {
@@ -41,10 +73,12 @@ Row {
 
     StyledText {
         anchors.verticalCenter: parent.verticalCenter
-        visible: !status.compact && (status.total > 0 || status.hidden > 0)
-        text: status.countText
+        visible: status.statusText !== ""
+        text: status.statusText
         color: Theme.surfaceVariantText
         font.pixelSize: Theme.fontSizeSmall
+        Accessible.role: Accessible.StaticText
+        Accessible.name: status.statusText
     }
 
     Rectangle {

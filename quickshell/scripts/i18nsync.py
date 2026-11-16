@@ -24,9 +24,11 @@ EN_JSON_REL = EN_JSON.relative_to(REPO_ROOT).as_posix()
 API_TOKEN_ENV = "OMARCHY_FILES_POEDITOR_API_TOKEN"
 PROJECT_ID_ENV = "OMARCHY_FILES_POEDITOR_PROJECT_ID"
 
-# POEditor language code -> poexports/<file>. Empty until the project has
-# translations; add entries as locales come online, e.g. "de": "de.json".
-LANGUAGES = {}
+# POEditor language code -> poexports/<file>. Add entries as locales come
+# online. German is shipped locally; a later POEditor sync can replace it.
+LANGUAGES = {
+    "de": "de.json",
+}
 
 
 def error(msg):

@@ -60,6 +60,10 @@ or unstage selected paths or the whole repository, copy repository-relative
 paths, and open the repository root in a terminal without turning the file
 manager into a full IDE.
 
+**Language**
+Follows the session language. German is shipped; Settings → Language can pin a
+language or keep system default.
+
 ## Installation on Omarchy
 
 Omarchy Files is supported on Omarchy/Arch Linux. Most users should install it
@@ -157,7 +161,7 @@ omarchy-files properties ~/notes.txt   # Properties dialog
 | `/path`, `relative/path`, `file:///path` | that path |
 | `trash:///` | the trash |
 | `computer:///` | `/` |
-| `network:///` | the Connect to Server dialog |
+| `network:///` | the Network page |
 | `admin:///path` | the path, with Retry as administrator on denied operations |
 | `sftp:// ssh:// smb:// ftp:// ftps:// dav:// davs:// nfs:// afp://` | mounted through gvfs, then opened in a new tab |
 
@@ -187,6 +191,10 @@ xdg-mime default io.github.spalencsar.OmarchyFiles.desktop inode/directory
 ```
 
 The installer doesn't do this for you.
+
+Optional Hyprland window rules and keybinding examples live in
+[docs/HYPRLAND.md](docs/HYPRLAND.md). They stay in your `~/.config/hypr/` files
+and are never written by the package or the Marketplace plugin.
 
 While it runs, omarchy-files owns `org.freedesktop.FileManager1`, so `ShowFolders`, `ShowItems` and `ShowItemProperties` calls come here. Chromium based browsers go through the portal's `OpenDirectory`, which forwards to `ShowItems`. omarchy-files never takes the name from another file manager, it waits in line until that one quits. Turn it off with Settings, General, "Register as the session file manager".
 

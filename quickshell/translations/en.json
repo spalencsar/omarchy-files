@@ -68,7 +68,7 @@
   {
     "term": "%1 hidden",
     "context": "%1 hidden",
-    "reference": "Modules/PaneStatus.qml:25",
+    "reference": "Modules/PaneStatus.qml:41",
     "comment": "count of hidden items left out of a folder listing"
   },
   {
@@ -98,13 +98,13 @@
   {
     "term": "%1 items copied",
     "context": "%1 items copied",
-    "reference": "Modules/PaneStatus.qml:36",
+    "reference": "Modules/PaneStatus.qml:68",
     "comment": "clipboard indicator for copied items"
   },
   {
     "term": "%1 items cut",
     "context": "%1 items cut",
-    "reference": "Modules/PaneStatus.qml:32",
+    "reference": "Modules/PaneStatus.qml:64",
     "comment": "clipboard indicator for cut items"
   },
   {
@@ -116,7 +116,7 @@
   {
     "term": "%1 matching “%2”",
     "context": "%1 matching “%2”",
-    "reference": "Modules/FilesPane.qml:895, Modules/RecentView.qml:42, Modules/TrashView.qml:40",
+    "reference": "Modules/RecentView.qml:42, Modules/TrashView.qml:40, Modules/FilesPane.qml:896",
     "comment": "filter bar above a folder listing, count then the typed text"
   },
   {
@@ -136,6 +136,12 @@
     "context": "%1 s left",
     "reference": "Common/FilesFormat.qml:56",
     "comment": "time left for a file operation, in seconds"
+  },
+  {
+    "term": "%1 selected",
+    "context": "%1 selected",
+    "reference": "Modules/PaneStatus.qml:46",
+    "comment": "status line count of selected items"
   },
   {
     "term": "%1 used · %2 free · %3 total",
@@ -158,8 +164,8 @@
   {
     "term": "%1 · %2",
     "context": "%1 · %2",
-    "reference": "Common/FilesFormat.qml:68, Modules/PaneStatus.qml:25, Modules/PaneStatus.qml:77, Modules/PropertiesDialog.qml:106",
-    "comment": "compact Git status: branch then change count | folder status: item count then hidden count | properties size row: bytes then item count | transfer speed then time left"
+    "reference": "Common/FilesFormat.qml:68, Modules/PropertiesDialog.qml:106, Modules/PaneStatus.qml:41, Modules/PaneStatus.qml:49, Modules/PaneStatus.qml:54, Modules/PaneStatus.qml:111",
+    "comment": "compact Git status: branch then change count | folder status: item count then hidden count | folder status: item count then selection | folder status: selection count then size | properties size row: bytes then item count | transfer speed then time left"
   },
   {
     "term": "%1 …",
@@ -194,14 +200,20 @@
   {
     "term": "1 item copied",
     "context": "1 item copied",
-    "reference": "Modules/PaneStatus.qml:34",
+    "reference": "Modules/PaneStatus.qml:66",
     "comment": "clipboard indicator for a single copied item"
   },
   {
     "term": "1 item cut",
     "context": "1 item cut",
-    "reference": "Modules/PaneStatus.qml:30",
+    "reference": "Modules/PaneStatus.qml:62",
     "comment": "clipboard indicator for a single cut item"
+  },
+  {
+    "term": "1 selected",
+    "context": "1 selected",
+    "reference": "Modules/PaneStatus.qml:46",
+    "comment": "status line for a single selected item"
   },
   {
     "term": "? or F1 in the main window.",
@@ -548,7 +560,7 @@
   {
     "term": "Clear the clipboard",
     "context": "Clear the clipboard",
-    "reference": "Modules/PaneStatus.qml:126",
+    "reference": "Modules/PaneStatus.qml:160",
     "comment": "tooltip on the button dropping the copied or cut items"
   },
   {
@@ -1412,7 +1424,7 @@
   {
     "term": "Git branch %1, %2 changed",
     "context": "Git branch %1, %2 changed",
-    "reference": "Modules/PaneStatus.qml:60",
+    "reference": "Modules/PaneStatus.qml:94",
     "comment": "repository status: branch then number of changed paths"
   },
   {
@@ -1994,7 +2006,7 @@
   {
     "term": "No results",
     "context": "No results",
-    "reference": "Modules/FilesPane.qml:682, Modules/RecentView.qml:186, Modules/SearchResults.qml:40, Modules/TrashView.qml:182, Modules/Settings/SettingsContent.qml:479",
+    "reference": "Modules/RecentView.qml:186, Modules/SearchResults.qml:40, Modules/TrashView.qml:182, Modules/FilesPane.qml:682, Modules/Settings/SettingsContent.qml:479",
     "comment": "search results header when nothing matched"
   },
   {
@@ -2864,7 +2876,7 @@
   {
     "term": "Search subfolders",
     "context": "Search subfolders",
-    "reference": "Modules/FilesPane.qml:909",
+    "reference": "Modules/FilesPane.qml:910",
     "comment": "chip that turns the folder filter into a recursive search"
   },
   {

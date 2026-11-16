@@ -1,106 +1,78 @@
 # Omarchy Files in the Plugin Marketplace
 
-Status: plan, 2026-10-26. No plugin or marketplace submission exists yet.
+Status: delivered. Current application release is **v0.1.5** (2026-11-16).
+The generated Marketplace wrapper pins the latest public GitHub release
+after each tag.
 
-## Intended experience
-
-The marketplace entry gives Omarchy users a small Files launcher in the
-Omarchy shell. A click opens the installed Omarchy Files application. If the
-application is missing, the launcher offers a visible installation path in a
-terminal. Installing or enabling the plugin must not silently change the
-default file manager, enable a service, or select a file chooser portal.
+The Marketplace entry is live as a generated wrapper. Adding the plugin puts
+an Omarchy Files launcher on the Omarchy bar. A click opens the installed
+application. If it is missing, the same click opens a visible terminal
+installer for the pinned release. Installing or enabling the plugin does not
+change the default file manager, enable a service, or select a file chooser
+portal.
 
 This follows the BearWave Omarchy pattern: a shell plugin provides the desktop
 entry point while the application keeps its own process and lifecycle. Omarchy
 plugin installation clones and validates a repository; it does not run package
 installation hooks.
 
-## 1. Prepare a reproducible application build
+## What shipped
 
-- Cut a new tested Omarchy Files release. The existing v0.1.0 tag predates
-  subsequent file-operation and UI fixes.
-- Make the Arch recipe used by the plugin installer build an exact release
-  commit, with the source revision and external archive checksums recorded.
-  The current development PKGBUILD tracks Git HEAD; that is unsuitable for a
-  repeatable marketplace installation.
-- In a visible terminal, let the user confirm the build dependencies, package
-  build, and package installation. The plugin must not request privileges or
-  run a package installation simply because it was added or enabled.
-- Give application updates an explicit path. Updating the small shell plugin
-  must not silently replace the installed file manager; show the installed
-  and offered application versions before a confirmed upgrade.
-- Verify installation, launch, service behavior, and removal on a clean
-  Omarchy session. Preserve user data on uninstall unless the user explicitly
-  chooses to delete it.
+- Canonical plugin sources live in `distro/omarchy-plugin/` in this repository.
+- The small public wrapper is
+  [`spalencsar/omarchy-files-omarchy`](https://github.com/spalencsar/omarchy-files-omarchy).
+  It exists so `omarchy plugin add` does not clone the full application and
+  its submodule.
+- `.github/workflows/sync.yml` in that repository reads the latest public app
+  release, pins amd64 and arm64 SHA-256 sums, copies the canonical assets,
+  validates the output, and commits only when something changed. It runs daily
+  at 05:17 UTC and through `workflow_dispatch`.
+- Wrapper version **1.1.0** (generated commit `daae196` first pinned
+  application **v0.1.4**). After a tagged GitHub release the wrapper sync
+  pins the new version and both SHA-256 sums. The bar widget compares a
+  plugin-managed `~/.local` binary with that pinned release, shows an update
+  badge when a newer one is available, and reopens the same
+  confirmation-based installer. Installations under `/usr` and `/usr/local`
+  stay under their package manager.
+- Installer and uninstaller scripts stay user-visible. They ask before
+  downloading, verify pinned hashes, install below `~/.local`, and never use
+  `sudo` or change MIME, portal, or service state.
 
-Exit condition: a user who adds the plugin can install the tested application
-through the visible first-run flow, without following manual build steps.
+Install the plugin with:
 
-## 2. Build a small, separate Omarchy plugin
+```bash
+omarchy plugin add https://github.com/spalencsar/omarchy-files-omarchy --enable
+```
 
-- Use a dedicated public plugin repository for the shell integration and
-  first-run installer, following the BearWave Omarchy layout. Keep the app's
-  source and release history in the existing Omarchy Files repository.
-- Add a root `manifest.json` with schema version 1, a unique lowercase
-  namespaced ID, a version, author, description, `bar-widget` kind, and a
-  matching QML entry point. Check the proposed ID against the marketplace
-  before settling on it.
-- Make the bar widget show a restrained Files icon and a clear tooltip. On
-  click, launch the installed desktop application. When the package is absent,
-  open a visible terminal with the pinned-release installer and ask the user
-  to confirm each system-changing step.
-- Keep checks lightweight. The widget should detect installation and recover
-  after an install or update without forcing an Omarchy shell restart.
-- Document that removing the plugin removes the launcher, while removing the
-  application is a separate, explicit package action. Describe the optional
-  user-service and default-manager choices separately.
-- Include a README, MIT license and upstream attribution, dependency list,
-  install and removal instructions, and a preview without private folder
-  names or paths.
+The application README documents this path as the usual Omarchy install route.
+The Arch package remains the path for polkit, D-Bus activation, and the
+optional user service.
 
-Exit condition: adding the plugin leaves a usable widget even before the
-application is installed, and removing it has no hidden effect on files,
-defaults, or the installed package.
+## Security review
 
-## 3. Validate the complete path
+Marketplace issue `omacom/omarchy-plugin-marketplace#13098` holds the review.
 
-- Run `omarchy plugin validate` and `qmllint` against the plugin entry point
-  on a compatible Omarchy shell.
-- In a clean session, test: plugin add and enable; first click with no package;
-  confirmed install; launch; theme switch while running; package upgrade;
-  disabled plugin; plugin removal; and explicit application removal.
-- Check coexistence with another file manager. Test `FileManager1` ownership
-  and directory MIME association without changing user defaults automatically.
-- Verify that failed package installation leaves the plugin usable and offers
-  an understandable retry. Test the user service with and without prior
-  enablement.
+- Plugin commit `9bb7019` still delivered v0.1.1; v0.1.2 plus plugin commit
+  `be95382` closed that delivery gap.
+- Notification process arguments leaked private transfer names and raw errors;
+  v0.1.3 plus plugin commit `ecb0d8c` closed that issue (comment `6474468657`).
+- The reviewer accepted those findings as resolved. The plugin is listed at
+  https://plugins.omarchy.org/plugin.html?id=io.github.spalencsar.omarchy-files.
+  Manual maintainer review of installer scripts remains expected on later
+  wrapper changes.
 
-Exit condition: the plugin and application can each be installed, updated,
-disabled, and removed without leaving a broken launcher or changing desktop
-defaults unexpectedly.
+Keep the security baseline: visible confirmation, immutable release hashes,
+install below `~/.local`, no sudo, no MIME/portal/service changes.
 
-## 4. Submit
+## Remaining follow-up
 
-- Check the public plugin repository against the publishing checklist: root
-  `manifest.json`, existing QML entry point, README, license, documented
-  dependencies, safe installation and removal, and an optional preview.
-- Choose the marketplace category and one to three allowed tags; likely
-  `System` with `quickshell` and `system`, subject to the current form.
-- Submit the plugin repository through the marketplace issue form only after
-  the release and clean-session checks pass. Automated validation checks the
-  submitted commit; a maintainer must approve the listing. Review any
-  findings before publication. Listing is not a security certification.
-- Link the listing from the Omarchy Files README after it is approved.
-
-## Later: simplify installation through the Omarchy package repository
-
-The marketplace route above does not depend on a package-repository
-submission. Once the integration works, propose a release-based package to
-`omacom/omarchy-pkgs`. That repository requires immutable sources,
-architecture-specific clean builds, and `.omarchy/package.json` metadata;
-the current `-git` PKGBUILD cannot be copied over unchanged. Once a package
-is published for users' Omarchy channels, the plugin can replace its local
-build flow with the supported `omarchy pkg add` command.
+- Keep the published listing current through the generated wrapper. Do not
+  hand-maintain duplicate plugin files in the wrapper repository.
+- Later: propose a release-based package to `omacom/omarchy-pkgs`. That
+  repository needs immutable sources, architecture-specific clean builds, and
+  `.omarchy/package.json` metadata; the current `-git` PKGBUILD cannot be
+  copied over unchanged. Once a package is in users' Omarchy channels, the
+  plugin can replace its local download flow with `omarchy pkg add`.
 
 ## References
 

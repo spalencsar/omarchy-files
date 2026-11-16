@@ -4,10 +4,24 @@ All notable changes to Omarchy Files are documented here.
 
 ## [Unreleased]
 
+## [0.1.5] - 2026-11-16
+
+### Added
+
+- Document optional Hyprland window rules and keybinding examples for Omarchy
+  Files. They stay in the user's `~/.config/hypr/` files; the package does not
+  install them.
+- Show the current selection in the folder status line as a compact count and
+  size, next to the item total.
+- Ship a German interface translation. System default follows the session
+  language (`de`, `de_DE`); Settings → Language can pin it.
+
 ### Fixed
 
 - Keep the canonical Marketplace sync workflow aligned with the generated
   wrapper so release rendering does not try to rewrite its own workflow file.
+- Document that `network:///` opens the Network page, matching the current
+  CLI and UI.
 
 ## [0.1.4] - 2026-10-29
 
@@ -126,7 +140,8 @@ All notable changes to Omarchy Files are documented here.
   Dux Files, with branded Arch packaging, a user service, and a live
   Omarchy-theme adapter.
 
-[Unreleased]: https://github.com/spalencsar/omarchy-files/compare/v0.1.4...HEAD
+[Unreleased]: https://github.com/spalencsar/omarchy-files/compare/v0.1.5...HEAD
+[0.1.5]: https://github.com/spalencsar/omarchy-files/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/spalencsar/omarchy-files/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/spalencsar/omarchy-files/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/spalencsar/omarchy-files/compare/v0.1.1...v0.1.2

@@ -161,6 +161,13 @@
     "comment": ""
   },
   {
+    "term": "%1 selected",
+    "translation": "",
+    "context": "status line count of selected items",
+    "reference": "",
+    "comment": ""
+  },
+  {
     "term": "%1 used · %2 free · %3 total",
     "translation": "",
     "context": "storage volume usage, free space and total capacity",
@@ -184,7 +191,7 @@
   {
     "term": "%1 · %2",
     "translation": "",
-    "context": "compact Git status: branch then change count | folder status: item count then hidden count | properties size row: bytes then item count | transfer speed then time left",
+    "context": "compact Git status: branch then change count | folder status: item count then hidden count | folder status: item count then selection | folder status: selection count then size | properties size row: bytes then item count | transfer speed then time left",
     "reference": "",
     "comment": ""
   },
@@ -234,6 +241,13 @@
     "term": "1 item cut",
     "translation": "",
     "context": "clipboard indicator for a single cut item",
+    "reference": "",
+    "comment": ""
+  },
+  {
+    "term": "1 selected",
+    "translation": "",
+    "context": "status line for a single selected item",
     "reference": "",
     "comment": ""
   },

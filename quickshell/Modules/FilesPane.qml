@@ -653,7 +653,7 @@ FocusScope {
         columnWidths: SessionData.columnWidths
         dragEnabled: pane.dragEnabled
         dropEnabled: pane.dropEnabled
-        showSelectionFooter: true
+        showSelectionFooter: false
         previewDrawer: true
         previewOpen: pane.previewOpen
         previewWidth: CacheData.previewWidth
@@ -866,6 +866,7 @@ FocusScope {
         PaneStatus {
             total: browser.directory.total
             hidden: pane.showHidden ? 0 : browser.directory.hiddenCount
+            selectedEntries: browser.selectedEntries
             compact: pane.width < Theme.smallBreakpoint
             showClipboard: pane.active
             gitRepository: pane.gitRepository

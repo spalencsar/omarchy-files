@@ -1,0 +1,1912 @@
+{
+  "AM": {
+    "AM": "AM"
+  },
+  "Accessible name for a button that decreases a numeric value": {
+    "Decrease": "Verkleinern"
+  },
+  "Accessible name for a button that increases a numeric value": {
+    "Increase": "Vergrößern"
+  },
+  "Accessible name for the password visibility button": {
+    "Hide password": "Passwort verbergen",
+    "Show password": "Passwort anzeigen"
+  },
+  "Actions": {
+    "Actions": "Aktionen"
+  },
+  "Backspace": {
+    "Backspace": "Rücktaste"
+  },
+  "Choose icon": {
+    "Choose icon": "Symbol wählen"
+  },
+  "Clear": {
+    "Clear": "Leeren"
+  },
+  "Close": {
+    "Close": "Schließen"
+  },
+  "Color": {
+    "Color": "Farbe"
+  },
+  "Communication": {
+    "Communication": "Kommunikation"
+  },
+  "Confirm": {
+    "Confirm": "Bestätigen"
+  },
+  "Current values in the two-dimensional color picker": {
+    "Saturation %1%, brightness %2%": "Sättigung %1 %, Helligkeit %2 %"
+  },
+  "Development": {
+    "Development": "Entwicklung"
+  },
+  "Drag to reorder": {
+    "Drag to reorder": "Ziehen zum Umsortieren"
+  },
+  "Edit": {
+    "Edit": "Bearbeiten"
+  },
+  "Enter": {
+    "Enter": "Eingabe"
+  },
+  "Fun": {
+    "Fun": "Spaß"
+  },
+  "Git action adding every repository change to the index": {
+    "Stage all changes": "Alle Änderungen stagen"
+  },
+  "Git action adding selected paths to the index": {
+    "Stage": "Stagen"
+  },
+  "Git action copying selected paths relative to the repository root": {
+    "Copy repository-relative path": "Repository-relativen Pfad kopieren"
+  },
+  "Git action opening a terminal at the repository root": {
+    "Open repository in terminal": "Repository im Terminal öffnen"
+  },
+  "Git action removing every repository change from the index": {
+    "Unstage all changes": "Alle Änderungen unstagen"
+  },
+  "Git action removing selected paths from the index": {
+    "Unstage": "Unstagen"
+  },
+  "Hibernate": {
+    "Hibernate": "Ruhezustand"
+  },
+  "Hide keyboard": {
+    "Hide keyboard": "Tastatur ausblenden"
+  },
+  "Hold longer to confirm": {
+    "Hold longer to confirm": "Länger halten zum Bestätigen"
+  },
+  "Hold to confirm (%1 ms)": {
+    "Hold to confirm (%1 ms)": "Halten zum Bestätigen (%1 ms)"
+  },
+  "Hold to confirm (%1s)": {
+    "Hold to confirm (%1s)": "Halten zum Bestätigen (%1s)"
+  },
+  "Hour": {
+    "Hour": "Stunde"
+  },
+  "Log Out": {
+    "Log Out": "Abmelden"
+  },
+  "Maximize": {
+    "Maximize": "Maximieren"
+  },
+  "Media": {
+    "Media": "Medien"
+  },
+  "Minimize": {
+    "Minimize": "Minimieren"
+  },
+  "Minute": {
+    "Minute": "Minute"
+  },
+  "Navigation": {
+    "Navigation": "Navigation"
+  },
+  "No locations found": {
+    "No locations found": "Keine Orte gefunden"
+  },
+  "Numbers": {
+    "Numbers": "Zahlen"
+  },
+  "OK": {
+    "OK": "OK"
+  },
+  "PM": {
+    "PM": "PM"
+  },
+  "Power Off": {
+    "Power Off": "Ausschalten"
+  },
+  "Power Options": {
+    "Power Options": "Energieoptionen"
+  },
+  "Reboot": {
+    "Reboot": "Neu starten"
+  },
+  "Refresh": {
+    "Refresh": "Aktualisieren"
+  },
+  "Restore": {
+    "Restore": "Wiederherstellen"
+  },
+  "Search for a location...": {
+    "Search for a location...": "Nach einem Ort suchen..."
+  },
+  "Search...": {
+    "Search...": "Suchen..."
+  },
+  "Searching...": {
+    "Searching...": "Suchen..."
+  },
+  "Select time": {
+    "Select time": "Zeit wählen"
+  },
+  "Shift": {
+    "Shift": "Umschalt"
+  },
+  "Space": {
+    "Space": "Leertaste"
+  },
+  "Status": {
+    "Status": "Status"
+  },
+  "Suspend": {
+    "Suspend": "Bereitschaft"
+  },
+  "Switch User": {
+    "Switch User": "Benutzer wechseln"
+  },
+  "System": {
+    "System": "System"
+  },
+  "Unknown": {
+    "Unknown": "Unbekannt"
+  },
+  "Workspace": {
+    "Workspace": "Arbeitsfläche"
+  },
+  "a folder holding a single item": {
+    "1 item": "1 Element"
+  },
+  "a single selected item": {
+    "1 selected": "1 ausgewählt"
+  },
+  "about page daemon api version column label": {
+    "API": "API"
+  },
+  "about page daemon capabilities label": {
+    "Capabilities": "Funktionen"
+  },
+  "about page daemon section header": {
+    "Backend": "Backend"
+  },
+  "about page daemon socket row label": {
+    "Socket": "Socket"
+  },
+  "about page daemon status column label": {
+    "Status": "Status"
+  },
+  "about page daemon status value": {
+    "Offline": "Offline"
+  },
+  "about page daemon status value | heading above active network shares": {
+    "Connected": "Verbunden"
+  },
+  "about page daemon version column label": {
+    "Version": "Version"
+  },
+  "about page license footer link": {
+    "MIT License": "MIT-Lizenz"
+  },
+  "about page maintainer and upstream credit": {
+    "Maintained by Sebastian Palencsar · based on Dux Files": "Betreut von Sebastian Palencsar · basiert auf Dux Files"
+  },
+  "about page product description": {
+    "Standalone Wayland file manager for Omarchy": "Eigenständiger Wayland-Dateimanager für Omarchy"
+  },
+  "about page product name": {
+    "Omarchy Files": "Omarchy Files"
+  },
+  "about page resource button": {
+    "Docs": "Doku"
+  },
+  "about page row naming the flatpak id": {
+    "Sandbox": "Sandbox"
+  },
+  "about page section listing optional packages": {
+    "Optional features": "Optionale Funktionen"
+  },
+  "accessible description of a settings page while searching, name then count": {
+    "%1, %2 matches": "%1, %2 Treffer"
+  },
+  "action deleting everything in the trash": {
+    "Empty Trash": "Papierkorb leeren"
+  },
+  "action dropping the selected files from the recently used list without touching the files": {
+    "Remove from Recent": "Aus Zuletzt verwendet entfernen"
+  },
+  "action emptying the recently used list without touching the files": {
+    "Clear Recent": "Zuletzt verwendet leeren"
+  },
+  "action removing a server from network history | dialog button clearing the remembered folder settings": {
+    "Forget": "Vergessen"
+  },
+  "animation duration slider label": {
+    "Duration": "Dauer"
+  },
+  "animation duration slider label at zero": {
+    "Off": "Aus"
+  },
+  "appearance settings section label": {
+    "Motion": "Bewegung",
+    "Omarchy appearance": "Omarchy-Erscheinungsbild",
+    "Typography": "Typografie",
+    "Windows": "Fenster"
+  },
+  "appearance settings section label | focus ring toggle label": {
+    "Focus ring": "Fokusrahmen"
+  },
+  "appearance settings section label | theme mode setting label": {
+    "Theme": "Thema"
+  },
+  "archive password dialog error after a failed attempt": {
+    "Wrong password": "Falsches Passwort"
+  },
+  "archive password dialog explanation": {
+    "%1 is password protected.": "%1 ist passwortgeschützt."
+  },
+  "archive password dialog header": {
+    "Password required": "Passwort erforderlich"
+  },
+  "auto color source status when Omarchy is active": {
+    "Using active Omarchy theme colors.": "Farben des aktiven Omarchy-Themas werden verwendet."
+  },
+  "auto color source status when no desktop theme is active": {
+    "Omarchy theme not detected, using the %1 preset.": "Kein Omarchy-Thema erkannt, Preset %1 wird verwendet."
+  },
+  "auto font source status when Omarchy is active": {
+    "Using the system font: %1.": "Systemschrift wird verwendet: %1."
+  },
+  "behaviour settings section label": {
+    "Drag and drop": "Ziehen und ablegen"
+  },
+  "button applying the edited permissions": {
+    "Apply": "Anwenden"
+  },
+  "capability row on the about page": {
+    "Default applications": "Standardanwendungen",
+    "Host filesystem": "Host-Dateisystem",
+    "Run programs": "Programme ausführen",
+    "Thumbnails": "Vorschaubilder"
+  },
+  "capability row on the about page | trash view header and sidebar entry": {
+    "Trash": "Papierkorb"
+  },
+  "capability status on the about page | optional feature status on the about page": {
+    "Available": "Verfügbar"
+  },
+  "capability status when the daemon did not report it": {
+    "Unknown": "Unbekannt"
+  },
+  "chip that turns the folder filter into a recursive search": {
+    "Search subfolders": "Unterordner durchsuchen"
+  },
+  "click to open option": {
+    "Double click": "Doppelklick",
+    "Single click": "Einfachklick"
+  },
+  "clipboard indicator for a single copied item": {
+    "1 item copied": "1 Element kopiert"
+  },
+  "clipboard indicator for a single cut item": {
+    "1 item cut": "1 Element ausgeschnitten"
+  },
+  "clipboard indicator for copied items": {
+    "%1 items copied": "%1 Elemente kopiert"
+  },
+  "clipboard indicator for cut items": {
+    "%1 items cut": "%1 Elemente ausgeschnitten"
+  },
+  "close behavior button group option keeping the daemon warm": {
+    "Keep running": "Weiterlaufen lassen"
+  },
+  "close behavior button group option to quit the app": {
+    "Quit": "Beenden"
+  },
+  "close behavior setting label": {
+    "Close behavior": "Verhalten beim Schließen"
+  },
+  "color palette name": {
+    "Amber": "Bernstein",
+    "Blue": "Blau",
+    "Coral": "Koralle",
+    "Cyan": "Cyan",
+    "Green": "Grün",
+    "Monochrome": "Monochrom",
+    "Orange": "Orange",
+    "Pink": "Pink",
+    "Purple": "Violett",
+    "Red": "Rot"
+  },
+  "color source button group option following Omarchy | font source button group option following Omarchy | theme mode button group option": {
+    "Auto": "Auto"
+  },
+  "color source button group option for a custom theme file | font source button group option for app-chosen fonts": {
+    "Custom": "Benutzerdefiniert"
+  },
+  "color source button group option for bundled palettes": {
+    "Preset": "Preset"
+  },
+  "color source description for auto": {
+    "Follow the active Omarchy theme, falling back to a preset.": "Dem aktiven Omarchy-Thema folgen, sonst ein Preset verwenden."
+  },
+  "color source description for custom": {
+    "Load colors from your own theme file.": "Farben aus einer eigenen Themadatei laden."
+  },
+  "color source description for preset": {
+    "Use a bundled color palette.": "Eine mitgelieferte Farbpalette verwenden."
+  },
+  "color source setting label": {
+    "Color source": "Farbquelle"
+  },
+  "compact Git status: branch then change count | folder status: item count then hidden count | folder status: item count then selection | folder status: selection count then size | properties size row: bytes then item count | transfer speed then time left": {
+    "%1 · %2": "%1 · %2"
+  },
+  "compress dialog header": {
+    "Compress": "Komprimieren"
+  },
+  "compress dialog option encrypting the archive": {
+    "Protect with a password": "Mit Passwort schützen"
+  },
+  "confirm button of the new folder dialog": {
+    "Create": "Erstellen"
+  },
+  "confirm dialog default confirm button": {
+    "Delete": "Löschen"
+  },
+  "confirmation before opening many selected items at once": {
+    "Open %1 items?": "%1 Elemente öffnen?"
+  },
+  "confirmation header before deleting everything in the trash": {
+    "Empty the trash?": "Papierkorb leeren?"
+  },
+  "confirmation header before emptying the recently used list": {
+    "Clear the recent files list?": "Die Liste zuletzt verwendeter Dateien leeren?"
+  },
+  "confirming permanent deletion from a remote server | context menu entry deleting files from a remote server | context menu entry deleting the selection for good": {
+    "Delete permanently": "Endgültig löschen"
+  },
+  "connect dialog error when a mounted share has no fuse path | network page error when a mounted share has no fuse path": {
+    "Connected, but the share has no local folder. The gvfs FUSE service may not be running.": "Verbunden, aber die Freigabe hat keinen lokalen Ordner. Der gvfs-FUSE-Dienst läuft möglicherweise nicht."
+  },
+  "connect to server action | connect to server dialog action": {
+    "Connect": "Verbinden"
+  },
+  "connect to server dialog header": {
+    "Connect to Server": "Mit Server verbinden"
+  },
+  "context menu entry copying the selected item names to the clipboard": {
+    "Copy name": "Namen kopieren"
+  },
+  "context menu entry copying the selection beside itself": {
+    "Duplicate": "Duplizieren"
+  },
+  "context menu entry copying the selection into a chosen folder": {
+    "Copy to…": "Kopieren nach…"
+  },
+  "context menu entry copying the selection | text field context menu action": {
+    "Copy": "Kopieren"
+  },
+  "context menu entry creating a file from a template": {
+    "New document": "Neues Dokument"
+  },
+  "context menu entry creating symlinks from the clipboard": {
+    "Paste as link": "Als Verknüpfung einfügen"
+  },
+  "context menu entry marking the selection for a move | text field context menu action": {
+    "Cut": "Ausschneiden"
+  },
+  "context menu entry moving the selection into a chosen folder": {
+    "Move to…": "Verschieben nach…"
+  },
+  "context menu entry moving the selection into a new folder": {
+    "New folder with selection": "Neuer Ordner mit Auswahl"
+  },
+  "context menu entry opening a file | file browser open button": {
+    "Open": "Öffnen"
+  },
+  "context menu entry opening a folder beside the current one": {
+    "Open in the other pane": "Im anderen Bereich öffnen"
+  },
+  "context menu entry opening a folder in a new tab": {
+    "Open in new tab": "In neuem Tab öffnen"
+  },
+  "context menu entry opening a folder in a new tab | tooltip on the button opening a new tab": {
+    "New tab": "Neuer Tab"
+  },
+  "context menu entry opening a folder in another window": {
+    "Open in new window": "In neuem Fenster öffnen"
+  },
+  "context menu entry opening a terminal": {
+    "Open in terminal": "Im Terminal öffnen"
+  },
+  "context menu entry packing the selection into an archive": {
+    "Compress…": "Komprimieren…"
+  },
+  "context menu entry pasting the clipboard here | text field context menu action": {
+    "Paste": "Einfügen"
+  },
+  "context menu entry pasting the clipboard into the selected folder": {
+    "Paste into folder": "In Ordner einfügen"
+  },
+  "context menu entry pinning the selected folder to the sidebar": {
+    "Add to bookmarks": "Zu Lesezeichen hinzufügen"
+  },
+  "context menu entry trashing the selection": {
+    "Move to Trash": "In den Papierkorb"
+  },
+  "context menu entry unpacking the selected archives": {
+    "Extract here": "Hier entpacken"
+  },
+  "context menu entry unpacking the selected archives into a chosen folder": {
+    "Extract to…": "Entpacken nach…"
+  },
+  "count of hidden items left out of a folder listing": {
+    "%1 hidden": "%1 versteckt"
+  },
+  "count of selected items | preview column header for a multiple selection": {
+    "%1 selected": "%1 ausgewählt"
+  },
+  "credential dialog header": {
+    "Sign in": "Anmelden"
+  },
+  "credential dialog option controlling password storage": {
+    "Remember password": "Passwort merken"
+  },
+  "credential dialog option that forgets the password": {
+    "Never": "Nie"
+  },
+  "credential dialog option that keeps the password until logout": {
+    "This session": "Diese Sitzung"
+  },
+  "credential dialog option that skips the login": {
+    "Connect anonymously": "Anonym verbinden"
+  },
+  "credential dialog option that stores the password in the keyring": {
+    "Always": "Immer"
+  },
+  "current scheme name in theme mode description": {
+    "dark": "dunkel",
+    "light": "hell"
+  },
+  "custom theme empty state title": {
+    "No theme file selected": "Keine Themadatei gewählt"
+  },
+  "custom theme error when file is invalid": {
+    "Could not read that file, expected a JSON color theme.": "Datei konnte nicht gelesen werden, erwartet wurde ein JSON-Farbthema."
+  },
+  "custom theme hint when none selected": {
+    "Choose a JSON color theme file.": "Eine JSON-Farbthemadatei wählen."
+  },
+  "default file browser window title": {
+    "Select File": "Datei wählen"
+  },
+  "default name for a new archive": {
+    "Archive": "Archiv"
+  },
+  "default name for a new empty file": {
+    "Untitled document": "Unbenanntes Dokument"
+  },
+  "default name for a new folder": {
+    "Untitled folder": "Unbenannter Ordner"
+  },
+  "desktop notification body after a cancelled transfer": {
+    "The file operation was cancelled.": "Die Dateioperation wurde abgebrochen."
+  },
+  "desktop notification body after a failed transfer": {
+    "Open Omarchy Files for details.": "Omarchy Files für Details öffnen."
+  },
+  "desktop notification body after a successful transfer": {
+    "The file operation finished successfully.": "Die Dateioperation wurde erfolgreich abgeschlossen."
+  },
+  "desktop notification title after a transfer": {
+    "File operation complete": "Dateioperation abgeschlossen"
+  },
+  "desktop notification title after compressing files | toast after compressing files": {
+    "Archive created": "Archiv erstellt"
+  },
+  "desktop notification title after copying files": {
+    "Copy complete": "Kopieren abgeschlossen"
+  },
+  "desktop notification title after creating a folder from files": {
+    "Folder created": "Ordner erstellt"
+  },
+  "desktop notification title after duplicating files": {
+    "Duplication complete": "Duplizieren abgeschlossen"
+  },
+  "desktop notification title after extracting files": {
+    "Extraction complete": "Entpacken abgeschlossen"
+  },
+  "desktop notification title after linking files": {
+    "Links created": "Verknüpfungen erstellt"
+  },
+  "desktop notification title after moving files": {
+    "Move complete": "Verschieben abgeschlossen"
+  },
+  "desktop notification title for a cancelled transfer": {
+    "File operation cancelled": "Dateioperation abgebrochen"
+  },
+  "desktop notification title for a failed transfer": {
+    "File operation failed": "Dateioperation fehlgeschlagen"
+  },
+  "device action": {
+    "Eject": "Auswerfen",
+    "Lock": "Sperren",
+    "Mount": "Einhängen",
+    "Unmount": "Aushängen"
+  },
+  "devices setting description": {
+    "Off only mounts.": "Aus hängt nur ein.",
+    "Such as a separate /home.": "Zum Beispiel ein separates /home."
+  },
+  "devices setting label": {
+    "Open unmounted drives on click": "Nicht eingehängte Laufwerke per Klick öffnen",
+    "Show system partitions": "Systempartitionen anzeigen"
+  },
+  "dialog button creating an item": {
+    "Create": "Erstellen"
+  },
+  "dialog button dismissing a dialog | dialog button to close | tooltip on the button closing the large preview": {
+    "Close": "Schließen"
+  },
+  "dialog button restarting xdg-desktop-portal": {
+    "Restart": "Neu starten"
+  },
+  "dialog button to cancel": {
+    "Cancel": "Abbrechen"
+  },
+  "dialog button to confirm a name | file browser save button": {
+    "Save": "Speichern"
+  },
+  "dialog header for a question the server asked": {
+    "Confirm": "Bestätigen"
+  },
+  "dialog message before clearing every remembered folder sort and view": {
+    "Every folder goes back to the default sort and view.": "Jeder Ordner kehrt zu Standard-Sortierung und -Ansicht zurück."
+  },
+  "dialog message before restarting xdg-desktop-portal": {
+    "The change takes effect after xdg-desktop-portal restarts. Open and save dialogs other apps have open will close.": "Die Änderung gilt nach einem Neustart von xdg-desktop-portal. Offene Öffnen- und Speichern-Dialoge anderer Apps werden geschlossen."
+  },
+  "dialog title before clearing every remembered folder sort and view": {
+    "Forget all folder settings?": "Alle Ordnereinstellungen vergessen?"
+  },
+  "dialog title before restarting xdg-desktop-portal": {
+    "Restart the portal service?": "Portal-Dienst neu starten?"
+  },
+  "directory listing error": {
+    "This folder could not be opened": "Dieser Ordner konnte nicht geöffnet werden",
+    "This folder no longer exists": "Dieser Ordner existiert nicht mehr",
+    "You do not have permission to view this folder": "Sie haben keine Berechtigung, diesen Ordner anzuzeigen"
+  },
+  "display font family dropdown label": {
+    "Display family": "Display-Schriftfamilie"
+  },
+  "drag default action option": {
+    "Ask every time": "Jedes Mal fragen",
+    "Move, copy across drives": "Verschieben, zwischen Laufwerken kopieren"
+  },
+  "drag default action setting description": {
+    "Ctrl copies, Alt asks.": "Strg kopiert, Alt fragt nach."
+  },
+  "drag default action setting label": {
+    "Dropping without a modifier": "Ablegen ohne Zusatztaste"
+  },
+  "drag label for creating a symlink": {
+    "Link": "Verknüpfen"
+  },
+  "drag label for moving files": {
+    "Move": "Verschieben"
+  },
+  "drag label when the drop opens a copy, move or link menu": {
+    "Ask": "Fragen"
+  },
+  "empty directory placeholder": {
+    "This folder is empty": "Dieser Ordner ist leer"
+  },
+  "empty state on the network locations page": {
+    "No network locations are connected": "Keine Netzwerkorte verbunden"
+  },
+  "example list in the search exclusions field, folder names or paths separated by commas": {
+    "Steam, ~/VirtualBox VMs": "Steam, ~/VirtualBox VMs"
+  },
+  "executable file dialog action opening the file as text": {
+    "Open in editor": "Im Editor öffnen"
+  },
+  "executable file dialog action running the file": {
+    "Run": "Ausführen"
+  },
+  "executable file dialog explanation": {
+    "%1 can be run as a program. Open it in an editor instead to read it first.": "%1 kann als Programm ausgeführt werden. Öffnen Sie es zuerst in einem Editor, um es zu lesen."
+  },
+  "executable file dialog header": {
+    "Run this file?": "Diese Datei ausführen?"
+  },
+  "explanation for a feature that needs flatpak-spawn": {
+    "Not available because the sandbox cannot start programs on the host": "Nicht verfügbar, weil die Sandbox keine Programme auf dem Host starten kann"
+  },
+  "explanation for a feature that needs the flatpak host filesystem permission": {
+    "Not available without access to the host filesystem": "Ohne Zugriff auf das Host-Dateisystem nicht verfügbar"
+  },
+  "explanation for a feature the environment does not permit": {
+    "Not available": "Nicht verfügbar"
+  },
+  "explanation for a feature the flatpak sandbox blocks": {
+    "Not available inside the sandbox": "In der Sandbox nicht verfügbar"
+  },
+  "explanation in the confirmation before opening many items": {
+    "Folders open in new tabs and files open in their applications.": "Ordner öffnen in neuen Tabs, Dateien in ihren Anwendungen."
+  },
+  "explanation in the confirmation before opening many items, some of them archives": {
+    "Folders open in new tabs, archives are extracted and other files open in their applications.": "Ordner öffnen in neuen Tabs, Archive werden entpackt, andere Dateien in ihren Anwendungen."
+  },
+  "explanation under the clear recent confirmation": {
+    "The files themselves stay where they are.": "Die Dateien selbst bleiben an ihrem Ort."
+  },
+  "explanation when a daemon without a window answers a portal question": {
+    "Only the window process serves the portal": "Nur der Fensterprozess bedient das Portal"
+  },
+  "explanation when open with is handed to the desktop portal": {
+    "The system application chooser opens instead": "Stattdessen öffnet sich die System-Anwendungsauswahl"
+  },
+  "explanation when the flatpak lacks the gvfs permissions": {
+    "Network locations are unavailable because the sandbox cannot reach gvfs": "Netzwerkorte sind nicht verfügbar, weil die Sandbox gvfs nicht erreicht"
+  },
+  "explanation when the flatpak lacks the udisks2 permission": {
+    "Drives are unavailable because the sandbox cannot reach udisks2": "Laufwerke sind nicht verfügbar, weil die Sandbox udisks2 nicht erreicht"
+  },
+  "file browser folder selection confirm button": {
+    "Use this folder": "Diesen Ordner verwenden"
+  },
+  "file browser item context menu action": {
+    "Copy path": "Pfad kopieren",
+    "Move to Trash": "In den Papierkorb",
+    "Rename": "Umbenennen"
+  },
+  "file browser open button": {
+    "Open": "Öffnen"
+  },
+  "file browser overwrite dialog cancel button": {
+    "Cancel": "Abbrechen"
+  },
+  "file browser overwrite dialog confirm button": {
+    "Overwrite": "Überschreiben"
+  },
+  "file browser overwrite dialog message": {
+    "A file with this name already exists. Do you want to overwrite it?": "Eine Datei mit diesem Namen ist bereits vorhanden. Möchten Sie sie überschreiben?"
+  },
+  "file browser overwrite dialog title": {
+    "File Already Exists": "Datei bereits vorhanden"
+  },
+  "file browser placeholder when no backend is connected": {
+    "Files are unavailable because the file service is not running": "Dateien sind nicht verfügbar, weil der Dateidienst nicht läuft"
+  },
+  "file browser quick access location": {
+    "Home": "Home"
+  },
+  "file browser save button": {
+    "Save": "Speichern"
+  },
+  "file browser save filename input placeholder": {
+    "Enter filename...": "Dateiname eingeben..."
+  },
+  "file browser sidebar entry for the root directory": {
+    "File System": "Dateisystem"
+  },
+  "file browser sidebar section header": {
+    "Quick Access": "Schnellzugriff"
+  },
+  "file browser sort criterion option": {
+    "Modified": "Geändert",
+    "Name": "Name",
+    "Size": "Größe",
+    "Type": "Typ"
+  },
+  "file browser sort criterion option | file list column header": {
+    "Modified": "Geändert",
+    "Size": "Größe",
+    "Type": "Typ"
+  },
+  "file browser sort criterion option | label for a file name input": {
+    "Name": "Name"
+  },
+  "file browser sort menu section header": {
+    "Sort By": "Sortieren nach"
+  },
+  "file browser sort order option": {
+    "Ascending": "Aufsteigend",
+    "Descending": "Absteigend"
+  },
+  "file browser toolbar button creating a folder": {
+    "New folder": "Neuer Ordner"
+  },
+  "file browser toolbar button creating a folder | new folder dialog header": {
+    "New folder": "Neuer Ordner"
+  },
+  "file browser toolbar button switching to the grid": {
+    "Grid view": "Rasteransicht"
+  },
+  "file browser toolbar button switching to the grid | view mode showing items as tiles": {
+    "Grid view": "Rasteransicht"
+  },
+  "file browser toolbar button switching to the list": {
+    "List view": "Listenansicht"
+  },
+  "file browser toolbar button switching to the list | view mode showing one row per item": {
+    "List view": "Listenansicht"
+  },
+  "file browser toolbar toggle": {
+    "Show hidden files": "Versteckte Dateien anzeigen"
+  },
+  "file browser toolbar toggle | menu entry listing dot files": {
+    "Show hidden files": "Versteckte Dateien anzeigen"
+  },
+  "file browser window title, %1 is the picker purpose": {
+    "Files - %1": "Dateien – %1"
+  },
+  "file chooser accept button when several files go into the chosen folder": {
+    "Save here": "Hier speichern"
+  },
+  "file chooser default title when picking a folder": {
+    "Select folder": "Ordner wählen"
+  },
+  "file chooser default title when picking one file": {
+    "Open file": "Datei öffnen"
+  },
+  "file chooser default title when picking several files": {
+    "Open files": "Dateien öffnen"
+  },
+  "file chooser default title when saving one file": {
+    "Save file": "Datei speichern"
+  },
+  "file chooser default title when saving several files into a folder": {
+    "Save files": "Dateien speichern"
+  },
+  "file chooser footer listing the names an app wants to save": {
+    "Saving %1 into the chosen folder": "%1 wird im gewählten Ordner gespeichert"
+  },
+  "file chooser overwrite dialog message, %1 lists the file names": {
+    "%1 already exist in this folder. Do you want to overwrite them?": "%1 sind in diesem Ordner bereits vorhanden. Möchten Sie sie überschreiben?"
+  },
+  "file conflict dialog button to keep both items": {
+    "Keep both": "Beide behalten"
+  },
+  "file conflict dialog button to leave the item alone": {
+    "Skip": "Überspringen"
+  },
+  "file conflict dialog button to merge folders": {
+    "Merge": "Zusammenführen"
+  },
+  "file conflict dialog button to overwrite the existing item": {
+    "Replace": "Ersetzen"
+  },
+  "file conflict dialog explanation": {
+    "%1 already exists in this folder.": "%1 ist in diesem Ordner bereits vorhanden."
+  },
+  "file conflict dialog header": {
+    "This item already exists": "Dieses Element ist bereits vorhanden"
+  },
+  "file conflict dialog label for the existing item": {
+    "Already here": "Bereits vorhanden"
+  },
+  "file conflict dialog label for the incoming item": {
+    "Being added": "Wird hinzugefügt"
+  },
+  "file conflict dialog option to reuse the answer": {
+    "Do this for the rest": "Für die übrigen übernehmen"
+  },
+  "file list column header": {
+    "Created": "Erstellt",
+    "Location": "Ort",
+    "Owner": "Besitzer",
+    "Permissions": "Berechtigungen"
+  },
+  "file manager registration setting description when requesting the name failed": {
+    "The session bus refused it.": "Der Sitzungsbus hat abgelehnt."
+  },
+  "file manager registration setting description when the daemon has no session bus connection": {
+    "No session bus.": "Kein Sitzungsbus.",
+    "This instance cannot reach the session bus.": "Diese Instanz erreicht den Sitzungsbus nicht."
+  },
+  "file manager registration setting description while an unknown file manager holds the name": {
+    "Another file manager holds it.": "Ein anderer Dateimanager hält ihn."
+  },
+  "file manager registration setting description while another file manager holds the name": {
+    "%1 holds it; Files takes over when it quits.": "%1 hält ihn; Dateien übernimmt, wenn es beendet wird."
+  },
+  "file name for an image pasted from the clipboard": {
+    "Pasted image": "Eingefügtes Bild"
+  },
+  "file operation completed": {
+    "Finished": "Fertig"
+  },
+  "file operation completed and total item count": {
+    "%1 / %2 items": "%1 / %2 Elemente"
+  },
+  "file operation error": {
+    "The network location is disconnected": "Der Netzwerkort ist getrennt",
+    "This item cannot be moved here directly": "Dieses Element kann nicht direkt hierher verschoben werden",
+    "This item could not be handled": "Dieses Element konnte nicht verarbeitet werden",
+    "This item is in use": "Dieses Element wird verwendet",
+    "This item no longer exists": "Dieses Element existiert nicht mehr",
+    "You do not have permission to do this": "Sie haben keine Berechtigung dafür"
+  },
+  "file operation error dialog action | file operation error dialog button to retry with elevated rights": {
+    "Retry as administrator": "Als Administrator wiederholen"
+  },
+  "file operation error dialog button to retry": {
+    "Try again": "Erneut versuchen"
+  },
+  "file operation error dialog explanation": {
+    "Administrator access is not available": "Administratorzugriff ist nicht verfügbar",
+    "Administrator access is not available because pkexec is not installed": "Administratorzugriff ist nicht verfügbar, weil pkexec nicht installiert ist",
+    "Administrator access is not available because the polkit policy is not installed": "Administratorzugriff ist nicht verfügbar, weil die Polkit-Richtlinie nicht installiert ist",
+    "Administrator access is not available inside the sandbox": "Administratorzugriff ist in der Sandbox nicht verfügbar",
+    "This step cannot be retried as administrator": "Dieser Schritt kann nicht als Administrator wiederholt werden"
+  },
+  "file operation has not started an item yet": {
+    "Preparing…": "Vorbereiten…"
+  },
+  "file operation in progress": {
+    "Changing owner": "Besitzer wird geändert",
+    "Changing permissions": "Berechtigungen werden geändert",
+    "Compressing": "Komprimieren",
+    "Copying": "Kopieren",
+    "Creating": "Erstellen",
+    "Deleting": "Löschen",
+    "Duplicating": "Duplizieren",
+    "Emptying the trash": "Papierkorb wird geleert",
+    "Extracting": "Entpacken",
+    "Linking": "Verknüpfen",
+    "Moving": "Verschieben",
+    "Moving to trash": "In den Papierkorb legen",
+    "Pasting image": "Bild wird eingefügt",
+    "Renaming": "Umbenennen",
+    "Restoring": "Wiederherstellen",
+    "Working": "In Bearbeitung"
+  },
+  "file operation is queued": {
+    "Waiting": "Warten"
+  },
+  "file operation is still measuring the work": {
+    "Estimating…": "Schätzen…"
+  },
+  "file operation source and destination paths": {
+    "%1 → %2": "%1 → %2"
+  },
+  "file operation summary: action and source": {
+    "%1 %2": "%1 %2"
+  },
+  "file operation summary: action, source, destination": {
+    "%1 %2 to “%3”": "%1 %2 nach „%3“"
+  },
+  "file operation transferred size and total size": {
+    "%1 / %2": "%1 / %2"
+  },
+  "file operation was cancelled": {
+    "Cancelled": "Abgebrochen"
+  },
+  "file size unit": {
+    "B": "B",
+    "GB": "GB",
+    "MB": "MB",
+    "TB": "TB",
+    "kB": "kB"
+  },
+  "file type shown for a directory": {
+    "Folder": "Ordner"
+  },
+  "file type shown for a symlink with no target": {
+    "Broken link": "Kaputte Verknüpfung"
+  },
+  "file type shown when nothing more precise is known": {
+    "File": "Datei"
+  },
+  "filter bar above a folder listing, count then the typed text": {
+    "%1 matching “%2”": "%1 Treffer für „%2“"
+  },
+  "focus ring thickness slider label": {
+    "Thickness": "Stärke"
+  },
+  "folder counts toggle description": {
+    "Shown in the size column.": "Wird in der Spalte Größe angezeigt."
+  },
+  "folder counts toggle label": {
+    "Count items in folders": "Elemente in Ordnern zählen"
+  },
+  "folder picker title for copying the selection": {
+    "Copy to": "Kopieren nach"
+  },
+  "folder picker title for moving the selection": {
+    "Move to": "Verschieben nach"
+  },
+  "folder picker title for unpacking archives": {
+    "Extract to": "Entpacken nach"
+  },
+  "folders first toggle label": {
+    "Folders before files": "Ordner vor Dateien"
+  },
+  "font family dropdown label": {
+    "Family": "Familie"
+  },
+  "font family dropdown option for the bundled font": {
+    "Default": "Standard"
+  },
+  "font scale slider label": {
+    "Scale": "Skalierung"
+  },
+  "font source button group option for the Qt system font": {
+    "System": "System"
+  },
+  "font source setting label": {
+    "Font source": "Schriftquelle"
+  },
+  "font weight slider label": {
+    "Weight": "Stärke"
+  },
+  "games setting description": {
+    "Only launchers with an installed game are listed.": "Nur Launcher mit einem installierten Spiel werden aufgeführt."
+  },
+  "games setting description for the games folders": {
+    "Where the launcher keeps the games.": "Wo der Launcher die Spiele ablegt."
+  },
+  "games setting description for the settings folders": {
+    "Each launcher's own configuration folder.": "Der eigene Konfigurationsordner jedes Launchers."
+  },
+  "games setting description for the wine prefixes": {
+    "The Wine prefix of each game.": "Das Wine-Prefix jedes Spiels."
+  },
+  "games setting label": {
+    "Show games": "Spiele anzeigen"
+  },
+  "games setting label for the heroic group | games sidebar group holding heroic games": {
+    "Heroic": "Heroic"
+  },
+  "games setting label for the lutris group | games sidebar group holding lutris games": {
+    "Lutris": "Lutris"
+  },
+  "games setting label for the steam group | games sidebar group holding steam libraries": {
+    "Steam": "Steam"
+  },
+  "games setting label hiding the folders holding the games": {
+    "Games folders": "Spieleordner"
+  },
+  "games setting label hiding the launcher config folders": {
+    "Settings folders": "Einstellungsordner"
+  },
+  "games setting label hiding wine prefixes": {
+    "Prefixes": "Prefixe"
+  },
+  "games settings section label": {
+    "Games in the sidebar": "Spiele in der Seitenleiste"
+  },
+  "games sidebar action hiding a launcher's folders": {
+    "Collapse": "Einklappen"
+  },
+  "games sidebar action showing a launcher's folders": {
+    "Expand": "Ausklappen"
+  },
+  "games sidebar row for a library on a drive that is not mounted": {
+    "Unavailable until its drive is mounted": "Nicht verfügbar, bis das Laufwerk eingehängt ist"
+  },
+  "games sidebar row for a steam library": {
+    "Library · %1": "Bibliothek · %1"
+  },
+  "games sidebar row for one game's wine prefix": {
+    "Prefix · %1": "Prefix · %1"
+  },
+  "games sidebar row for the launcher's games folder": {
+    "Games folder": "Spieleordner"
+  },
+  "games sidebar row for the launcher's settings folder": {
+    "Settings folder": "Einstellungsordner"
+  },
+  "games sidebar row for the proton prefixes of a steam library": {
+    "Proton · %1": "Proton · %1"
+  },
+  "general settings section label": {
+    "Keyboard": "Tastatur",
+    "Window": "Fenster"
+  },
+  "general settings section label for the portal file chooser": {
+    "Open and save dialogs": "Öffnen- und Speichern-Dialoge"
+  },
+  "global component corner rounding": {
+    "Corner rounding": "Eckenrundung"
+  },
+  "header above previously used servers | recent files view header and sidebar entry": {
+    "Recent": "Zuletzt verwendet"
+  },
+  "heading above previously used servers": {
+    "Previous": "Zurück"
+  },
+  "heroic games setting description": {
+    "Games and prefixes Heroic installed.": "Spiele und Prefixe, die Heroic installiert hat."
+  },
+  "icon size option": {
+    "%1 px": "%1 px"
+  },
+  "icon size setting description": {
+    "Ctrl+Wheel resizes per window.": "Strg+Mausrad ändert die Größe pro Fenster."
+  },
+  "inline rename validation message": {
+    "A name cannot be empty or contain a slash": "Ein Name darf nicht leer sein und keinen Schrägstrich enthalten"
+  },
+  "interface language setting label": {
+    "Language": "Sprache"
+  },
+  "jobs popover empty state": {
+    "Nothing is running": "Nichts läuft"
+  },
+  "jobs popover header": {
+    "File operations": "Dateioperationen"
+  },
+  "keyboard shortcut": {
+    "Add or remove one item": "Ein Element hinzufügen oder entfernen",
+    "Add or remove the item under the cursor": "Das Element unter dem Cursor hinzufügen oder entfernen",
+    "Back to the files": "Zurück zu den Dateien",
+    "Clear the selection": "Auswahl aufheben",
+    "Default icon size": "Standard-Symbolgröße",
+    "Focus the sidebar": "Seitenleiste fokussieren",
+    "Go to that tab": "Zu diesem Tab wechseln",
+    "Go to the home folder": "Zum Home-Ordner",
+    "Go to the parent folder": "Zum übergeordneten Ordner",
+    "Invert the selection": "Auswahl umkehren",
+    "Jump to a folder you visited": "Zu einem besuchten Ordner springen",
+    "Jump to a name or filter the folder with what you type": "Zu einem Namen springen oder den Ordner filtern",
+    "Jump to the start, the end or the next screen": "Zum Anfang, zum Ende oder zur nächsten Seite",
+    "Larger icons": "Größere Symbole",
+    "Move through the folder": "Durch den Ordner bewegen",
+    "Move through the sidebar": "Durch die Seitenleiste bewegen",
+    "Next tab": "Nächster Tab",
+    "Open the bookmark menu": "Lesezeichenmenü öffnen",
+    "Open the containing folder": "Übergeordneten Ordner öffnen",
+    "Open the context menu": "Kontextmenü öffnen",
+    "Open the place": "Ort öffnen",
+    "Preview the next or previous selected item": "Nächstes oder vorheriges ausgewähltes Element in der Vorschau",
+    "Previous tab": "Vorheriger Tab",
+    "Remove the bookmark or eject the drive": "Lesezeichen entfernen oder Laufwerk auswerfen",
+    "Rename the bookmark": "Lesezeichen umbenennen",
+    "Reopen the closed tab": "Geschlossenen Tab wieder öffnen",
+    "Resize icons": "Symbole skalieren",
+    "Resize the preview, or reset its width": "Vorschau skalieren oder Breite zurücksetzen",
+    "Scroll the preview": "Vorschau scrollen",
+    "Select a range": "Bereich auswählen",
+    "Smaller icons": "Kleinere Symbole",
+    "Switch pane": "Bereich wechseln",
+    "Type a location": "Ort eingeben"
+  },
+  "keyboard shortcut cycling the sort criterion": {
+    "Sort by the next column": "Nach der nächsten Spalte sortieren"
+  },
+  "keyboard shortcut flipping between ascending and descending": {
+    "Reverse the sort order": "Sortierung umkehren"
+  },
+  "keyboard shortcut focusing the chips above search results": {
+    "Move to the search filters": "Zu den Suchfiltern"
+  },
+  "keyboard shortcut group": {
+    "Getting around": "Navigation",
+    "Selection": "Auswahl",
+    "Sidebar": "Seitenleiste",
+    "View": "Ansicht"
+  },
+  "keyboard shortcut group | main window title": {
+    "Files": "Dateien"
+  },
+  "keyboard shortcut moving the tab toward the end of the tab row": {
+    "Move the tab right": "Tab nach rechts"
+  },
+  "keyboard shortcut moving the tab toward the start of the tab row": {
+    "Move the tab left": "Tab nach links"
+  },
+  "keyboard shortcut opening search with the Home scope": {
+    "Search your home folder": "Home-Ordner durchsuchen"
+  },
+  "keyboard shortcut opening the preview overlay": {
+    "Open the preview in a large view": "Vorschau in großer Ansicht öffnen"
+  },
+  "keyboard shortcuts settings row description": {
+    "? or F1 in the main window.": "? oder F1 im Hauptfenster."
+  },
+  "label for a network domain input": {
+    "Domain": "Domäne"
+  },
+  "label for a password input": {
+    "Password": "Passwort"
+  },
+  "label for a server address input": {
+    "Address": "Adresse"
+  },
+  "label for a user name input": {
+    "Username": "Benutzername"
+  },
+  "label for an encrypted device passphrase input": {
+    "Passphrase": "Passphrase"
+  },
+  "label for the network protocol picker": {
+    "Protocol": "Protokoll"
+  },
+  "label of the name field in the new folder dialog": {
+    "Folder name": "Ordnername"
+  },
+  "language dropdown option that follows the system language": {
+    "System default": "Systemstandard"
+  },
+  "large preview placeholder": {
+    "This file could not be opened": "Diese Datei konnte nicht geöffnet werden"
+  },
+  "large preview warning when the optional Qt PDF module is missing": {
+    "PDF preview is not available. Install Qt PDF support to view this file.": "PDF-Vorschau ist nicht verfügbar. Installieren Sie Qt-PDF-Unterstützung, um diese Datei anzuzeigen."
+  },
+  "lutris games setting description": {
+    "Games and prefixes Lutris installed.": "Spiele und Prefixe, die Lutris installiert hat."
+  },
+  "menu entry copying the current path to the clipboard": {
+    "Copy location path": "Pfad kopieren"
+  },
+  "menu entry opening another file manager window": {
+    "New window": "Neues Fenster"
+  },
+  "menu entry re-reading the current folder": {
+    "Reload": "Neu laden"
+  },
+  "menu entry selecting every item in the folder | text field context menu action": {
+    "Select all": "Alles auswählen"
+  },
+  "menu entry showing details about the current folder": {
+    "Properties": "Eigenschaften"
+  },
+  "message after disconnecting a remote server, %1 is its name": {
+    "Disconnected from %1. Open views returned to Home.": "Verbindung zu %1 getrennt. Offene Ansichten sind zu Home zurückgekehrt."
+  },
+  "monospace font family dropdown label": {
+    "Monospace family": "Festbreitenschrift"
+  },
+  "network locations page and sidebar entry | sidebar section listing network locations": {
+    "Network": "Netzwerk"
+  },
+  "network mount action": {
+    "Disconnect": "Trennen"
+  },
+  "network page explanation when the network service is missing | sidebar explanation when the network service is missing": {
+    "Network locations are unavailable because gvfs is not running": "Netzwerkorte sind nicht verfügbar, weil gvfs nicht läuft"
+  },
+  "network page help listing supported server protocols, %1 is the protocol list": {
+    "Available protocols: %1. You can also paste a complete address such as sftp://host/path.": "Verfügbare Protokolle: %1. Sie können auch eine vollständige Adresse wie sftp://host/pfad einfügen."
+  },
+  "network protocol name": {
+    "AFP": "AFP",
+    "FTP": "FTP",
+    "FTPS": "FTPS",
+    "NFS": "NFS",
+    "SFTP": "SFTP",
+    "SMB / Windows share": "SMB / Windows-Freigabe",
+    "SSH": "SSH",
+    "WebDAV": "WebDAV",
+    "WebDAV (secure)": "WebDAV (sicher)"
+  },
+  "network thumbnails toggle description": {
+    "Downloads each file.": "Lädt jede Datei herunter."
+  },
+  "network thumbnails toggle label": {
+    "Thumbnails on network locations": "Vorschaubilder an Netzwerkorten"
+  },
+  "new document menu entry creating a blank file": {
+    "Empty file": "Leere Datei"
+  },
+  "number of items in a file operation": {
+    "%1 items": "%1 Elemente"
+  },
+  "number of items in a folder": {
+    "%1 items": "%1 Elemente"
+  },
+  "open plugin changes before updating": {
+    "Review changes": "Änderungen prüfen"
+  },
+  "open with dialog header": {
+    "Open with": "Öffnen mit"
+  },
+  "open with dialog option that sets the default": {
+    "Always use this application": "Diese Anwendung immer verwenden"
+  },
+  "open with dialog search placeholder": {
+    "Search applications": "Anwendungen suchen"
+  },
+  "open with dialog section listing apps picked before for this file type": {
+    "Recently used": "Zuletzt verwendet"
+  },
+  "open with dialog section listing apps registered for the file type": {
+    "Recommended": "Empfohlen"
+  },
+  "open with dialog section listing every remaining app": {
+    "Other applications": "Andere Anwendungen"
+  },
+  "open with menu entry opening the full application picker": {
+    "Other application…": "Andere Anwendung…"
+  },
+  "optional feature help box action": {
+    "Copy command": "Befehl kopieren"
+  },
+  "optional feature help box heading": {
+    "Install in a terminal": "Im Terminal installieren"
+  },
+  "optional feature help box restart note": {
+    "Restart Omarchy Files afterwards to refresh this status.": "Starten Sie Omarchy Files danach neu, um diesen Status zu aktualisieren."
+  },
+  "optional feature install command on the about page": {
+    "Install: %1": "Installieren: %1"
+  },
+  "optional feature row on the about page": {
+    "Drives and removable media": "Laufwerke und Wechselmedien",
+    "Git integration": "Git-Integration",
+    "Indexed search": "Indexierte Suche",
+    "Network locations": "Netzwerkorte",
+    "PDF preview": "PDF-Vorschau",
+    "PDF thumbnails": "PDF-Vorschaubilder",
+    "Sandboxed thumbnails": "Sandbox-Vorschaubilder",
+    "Video thumbnails": "Video-Vorschaubilder"
+  },
+  "optional feature status on the about page": {
+    "DankSearch is installed, but its user service is not running.": "DankSearch ist installiert, aber der Benutzerdienst läuft nicht.",
+    "DankSearch is searching from its index.": "DankSearch sucht über seinen Index.",
+    "Drives can be mounted and ejected.": "Laufwerke können eingehängt und ausgeworfen werden.",
+    "External thumbnailers run in a sandbox.": "Externe Vorschaubild-Dienste laufen in einer Sandbox.",
+    "Network shares can be connected and browsed.": "Netzwerkfreigaben können verbunden und durchsucht werden.",
+    "Not installed": "Nicht installiert",
+    "PDF files can be previewed in the file manager.": "PDF-Dateien können im Dateimanager angezeigt werden.",
+    "PDF thumbnails are available.": "PDF-Vorschaubilder sind verfügbar.",
+    "Repository status and staging actions are available.": "Repository-Status und Staging-Aktionen sind verfügbar.",
+    "This optional component is not installed.": "Diese optionale Komponente ist nicht installiert.",
+    "Video thumbnails are available.": "Video-Vorschaubilder sind verfügbar."
+  },
+  "optional package status on the about page": {
+    "Installed": "Installiert"
+  },
+  "optional runtime feature status on the about page": {
+    "Unavailable": "Nicht verfügbar"
+  },
+  "optional search index status on the about page": {
+    "Active": "Aktiv"
+  },
+  "overlay listing every keyboard shortcut": {
+    "Keyboard shortcuts": "Tastenkürzel"
+  },
+  "permanent delete confirmation explanation": {
+    "%1 will be deleted permanently. This cannot be undone.": "%1 wird unwiderruflich gelöscht. Das lässt sich nicht rückgängig machen."
+  },
+  "permanent delete confirmation header": {
+    "Delete permanently?": "Endgültig löschen?"
+  },
+  "permanent delete confirmation header for a network mount": {
+    "Delete from remote server?": "Vom entfernten Server löschen?"
+  },
+  "permanent delete explanation for a network mount": {
+    "This remote location does not provide a trash. %1 will be deleted permanently. This cannot be undone.": "Dieser entfernte Ort hat keinen Papierkorb. %1 wird unwiderruflich gelöscht. Das lässt sich nicht rückgängig machen."
+  },
+  "permission bit": {
+    "Execute": "Ausführen",
+    "Read": "Lesen",
+    "Write": "Schreiben"
+  },
+  "permissions option recursing into a folder": {
+    "Apply to everything inside": "Auf den gesamten Inhalt anwenden"
+  },
+  "permissions row for other users": {
+    "Everyone": "Jeder"
+  },
+  "permissions row for the owning group": {
+    "Group": "Gruppe"
+  },
+  "permissions row showing the numeric mode": {
+    "Octal": "Oktal"
+  },
+  "placeholder in the network page connection field": {
+    "Server address": "Serveradresse"
+  },
+  "placeholder in the search field": {
+    "Search in Files": "In Dateien suchen"
+  },
+  "placeholder in the settings search field": {
+    "Search settings": "Einstellungen durchsuchen"
+  },
+  "portal chooser setting description when XDG_DESKTOP_PORTAL_DIR is set": {
+    "The portal list is managed by the system.": "Die Portalliste wird vom System verwaltet."
+  },
+  "portal chooser status line": {
+    "Backend: not reachable, no activation file": "Backend: nicht erreichbar, keine Aktivierungsdatei",
+    "Backend: served by this instance": "Backend: von dieser Instanz bedient",
+    "Portal file: not installed": "Portaldatei: nicht installiert",
+    "Preference: no file chooser backend configured": "Einstellung: kein Dateiauswahl-Backend konfiguriert"
+  },
+  "portal chooser status line, %1 is a path": {
+    "Backend: started on demand through %1": "Backend: bei Bedarf über %1 gestartet",
+    "Portal file: %1": "Portaldatei: %1",
+    "Preference: %1 names Omarchy Files": "Einstellung: %1 nennt Omarchy Files"
+  },
+  "portal chooser status line, %1 is another backend name": {
+    "Preference: %1 is used": "Einstellung: %1 wird verwendet"
+  },
+  "preview column note for files without readable text": {
+    "Binary file": "Binärdatei"
+  },
+  "preview column note when only the start of the file is shown": {
+    "First %1 of %2": "Erste %1 von %2"
+  },
+  "properties action halting the recursive size scan": {
+    "Stop measuring": "Messung beenden"
+  },
+  "properties row showing a symlink target": {
+    "Links to": "Verknüpft mit"
+  },
+  "properties row showing the folder an item lives in": {
+    "Location": "Ort"
+  },
+  "properties row showing when an item was last read": {
+    "Accessed": "Letzter Zugriff"
+  },
+  "properties size row while the folder is still being measured": {
+    "%1 …": "%1 …"
+  },
+  "properties tab with the basic facts about an item": {
+    "Details": "Details"
+  },
+  "radius strength slider description": {
+    "Keep controls compact with Omarchy-style, restrained corners.": "Steuerelemente kompakt halten, mit zurückhaltenden Omarchy-Ecken."
+  },
+  "radius strength slider label at zero": {
+    "Sharp": "Scharf"
+  },
+  "recent files view placeholder when nothing was opened yet": {
+    "No recent files": "Keine zuletzt verwendeten Dateien"
+  },
+  "reduce motion toggle label": {
+    "Reduce motion": "Bewegung reduzieren"
+  },
+  "rename dialog header": {
+    "Rename": "Umbenennen"
+  },
+  "repository status: branch then number of changed paths": {
+    "Git branch %1, %2 changed": "Git-Branch %1, %2 geändert"
+  },
+  "ripple effects toggle label": {
+    "Ripple effects": "Ripple-Effekte"
+  },
+  "search chip also matching names whose letters appear in order": {
+    "Fuzzy": "Unscharf"
+  },
+  "search chip bypassing the danksearch index and walking the folder": {
+    "Search the disk": "Datenträger durchsuchen"
+  },
+  "search chip matching the text inside indexed files": {
+    "Contents": "Inhalt"
+  },
+  "search chip walking gitignored entries and heavy folders too": {
+    "Include ignored": "Ignorierte einbeziehen"
+  },
+  "search exclusions setting description": {
+    "Names or paths, comma separated. Build and cache folders are skipped anyway.": "Namen oder Pfade, kommagetrennt. Build- und Cache-Ordner werden ohnehin übersprungen."
+  },
+  "search exclusions setting label": {
+    "Folders to skip": "Zu überspringende Ordner"
+  },
+  "search filter chip clearing the date range": {
+    "Any time": "Jeder Zeitpunkt"
+  },
+  "search filter chip clearing the size range": {
+    "Any size": "Jede Größe"
+  },
+  "search filter chip for compressed files": {
+    "Archives": "Archive"
+  },
+  "search filter chip for directories": {
+    "Folders": "Ordner"
+  },
+  "search filter chip for files changed in the last seven days": {
+    "This week": "Diese Woche"
+  },
+  "search filter chip for files changed in the last thirty days": {
+    "This month": "Diesen Monat"
+  },
+  "search filter chip for files changed today": {
+    "Today": "Heute"
+  },
+  "search filter chip for large files": {
+    "Over 100 MB": "Über 100 MB"
+  },
+  "search filter chip for medium files": {
+    "1 MB to 100 MB": "1 MB bis 100 MB"
+  },
+  "search filter chip for pictures": {
+    "Images": "Bilder"
+  },
+  "search filter chip for small files": {
+    "Under 1 MB": "Unter 1 MB"
+  },
+  "search filter chip for sound files": {
+    "Audio": "Audio"
+  },
+  "search filter chip for text and office files": {
+    "Documents": "Dokumente"
+  },
+  "search filter chip for video files": {
+    "Video": "Video"
+  },
+  "search hidden files toggle label": {
+    "Include hidden files": "Versteckte Dateien einbeziehen"
+  },
+  "search results header note": {
+    "%1 folders could not be read": "%1 Ordner konnten nicht gelesen werden"
+  },
+  "search results header note giving how far below the folder the index reaches": {
+    "%1 levels deep": "%1 Ebenen tief"
+  },
+  "search results header note when danksearch served the search": {
+    "From the index": "Aus dem Index"
+  },
+  "search results header note when the index could not return every candidate": {
+    "Some matches may be missing": "Einige Treffer können fehlen"
+  },
+  "search results header note while danksearch is indexing": {
+    "Index is still building, results may be incomplete": "Index wird noch aufgebaut, Ergebnisse können unvollständig sein"
+  },
+  "search results header when nothing matched": {
+    "No results": "Keine Ergebnisse"
+  },
+  "search results header when the cap was hit": {
+    "Showing the first %1 results": "Die ersten %1 Ergebnisse"
+  },
+  "search results header while the daemon walks the tree": {
+    "Searching…": "Suchen…"
+  },
+  "search results header without a query": {
+    "Results in %1": "Ergebnisse in %1"
+  },
+  "search results header, query then folder": {
+    "Results for “%1” in %2": "Ergebnisse für „%1“ in %2"
+  },
+  "search scope chip covering home and every mounted local drive": {
+    "Everywhere": "Überall"
+  },
+  "search scope chip limiting the search to the current folder": {
+    "This folder": "Dieser Ordner"
+  },
+  "selected preset palette name": {
+    "Palette: %1": "Palette: %1"
+  },
+  "setting description for opening archives": {
+    "Unpacks into a folder beside it.": "Entpackt in einen Ordner daneben."
+  },
+  "setting description for the recently used files list": {
+    "Shared with other apps.": "Mit anderen Apps geteilt."
+  },
+  "setting label": {
+    "Confirm before moving to the trash": "Vor dem Verschieben in den Papierkorb nachfragen"
+  },
+  "setting label choosing single or double click": {
+    "Open items with": "Elemente öffnen mit"
+  },
+  "setting label choosing what typed letters do in the file list": {
+    "Typing in the file list": "Tippen in der Dateiliste"
+  },
+  "setting label for external open requests": {
+    "Open folders from other apps in a new tab": "Ordner aus anderen Apps in einem neuen Tab öffnen"
+  },
+  "setting label for opening archives": {
+    "Extract archives on open": "Archive beim Öffnen entpacken"
+  },
+  "setting label for owning org.freedesktop.FileManager1": {
+    "Register as the session file manager": "Als Sitzungs-Dateimanager registrieren"
+  },
+  "setting label for per-folder sort and view memory": {
+    "Remember view and sort per folder": "Ansicht und Sortierung pro Ordner merken"
+  },
+  "setting label for serving the desktop portal file chooser": {
+    "Use Omarchy Files for open and save dialogs": "Omarchy Files für Öffnen- und Speichern-Dialoge verwenden"
+  },
+  "setting label for the default sort key": {
+    "Sort by": "Sortieren nach"
+  },
+  "setting label for the grid view icon size": {
+    "Grid icon size": "Raster-Symbolgröße"
+  },
+  "setting label for the list view icon size": {
+    "List icon size": "Listen-Symbolgröße"
+  },
+  "setting label for the recently used files list": {
+    "Keep a list of recent files": "Liste zuletzt verwendeter Dateien führen"
+  },
+  "setting label for the terminal emulator": {
+    "Terminal": "Terminal"
+  },
+  "setting label for the view a new window starts in": {
+    "Default view": "Standardansicht"
+  },
+  "settings header button that shows the section list on narrow windows": {
+    "Menu": "Menü"
+  },
+  "settings page header while a search query is typed": {
+    "Search results": "Suchergebnisse"
+  },
+  "settings row clearing every remembered folder sort and view": {
+    "Forget all folder settings": "Alle Ordnereinstellungen vergessen"
+  },
+  "settings row restarting xdg-desktop-portal": {
+    "Restart the portal service": "Portal-Dienst neu starten"
+  },
+  "settings search keywords, space separated, add synonyms in your language": {
+    "accessibility animation disable": "barrierefreiheit animation reduzieren bewegung",
+    "animation click feedback": "animation klick feedback ripple",
+    "animation speed motion": "animation geschwindigkeit bewegung",
+    "bounce animation motion": "federung animation bewegung bounce",
+    "capability available sandbox": "funktion verfügbar sandbox",
+    "config folder launcher wine prefix": "konfiguration ordner launcher wine prefix",
+    "console emulator shell command line": "konsole emulator shell befehlszeile terminal",
+    "corners rounding shape omarchy": "ecken rundung form omarchy",
+    "custom theme json file": "eigenes thema json datei",
+    "daemon connected offline socket": "daemon verbunden offline socket",
+    "daemon path unix": "daemon pfad unix",
+    "daemon protocol": "daemon protokoll",
+    "daemon release build": "daemon version build",
+    "decorations csd window header": "dekorationen csd fenster titelleiste",
+    "default file manager dbus reveal": "standard dateimanager dbus anzeigen",
+    "delete confirmation prompt": "löschen bestätigung nachfrage",
+    "directories first sort": "ordner zuerst sortierung",
+    "documentation help manual": "dokumentation hilfe handbuch",
+    "dotfiles invisible": "versteckt dotfiles unsichtbar",
+    "drag drop copy move ask default action": "ziehen ablegen kopieren verschieben fragen standardaktion",
+    "flatpak app id": "flatpak app id",
+    "focus ring width outline": "fokusrahmen stärke umriss",
+    "folder memory per-folder remember": "ordner merken ansicht sortierung",
+    "font bold typography": "schrift fett typografie",
+    "font family typeface omarchy system qt": "schriftfamilie schriftart omarchy system qt",
+    "font size text zoom typography": "schriftgröße text zoom typografie",
+    "font typeface": "schrift schriftart",
+    "font typeface code mono": "schrift monospace code",
+    "font typeface headline title": "schrift überschrift titel display",
+    "games library steamapps common": "spiele bibliothek steamapps",
+    "heroic epic gog amazon": "heroic epic gog amazon",
+    "history recently used opened sidebar": "verlauf zuletzt verwendet geöffnet seitenleiste",
+    "hjkl keyboard navigation modal": "hjkl tastatur navigation modal vim",
+    "internal drives udisks home boot": "interne laufwerke udisks home boot",
+    "keyboard outline accessibility": "tastatur umriss barrierefreiheit",
+    "keys bindings hotkeys F1": "tasten kürzel hotkeys F1",
+    "light dark mode system color scheme": "hell dunkel modus system farbschema",
+    "list grid columns icons tiles": "liste raster spalten symbole kacheln",
+    "locale translation interface": "sprache übersetzung oberfläche locale",
+    "lutris wine prefix": "lutris wine prefix",
+    "mount usb removable sidebar": "einhängen usb wechselmedium seitenleiste",
+    "optional packages install git repository dsearch thumbnails preview network drives": "optionale pakete installieren git repository dsearch vorschaubilder vorschau netzwerk laufwerke",
+    "order direction ascending reverse": "reihenfolge richtung aufsteigend absteigend",
+    "order name size modified type date": "sortierung name größe geändert typ datum",
+    "palette omarchy preset custom accent": "palette omarchy preset benutzerdefiniert akzent",
+    "portal file chooser picker xdg": "portal dateiauswahl öffnen speichern xdg",
+    "preset palette swatch colors": "preset palette farben",
+    "previews images video pdf": "vorschau bilder video pdf",
+    "quit exit hide daemon keep running": "beenden verlassen ausblenden daemon weiterlaufen",
+    "remote sftp smb previews": "entfernt sftp smb vorschau",
+    "reset clear per-folder memory": "zurücksetzen leeren ordner merken",
+    "search dotfiles recursive": "suche versteckt rekursiv",
+    "search exclude ignore": "suche ausschließen ignorieren",
+    "single double click activate": "einfachklick doppelklick öffnen",
+    "size column entries": "größe spalte einträge",
+    "steam heroic lutris proton games sidebar hide": "steam heroic lutris proton spiele seitenleiste ausblenden",
+    "steam proton valve": "steam proton valve",
+    "suffix type filename": "endung typ dateiname",
+    "tabs external open location": "tabs extern öffnen ort",
+    "thumbnail size limit cap megabytes": "vorschaubild größe limit megabyte",
+    "type-ahead jump filter search keyboard": "tippen springen filtern suche tastatur",
+    "wine prefix proton compatdata": "wine prefix proton compatdata",
+    "xdg-desktop-portal": "xdg-desktop-portal",
+    "zip tar unpack compressed": "zip tar entpacken archiv komprimiert",
+    "zoom rows": "zoom zeilen",
+    "zoom thumbnails tiles": "zoom vorschaubilder kacheln"
+  },
+  "settings sidebar tab hint": {
+    "Drives and mounting": "Laufwerke und Einhängen",
+    "Terminal, drag and thumbnails": "Terminal, Ziehen und Vorschaubilder",
+    "Theme, shape and motion": "Thema, Form und Bewegung",
+    "Version and capabilities": "Version und Funktionen",
+    "Views, sorting and defaults": "Ansichten, Sortierung und Vorgaben"
+  },
+  "settings sidebar tab label": {
+    "About": "Über",
+    "Appearance": "Erscheinungsbild",
+    "Behaviour": "Verhalten",
+    "General": "Allgemein"
+  },
+  "settings window header title": {
+    "Settings": "Einstellungen"
+  },
+  "settings window title": {
+    "Files Settings": "Dateien-Einstellungen"
+  },
+  "show hidden files setting description": {
+    "Ctrl+H toggles per window.": "Strg+H schaltet pro Fenster um."
+  },
+  "sidebar entry for the root file system": {
+    "Computer": "Rechner"
+  },
+  "sidebar entry for the user's home folder": {
+    "Home": "Home"
+  },
+  "sidebar explanation when the device service is missing": {
+    "Drives are unavailable because udisks2 is not running": "Laufwerke sind nicht verfügbar, weil udisks2 nicht läuft"
+  },
+  "sidebar section listing drives and volumes": {
+    "Devices": "Geräte"
+  },
+  "slider row step down button": {
+    "Decrease": "Verkleinern"
+  },
+  "slider row step up button": {
+    "Increase": "Vergrößern"
+  },
+  "sort criterion for search results, best match first": {
+    "Relevance": "Relevanz"
+  },
+  "sort direction option": {
+    "Sort descending": "Absteigend sortieren"
+  },
+  "spring bounce option": {
+    "Balanced": "Ausgewogen",
+    "Playful": "Verspielt",
+    "Smooth": "Sanft"
+  },
+  "spring bounce setting label": {
+    "Spring": "Federung"
+  },
+  "status line count of selected items": {
+    "%1 selected": "%1 ausgewählt"
+  },
+  "status line for a single selected item": {
+    "1 selected": "1 ausgewählt"
+  },
+  "steam games setting description": {
+    "Libraries and Proton prefixes.": "Bibliotheken und Proton-Prefixe."
+  },
+  "storage volume containing the root directory": {
+    "File system": "Dateisystem"
+  },
+  "storage volume usage, free space and total capacity": {
+    "%1 used · %2 free · %3 total": "%1 belegt · %2 frei · %3 gesamt"
+  },
+  "submenu opening actions for the folder currently being viewed rather than the selected item": {
+    "Current folder": "Aktueller Ordner"
+  },
+  "tab context menu entry closing every tab but this one": {
+    "Close other tabs": "Andere Tabs schließen"
+  },
+  "tab context menu entry closing the tabs after this one": {
+    "Close tabs to the right": "Tabs rechts schließen"
+  },
+  "tab context menu entry opening a copy of this tab beside it": {
+    "Duplicate tab": "Tab duplizieren"
+  },
+  "terminal dropdown option following $TERMINAL and the installed emulators": {
+    "Automatic": "Automatisch"
+  },
+  "terminal setting description": {
+    "Automatic uses $TERMINAL.": "Automatisch verwendet $TERMINAL."
+  },
+  "terminal setting description inside flatpak": {
+    "Name the host terminal to launch.": "Das zu startende Host-Terminal angeben."
+  },
+  "theme mode button group option": {
+    "Dark": "Dunkel",
+    "Light": "Hell"
+  },
+  "theme mode setting description": {
+    "Always use the dark theme.": "Immer das dunkle Thema verwenden.",
+    "Always use the light theme.": "Immer das helle Thema verwenden.",
+    "Following the system color scheme (currently %1).": "Folgt dem System-Farbschema (derzeit %1).",
+    "System preference unavailable, using dark.": "Systemvorgabe nicht verfügbar, dunkel wird verwendet."
+  },
+  "thumbnail size cap slider label": {
+    "Skip images larger than": "Bilder überspringen, die größer sind als"
+  },
+  "thumbnail size cap slider label at zero": {
+    "No limit": "Keine Begrenzung"
+  },
+  "thumbnails toggle label": {
+    "Show thumbnails": "Vorschaubilder anzeigen"
+  },
+  "time left for a file operation, in hours and minutes": {
+    "%1 h %2 min left": "noch %1 h %2 min"
+  },
+  "time left for a file operation, in minutes": {
+    "%1 min left": "noch %1 min"
+  },
+  "time left for a file operation, in seconds": {
+    "%1 s left": "noch %1 s"
+  },
+  "toast action importing gtk bookmarks": {
+    "Import": "Importieren"
+  },
+  "toast action repeating the operation that was just undone": {
+    "Redo": "Wiederholen"
+  },
+  "toast action revealing the extracted files": {
+    "Show": "Anzeigen"
+  },
+  "toast action reversing the last operation": {
+    "Undo": "Rückgängig"
+  },
+  "toast after copying files": {
+    "Copied": "Kopiert"
+  },
+  "toast after copying files beside themselves": {
+    "Duplicated": "Dupliziert"
+  },
+  "toast after importing gtk bookmarks": {
+    "%1 bookmarks imported": "%1 Lesezeichen importiert"
+  },
+  "toast after moving files": {
+    "Moved": "Verschoben"
+  },
+  "toast after renaming a file": {
+    "Renamed": "Umbenannt"
+  },
+  "toast after repeating an undone operation": {
+    "Redone": "Wiederholt"
+  },
+  "toast after restoring items from the trash": {
+    "Restored": "Wiederhergestellt"
+  },
+  "toast after reversing an operation": {
+    "Undone": "Rückgängig gemacht"
+  },
+  "toast after trashing files": {
+    "Moved to trash": "In den Papierkorb gelegt"
+  },
+  "toast after unpacking an archive": {
+    "Extracted": "Entpackt"
+  },
+  "toast after unpacking into another folder, %1 is the folder name": {
+    "Extracted to %1": "Nach %1 entpackt"
+  },
+  "toast after writing a clipboard image into the folder": {
+    "Image pasted": "Bild eingefügt"
+  },
+  "toast offering to copy the gtk file chooser bookmarks once": {
+    "Import your GTK bookmarks?": "GTK-Lesezeichen importieren?"
+  },
+  "toast when opening an item inside the trash": {
+    "Items in the trash cannot be opened": "Elemente im Papierkorb können nicht geöffnet werden"
+  },
+  "toggle label for vim style navigation": {
+    "Vim keys": "Vim-Tasten"
+  },
+  "toggle showing the file type suffix in names": {
+    "Show file extensions": "Dateierweiterungen anzeigen"
+  },
+  "tooltip for a file Git does not track yet": {
+    "Not tracked by Git": "Nicht von Git erfasst"
+  },
+  "tooltip for a file added to the Git index": {
+    "Added to Git": "Zu Git hinzugefügt"
+  },
+  "tooltip for a file deleted from the Git worktree": {
+    "Deleted in Git": "In Git gelöscht"
+  },
+  "tooltip for a file modified in the Git worktree": {
+    "Modified in Git": "In Git geändert"
+  },
+  "tooltip for a file renamed in Git": {
+    "Renamed in Git": "In Git umbenannt"
+  },
+  "tooltip for a file with an unresolved Git conflict": {
+    "Git conflict": "Git-Konflikt"
+  },
+  "tooltip on the bookmark button": {
+    "Bookmark this folder": "Diesen Ordner als Lesezeichen speichern",
+    "Remove bookmark": "Lesezeichen entfernen"
+  },
+  "tooltip on the button clearing the file selection": {
+    "Clear the selection": "Auswahl aufheben"
+  },
+  "tooltip on the button closing a tab": {
+    "Close tab": "Tab schließen"
+  },
+  "tooltip on the button dropping the copied or cut items": {
+    "Clear the clipboard": "Zwischenablage leeren"
+  },
+  "tooltip on the button going to the next location": {
+    "Forward": "Vorwärts"
+  },
+  "tooltip on the button going to the previous location": {
+    "Back": "Zurück"
+  },
+  "tooltip on the button restoring zoom and rotation": {
+    "Reset the view": "Ansicht zurücksetzen"
+  },
+  "tooltip on the button showing a second pane": {
+    "Split view": "Geteilte Ansicht"
+  },
+  "tooltip on the button showing or hiding the sidebar": {
+    "Toggle sidebar": "Seitenleiste ein- oder ausblenden"
+  },
+  "tooltip on the button turning the large preview left": {
+    "Rotate left": "Nach links drehen"
+  },
+  "tooltip on the button turning the large preview right": {
+    "Rotate right": "Nach rechts drehen"
+  },
+  "tooltip on the button zooming the large preview in": {
+    "Zoom in": "Vergrößern"
+  },
+  "tooltip on the button zooming the large preview out": {
+    "Zoom out": "Verkleinern"
+  },
+  "tooltip on the overflow menu button": {
+    "More actions": "Weitere Aktionen"
+  },
+  "transfer speed, %1 is a size such as 12 MB": {
+    "%1/s": "%1/s"
+  },
+  "trash action returning items to where they were deleted from": {
+    "Restore": "Wiederherstellen"
+  },
+  "trash confirmation explanation": {
+    "%1 will be moved to the trash.": "%1 wird in den Papierkorb gelegt."
+  },
+  "trash view placeholder and sidebar tooltip when nothing is trashed": {
+    "Trash is empty": "Papierkorb ist leer"
+  },
+  "typing in the file list option": {
+    "Filter": "Filter",
+    "Jump to name": "Zum Namen springen"
+  },
+  "unlock dialog explanation": {
+    "%1 is encrypted. Enter its passphrase to unlock it.": "%1 ist verschlüsselt. Geben Sie die Passphrase zum Entsperren ein."
+  },
+  "unlock dialog header for an encrypted device": {
+    "Unlock": "Entsperren"
+  },
+  "untrusted desktop file dialog action": {
+    "Trust and run": "Vertrauen und ausführen"
+  },
+  "untrusted desktop file dialog explanation": {
+    "%1 has not been marked as trusted. Running it allows it to start any program.": "%1 ist nicht als vertrauenswürdig markiert. Beim Ausführen kann jedes Programm gestartet werden."
+  },
+  "untrusted desktop file dialog header": {
+    "Run this desktop file?": "Diese Desktop-Datei ausführen?"
+  },
+  "view menu entry and shortcut showing or hiding the preview drawer": {
+    "Preview": "Vorschau"
+  },
+  "view menu entry dropping this folder's own sort and view": {
+    "Reset this folder": "Diesen Ordner zurücksetzen"
+  },
+  "view menu entry making this folder's sort and view the defaults": {
+    "Use these settings for all folders": "Diese Einstellungen für alle Ordner verwenden"
+  },
+  "view mode showing folders side by side": {
+    "Column view": "Spaltenansicht"
+  },
+  "vim keys toggle description": {
+    "h j k l move, / searches and letters run commands instead of jumping to a name.": "h j k l bewegen, / sucht, Buchstaben führen Befehle aus statt zum Namen zu springen.",
+    "h j k l move, / searches.": "h j k l bewegen, / sucht."
+  },
+  "window title bars toggle description": {
+    "Off leaves decorations to the compositor. Applies to new windows.": "Aus überlässt Dekorationen dem Compositor. Gilt für neue Fenster."
+  },
+  "window title bars toggle label": {
+    "Title bars": "Titelleisten"
+  }
+}

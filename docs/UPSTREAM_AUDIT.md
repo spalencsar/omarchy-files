@@ -1,5 +1,9 @@
 # Upstream integration audit
 
+Status: historical audit from 2026-10-23. The identity migration it recommended
+is complete on current `master` (public release **v0.1.5**). The tables below
+record the mapping at audit time; they are not remaining work.
+
 Audited against fork commit `46c20fe5` on 2026-10-23 after a clean local build,
 Go test run, and QML test run on Omarchy.
 

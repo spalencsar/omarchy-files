@@ -47,9 +47,10 @@ make i18n-sync    # upload en.json terms, download translations, stage changes
 make i18n-check   # fail if local i18n is out of sync (for CI / pre-commit)
 ```
 
-The language list lives in `scripts/i18nsync.py` (`LANGUAGES`) and is empty
-until a locale has translations. Add `"<poeditor-code>": "<locale>.json"`
-entries as they come online.
+The language list lives in `scripts/i18nsync.py` (`LANGUAGES`). German is
+shipped as `poexports/de.json` and is selected from the session locale
+(`de`, `de_DE`) or Settings → Language. Add
+`"<poeditor-code>": "<locale>.json"` entries as further locales come online.
 
 ## Translated exports
 
