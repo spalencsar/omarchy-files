@@ -4,6 +4,13 @@ All notable changes to Omarchy Files are documented here.
 
 ## [Unreleased]
 
+### Added
+
+- Prepare the main repository for the existing Marketplace listing with a
+  root manifest and release-generated, checksum-pinned plugin files. The
+  listing continues to use the small wrapper repository until Marketplace
+  maintainers migrate its registered repository URL.
+
 ## [0.1.5] - 2026-11-16
 
 ### Added

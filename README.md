@@ -83,6 +83,16 @@ SHA-256 checksum, and installs it for the current user below `~/.local` without
 `sudo`, changing MIME defaults, enabling a service, or selecting a file chooser
 portal.
 
+Remove only the bar launcher with:
+
+```bash
+omarchy plugin remove io.github.spalencsar.omarchy-files
+```
+
+This leaves the application installed. To remove a user-local installation,
+run `marketplace/uninstall-app.sh` from a checkout of this repository. Remove
+Arch package installations with pacman instead.
+
 Use the Arch package route below when you want full system package integration,
 including the polkit policy, D-Bus activation files, and optional user service.
 

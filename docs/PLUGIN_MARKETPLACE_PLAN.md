@@ -1,8 +1,10 @@
 # Omarchy Files in the Plugin Marketplace
 
 Status: delivered. Current application release is **v0.1.5** (2026-11-16).
-The generated Marketplace wrapper pins the latest public GitHub release
-after each tag.
+The existing Marketplace listing still points to the generated wrapper while
+maintainers review a repository URL migration. The main repository now has a
+root plugin manifest and generated plugin files, refreshed with pinned release
+hashes after each app release.
 
 The Marketplace entry is live as a generated wrapper. Adding the plugin puts
 an Omarchy Files launcher on the Omarchy bar. A click opens the installed
@@ -19,6 +21,10 @@ installation hooks.
 ## What shipped
 
 - Canonical plugin sources live in `distro/omarchy-plugin/` in this repository.
+- The main repository's root `manifest.json` points at the generated
+  `marketplace/` plugin. `scripts/render-marketplace-plugin.sh` renders it from
+  the canonical source and a release's SHA-256 assets; the release workflow
+  commits that output to `master` after publishing the app release.
 - The small public wrapper is
   [`spalencsar/omarchy-files-omarchy`](https://github.com/spalencsar/omarchy-files-omarchy).
   It exists so `omarchy plugin add` does not clone the full application and
@@ -66,8 +72,9 @@ install below `~/.local`, no sudo, no MIME/portal/service changes.
 
 ## Remaining follow-up
 
-- Keep the published listing current through the generated wrapper. Do not
-  hand-maintain duplicate plugin files in the wrapper repository.
+- Keep the published listing current through the generated wrapper until the
+  Marketplace maintainers migrate its registered repository URL. Do not delete,
+  archive, or rename the wrapper before that migration is confirmed.
 - Later: propose a release-based package to `omacom/omarchy-pkgs`. That
   repository needs immutable sources, architecture-specific clean builds, and
   `.omarchy/package.json` metadata; the current `-git` PKGBUILD cannot be

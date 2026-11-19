@@ -200,3 +200,46 @@ jobs:
           gh release upload "$VERSION" "omarchy-files-${VERSION_NUM}.tar.gz" --clobber
 
           gh release upload "$VERSION" "assets/io.github.spalencsar.OmarchyFiles.svg" --clobber
+
+  sync_marketplace:
+    name: Update Marketplace plugin in the application repository
+    runs-on: ubuntu-24.04
+    needs: [create_release]
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the default branch
+        uses: actions/checkout@v6
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Download release checksums
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          mkdir -p /tmp/omarchy-files-checksums
+          gh release download "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern 'omarchy-files-linux-amd64.gz.sha256' \
+            --pattern 'omarchy-files-linux-arm64.gz.sha256' \
+            --dir /tmp/omarchy-files-checksums
+          echo "APP_VERSION=${RELEASE_TAG#v}" >> "$GITHUB_ENV"
+          echo "AMD64_SHA256=$(awk '{print $1}' /tmp/omarchy-files-checksums/omarchy-files-linux-amd64.gz.sha256)" >> "$GITHUB_ENV"
+          echo "ARM64_SHA256=$(awk '{print $1}' /tmp/omarchy-files-checksums/omarchy-files-linux-arm64.gz.sha256)" >> "$GITHUB_ENV"
+
+      - name: Render and validate the plugin
+        run: bash scripts/render-marketplace-plugin.sh
+
+      - name: Commit generated Marketplace files
+        run: |
+          git add manifest.json marketplace/ preview.png
+          if git diff --cached --quiet; then
+            echo 'Marketplace plugin already matches this release.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "chore: pin Marketplace plugin to v${APP_VERSION}"
+          git push origin master
